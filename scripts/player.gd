@@ -5,6 +5,7 @@ const BASE_SPEED = 5
 const JUMP_VELOCITY = 7
 
 var speed: float
+var camera_rotation: float = deg_to_rad(45)
 
 @onready var _camera_pivot: Node3D = $CameraPivot
 
@@ -39,9 +40,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	# Handle camera rotation
-	if Input.is_action_pressed("ui_left"):
-		_camera_pivot.rotation.y += deg_to_rad(90) * delta
-	elif Input.is_action_pressed("ui_right"):
-		_camera_pivot.rotation.y -= deg_to_rad(90) * delta
-	_camera_pivot.rotation.y = wrapf(_camera_pivot.rotation.y, -PI, PI)
-	print("Camera rotation: ", rad_to_deg(_camera_pivot.rotation.y))
+	if is_equal_approx(camera_rotation, _camera_pivot.rotation.y):
+		if Input.is_action_pressed("ui_left"):
+			camera_rotation -= deg_to_rad(90)
+		elif Input.is_action_pressed("ui_right"):
+			camera_rotation += deg_to_rad(90)
+	else:	
+		_camera_pivot.rotation.y = lerp_angle(_camera_pivot.rotation.y, camera_rotation, 0.1)
