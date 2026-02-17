@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8e4qx")
 debug_fill = false
 
-[node name="Node3D" type="Node3D" parent="." unique_id=983446540]
+[node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 
-[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=442019790]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 8, 8)
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=442019790]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 10, 10, 10)
