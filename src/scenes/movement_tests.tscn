@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dayem3vrpenok"]
 
-[ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://terrain/greybox.tscn" id="1_186j7"]
-[ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://character/player.tscn" id="2_i62px"]
+[ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://src/terrain/greybox.tscn" id="1_186j7"]
+[ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://src/character/player/player.tscn" id="2_i62px"]
 
 [node name="Node3D" type="Node3D" unique_id=314279592]
 

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cn4xgyysgu8vt"]
+
+[ext_resource type="Script" uid="uid://ctvgrtbvslypc" path="res://src/character/player/player.gd" id="1_2orxn"]
+[ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/character/player/player_components/player_input.gd" id="2_8eijk"]
+[ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
+[ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2orxn"]
+albedo_color = Color(0.3254902, 0.54901963, 0.54901963, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_monf5"]
+material = SubResource("StandardMaterial3D_2orxn")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
+
+[node name="Player" type="CharacterBody3D" unique_id=492502824]
+script = ExtResource("1_2orxn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=554548938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_monf5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1779674339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8e4qx")
+debug_fill = false
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=442019790]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 10, 10)
+
+[node name="Input" type="Node" parent="." unique_id=1950561987]
+script = ExtResource("2_8eijk")
+
+[node name="Movement" type="Node" parent="." unique_id=899911534]
+
+[node name="Walk" type="Node" parent="Movement" unique_id=724996064]
+script = ExtResource("3_gtsfv")
+
+[node name="Jump" type="Node" parent="Movement" unique_id=116527307]
+script = ExtResource("4_wu8e1")
+
+[node name="JumpBuffer" type="Timer" parent="Movement/Jump" unique_id=1289749366]
+wait_time = 0.08
+
+[node name="CoyoteTime" type="Timer" parent="Movement/Jump" unique_id=1673397862]
+wait_time = 0.05
+
+[connection signal="jump_pressed" from="Input" to="Movement/Jump" method="_on_player_input_jump_pressed"]
+[connection signal="timeout" from="Movement/Jump/JumpBuffer" to="Movement/Jump" method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="Movement/Jump/CoyoteTime" to="Movement/Jump" method="_on_coyote_time_timeout"]
