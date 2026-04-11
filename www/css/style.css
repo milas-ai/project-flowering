@@ -16,6 +16,8 @@
     --font-pixel: 'VT323', monospace;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body { 
     font-family: var(--font-body); 
     font-weight: 400;
@@ -27,6 +29,11 @@ body {
 a {
     text-decoration: none; /* Remove o sublinhado */
     color: inherit;       /* Opcional: faz o link herdar a cor do texto pai */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: 700;
 }
 
 .container { 
@@ -72,6 +79,34 @@ a {
     color: var(--text);
 }
 
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle, var(--bg-panel) 0%, var(--bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--text);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+}
+
 /* Footer */
 .main-footer {
     position: absolute;
@@ -80,7 +115,7 @@ a {
     width: 100%;
     background: rgba(0,0,0,0.2);
     color: var(--text-muted);
-    padding: 20px 0;
+    padding: 25px 0;
 }
 .footer-link {
     display: inline-flex;
