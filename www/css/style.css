@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Lexend:wght@300;400;600&family=VT323&display=swap');
+
+:root {
+    --bg: #3a4231;
+    --bg-panel: #4a543f;
+    
+    --primary: #99AD7A;
+    --secondary: #546B41;
+    --accent: #db9bb2;
+    
+    --text: #F6F0D7;
+    --text-muted: #bab89e;
+
+    --font-title: 'Fredoka', sans-serif;
+    --font-body: 'Lexend', sans-serif;
+    --font-pixel: 'VT323', monospace;
+}
+
+body { 
+    font-family: var(--font-body); 
+    font-weight: 400;
+    background: var(--bg); 
+    color: var(--text); 
+    line-height: 1.6; 
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit;       /* Opcional: faz o link herdar a cor do texto pai */
+}
+
+.container { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+/* Header */
+.main-header {
+    position: absolute; /* Faz o header flutuar sobre a Hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.5);
+    padding: 20px 0;
+}
+
+.logo-img {
+    height: 5rem;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left ul, .nav-right ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.main-header a {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    color: var(--text);
+}
