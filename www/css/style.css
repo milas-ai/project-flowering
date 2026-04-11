@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Lexend:wght@300;400;600&family=VT323&display=swap');
 
 :root {
-    --bg: #3a4231;
-    --bg-panel: #4a543f;
+    --bg: #454e3a;
+    --bg-panel: #5a664d;
     
     --primary: #99AD7A;
     --secondary: #546B41;
@@ -35,6 +35,12 @@ a {
     padding: 0 20px; 
 }
 
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* Header */
 .main-header {
     position: absolute; /* Faz o header flutuar sobre a Hero */
@@ -48,12 +54,6 @@ a {
 
 .logo-img {
     height: 5rem;
-}
-
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .nav-left ul, .nav-right ul {
@@ -70,4 +70,33 @@ a {
     letter-spacing: 1px;
     transition: 0.3s;
     color: var(--text);
+}
+
+/* Footer */
+.main-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    color: var(--text-muted);
+    padding: 20px 0;
+}
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+.link-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.footer-link:hover {
+    color: var(--accent);
 }
