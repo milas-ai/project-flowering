@@ -91,6 +91,22 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--primary), transparent 90%) 0%, transparent 50%);
+    top: -50%;
+    left: -50%;
+    animation: sway 10s infinite ease-in-out;
+}
+
+@keyframes sway {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(50px, 50px); }
+}
+
 .hero-content h1 {
     font-size: 4rem;
     color: var(--text);
