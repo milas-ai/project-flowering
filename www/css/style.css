@@ -40,6 +40,11 @@ a:hover {
     color: var(--accent);
 }
 
+p a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 h1, h2, h3 {
     font-family: var(--font-title);
     font-weight: 700;
@@ -63,7 +68,7 @@ h1, h2, h3 {
 
 /* Header */
 .main-header {
-    position: absolute; /* Faz o header flutuar sobre a Hero */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -91,55 +96,8 @@ h1, h2, h3 {
     transition: color 0.25s ease;
 }
 
-/* Hero */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: radial-gradient(circle, var(--bg-panel) 0%, var(--bg) 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--primary), transparent 90%) 0%, transparent 50%);
-    top: -50%;
-    left: -50%;
-    animation: sway 10s infinite ease-in-out;
-}
-
-@keyframes sway {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(50px, 50px); }
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    color: var(--text);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.hero-content p {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto 30px;
-}
-
 /* Footer */
 .main-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     background: rgba(0,0,0,0.2);
     color: var(--text-muted);
@@ -158,6 +116,100 @@ h1, h2, h3 {
     width: 20px;
     height: 20px;
     fill: currentColor;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle, var(--bg-panel) 0%, var(--bg) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--primary), transparent 90%) 0%, transparent 50%);
+  top: -50%;
+  left: -50%;
+  animation: sway 10s infinite ease-in-out;
+}
+
+@keyframes sway {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 50px); }
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+}
+
+/* Proposal */
+.proposal-page {
+    padding-top: 160px;
+    padding-bottom: 50px;
+}
+
+.proposal-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.proposal-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.proposal-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.proposal-text {
+    flex: 1;
+}
+
+.proposal-subtitle {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.proposal-media {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.proposal-media img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.proposal-media img:hover {
+    transform: scale(1.02);
 }
 
 /* Mobile tweaks - vertical view */
@@ -182,6 +234,17 @@ h1, h2, h3 {
         height: 4rem;
     }
 
+    .main-footer {
+      position: relative;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .footer-text-long {
+      display: none;
+    }
+
     .hero {
         height: calc(100vh - 160px); 
         min-height: 400px;
@@ -191,15 +254,14 @@ h1, h2, h3 {
         font-size: 2.5rem;
     }
 
-    .main-footer {
-        position: relative;
+    .proposal-row, .proposal-row.reverse {
         flex-direction: column;
-        gap: 10px;
         text-align: center;
+        gap: 30px;
     }
-
-    .footer-text-long {
-        display: none;
+    
+    .proposal-media img {
+        max-width: 100%;
     }
 
 }
