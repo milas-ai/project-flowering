@@ -64,7 +64,7 @@ h1, h2, h3 {
 }
 
 .container { 
-    max-width: 1200px; 
+    max-width: 1250px; 
     margin: 0 auto; 
     padding: 0 20px; 
 }
@@ -178,47 +178,140 @@ h1, h2, h3 {
 }
 
 .proposal-header {
+    margin-top: 15px;
+    font-size: 1.35rem;
     text-align: center;
     margin-bottom: 50px;
 }
 
+.proposal-section {
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+.proposal-section h2 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.proposal-section p {
+    margin-bottom: 10px;
+}
+
+.proposal-section.center {
+    text-align: center;
+}
+
 .proposal-row {
     display: flex;
-    align-items: center;
     gap: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .proposal-row.reverse {
     flex-direction: row-reverse;
 }
 
-.proposal-text {
-    flex: 1;
+.proposal-text p {
+    margin-bottom: 0;
 }
 
-.proposal-subtitle {
-    font-size: 2.2rem;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
 
 .proposal-media {
-    flex: 1;
     display: flex;
     justify-content: center;
 }
 
 .proposal-media img {
-    width: 100%;
-    max-width: 500px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     transition: transform 0.3s ease;
 }
 
+.proposal-row:has(.trigger-zoom:hover) .proposal-media img {
+    transform: scale(1.04);
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.proposal-row:has(.trigger-zoom:hover.super-meat-boy) .proposal-media img {
+    transform: scale(1.12);
+}
+
+.trigger-zoom {
+    cursor: help;
+    text-decoration-color: var(--accent);
+    transition: color 0.3s ease;
+}
+
+.trigger-zoom:hover {
+    color: var(--accent);
+}
+
 .proposal-media img:hover {
     transform: scale(1.02);
+}
+
+.proposal-section figure {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.proposal-section figure img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.proposal-section figure img:hover {
+    transform: scale(1.05);
+}
+
+.proposal-section figcaption {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    text-align: center;
+    font-style: italic;
+}
+
+.exemple-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-panel);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.exemple-card h3 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 15px;
+    min-height: 3.5rem;
+}
+
+.exemple-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.exemple-card p {
+    margin-top: 10px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Gantt Chart */
@@ -247,7 +340,7 @@ h1, h2, h3 {
     padding-bottom: 10px;
     border-bottom: 1px solid var(--secondary);
     margin-bottom: 10px;
-    font-size: clamp(0.7rem, 2vw, 1.1rem);
+    font-size: clamp(0.7rem, 2vw, 1.4rem);
 }
 
 .gantt-row {
