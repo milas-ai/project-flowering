@@ -171,6 +171,12 @@ h1, h2, h3 {
   margin: 0 auto 30px;
 }
 
+.hero-content ul {
+  list-style: none;
+  margin-left: 20px;
+  font-size: 1.1rem;
+}
+
 /* Proposal */
 .proposal-page {
     padding-top: 160px;
