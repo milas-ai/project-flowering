@@ -7,6 +7,7 @@
     --primary: #99AD7A;
     --secondary: #546B41;
     --accent: #db9bb2;
+    --accent-2: #F2C94C;
     
     --text: #F6F0D7;
     --text-muted: #bab89e;
@@ -54,8 +55,16 @@ h1, h2, h3 {
     color: var(--accent);
 }
 
+.accent-2 {
+    color: var(--accent-2);
+}
+
+.muted {
+    color: var(--text-muted);
+}
+
 .container { 
-    max-width: 1000px; 
+    max-width: 1200px; 
     margin: 0 auto; 
     padding: 0 20px; 
 }
@@ -210,6 +219,72 @@ h1, h2, h3 {
 
 .proposal-media img:hover {
     transform: scale(1.02);
+}
+
+/* Gantt Chart */
+.gantt-wrapper {
+    padding: 20px 10px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    width: 100%;
+}
+
+.gantt-chart {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    width: 100%;
+    gap: 8px 0;
+}
+
+.gantt-header {
+    display: contents;
+    font-family: var(--font-pixel);
+    color: var(--accent);
+}
+
+.gantt-header div {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--secondary);
+    margin-bottom: 10px;
+    font-size: clamp(0.7rem, 2vw, 1.1rem);
+}
+
+.gantt-row {
+    display: contents;
+}
+
+.bar {
+    height: 80px;
+    margin: 2px 2px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+    font-weight: 600;
+    color: #1a1e15;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    overflow: hidden;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+.bar span span.muted {
+    font-size: 0.85em;
+    color: #795f01;
+}
+
+.bar-primary   { background: var(--primary); }
+.bar-secondary { background: var(--secondary); color: var(--text); }
+.bar-accent    { background: var(--accent); }
+.bar-accent-2  { background: var(--accent-2); }
+
+.gantt-chart {
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: calc(100% / 9) 100%;
 }
 
 /* Mobile tweaks - vertical view */
