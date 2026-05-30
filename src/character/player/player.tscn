@@ -4,26 +4,28 @@
 [ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/character/player/player_components/player_input.gd" id="2_8eijk"]
 [ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
 [ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2orxn"]
-albedo_color = Color(0.3254902, 0.54901963, 0.54901963, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_monf5"]
-material = SubResource("StandardMaterial3D_2orxn")
+[ext_resource type="PackedScene" uid="uid://cn3abac6dpwt" path="res://assets/models/player/CharacterModel.glb" id="5_st2ts"]
+[ext_resource type="Script" uid="uid://doumdihcv0fck" path="res://src/character/player/player_components/player_animation.gd" id="6_3683m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
+radius = 0.46020508
+height = 0.92041016
 
 [node name="Player" type="CharacterBody3D" unique_id=492502824]
 script = ExtResource("1_2orxn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=554548938]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_monf5")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1779674339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46020508, 0)
 shape = SubResource("CapsuleShape3D_8e4qx")
 debug_fill = false
+
+[node name="CharacterModel" parent="." unique_id=2013069025 instance=ExtResource("5_st2ts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41666615, 0)
+
+[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("player", "model")]
+script = ExtResource("6_3683m")
+player = NodePath("../..")
+model = NodePath("..")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
