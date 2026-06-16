@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ctvgrtbvslypc" path="res://src/character/player/player.gd" id="1_2orxn"]
 [ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/character/player/player_components/player_input.gd" id="2_8eijk"]
 [ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
+[ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="4_efbnw"]
 [ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
 [ext_resource type="PackedScene" uid="uid://cn3abac6dpwt" path="res://assets/models/player/CharacterModel.glb" id="5_st2ts"]
 [ext_resource type="Script" uid="uid://doumdihcv0fck" path="res://src/character/player/player_components/player_animation.gd" id="6_3683m"]
@@ -10,6 +11,14 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
 height = 0.92041016
+
+[sub_resource type="QuadMesh" id="QuadMesh_efbnw"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfelt"]
+render_priority = 0
+shader = ExtResource("4_efbnw")
 
 [node name="Player" type="CharacterBody3D" unique_id=492502824]
 script = ExtResource("1_2orxn")
@@ -31,7 +40,11 @@ model = NodePath("..")
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=442019790]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 10, 10)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 6.7, 6.7)
+
+[node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=2084889239]
+mesh = SubResource("QuadMesh_efbnw")
+surface_material_override/0 = SubResource("ShaderMaterial_rfelt")
 
 [node name="Input" type="Node" parent="." unique_id=1950561987]
 script = ExtResource("2_8eijk")
