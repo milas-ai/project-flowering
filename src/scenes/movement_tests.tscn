@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dayem3vrpenok"]
+
+[ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://src/terrain/greybox.tscn" id="1_186j7"]
+[ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://src/character/player/player.tscn" id="2_i62px"]
+
+[node name="Node3D" type="Node3D" unique_id=314279592]
+
+[node name="Level" parent="." unique_id=77169490 instance=ExtResource("1_186j7")]
+
+[node name="CharacterBody3D" parent="." unique_id=492502824 instance=ExtResource("2_i62px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.57871)
