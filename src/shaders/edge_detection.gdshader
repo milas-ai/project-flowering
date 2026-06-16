@@ -29,7 +29,7 @@ void fragment() {
 	vec3 normals_bottom_right = texture(normal_rough_texture, SCREEN_UV + vec2(offset, offset)).xyz;
 	vec3 normals_top_left = texture(normal_rough_texture, SCREEN_UV + vec2(-offset, -offset)).xyz;
 	float normal_border = clamp(length(normals_bottom_left - normals_top_right) + length(normals_bottom_right - normals_top_left), 0.0, 1.0);
-	normal_border = smoothstep(0, 0.02, normal_border);
+	normal_border = smoothstep(0, 0.15, normal_border);
 	
 	float outline = normal_border + depth_border;
 	ALBEDO = outline * vec3(0.0);

@@ -13,11 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=166639411]
 handle_input_locally = false
-size = Vector2i(288, 162)
+size = Vector2i(384, 216)
 render_target_update_mode = 4
 
 [node name="Level" parent="SubViewportContainer/SubViewport" unique_id=77169490 instance=ExtResource("1_186j7")]
