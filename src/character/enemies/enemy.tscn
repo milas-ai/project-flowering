@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://d3eanlg84gqfm"]
 
 [ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
+[ext_resource type="Script" uid="uid://rbi8y1vfjbit" path="res://src/character/enemies/enemy_components/enemy_pathfinding.gd" id="2_4jqnm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqupr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jqnm"]
+albedo_color = Color(0.9647059, 0, 0, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4jqnm"]
+material = SubResource("StandardMaterial3D_4jqnm")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=386571338]
 script = ExtResource("1_xqupr")
@@ -17,4 +22,7 @@ shape = SubResource("CapsuleShape3D_xqupr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_4jqnm")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
+
 [node name="Movement" type="Node" parent="." unique_id=1009830174]
+script = ExtResource("2_4jqnm")
