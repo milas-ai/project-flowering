@@ -14,11 +14,15 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_nx1r3"]
-vertices = PackedVector3Array(-135.01251, 0.5, -10.957474, -19.262512, 0.5, -10.707474, -19.012512, 0.5, -12.457474, -17.012512, 0.5, -141.95747, -135.01251, 0.5, -141.95747, -17.012512, 0.5, -12.457474, 10.487488, 0.5, -13.207474, 10.737488, 0.5, -12.707474, 10.987488, 0.5, -141.95747, 8.237488, 0.5, -13.207474, 10.487488, 0.5, -7.4574738, 17.487488, 0.5, -0.45747375, 26.487488, 0.5, -0.70747375, 134.98749, 0.5, 2.5425262, 134.98749, 0.5, -141.95747, 26.987488, 0.5, 2.5425262, -135.01251, 0.5, -8.457474, -19.262512, 0.5, -8.707474, -19.012512, 0.5, -6.9574738, -135.01251, 0.5, 142.04253, -17.012512, 0.5, 142.04253, -17.012512, 0.5, -6.9574738, 16.987488, 0.5, -0.20747375, 10.237488, 0.5, -6.9574738, 18.487488, 0.5, 142.04253, 18.737488, 0.5, 8.292526, 16.987488, 0.5, 8.042526, 26.987488, 0.5, 6.0425262, 134.98749, 0.5, 6.0425262, 26.987488, 0.5, 8.042526, 25.237488, 0.5, 8.292526, 25.487488, 0.5, 142.04253, 134.98749, 0.5, 142.04253)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(3, 5, 2), PackedInt32Array(8, 7, 6), PackedInt32Array(8, 6, 9), PackedInt32Array(5, 3, 9), PackedInt32Array(9, 3, 8), PackedInt32Array(10, 7, 11), PackedInt32Array(11, 7, 12), PackedInt32Array(12, 7, 13), PackedInt32Array(13, 7, 8), PackedInt32Array(13, 8, 14), PackedInt32Array(13, 15, 12), PackedInt32Array(17, 16, 1), PackedInt32Array(1, 16, 0), PackedInt32Array(17, 18, 16), PackedInt32Array(16, 18, 19), PackedInt32Array(19, 18, 20), PackedInt32Array(18, 21, 20), PackedInt32Array(23, 10, 22), PackedInt32Array(22, 10, 11), PackedInt32Array(26, 25, 24), PackedInt32Array(23, 22, 26), PackedInt32Array(23, 26, 21), PackedInt32Array(21, 26, 24), PackedInt32Array(21, 24, 20), PackedInt32Array(15, 13, 27), PackedInt32Array(27, 13, 28), PackedInt32Array(29, 27, 28), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(31, 28, 32), PackedInt32Array(25, 30, 24), PackedInt32Array(24, 30, 31)]
+vertices = PackedVector3Array(-135.01251, 0.43950033, -11.207474, -19.512512, 0.43950033, -10.957474, -19.512512, 0.43950033, -13.207474, -17.262512, 0.43950033, -13.457474, -17.262512, 0.43950033, -141.95747, -135.01251, 0.43950033, -141.95747, 8.487488, 0.43950033, -13.457474, 8.487488, 0.43950033, -141.95747, 10.737488, 0.43950033, -13.207474, 10.737488, 0.43950033, -9.207474, 11.237488, 0.43950033, -8.957474, 11.237488, 0.43950033, -7.4574738, 17.237488, 0.43950033, -0.95747375, 27.237488, 0.43950033, -1.2074738, 27.487488, 0.43950033, 1.0425262, 134.98749, 0.43950033, 1.0425262, 134.98749, 0.43950033, -141.95747, 8.237488, 8.939501, -18.707474, 8.237488, 8.939501, -24.207474, -19.012512, 8.939501, -24.207474, -19.012512, 8.939501, -18.707474, 10.237488, 8.939501, -18.707474, 10.487488, 8.939501, -17.707474, 25.987488, 8.939501, -17.707474, 25.987488, 8.939501, -24.207474, 8.987488, 1.6895003, -8.707474, 9.487488, 1.9395003, -8.957474, 9.487488, 8.439501, -16.707474, -18.262512, 8.439501, -16.707474, -18.262512, 1.6895003, -8.707474, -17.512512, 1.4395003, -8.457474, 8.737488, 0.43950033, -6.9574738, -4.387512, 0.43950033, -7.7074738, 2.4934235, 1.6895003, -8.975479, -17.037514, 6.6895003, -14.982475, 10.737488, 0.43950033, -6.7074738, 16.487488, 0.43950033, 0.29252625, 17.987488, 0.43950033, 142.04253, 18.237488, 0.43950033, 8.792526, 16.487488, 0.43950033, 8.542526, -17.512512, 0.43950033, -6.9574738, -17.512512, 0.43950033, -7.7074738, -18.262512, 0.43950033, -6.7074738, -18.262512, 0.43950033, 142.04253, -19.762512, 0.43950033, -9.457474, -135.01251, 0.43950033, -9.207474, -19.512512, 0.43950033, -7.2074738, -135.01251, 0.43950033, 142.04253, 27.487488, 0.43950033, 6.2925262, 134.98749, 0.43950033, 6.2925262, 27.237488, 0.43950033, 8.542526, 25.237488, 0.43950033, 142.04253, 134.98749, 0.43950033, 142.04253, 25.237488, 0.43950033, 8.542526)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(4, 7, 3), PackedInt32Array(3, 7, 6), PackedInt32Array(10, 9, 8), PackedInt32Array(12, 11, 10), PackedInt32Array(10, 8, 12), PackedInt32Array(12, 8, 13), PackedInt32Array(8, 6, 7), PackedInt32Array(15, 14, 13), PackedInt32Array(13, 8, 15), PackedInt32Array(15, 8, 7), PackedInt32Array(15, 7, 16), PackedInt32Array(20, 19, 17), PackedInt32Array(17, 19, 18), PackedInt32Array(21, 17, 18), PackedInt32Array(23, 22, 21), PackedInt32Array(23, 21, 24), PackedInt32Array(24, 21, 18), PackedInt32Array(27, 26, 25), PackedInt32Array(25, 33, 27), PackedInt32Array(27, 34, 28), PackedInt32Array(28, 34, 29), PackedInt32Array(29, 34, 30), PackedInt32Array(30, 34, 32), PackedInt32Array(32, 33, 31), PackedInt32Array(31, 33, 25), PackedInt32Array(33, 32, 27), PackedInt32Array(27, 32, 34), PackedInt32Array(11, 12, 35), PackedInt32Array(35, 12, 36), PackedInt32Array(39, 38, 37), PackedInt32Array(30, 32, 41), PackedInt32Array(41, 32, 40), PackedInt32Array(40, 32, 31), PackedInt32Array(35, 36, 31), PackedInt32Array(31, 36, 39), PackedInt32Array(40, 31, 42), PackedInt32Array(42, 31, 39), PackedInt32Array(42, 39, 37), PackedInt32Array(42, 37, 43), PackedInt32Array(44, 45, 1), PackedInt32Array(1, 45, 0), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 42, 45), PackedInt32Array(45, 42, 43), PackedInt32Array(45, 43, 47), PackedInt32Array(14, 15, 48), PackedInt32Array(48, 15, 49), PackedInt32Array(48, 49, 50), PackedInt32Array(50, 49, 52), PackedInt32Array(50, 52, 51), PackedInt32Array(51, 53, 50), PackedInt32Array(37, 38, 51), PackedInt32Array(51, 38, 53)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ofn00"]
 size = Vector2(50.74, 50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nx1r3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xmf62"]
 
 [node name="Level" type="Node3D" unique_id=77169490]
 
@@ -81,12 +85,32 @@ navigation_mesh = SubResource("NavigationMesh_nx1r3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=1474003886]
 transform = Transform3D(5.341447, 0, 0, 0, 1, 0, 0, 0, 5.698299, 0, 0, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ofn00")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=58602976]
+transform = Transform3D(14.25433, 0, 0, 0, 5.6163726, -4.8788753, 0, 4.711862, 5.8154473, -4.331567, 4.0683756, -12.331411)
+visible = false
+mesh = SubResource("PlaneMesh_nx1r3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=618412086]
+transform = Transform3D(22.826067, 0, 0, 0, 1, 0, 0, 0, 3.644368, 3.4643164, 8.671734, -21.000427)
+visible = false
+mesh = SubResource("PlaneMesh_xmf62")
+
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D" unique_id=1562473017]
-vertices = PackedVector3Array(17.576693, 0, 0.045378685, 26.334078, 0, -0.20066643, 26.561562, 0, 7.8871946, 17.555956, 0, 7.7992396)
+vertices = PackedVector3Array(17.131508, 0, -0.5650676, 26.869112, 0, -0.64887047, 26.893919, 0, 8.080173, 16.964333, 0, 8.348665)
 affect_navigation_mesh = true
 
 [node name="NavigationObstacle3D2" type="NavigationObstacle3D" parent="NavigationRegion3D" unique_id=1924289458]
-vertices = PackedVector3Array(10.044161, 0, -7.4186664, -18.788017, 0, -7.568818, -18.666092, 0, -11.983741, 10.338542, 0, -12.624123)
+height = 1.11
+vertices = PackedVector3Array(10.352475, 0, -8.9248085, -19.193129, 0, -8.911027, -19.035057, 0, -12.97661, 10.298287, 0, -12.856692)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle3D3" type="NavigationObstacle3D" parent="NavigationRegion3D" unique_id=1674286760]
+vertices = PackedVector3Array(10.68932, 0, -8.623385, 9.391054, 0, -8.609726, 9.356376, 0, -7.267914, 10.606361, 0, -7.2394915)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle3D4" type="NavigationObstacle3D" parent="NavigationRegion3D" unique_id=384585872]
+vertices = PackedVector3Array(-18.973509, 0, -8.1560545, -18.103266, 0, -8.09401, -18.134632, 0, -7.329733, -18.968319, 0, -7.3483887)
 affect_navigation_mesh = true
