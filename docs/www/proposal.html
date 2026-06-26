@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Flowering - Proposta</title>
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container nav-flex">
+            <nav class="nav-left">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="accent" href="proposal.html">Proposta</a></li>
+                    <li><a href="#monografia">Monografia</a></li>
+                </ul>
+            </nav>
+
+            <div class="logo">
+                <img src="assets/icon.svg" alt="Icon" class="logo-img">
+            </div>
+
+            <nav class="nav-right">
+                <ul>
+                    <li><a href="#pitch">Pitch</a></li>
+                    <li><a href="#sobre">Poster</a></li>
+                    <li><a href="#apresentacao">Apresentação</a></li>
+                </ul>
+            </nav>
+        </div>   
+    </header>
+
+    <main class="proposal-page">
+        <div class="container">
+            <header class="proposal-header">
+                <h1 class="vt-detail">Aplicações de Computação Gráfica na construção de visuais estilizados, level design e jogabilidade para um jogo 3D</h1>
+            </header>
+
+            <section class="proposal-section">
+                <h2>Contextualização</h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;A Computação Gráfica é uma área de estudo muito explorada em diversos
+                    campos do conhecimento para, por exemplo, simular física ou interações
+                    da luz com diferentes materiais e geometrias, replicando o que acontece
+                    na realidade. Com isto em mente, vemos em alguns videogames a manipulação
+                    dessas regras para dar vida a um visual artístico estilizado.</p>
+                    <div class="proposal-row">
+                        <div class="proposal-text">
+                            <p style="margin-bottom: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Técnicas de pós-processamento de baixa resolução e modelos simples com
+                                poucos polígonos (<em>low poly</em>) podem ser utilizados para dar vida a
+                                uma visão de estilo onde a elegância está na linguagem de formas simples
+                                e claras bem como um estilo pixelizado.</p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;Em alguns casos, usa-se projeção de câmera ortográfica para reproduzir um
+                            estilo visual <a href="https://en.wikipedia.org/wiki/Isometric_video_game_graphics">isométrico</a>.
+                            Esse estilo começou a ser utilizado por volta de 1980 para contornar
+                            limitações de sistema da época, permitindo mostrar grandes áreas
+                            de forma rápida e eficiente, criando uma ilusão de dimensionalidade
+                            3D em ambientes 2D. Mas, hoje em dia, é uma técnica aplicada apenas
+                            como escolha artística, obtendo um visual característico utilizado em
+                            diversos jogos atuais, como <em><u class="trigger-zoom">Tunic</u></em> (<em>Isometricorp Games</em>,
+                            2022).</p>
+                    </div>
+                    <div class="proposal-media">
+                        <img style="max-height: 405px;" src="https://imgur.com/uP5WiqU.jpeg" alt="Figura 1">
+                    </div>
+                </div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Ademais, as técnicas de Computação Gráfica são também ferramentas
+                utilizadas para projetar o <em>design</em> dos jogos, influenciando
+                algum comportamento no jogador ou providenciando informações de uma
+                maneira que preserve a imersão. Alguns exemplos dessas interações
+                estão presentes em:</p>
+
+                <div class="proposal-row" style="align-items: stretch;">
+                    <div class="exemple-card">
+                        <h3><em>Splatoon</em><br />(<em>Nintendo</em>, 2015)</h3>
+                        <img src="https://imgur.com/wSIu7JN.jpeg" alt="Figura 2">
+                        <p>Aqui, os jogadores competem pintando um cenário com a cor do seu próprio
+                            time, e podem saber o estado da partida de acordo com o visual do
+                            mapa.</p>
+                    </div>
+
+                    <div class="exemple-card">
+                        <h3><em>Shadow of the Colossus</em><br />(<em>Sony Computer Entertainment</em>, 2005)</h3>
+                        <img src="https://imgur.com/zOyUYeW.jpeg" alt="Figura 3">
+                        <p>Nesse jogo, a espada do jogador, quando erguida, reflete a luz do
+                            sol em direção ao próximo objetivo do jogo.</p>
+                    </div>
+                </div>
+                <br />
+
+                <div class="proposal-row reverse" style="align-items: center;">
+                    <div class="proposal-text">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;De particular interesse para esse trabalho são jogos da categorias
+                        “<em>fast-paced</em>” &#8212; no qual o jogador precisa lidar com desafios
+                        envolvendo movimentação rápida e precisa &#8212; e “aventura” &#8212;
+                        focado em exploração de um cenário visualmente desenvolvido, enfrentando
+                        inimigos ou resolvendo quebra-cabeças para progredir. Exemplos de jogos das
+                        categorias <em>fast-paced</em> e aventura, respectivamente, são <em>Death’s
+                        Door</em> (<em>Acid Nerve</em>, 2021) e <em><u class="trigger-zoom super-meat-boy">Super Meat Boy 3D</u></em>
+                        (<em>Team Meat</em> e <em>Sluggerfly</em>, 2026).</p>
+                    </div>
+                    <div class="proposal-media">
+                        <img src="https://i.imgur.com/muZ4IGY.gif" alt="Figura 4">
+                    </div>
+                </div>
+            </section>
+
+            <section class="proposal-section center">
+                <h2>Motivação</h2>
+                <p style="margin-bottom: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;A motivação artística por trás da escolha de renderizar
+                    o jogo em menor resolução e utilizar modelos <em>low poly</em> é proporcionar
+                    mais liberdade para explorar diversas técnicas de computação gráfica e física
+                    que seriam custosas demais &#8212; e, portanto, menos acessível &#8212; com a
+                    quantidade de polígonos e pixels esperada de um jogo de última geração. Com
+                    isso em mente, é possível experimentar diversos algoritmos e aplicações de
+                    computação, como manipulação de colisões, perspectiva, reflexos, iluminação,
+                    efeitos visuais e animação procedural, que têm impacto direto na jogabilidade.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Estas implementações fornecem um ponto de partida para
+                    estudar e aplicar técnicas de <em>level design</em> e <em>game design</em>,
+                    onde um abrange a montagem de níveis e desafios e o outro abrange a jogabilidade
+                    e interação com os elementos do jogo. Dessa forma, é nosso interesse nesse
+                    trabalho projetar e desenvolver um jogo que explore, no contexto da estética
+                    <em>low-poly</em>, técnicas de computação gráfica e simulação de física, assim
+                    como seu papel no <em>game design</em> e <em>level design</em> do jogo resultante.</p>
+            </section>
+
+            <section class="proposal-section" style="margin-bottom: 0;">
+                <h2 style="text-align: right;">Objetivo</h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Com base na premissa apresentada, o objetivo deste trabalho é desenvolver
+                    um jogo de aventura <em>fast-paced</em> com a seguinte estrutura básica.
+                    O jogador explora três diferentes cenários com estilos próprios,
+                    enfrentando desafios lógicos e inimigos variados. Em cada um, ele adquire
+                    uma nova ferramenta que pode ser utilizada tanto para combate quanto para
+                    transpor os obstáculos encontrados em sua aventura e derrotar um chefe ao
+                    final de sua jornada.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Para a primeira região, serão introduzidos desafios envolvendo a
+                    movimentação do personagem, como deslizar e realizar <em>parkour</em>. Na
+                    segunda, o foco será na interação do jogador com o ambiente, movimentando
+                    ou destruindo objetos para criar caminhos, atingindo pontos que apenas a
+                    movimentação não permite. Na terceira, o jogador enfrentará quebra-cabeças
+                    envolvendo a reação do ambiente à luz. Por fim, haverá um grande desafio,
+                    o chefe final, que demandará do jogador entendimento e criatividade para
+                    aplicar todas as técnicas aprendidas durante sua aventura.</p>
+                <div class="proposal-row">
+                    <div class="proposal-text">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;O aspecto <em>fast-paced</em> do jogo deverá
+                        ser considerado durante o estudo de <em>level design</em> e <em>game
+                        design</em>, para que a exploração do mapa e resolução de desafios
+                        se torne interessante e o combate seja fluido. Com diferentes habilidades,
+                        espera-se que o jogador escolha sua própria forma de combater determinados
+                        inimigos, seja utilizando-se de seus arredores ou apenas com suas
+                        ferramentas. Um exemplo disso é o jogo <em><u class="trigger-zoom">The
+                        Legend of Zelda: Tears of the Kingdom</u></em> (<em>Nintendo</em>, 2023),
+                        onde o personagem pode usar uma habilidade que inverte o movimento de um
+                        objeto ao longo de sua trajetória, permitindo derrotar inimigos de forma
+                        criativa.</p>
+                    </div>
+                    <div class="proposal-media">
+                        <img style="max-height: 325px;" src="https://i.imgur.com/R2YDGJf.gif" alt="Figura 5">
+                    </div>
+                </div>
+            </section>
+
+            <section class="proposal-section">
+                <h2>Metodologia</h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;O jogo será desenvolvido utilizando o software
+                    <a href="https://godotengine.org/">Godot</a>, que é uma ferramenta de
+                    desenvolvimento de jogos, e será feito em sua própria linguagem
+                    (GDScript). Serão realizados <em>mockups</em> para definir os diferentes
+                    estilos de região e arquitetar os desafios que poderão ser encontrados
+                    no jogo.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;Para a parte visual, serão utilizadas ferramentas de modelagem 3D, como
+                    o <a href="https://www.blender.org/">Blender</a> e o
+                    <a href="https://www.blockbench.net/">Blockbench</a>, para esculpir
+                    modelos <em>low poly</em>; e programação de shaders em  linguagem
+                    semelhante a GLSL, e com auxílio do
+                    <a href="https://docs.godotengine.org/en/latest/tutorials/shaders/visual_shaders.html">
+                    <em>VisualShaders</em></a> (uma ferramenta de programação
+                    visual nativa da Godot) para efeitos de pós-processamento; conceitos
+                    a serem estudados de acordo com <span class="accent-2">Real Time
+                    Rendering (Eric, Tomas, Naty)</span>.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;A organização de tarefas do projeto utilizará <em>kanban</em> como
+                    metodologia ágil, e registros de atividades que auxiliarão a escrever
+                    a monografia. Isso será feito com suporte do
+                    <a href="https://obsidian.md/">Obsidian</a>, um software de anotação
+                    e organização de projetos.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;A escrita da monografia será realizada paralelamente ao
+                    desenvolvimento do jogo, assim como o estudo de <em>level
+                    design</em> e <em>game design</em> para construir a lógica
+                    do mapa e da interação com os inimigos, respectivamente.
+                    Para tal, recorreremos a livros como <span class="accent-2">
+                    An Architectural Approach to Level Design (Christopher W.
+                    Totten)</span> e <span class="accent-2">Art of Game Design
+                    (Jesse Schell)</span>, além da análise de outros jogos.</p>
+                <figure>
+                    <img style="max-height: 400px;" src="https://imgur.com/zIW7p5t.jpeg" alt="Figura 6">
+                    <figcaption>Death’s Door &#8212; Jogos isométricos utilizam da verticalidade para criar profundidade e complexidade espacial</figcaption>
+                </figure>
+            </section>
+
+            <section class="proposal-section">
+                <h2 class="proposal-subtitle" style="text-align: center;">Cronograma</h2>
+                <div class="gantt-wrapper">
+                    <div class="gantt-chart">
+                        <div class="gantt-header">
+                            <div>Abril</div><div>Maio</div><div>Junho</div><div>Julho</div><div>Agosto</div><div>Setembro</div><div>Outubro</div><div>Novembro</div><div>Dezembro</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent" style="grid-column: 1 / 4;">Personagem do jogador e sua jogabilidade</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-primary" style="grid-column: 1 / 2;">Inimigo da 1ª fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent-2" style="grid-column: 1 / 2;"><span>Mecânica 1<br /><span class="muted">Movimentação e deslizamento</span></span></div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-primary" style="grid-column: 2 / 3;">Inimigo da 2ª fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent-2" style="grid-column: 2 / 3;"><span>Mecânica 2<br /><span class="muted">Empurrar objetos</span></span></div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-primary" style="grid-column: 3 / 4;">Inimigo da 3ª fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent-2" style="grid-column: 3 / 4;"><span>Mecânica 3<br /><span class="muted">Quebra-cabeça com iluminação</span></span></div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent" style="grid-column: 4 / 9;">Escrita da monografia</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-primary" style="grid-column: 4 / 5;">Level design da 1ª fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-primary" style="grid-column: 5 / 6;">Level design da 2ª fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-primary" style="grid-column: 6 / 7;">Level design da 3ª fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent-2" style="grid-column: 7 / 8;">Design do chefe final e sua fase</div>
+                        </div>
+
+                        <div class="gantt-row">
+                            <div class="bar bar-accent" style="grid-column: 8 / 10;">Polimento final do jogo</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container nav-flex">
+            <p>&copy; 2026 Project Flowering <span class="footer-text-long">- TCC</span></p>
+            <div class="footer-links">
+                <a href="https://github.com/milas-ai/project-flowering" target="_blank" class="footer-link">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="link-icon">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                    <span>Repositório</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
