@@ -2,7 +2,8 @@ name: Deploy static website to Pages
 
 on:
   push:
-    branches: ["docs/website"]
+    paths:
+      - 'docs/www/**'
 
   workflow_dispatch:
 
