@@ -1,9 +1,9 @@
 extends Node
 class_name PlayerJump
-# Handles jumping with a jump buffer and coyote time
 
 
 @onready var player: Player = $"../.."
+@onready var player_slide: PlayerSlide = $"../Slide"
 
 var was_on_floor: bool = false
 @onready var jump_buff_timer: Timer = $JumpBuffer
@@ -26,6 +26,9 @@ func _physics_process(_delta: float) -> void:
 func jump(impulse: float) -> void:
 	player.vertical_velocity.y = impulse
 	jump_buffer = false
+
+	if player_slide.is_sliding:
+		player_slide.stop_slide()
 
 
 func update_coyote() -> void:

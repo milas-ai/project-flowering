@@ -32,3 +32,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.57871)
 
 [node name="Enemy" parent="SubViewportContainer/SubViewport" unique_id=386571338 instance=ExtResource("3_dj2xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 13)
+slide_on_ceiling = false
+floor_max_angle = 1.5009831
