@@ -1,31 +1,37 @@
 extends Node
 class_name PlayerWalk
 
-
-@onready var playerinput: PlayerInput = $"../../Input"
+@onready var player_input: PlayerInput = $"../../Input"
 @onready var player: Player = $"../.."
+@onready var player_slide: PlayerSlide = $"../Slide"
 
 var speed_multiplier: float = 1
 
 
 func _physics_process(delta: float) -> void:
-	player.speed = calculate_speed()
 	player.horizontal_direction = calculate_direction()
+	if player_input.sliding and player_slide.is_sliding:
+		return
+
 	walk(delta)
 
 
 func calculate_speed() -> float:
-	speed_multiplier = 1 + int(playerinput.running)
+	speed_multiplier = 1 + int(player_input.running)
 	return player.BASE_SPEED * speed_multiplier
 
 
 func calculate_direction() -> Vector3:
-	var direction = (player.transform.basis * Vector3(playerinput.h_input_dir.x,0,playerinput.h_input_dir.y)).normalized()
-	return direction * Vector3(1,0,1)
+	var direction = (player.transform.basis * Vector3(player_input.h_input_dir.x, 0, player_input.h_input_dir.y)).normalized() 
+	return direction * Vector3(1, 0, 1)
 
 
 func walk(delta: float) -> void:
 	if player.horizontal_direction:
-		player.horizontal_velocity = player.horizontal_direction * player.speed
+		player.speed = calculate_speed()
+		if player.horizontal_velocity.length() > 2 * player.speed:
+			player.horizontal_velocity = player.horizontal_velocity.lerp(player.horizontal_direction * player.speed, player.slide_friction * delta)
+		else:
+			player.horizontal_velocity = player.horizontal_direction * player.speed
 	else:
-		player.horizontal_velocity = Math.lerpfd(player.horizontal_velocity, Vector3.ZERO, player.friction, delta)
+		player.horizontal_velocity = player.horizontal_velocity.lerp(Vector3.ZERO, player.friction * delta)
