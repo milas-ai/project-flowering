@@ -27,6 +27,9 @@ style: |
     h2 {
         font-size: 45px;
         font-family: var(--font-pixel);
+        color: var(--accent);
+    }
+    section.invert h2 {
         color: var(--primary);
     }
     section {
@@ -84,40 +87,10 @@ Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 <!-- _class: invert -->
 <center>
 
-# <i class="fas fa-truck-fast"></i>&nbsp;&nbsp;Metodologia ágil
-</center> 
-
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec.
-
----
-<center>
-
-# <i class="fas fa-user"></i>&nbsp;&nbsp;Protagonista
-</center>
-
-<div style="text-align: center; display: flex; justify-content: center; align-items: center; margin-top: 1em;">
-
-<div style="margin-right: 50px;">
-    <img src="assets/main_character.png" alt="Main character art" style="width: 300px; height: auto;">
-</div>
-
-<div style="max-width: 600px; text-align: justify;">
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-</div>
-
-</div>
-
-
----
-<!-- _class: invert -->
-<center>
-
 # <i class="fas fa-cogs"></i>&nbsp;&nbsp;Habilidades e mecânicas
 </center>  
 
-<div style="text-align: center; display: flex; justify-content: center; align-items: center; padding: -5; margin: -10;">
+<div style="text-align: center; display: flex; justify-content: center; align-items: center; padding: -5; margin: -10; margin-top: 1em;">
 
 <div style="margin-right: 50px;">
 
@@ -144,54 +117,29 @@ Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 ---
 <center>
 
-# <i class="fas fa-bug"></i>&nbsp;&nbsp;Besouro
-</center>
+# <i class="fas fa-skull"></i>&nbsp;&nbsp;Inimigos
+</center>  
 
-<div style="text-align: center; display: flex; justify-content: center; align-items: center; margin-top: 1em;">
-
-<div style="max-width: 600px; text-align: justify; margin-right: 50px;">
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-</div>
-
-<div>
-    <img src="assets/bettle_model.png" alt="Bettle model" style="width: 300px; height: auto;">
-</div>
-
-</div>
-
----
-<!-- _class: invert -->
-<center>
-
-# <i class="fas fa-bugs"></i>&nbsp;&nbsp;Formiga
-</center>
-
-<div style="text-align: center; display: flex; justify-content: center; align-items: center; margin-top: 1em;">
+<div style="text-align: center; display: flex; justify-content: center; align-items: center; padding: -5; margin: -10; margin-top: 1em;">
 
 <div style="margin-right: 50px;">
-    <img src="assets/ant_model.png" alt="Ant model" style="width: 300px; height: auto;">
-</div>
 
-<div style="max-width: 600px; text-align: justify;">
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-</div>
+## <i class="fas fa-bug"></i>&nbsp;Besouro
+<img src="assets/bettle_model.png" alt="Bettle model" style="width: 250px; height: auto;">
 
 </div>
 
----
-<center>
+<div style="margin-right: 50px;">
 
-# <i class="fas fa-bomb"></i>&nbsp;&nbsp;Tatu-Bolinha
-</center>
+## <i class="fas fa-bugs"></i>&nbsp;Formiga
+<img src="assets/ant_model.png" alt="Ant model" style="width: 250px; height: auto;">
 
-<div style="text-align: center; display: flex; justify-content: center; align-items: center; margin-top: 1em;">
-
-<div style="max-width: 600px; text-align: justify; margin-right: 50px;">
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
 </div>
 
 <div>
-    <img src="assets/sow_bug_model.png" alt="Sow bug model" style="width: 300px; height: auto;">
+
+## <i class="fas fa-bomb"></i>&nbsp;Tatu-Bolinha
+<img src="assets/sow_bug_model.png" alt="Sow bug model" style="width: 250px; height: auto;">
 </div>
 
 </div>
