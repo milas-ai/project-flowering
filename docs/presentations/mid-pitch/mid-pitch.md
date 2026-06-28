@@ -11,6 +11,8 @@ style: |
         --secondary: #546B41;
         --accent: #db9bb2;
         --accent-2: #F2C94C;
+        --background: #6d7b5e;
+        --background-2: #454e3a;
 
         --font-title: 'Fredoka', sans-serif;
         --font-body: 'Lexend', sans-serif;
@@ -35,14 +37,21 @@ style: |
     section {
         font-size: 30px;
         font-family: var(--font-body);
-        background-color: #6d7b5e;
+        background-color: var(--background);
         color: var(--text);
     }
     section.invert {
-        background-color: #454e3a;
+        background-color: var(--background-2);
     }
     pre {
         border-radius: .4em;
+        background-color: var(--text);
+    }
+    pre code {
+        color: var(--background);
+    }
+    section.invert pre code {
+        color: var(--background-2);
     }
     code {
         border-radius: 0.3em;
@@ -64,14 +73,17 @@ style: |
 
 ---
 <!-- _class: invert -->
-<center>
+<center style="margin-bottom: 2.25em;">
 
-# &nbsp;&nbsp;Aplicações de Computação Gráfica na construção de visuais estilizados, level design e jogabilidade para um jogo 3D
+# Aplicações de Computação Gráfica na construção de visuais estilizados, level design e jogabilidade para um jogo 3D
 </center>
 
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+Explorar técnicas de computação para otimizar e desenvolver simulações físicas e efeitos visuais, que interagem com o ambiente <span style="color: var(--accent);">renderizado em tempo real</span>.
 
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec.
+<div style="margin-bottom: 2.25em;"></div>
+
+       A única matéria de computação gráfica oferecida no IME durante nossa graduação foi
+                            Introdução a Computação Gráfica (MAC0420)
 
 ---
 <center>
@@ -79,9 +91,11 @@ Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi
 # <i class="fas fa-lightbulb"></i>&nbsp;&nbsp;Proposta
 </center> 
 
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+<span style="color: var(--accent-2);">Jogo dividido em fases</span>, cada uma com um objetivo diferente, que desafia o jogador a explorar o ambiente e interagir com os elementos do cenário para avançar.
 
-Loren ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec.
+         Ao progredir, o jogador encontra novas ferramentas para passar por obstáculos
+
+<img src="assets/character_concept.png" alt="Character concept" style="width: 900px; height: auto; margin-left: 3.6em; margin-top: 1em;">
 
 ---
 <!-- _class: invert -->
