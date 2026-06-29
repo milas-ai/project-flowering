@@ -5,8 +5,8 @@ extends Node
 
 
 func _process(_delta: float) -> void:
-	if (player.horizontal_direction.length() != 0):
-		model.look_at(player.position + player.horizontal_direction, Vector3.UP, true)
+	if (player.horizontal_direction.length() > 0.1):
+		model.look_at(model.global_position + player.horizontal_direction, Vector3.UP, true)
 	var anim: AnimationPlayer = model.get_child(1)	# Get this in propper way
 	
 	# Interpolate
