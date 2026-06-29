@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c218p2xu1wqgf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ou3o"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j5k5y"]
+
+[node name="Pillar" type="RigidBody3D" unique_id=459556221]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1830261511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2ou3o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=624329296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_j5k5y")
