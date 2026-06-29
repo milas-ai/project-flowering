@@ -14,6 +14,8 @@ func _process(_delta: float) -> void:
 	
 	# TODO: Attack and poke animations
 	if slide_component.is_sliding:
+		var floor_normal = player.get_floor_normal()
+		model.look_at(model.global_position + player.horizontal_velocity, floor_normal, true)
 		anim.play("Slide")
 	elif not player.is_on_floor():
 		if player.vertical_velocity.y > 0:
