@@ -14,6 +14,8 @@ metallic_specular = 0.0
 roughness = 0.5
 
 [node name="Enemy" type="CharacterBody3D" unique_id=386571338]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_xqupr")
 
 [node name="Collision Box" type="CollisionShape3D" parent="." unique_id=93842891]
