@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
 [ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="4_efbnw"]
 [ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
-[ext_resource type="PackedScene" uid="uid://cn3abac6dpwt" path="res://assets/models/player/CharacterModel.glb" id="5_st2ts"]
 [ext_resource type="Script" uid="uid://doumdihcv0fck" path="res://src/character/player/player_components/player_animation.gd" id="6_3683m"]
 [ext_resource type="Script" uid="uid://bkfih402nulko" path="res://src/character/player/player_components/player_slide.gd" id="8_rfelt"]
+[ext_resource type="PackedScene" uid="uid://dvdj30kmiprtu" path="res://assets/models/player/character.glb" id="9_i8wnn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -29,13 +29,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46020508, 0)
 shape = SubResource("CapsuleShape3D_8e4qx")
 debug_fill = false
 
-[node name="CharacterModel" parent="." unique_id=2013069025 instance=ExtResource("5_st2ts")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41666615, 0)
+[node name="CharacterModel" parent="." unique_id=1225541359 instance=ExtResource("9_i8wnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
 
-[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("player", "model")]
+[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("player", "model", "slide_component")]
 script = ExtResource("6_3683m")
 player = NodePath("../..")
 model = NodePath("..")
+slide_component = NodePath("../../Movement/Slide")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
