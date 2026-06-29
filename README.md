@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logo/banner/banner.png" alt="SHIELD Archive Icon" height="120" />
+  <img src="./assets/logo/banner/banner.png" alt="SHIELD Archive Icon" height="180" />
 </p>
 
 <p align="center">
