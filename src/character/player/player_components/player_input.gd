@@ -3,6 +3,7 @@ class_name PlayerInput
 
 
 signal jump_pressed
+signal push_pressed
 
 var h_input_dir = Vector2.ZERO
 var running: bool = false
@@ -32,3 +33,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("jump"):
 			jump_pressed.emit()
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed("push"):
+			push_pressed.emit()
