@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
 [ext_resource type="Script" uid="uid://rbi8y1vfjbit" path="res://src/character/enemies/enemy_components/enemy_pathfinding.gd" id="2_4jqnm"]
+[ext_resource type="Script" uid="uid://c8pbrorm17axe" path="res://src/character/enemies/enemy_components/enemy_animation.gd" id="3_nw1ng"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqupr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jqnm"]
-albedo_color = Color(0.9647059, 0, 0, 1)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nhhn2"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4jqnm"]
-material = SubResource("StandardMaterial3D_4jqnm")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn4dx"]
+albedo_color = Color(0.8288101, 2.7193873e-06, 5.7756904e-07, 1)
+metallic_specular = 0.0
+roughness = 0.5
 
 [node name="Enemy" type="CharacterBody3D" unique_id=386571338]
 script = ExtResource("1_xqupr")
@@ -18,9 +20,15 @@ script = ExtResource("1_xqupr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_xqupr")
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=188137492]
+[node name="CharacterModel" type="MeshInstance3D" parent="." unique_id=1313542368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_4jqnm")
+mesh = SubResource("CapsuleMesh_nhhn2")
+surface_material_override/0 = SubResource("StandardMaterial3D_gn4dx")
+
+[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=792458285 node_paths=PackedStringArray("enemy", "model")]
+script = ExtResource("3_nw1ng")
+enemy = NodePath("../..")
+model = NodePath("..")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
 
