@@ -82,5 +82,6 @@ script = ExtResource("9_i8wnn")
 
 [connection signal="jump_pressed" from="Input" to="Movement/Jump" method="_on_player_input_jump_pressed"]
 [connection signal="push_pressed" from="Input" to="Action/Push" method="_on_player_input_push_pressed"]
+[connection signal="stun_pressed" from="Input" to="CharacterModel/CharacterAnimation" method="_on_player_input_stun_pressed"]
 [connection signal="timeout" from="Movement/Jump/JumpBuffer" to="Movement/Jump" method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="Movement/Jump/CoyoteTime" to="Movement/Jump" method="_on_coyote_time_timeout"]
