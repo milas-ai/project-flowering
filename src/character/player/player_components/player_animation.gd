@@ -4,6 +4,8 @@ extends Node
 @export var model: Node3D
 @export var slide_component: Node
 
+@onready var player_push: PlayerPush = $"../../Action/Push"
+
 
 func _process(_delta: float) -> void:
 	if player.horizontal_direction.length() > 0.1:
@@ -22,9 +24,12 @@ func _process(_delta: float) -> void:
 			anim.play("Jump")
 		else:
 			anim.play("Fall")
+	elif player_push.is_pushing:
+		anim.play("Poke")
 	elif player.horizontal_velocity.length() < 1:
 		anim.play("Idle")
 	elif not $"../../Input".running:
 		anim.play("Walk")
 	else:
 		anim.play("Run")
+	

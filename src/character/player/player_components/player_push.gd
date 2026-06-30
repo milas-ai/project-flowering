@@ -6,12 +6,15 @@ class_name PlayerPush
 @onready var ray_cast = $"../../CharacterModel/RayCast3D"
 @export var push_force = 10.0
 
+var is_pushing: bool = false
+
 func _ready():
 	ray_cast.enabled = false
 
 func _on_player_input_push_pressed():
 	ray_cast.enabled = true
 	ray_cast.force_raycast_update()
+	is_pushing = true
 
 	print("Is colliding? ", ray_cast.is_colliding())
 	if ray_cast.is_colliding():
@@ -34,4 +37,6 @@ func _on_player_input_push_pressed():
 			hit_object.apply_impulse(push_direction * push_force, hit_point)
 
 
+	await get_tree().create_timer(0.46).timeout
+	is_pushing = false
 	ray_cast.enabled = false
