@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c7fu7p6nj0myg"]
+
+[ext_resource type="PackedScene" uid="uid://dvdj30kmiprtu" path="res://assets/models/player/character.glb" id="1_8q4gy"]
+
+[node name="character" unique_id=2104047668 instance=ExtResource("1_8q4gy")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(394082346) index="0" unique_id=489788731]
+bones/0/position = Vector3(0, -0.34863177, -0.025976973)
+bones/1/rotation = Quaternion(0.10305475, -3.571731e-15, 2.4570168e-08, 0.9946757)
+bones/2/position = Vector3(0.30912468, 0.20296961, -0.110145204)
+bones/2/rotation = Quaternion(0.31684056, 0.64682454, -0.38989824, 0.57376784)
+bones/4/position = Vector3(0.20065807, 0.09040999, 0.016740214)
+bones/4/rotation = Quaternion(0.690772, -0.040373214, -0.69077176, 0.20985335)
+bones/5/position = Vector3(-0.30912462, 0.20296961, -0.110145345)
+bones/5/rotation = Quaternion(0.31684047, -0.64682466, 0.38989836, 0.5737676)
+bones/6/position = Vector3(-0.20065807, 0.09040999, 0.016740115)
+bones/6/rotation = Quaternion(0.6907718, 0.04037312, 0.69077194, 0.20985343)
+bones/7/position = Vector3(-0.07552832, 0.62946814, -0.24311267)
+bones/7/rotation = Quaternion(-1.6197274e-07, -7.417943e-08, 0.7972528, 0.6036458)
+bones/8/position = Vector3(0.00011759557, 0.33404824, -0.34435382)
+bones/8/rotation = Quaternion(-0.67944777, -4.986892e-12, -1.6199837e-07, 0.7337239)
+bones/9/position = Vector3(0.73365307, 0.22100642, -0.11014525)
+bones/10/position = Vector3(0.30065808, -0.5795758, 0.07388951)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(-0.73365307, 0.22100642, -0.11014525)
+bones/12/position = Vector3(-0.30065808, -0.5795758, 0.07388951)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(0.0004452197, -0.0008424203, 1.0869612)
+
+[node name="Arm_L" parent="Armature/Skeleton3D" index="0" unique_id=1064596074]
+transform = Transform3D(-0.14080536, 0.8573025, 0.49518308, 0.16607943, 0.5135318, -0.8418448, -0.9760079, -0.036296554, -0.21468832, 0.30912465, -0.03328997, -0.092171475)
+
+[node name="Hair" parent="Armature/Skeleton3D" index="1" unique_id=449053782]
+transform = Transform3D(1, -3.5527137e-15, -1.4210855e-14, 3.5527137e-15, 0.9787594, -0.2050121, 0, 0.2050121, 0.9787594, 0.03241719, 0.37581387, 0.16025299)
+
+[node name="Leg_L" parent="Armature/Skeleton3D" index="2" unique_id=1299145900]
+transform = Transform3D(0.04240854, 0.23414423, -0.97127646, -0.14618044, -0.96023494, -0.23786514, -0.98834854, 0.15206915, -0.00649485, 0.20065807, -0.16947183, 0.008942766)
+
+[node name="Arm_R" parent="Armature/Skeleton3D" index="3" unique_id=1591987573]
+transform = Transform3D(-0.14080548, -0.8573026, -0.49518293, -0.16607943, 0.5135317, -0.8418448, 0.9760079, -0.036296673, -0.21468844, -0.30912465, -0.03328997, -0.092171475)
+
+[node name="Leg_R" parent="Armature/Skeleton3D" index="4" unique_id=1459263773]
+transform = Transform3D(0.042408507, -0.23414439, 0.9712764, 0.14618045, -0.9602351, -0.2378653, 0.9883484, 0.15206917, -0.0064948127, -0.20065807, -0.16947182, 0.008942759)
+
+[node name="Body_001" parent="Armature/Skeleton3D" index="5" unique_id=609251169]
+transform = Transform3D(-0.27122363, -0.9625163, -1.09403985e-07, 0.942072, -0.2654627, -0.20501202, 0.19732739, -0.05560421, 0.9787594, -0.07552838, 0.4114094, -0.13487718)
+
+[node name="Body_002" parent="Armature/Skeleton3D" index="6" unique_id=1075256610]
+transform = Transform3D(1, 1.4722445e-11, 2.3841858e-07, -2.2892203e-07, 0.27948043, 0.9601514, -6.661922e-08, -0.9601514, 0.27948043, 0.00011751347, 0.14302003, -0.29453263)
+
+[node name="Body_2" parent="Armature/Skeleton3D" index="7" unique_id=1336290115]
+transform = Transform3D(1, -3.5527137e-15, 2.3841856e-07, 4.8878697e-08, 0.9787594, -0.2050121, -2.3335443e-07, 0.2050121, 0.9787594, 0, -0.2545295, -0.025976973)
+
+[node name="Leg_L_001" parent="Armature/Skeleton3D" index="8" unique_id=1780606914]
+transform = Transform3D(0.14307187, 5.960464e-08, -0.98971224, -0.98971224, 5.960464e-08, -0.14307187, 5.960464e-08, 0.99999994, 5.960464e-08, 0.0004452197, -0.0008424203, 1.0869612)
+
+[node name="Icosphere" parent="Armature/Skeleton3D/Leg_L_001" index="0" unique_id=1660898048]
+visible = false
