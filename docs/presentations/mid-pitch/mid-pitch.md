@@ -54,7 +54,7 @@ style: |
         color: var(--background-2);
     }
     code {
-        border-radius: 0.3em;
+        border-radius: 0.6em;
     }
 ---
 <style>
@@ -109,21 +109,21 @@ Explorar técnicas de computação para otimizar e desenvolver simulações fís
 <div style="margin-right: 50px;">
 
 ## <i class="fas fa-person-snowboarding"></i></i>&nbsp;Deslizar
-<img src="assets/sliding_screenshot.png" alt="Sliding screenshot" style="width: 350px; height: auto;">
+<img src="assets/sliding_screenshot.png" alt="Sliding screenshot" style="width: 350px; height: auto; border-radius: 0.6em;">
 
 </div>
 
 <div style="margin-right: 50px;">
 
 ## <i class="fas fa-person-walking-dashed-line-arrow-right"></i>&nbsp;Empurrar
-<img src="assets/pushing_screenshot.png" alt="Pushing screenshot" style="width: 350px; height: auto;">
+<img src="assets/pushing_screenshot.png" alt="Pushing screenshot" style="width: 350px; height: auto; border-radius: 0.6em;">
 
 </div>
 
 <div>
 
 ## <i class="fa-solid fa-person-falling-burst"></i>&nbsp;Atordoar
-<img src="assets/stunning_screenshot.png" alt="Stunning screenshot" style="width: 350px; height: auto;">
+<img src="assets/stunning_screenshot.png" alt="Stunning screenshot" style="width: 350px; height: auto; border-radius: 0.6em;">
 </div>
 
 </div>
@@ -139,21 +139,21 @@ Explorar técnicas de computação para otimizar e desenvolver simulações fís
 <div style="margin-right: 50px;">
 
 ## <i class="fas fa-bug"></i>&nbsp;Besouro
-<img src="assets/bettle_model.png" alt="Bettle model" style="width: 350px; height: auto;">
+<img src="assets/bettle_model.png" alt="Bettle model" style="width: 350px; height: auto; border-radius: 0.6em;">
 
 </div>
 
 <div style="margin-right: 50px;">
 
 ## <i class="fas fa-bugs"></i>&nbsp;Formiga
-<img src="assets/ant_model.png" alt="Ant model" style="width: 350px; height: auto;">
+<img src="assets/ant_model.png" alt="Ant model" style="width: 350px; height: auto; border-radius: 0.6em;">
 
 </div>
 
 <div>
 
 ## <i class="fas fa-bomb"></i>&nbsp;Tatu-Bolinha
-<img src="assets/sow_bug_model.png" alt="Sow bug model" style="width: 350px; height: auto;">
+<img src="assets/sow_bug_model.png" alt="Sow bug model" style="width: 350px; height: auto; border-radius: 0.6em;">
 </div>
 
 </div>
