@@ -31,14 +31,10 @@ render_target_update_mode = 4
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=492502824 instance=ExtResource("2_dw62b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.57871)
 
-[node name="RayCast3D" type="RayCast3D" parent="SubViewportContainer/SubViewport/Player" unique_id=1256875516]
-enabled = false
-target_position = Vector3(0, 0, -5)
-
 [node name="Enemy" parent="SubViewportContainer/SubViewport" unique_id=386571338 instance=ExtResource("3_tki1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 13)
 slide_on_ceiling = false
 floor_max_angle = 1.5009831
 
 [node name="Pillar" parent="SubViewportContainer/SubViewport" unique_id=459556221 instance=ExtResource("4_dw62b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.5, 20)

@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://c218p2xu1wqgf"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ou3o"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8wnn"]
+size = Vector3(1, 2, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_j5k5y"]
+[sub_resource type="BoxMesh" id="BoxMesh_n88ra"]
+size = Vector3(1, 2, 1)
 
 [node name="Pillar" type="RigidBody3D" unique_id=459556221]
 collision_layer = 8
 collision_mask = 15
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+freeze = true
+freeze_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1830261511]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_2ou3o")
+shape = SubResource("BoxShape3D_i8wnn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=624329296]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_j5k5y")
+mesh = SubResource("BoxMesh_n88ra")
