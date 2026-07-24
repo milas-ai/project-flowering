@@ -2,15 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://src/terrain/greybox.tscn" id="1_hv5vy"]
 [ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://src/character/player/player.tscn" id="2_dw62b"]
-[ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="3_e25en"]
-[ext_resource type="PackedScene" uid="uid://box4iqlb7w81q" path="res://assets/models/enemies/ant.glb" id="4_03qyo"]
 [ext_resource type="PackedScene" uid="uid://c218p2xu1wqgf" path="res://src/entities/pushable/test_pillar.tscn" id="4_dw62b"]
-[ext_resource type="Script" uid="uid://c8pbrorm17axe" path="res://src/character/enemies/enemy_components/enemy_animation.gd" id="5_vi5l1"]
-[ext_resource type="Script" uid="uid://rbi8y1vfjbit" path="res://src/character/enemies/enemy_components/enemy_pathfinding.gd" id="6_j5qw1"]
-[ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle.glb" id="7_3ps6s"]
-[ext_resource type="PackedScene" uid="uid://bbnjpqd25p7yn" path="res://assets/models/enemies/sow_bug.glb" id="8_vi5l1"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqupr"]
+[ext_resource type="PackedScene" uid="uid://dfv7t0b64ff47" path="res://src/character/enemies/bettle/bettle.tscn" id="7_vi5l1"]
 
 [node name="Node3D" type="Node3D" unique_id=314279592]
 
@@ -39,77 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11140442, -0.07516813, 0.0
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=492502824 instance=ExtResource("2_dw62b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.57871)
 
-[node name="Ant" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=386571338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 13)
-collision_layer = 4
-collision_mask = 15
-slide_on_ceiling = false
-floor_max_angle = 1.5009831
-script = ExtResource("3_e25en")
-
-[node name="Collision Box" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Ant" unique_id=93842891]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_xqupr")
-
-[node name="CharacterModel" parent="SubViewportContainer/SubViewport/Ant" unique_id=2087244114 instance=ExtResource("4_03qyo")]
-
-[node name="CharacterAnimation" type="Node" parent="SubViewportContainer/SubViewport/Ant/CharacterModel" unique_id=792458285 node_paths=PackedStringArray("enemy", "model")]
-script = ExtResource("5_vi5l1")
-enemy = NodePath("../..")
-model = NodePath("..")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="SubViewportContainer/SubViewport/Ant" unique_id=1663361508]
-
-[node name="Movement" type="Node" parent="SubViewportContainer/SubViewport/Ant" unique_id=1009830174]
-script = ExtResource("6_j5qw1")
-
-[node name="Bettle" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=1365613794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 2, 26)
-collision_layer = 4
-collision_mask = 15
-slide_on_ceiling = false
-floor_max_angle = 1.5009831
-script = ExtResource("3_e25en")
-
-[node name="Collision Box" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Bettle" unique_id=1180325527]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, -0.14893913)
-shape = SubResource("CapsuleShape3D_xqupr")
-
-[node name="CharacterModel" parent="SubViewportContainer/SubViewport/Bettle" unique_id=1878260547 instance=ExtResource("7_3ps6s")]
-
-[node name="CharacterAnimation" type="Node" parent="SubViewportContainer/SubViewport/Bettle/CharacterModel" unique_id=2064523451 node_paths=PackedStringArray("enemy", "model")]
-script = ExtResource("5_vi5l1")
-enemy = NodePath("../..")
-model = NodePath("..")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="SubViewportContainer/SubViewport/Bettle" unique_id=1164565710]
-
-[node name="Movement" type="Node" parent="SubViewportContainer/SubViewport/Bettle" unique_id=2144041792]
-script = ExtResource("6_j5qw1")
-
-[node name="Sow Bug" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=976112960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0063715, 0.9872289, 20.51529)
-collision_layer = 4
-collision_mask = 15
-slide_on_ceiling = false
-floor_max_angle = 1.5009831
-script = ExtResource("3_e25en")
-
-[node name="Collision Box" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Sow Bug" unique_id=1824164525]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, -0.14893913)
-shape = SubResource("CapsuleShape3D_xqupr")
-
-[node name="CharacterModel" parent="SubViewportContainer/SubViewport/Sow Bug" unique_id=1234798498 instance=ExtResource("8_vi5l1")]
-
-[node name="CharacterAnimation" type="Node" parent="SubViewportContainer/SubViewport/Sow Bug/CharacterModel" unique_id=2011951938 node_paths=PackedStringArray("enemy", "model")]
-script = ExtResource("5_vi5l1")
-enemy = NodePath("../..")
-model = NodePath("..")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="SubViewportContainer/SubViewport/Sow Bug" unique_id=1103915683]
-
-[node name="Movement" type="Node" parent="SubViewportContainer/SubViewport/Sow Bug" unique_id=1030810072]
-script = ExtResource("6_j5qw1")
+[node name="Bettle" parent="SubViewportContainer/SubViewport" unique_id=386571338 instance=ExtResource("7_vi5l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0863757, 15.797354)
 
 [node name="Pillar" parent="SubViewportContainer/SubViewport" unique_id=459556221 instance=ExtResource("4_dw62b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.5, 20)
