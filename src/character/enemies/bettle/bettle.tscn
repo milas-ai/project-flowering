@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dfv7t0b64ff47"]
+
+[ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
+[ext_resource type="Script" uid="uid://rbi8y1vfjbit" path="res://src/character/enemies/enemy_components/enemy_pathfinding.gd" id="2_4jqnm"]
+[ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle.glb" id="2_xiojd"]
+[ext_resource type="Script" uid="uid://c8pbrorm17axe" path="res://src/character/enemies/enemy_components/enemy_animation.gd" id="3_nw1ng"]
+[ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="5_tlsr3"]
+[ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/states/state_idle.gd" id="6_y1e6u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
+radius = 0.5209961
+height = 1.9931641
+
+[node name="Enemy" type="CharacterBody3D" unique_id=386571338]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_xqupr")
+
+[node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=93842891]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_nhhn2")
+
+[node name="CharacterModel" parent="." unique_id=1878260547 instance=ExtResource("2_xiojd")]
+
+[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=792458285]
+script = ExtResource("3_nw1ng")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
+
+[node name="Movement" type="Node" parent="." unique_id=1009830174]
+script = ExtResource("2_4jqnm")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1721504690]
+script = ExtResource("5_tlsr3")
+metadata/_custom_type_script = "uid://b5p37pnms07a3"
+
+[node name="StateIdle" type="Node" parent="StateMachine" unique_id=762192209]
+script = ExtResource("6_y1e6u")
+metadata/_custom_type_script = "uid://ddapfr8huqr7e"
