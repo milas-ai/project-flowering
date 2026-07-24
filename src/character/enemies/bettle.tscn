@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
 [ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle.glb" id="2_xiojd"]
-[ext_resource type="Script" uid="uid://c8pbrorm17axe" path="res://src/character/enemies/enemy_components/enemy_animation.gd" id="3_nw1ng"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="5_tlsr3"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="6_y1e6u"]
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="7_85pfm"]
@@ -10,6 +9,12 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
 radius = 0.5209961
 height = 1.9931641
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gn4dx"]
+radius = 20.0
 
 [node name="Bettle" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
@@ -22,10 +27,17 @@ shape = SubResource("CapsuleShape3D_nhhn2")
 
 [node name="CharacterModel" parent="." unique_id=1878260547 instance=ExtResource("2_xiojd")]
 
-[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=792458285]
-script = ExtResource("3_nw1ng")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
+
+[node name="NearSight" type="Area3D" parent="." unique_id=1558613445]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NearSight" unique_id=1684025100]
+shape = SubResource("SphereShape3D_nhhn2")
+
+[node name="FarSight" type="Area3D" parent="." unique_id=628331767]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=389746851]
+shape = SubResource("SphereShape3D_gn4dx")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1721504690 node_paths=PackedStringArray("body")]
 script = ExtResource("5_tlsr3")
@@ -40,3 +52,8 @@ metadata/_custom_type_script = "uid://ddapfr8huqr7e"
 script = ExtResource("7_85pfm")
 desired_distance = 10.0
 metadata/_custom_type_script = "uid://bqqx1nkj1145a"
+
+[connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]
+[connection signal="body_exited" from="NearSight" to="." method="_on_near_sight_body_exited"]
+[connection signal="body_entered" from="FarSight" to="." method="_on_far_sight_body_entered"]
+[connection signal="body_exited" from="FarSight" to="." method="_on_far_sight_body_exited"]

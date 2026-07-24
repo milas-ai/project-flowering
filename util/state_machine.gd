@@ -11,7 +11,7 @@ var states: Dictionary[StringName, State] = {}
 
 
 func _ready() -> void:    
-	set_state.call_deferred(get_child(0).name)
+	transition_to.call_deferred(get_child(0).name)
 	for child in get_children():
 		states[child.name] = child
 
@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		state.update(delta)
 
 
-func set_state(state_name: StringName) -> void:
+func transition_to(state_name: StringName) -> void:
 	previous_state = state
 	state = states[state_name]
 	

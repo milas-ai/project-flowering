@@ -3,15 +3,20 @@ class_name Enemy
 
 @onready var player: Player = $"../Player"
 
-var in_cooldown: bool = false
+var player_on_far_sight: bool = false
+var player_on_near_sight: bool = false
 
 const friction: float = 25
 
 
-func attack_player() -> void:
-	if player.health > 0 and not in_cooldown:
-		print(self.name + " attacks the player!")
-		player.take_damage(10)
-		in_cooldown = true
-		await get_tree().create_timer(2.0).timeout
-		in_cooldown = false
+func _on_far_sight_body_entered(_body: Node3D) -> void:
+	player_on_far_sight = true
+
+func _on_far_sight_body_exited(_body: Node3D) -> void:
+	player_on_far_sight = false
+
+func _on_near_sight_body_entered(_body: Node3D) -> void:
+	player_on_near_sight = true
+
+func _on_near_sight_body_exited(_body: Node3D) -> void:
+	player_on_near_sight = false

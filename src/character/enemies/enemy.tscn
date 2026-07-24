@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d3eanlg84gqfm"]
 
 [ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
-[ext_resource type="Script" uid="uid://rbi8y1vfjbit" path="res://src/character/enemies/enemy_components/enemy_pathfinding.gd" id="2_4jqnm"]
-[ext_resource type="Script" uid="uid://c8pbrorm17axe" path="res://src/character/enemies/enemy_components/enemy_animation.gd" id="3_nw1ng"]
+[ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="3_h4oqn"]
+[ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="4_ay5lc"]
+[ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="5_wtmx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqupr"]
 
@@ -13,12 +14,18 @@ albedo_color = Color(0.8288101, 2.7193873e-06, 5.7756904e-07, 1)
 metallic_specular = 0.0
 roughness = 0.5
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_h4oqn"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ay5lc"]
+radius = 20.0
+
 [node name="Enemy" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_xqupr")
 
-[node name="Collision Box" type="CollisionShape3D" parent="." unique_id=93842891]
+[node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=93842891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_xqupr")
 
@@ -27,12 +34,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_nhhn2")
 surface_material_override/0 = SubResource("StandardMaterial3D_gn4dx")
 
-[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=792458285 node_paths=PackedStringArray("enemy", "model")]
-script = ExtResource("3_nw1ng")
-enemy = NodePath("../..")
-model = NodePath("..")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
 
-[node name="Movement" type="Node" parent="." unique_id=1009830174]
-script = ExtResource("2_4jqnm")
+[node name="NearSight" type="Area3D" parent="." unique_id=235301322]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NearSight" unique_id=369910475]
+shape = SubResource("SphereShape3D_h4oqn")
+
+[node name="FarSight" type="Area3D" parent="." unique_id=8674721]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=1959011326]
+shape = SubResource("SphereShape3D_ay5lc")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1624807455 node_paths=PackedStringArray("body")]
+script = ExtResource("3_h4oqn")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://b5p37pnms07a3"
+
+[node name="StateIdle" type="Node" parent="StateMachine" unique_id=783951458]
+script = ExtResource("4_ay5lc")
+metadata/_custom_type_script = "uid://ddapfr8huqr7e"
+
+[node name="StateChase" type="Node" parent="StateMachine" unique_id=841656271]
+script = ExtResource("5_wtmx6")
+metadata/_custom_type_script = "uid://bqqx1nkj1145a"
+
+[connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]
+[connection signal="body_exited" from="NearSight" to="." method="_on_near_sight_body_exited"]
+[connection signal="body_entered" from="FarSight" to="." method="_on_far_sight_body_entered"]
+[connection signal="body_exited" from="FarSight" to="." method="_on_far_sight_body_exited"]

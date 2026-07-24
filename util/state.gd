@@ -8,19 +8,19 @@ class_name State
 var elapsed_time: float = 0.0
 
 func enter() -> void:
-    elapsed_time = 0
-    _enter()
+	elapsed_time = 0
+	_enter()
 
 func update(delta: float) -> void:
-    elapsed_time += delta
-    _update(delta)
+	elapsed_time += delta
+	_update(delta)
 
 
 func _enter() -> void:
-    return
+	return
 
 func _exit() -> void:
-    return
+	return
 
 func _update(_delta: float) -> void:
-    pass
+	pass
