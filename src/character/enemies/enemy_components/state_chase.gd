@@ -1,8 +1,6 @@
 extends State
-
 class_name StateChase
 
-@onready var player: Player = $"../../../Player"
 @onready var navigation_agent: NavigationAgent3D = $"../../NavigationAgent3D"
 
 @export var desired_distance: float = 1.5
@@ -20,14 +18,16 @@ func _update(_delta: float) -> void:
 		state_machine.transition_to("StateIdle")
 		return
 
-	navigation_agent.target_position = player.global_transform.origin
-	if not navigation_agent.is_navigation_finished():
-		body.horizontal_direction = navigation_agent.get_next_path_position() - body.global_transform.origin
-		body.horizontal_direction.y = 0
-		body.horizontal_velocity = body.horizontal_direction.normalized() * body.BASE_SPEED
-		body.look_at(body.global_transform.origin + body.horizontal_direction, Vector3.UP)
-	else:
+	navigation_agent.target_position = body.player.global_transform.origin
+	if navigation_agent.is_navigation_finished() or body.player_on_near_sight:
 		body.horizontal_velocity = Math.lerpfd(body.horizontal_velocity, Vector3.ZERO, body.friction, _delta)
+		state_machine.transition_to("StateAttack")
+		return
+
+	body.horizontal_direction = navigation_agent.get_next_path_position() - body.global_transform.origin
+	body.horizontal_direction.y = 0
+	body.horizontal_velocity = body.horizontal_direction.normalized() * body.BASE_SPEED
+	body.look_at(body.global_transform.origin + body.horizontal_direction, Vector3.UP)
 
 func _exit() -> void:
 	body.horizontal_direction = Vector3.ZERO

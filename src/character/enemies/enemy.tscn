@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="3_h4oqn"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="4_ay5lc"]
+[ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="5_h4oqn"]
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="5_wtmx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqupr"]
@@ -58,6 +59,10 @@ metadata/_custom_type_script = "uid://ddapfr8huqr7e"
 [node name="StateChase" type="Node" parent="StateMachine" unique_id=841656271]
 script = ExtResource("5_wtmx6")
 metadata/_custom_type_script = "uid://bqqx1nkj1145a"
+
+[node name="StateAttack" type="Node" parent="StateMachine" unique_id=702060198]
+script = ExtResource("5_h4oqn")
+metadata/_custom_type_script = "uid://bq43g2jkss01y"
 
 [connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]
 [connection signal="body_exited" from="NearSight" to="." method="_on_near_sight_body_exited"]

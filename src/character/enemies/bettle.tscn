@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dfv7t0b64ff47"]
 
-[ext_resource type="Script" uid="uid://ddvnqg651ehh6" path="res://src/character/enemies/enemy.gd" id="1_xqupr"]
+[ext_resource type="Script" uid="uid://b2pxyfofy27o" path="res://src/character/enemies/bettle.gd" id="1_en1k1"]
 [ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle.glb" id="2_xiojd"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="5_tlsr3"]
+[ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="6_en1k1"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="6_y1e6u"]
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="7_85pfm"]
 
@@ -19,7 +20,7 @@ radius = 20.0
 [node name="Bettle" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
 collision_mask = 15
-script = ExtResource("1_xqupr")
+script = ExtResource("1_en1k1")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=93842891]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
@@ -52,6 +53,11 @@ metadata/_custom_type_script = "uid://ddapfr8huqr7e"
 script = ExtResource("7_85pfm")
 desired_distance = 10.0
 metadata/_custom_type_script = "uid://bqqx1nkj1145a"
+
+[node name="StateAttack" type="Node" parent="StateMachine" unique_id=236801677]
+script = ExtResource("6_en1k1")
+attack_cooldown = 0.25
+metadata/_custom_type_script = "uid://bq43g2jkss01y"
 
 [connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]
 [connection signal="body_exited" from="NearSight" to="." method="_on_near_sight_body_exited"]
