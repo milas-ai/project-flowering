@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dvfpc7xbno2al"]
+
+[ext_resource type="Script" uid="uid://cuhndknefoxx" path="res://src/entities/bullet.gd" id="1_knkie"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5wuxl"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn4dx"]
+albedo_color = Color(0.5647059, 1, 0.39215687, 1)
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.39215687, 0.83137256, 0.08627451, 1)
+emission_energy_multiplier = 6.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_nhhn2"]
+material = SubResource("StandardMaterial3D_gn4dx")
+radius = 0.25
+height = 0.5
+
+[node name="Bullet" type="RigidBody3D" unique_id=2140828705]
+collision_layer = 0
+collision_mask = 15
+script = ExtResource("1_knkie")
+
+[node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=310932003]
+shape = SubResource("SphereShape3D_5wuxl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=983413654]
+mesh = SubResource("SphereMesh_nhhn2")
