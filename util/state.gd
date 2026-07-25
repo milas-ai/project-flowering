@@ -1,5 +1,4 @@
 extends Node
-
 class_name State
 
 @onready var state_machine: StateMachine = get_parent()
