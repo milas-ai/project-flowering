@@ -58,6 +58,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_rfelt")
 [node name="Input" type="Node" parent="." unique_id=1950561987]
 script = ExtResource("2_8eijk")
 
+[node name="CameraRotationCooldown" type="Timer" parent="Input" unique_id=1248911479]
+wait_time = 0.3
+one_shot = true
+
 [node name="Movement" type="Node" parent="." unique_id=899911534]
 
 [node name="Walk" type="Node" parent="Movement" unique_id=724996064]
