@@ -75,6 +75,10 @@ wait_time = 0.05
 [node name="Slide" type="Node" parent="Movement" unique_id=1310771986]
 script = ExtResource("8_rfelt")
 
+[node name="SlideCooldown" type="Timer" parent="Movement/Slide" unique_id=1682295749]
+wait_time = 0.1
+one_shot = true
+
 [node name="Action" type="Node" parent="." unique_id=404422700]
 
 [node name="Push" type="Node" parent="Action" unique_id=1823654466]
