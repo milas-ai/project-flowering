@@ -2,9 +2,9 @@ extends Node
 class_name PlayerSlide
 
 
-const BASE_SLIDE_SPEED: float = 10.0
+const BASE_SLIDE_SPEED: float = 8.0
 const MAX_SLIDE_SPEED: float = 100.0
-const SLOPE_ACCELERATION: float = 50.0
+const SLOPE_ACCELERATION: float = 20.0
 const STEER_INFLUENCE: float = 1.0
 
 @onready var player_input: PlayerInput = $"../../Input"
