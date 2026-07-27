@@ -12,11 +12,15 @@ const TURNING_SPEED: float = 7
 
 
 func _physics_process(delta: float) -> void:
-	player.speed = calculate_speed()
-	player.horizontal_direction = calculate_direction(delta)
+	# Velocity's components reflected back for collisions
+	player.horizontal_velocity = player.velocity * Vector3(1,0,1)
+	player.vertical_velocity = player.velocity * Vector3(0,1,0)
+	
 	if player_input.sliding and player_slide.is_sliding:
 		return
-
+	
+	player.speed = calculate_speed()
+	player.horizontal_direction = calculate_direction(delta)
 	walk(delta)
 
 
