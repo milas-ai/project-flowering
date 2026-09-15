@@ -11,7 +11,8 @@ func _ready() -> void:
 	navigation_agent.target_desired_distance = desired_distance
 
 func _enter() -> void:
-	print("Entering StateChase")
+	# print("Entering StateChase")
+	pass
 
 func _update(_delta: float) -> void:
 	if not body.player_on_far_sight:

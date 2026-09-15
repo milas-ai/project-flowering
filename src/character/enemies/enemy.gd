@@ -3,6 +3,7 @@ class_name Enemy
 
 @onready var player: Player = $"../Player"
 
+@export var steady: bool = false
 @export var attack_cooldown: float = 2.0
 @export var near_sight_radius: float = 10.0
 @export var far_sight_radius: float = 20.0

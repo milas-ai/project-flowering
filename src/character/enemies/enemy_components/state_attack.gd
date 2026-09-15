@@ -5,11 +5,12 @@ var on_cooldown: bool = false
 
 
 func _enter() -> void:
-	print("Entering StateAttack")
+	# print("Entering StateAttack")
+	pass
 
 func _update(_delta: float) -> void:
 	if not body.player_on_near_sight:
-		state_machine.transition_to("StateChase")
+			state_machine.transition_to("StateChase" if not body.steady else "StateIdle")
 
 	if not on_cooldown:
 		on_cooldown = true
