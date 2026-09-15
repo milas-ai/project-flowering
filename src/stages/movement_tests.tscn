@@ -55,7 +55,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.5, 20)
 
 [node name="Bettle" parent="SubViewportContainer/SubViewport" unique_id=386571338 instance=ExtResource("7_vi5l1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7259445, 3.0863757, 5.7060184)
-attack_cooldown = 1.0
 
 [node name="Bettle2" type="CharacterBody3D" parent="SubViewportContainer/SubViewport" unique_id=1208107584]
 transform = Transform3D(-0.007955869, 0, -0.99996835, 0, 1, 0, 0.99996835, 0, -0.007955869, -16.196348, 8.772711, -20.435152)
@@ -64,7 +63,7 @@ collision_mask = 15
 script = ExtResource("6_3ps6s")
 bullet_speed = 50.0
 steady = true
-attack_cooldown = 0.5
+attack_cooldown = 0.0
 near_sight_radius = 30.0
 far_sight_radius = 40.0
 

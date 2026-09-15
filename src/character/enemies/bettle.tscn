@@ -56,7 +56,6 @@ metadata/_custom_type_script = "uid://bqqx1nkj1145a"
 
 [node name="StateAttack" type="Node" parent="StateMachine" unique_id=236801677]
 script = ExtResource("6_en1k1")
-attack_cooldown = 0.25
 metadata/_custom_type_script = "uid://bq43g2jkss01y"
 
 [connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]

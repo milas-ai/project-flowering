@@ -2,6 +2,7 @@ extends Character
 class_name Enemy
 
 @onready var player: Player = $"../Player"
+@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 
 @export var steady: bool = false
 @export var attack_cooldown: float = 2.0
