@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbjrism10unqj"
-path.s3tc="res://.godot/imported/bettle_texture.png-a1b25844dc3881a49771c814e1d12a63.s3tc.ctex"
+uid="uid://bmif2p65073rb"
+path.s3tc="res://.godot/imported/bettle_0.png-e8c6c0f77b2437c6ff2f9a1d6f95a6cd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ec7d29fe5e0d86a10e8f5709a9e828b5"
+"md5": "93562d3f2bd3dd766f30768dcfbd6134"
 }
 
 [deps]
 
-source_file="res://assets/models/enemies/bettle_texture.png"
-dest_files=["res://.godot/imported/bettle_texture.png-a1b25844dc3881a49771c814e1d12a63.s3tc.ctex"]
+source_file="res://assets/models/enemies/bettle_0.png"
+dest_files=["res://.godot/imported/bettle_0.png-e8c6c0f77b2437c6ff2f9a1d6f95a6cd.s3tc.ctex"]
 
 [params]
 

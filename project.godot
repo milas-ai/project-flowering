@@ -15,6 +15,10 @@ run/main_scene="uid://dayem3vrpenok"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/mx_creative_console/plugin.cfg")
+
 [input]
 
 slide={

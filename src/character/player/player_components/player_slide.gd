@@ -14,7 +14,6 @@ var is_sliding: bool = false
 
 func _physics_process(delta: float) -> void:
 	var floor_normal = player.get_floor_normal()
-	print(floor_normal)
 	var is_on_slope = player.is_on_floor() and floor_normal.y < 0.98
 
 	if player_input.sliding and not is_sliding and is_on_slope:
