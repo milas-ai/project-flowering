@@ -1,7 +1,9 @@
 extends State
 class_name StateChase
 
+
 @onready var navigation_agent: NavigationAgent3D = $"../../NavigationAgent3D"
+@onready var speed = body.SPEED if body.has_meta("SPEED") else body.BASE_SPEED
 
 @export var desired_distance: float = 1.5
 
@@ -27,7 +29,7 @@ func _update(_delta: float) -> void:
 
 	body.horizontal_direction = navigation_agent.get_next_path_position() - body.global_transform.origin
 	body.horizontal_direction.y = 0
-	body.horizontal_velocity = body.horizontal_direction.normalized() * body.BASE_SPEED
+	body.horizontal_velocity = body.horizontal_direction.normalized() * speed
 	body.look_at(body.global_transform.origin + body.horizontal_direction, Vector3.UP)
 
 func _exit() -> void:
