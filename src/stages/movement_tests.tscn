@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="10_rctui"]
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="11_l46eb"]
 [ext_resource type="PackedScene" uid="uid://c88yr21yjr2wk" path="res://src/character/enemies/ant.tscn" id="12_vx00b"]
+[ext_resource type="Script" uid="uid://dsnxua1wnc762" path="res://src/gui/health_container.gd" id="13_1yhe4"]
+[ext_resource type="Texture2D" uid="uid://b45icowieixqj" path="res://assets/gui/heart.png" id="13_mx0sn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
 radius = 0.5209961
@@ -31,10 +33,8 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = -12.0
-offset_right = 13.0
-offset_bottom = -12.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
@@ -107,6 +107,33 @@ metadata/_custom_type_script = "uid://bq43g2jkss01y"
 [node name="Ant" parent="SubViewportContainer/SubViewport" unique_id=405256635 instance=ExtResource("12_vx00b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1168, 0.42482376, -1.6193924)
 
+[node name="HealthContainer" type="HBoxContainer" parent="." unique_id=513303760]
+texture_filter = 1
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 221.0
+offset_bottom = 75.0
+script = ExtResource("13_1yhe4")
+
+[node name="TextureRect" type="TextureRect" parent="HealthContainer" unique_id=1270336152]
+layout_mode = 2
+texture = ExtResource("13_mx0sn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="HealthContainer" unique_id=1206689326]
+layout_mode = 2
+texture = ExtResource("13_mx0sn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="HealthContainer" unique_id=1587811111]
+layout_mode = 2
+texture = ExtResource("13_mx0sn")
+expand_mode = 2
+stretch_mode = 4
+
+[connection signal="update_health" from="SubViewportContainer/SubViewport/Player" to="HealthContainer" method="_on_player_update_health"]
 [connection signal="shoot" from="SubViewportContainer/SubViewport/Bettle" to="." method="_on_bettle_shoot"]
 [connection signal="shoot" from="SubViewportContainer/SubViewport/Bettle2" to="." method="_on_bettle_shoot"]
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/Bettle2/NearSight" to="SubViewportContainer/SubViewport/Bettle2" method="_on_near_sight_body_entered"]
