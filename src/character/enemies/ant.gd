@@ -10,5 +10,5 @@ func attack_player() -> void:
   animation_player.stop()
   animation_player.clear_queue()
   animation_player.play("attack")
-  get_tree().create_timer(0.67).timeout.connect(func(): if player_on_near_sight: player.take_damage(100))
+  get_tree().create_timer(0.67).timeout.connect(func(): if player_on_near_sight: player.take_damage(3))
   animation_player.queue("idle")

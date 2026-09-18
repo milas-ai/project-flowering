@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 
-const DAMAGE: int = 10
+const DAMAGE: int = 1
 
 var velocity: Vector3 = Vector3.RIGHT
 var speed: float = 1.0
