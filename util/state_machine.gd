@@ -1,11 +1,12 @@
 extends Node
 class_name StateMachine
 
+
+@export var body: Node
+
 var state: State = null
 var previous_state: State = null
 var states: Dictionary[StringName, State] = {}
-
-@export var body: Node
 
 
 func _ready() -> void:    
@@ -13,11 +14,9 @@ func _ready() -> void:
 	for child in get_children():
 		states[child.name] = child
 
-
 func _physics_process(delta: float) -> void:
 	if state != null:
 		state.update(delta)
-
 
 func transition_to(state_name: StringName) -> void:
 	previous_state = state

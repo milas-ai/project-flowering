@@ -6,12 +6,12 @@ signal jump_pressed
 signal push_pressed
 signal stun_pressed
 
+@onready var _camera_pivot: Node3D = $"../CameraPivot"
+
 var h_input_dir = Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
 var camera_rotation: float = deg_to_rad(45)
-
-@onready var _camera_pivot: Node3D = $"../CameraPivot"
 
 
 func _process(_delta: float) -> void:
@@ -28,7 +28,6 @@ func _process(_delta: float) -> void:
 					camera_rotation += deg_to_rad(90)
 	else:
 			_camera_pivot.rotation.y = lerp_angle(_camera_pivot.rotation.y, camera_rotation, 0.1)
-
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:

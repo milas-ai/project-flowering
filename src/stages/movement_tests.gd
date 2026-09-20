@@ -1,5 +1,6 @@
 extends Node3D
 
+
 func _on_bettle_shoot(Bullet, direction, location, speed) -> void:
 	var spawned_bullet = Bullet.instantiate()
 	add_child(spawned_bullet)

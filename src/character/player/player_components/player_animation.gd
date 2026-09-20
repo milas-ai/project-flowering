@@ -1,5 +1,6 @@
 extends Node
 
+
 @export var player: Player
 @export var model: Node3D
 @export var slide_component: Node
@@ -8,12 +9,11 @@ extends Node
 
 var is_stunning: bool = false
 
+
 func _on_player_input_stun_pressed():
 	is_stunning = true
 	await get_tree().create_timer(0.8).timeout
 	is_stunning = false
-	
-
 
 func _process(_delta: float) -> void:
 	if player.horizontal_direction.length() > 0.1:

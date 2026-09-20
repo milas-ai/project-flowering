@@ -2,10 +2,10 @@ extends State
 class_name StateChase
 
 
+@export var desired_distance: float = 1.5
+
 @onready var navigation_agent: NavigationAgent3D = $"../../NavigationAgent3D"
 @onready var speed = body.SPEED if body.has_meta("SPEED") else body.BASE_SPEED
-
-@export var desired_distance: float = 1.5
 
 
 func _ready() -> void:
@@ -23,7 +23,7 @@ func _update(_delta: float) -> void:
 
 	navigation_agent.target_position = body.player.global_transform.origin
 	if navigation_agent.is_navigation_finished() or body.player_on_near_sight:
-		body.horizontal_velocity = Math.lerpfd(body.horizontal_velocity, Vector3.ZERO, body.friction, _delta)
+		body.horizontal_velocity = Math.lerpfd(body.horizontal_velocity, Vector3.ZERO, body.FRICTION, _delta)
 		state_machine.transition_to("StateAttack")
 		return
 
