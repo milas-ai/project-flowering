@@ -48,7 +48,6 @@ func _physics_process(delta: float) -> void:
 
 		player.horizontal_velocity = final_slide_dir * current_speed
 
-
 func start_slide() -> void:
 	is_sliding = true
 	var floor_normal = player.get_floor_normal()
@@ -57,7 +56,6 @@ func start_slide() -> void:
 	var starting_speed = max(player.horizontal_velocity.length(), BASE_SLIDE_SPEED)
 	
 	player.horizontal_velocity = downhill_dir * starting_speed
-
 
 func stop_slide() -> void:
 	is_sliding = false

@@ -16,7 +16,6 @@ func update(delta: float) -> void:
 	elapsed_time += delta
 	_update(delta)
 
-
 func _enter() -> void:
 	return
 

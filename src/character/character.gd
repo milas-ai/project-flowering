@@ -16,17 +16,14 @@ var health: int
 func _ready() -> void:
 	health = BASE_HEALTH
 
-
 func _physics_process(delta: float) -> void:
 	fall(delta)
 	velocity = horizontal_velocity + vertical_velocity
 	move_and_slide()
 
-
 func fall(delta: float) -> void:
 	if not is_on_floor():
 		vertical_velocity += get_gravity() * delta
-
 
 func take_damage(amount: int) -> void:
 	health -= amount

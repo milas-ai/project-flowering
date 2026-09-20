@@ -14,11 +14,9 @@ func _ready() -> void:
 	for child in get_children():
 		states[child.name] = child
 
-
 func _physics_process(delta: float) -> void:
 	if state != null:
 		state.update(delta)
-
 
 func transition_to(state_name: StringName) -> void:
 	previous_state = state

@@ -16,12 +16,10 @@ func _on_player_input_jump_pressed() -> void:
 	jump_buffer = true
 	jump_buff_timer.start()
 
-
 func _physics_process(_delta: float) -> void:
 	update_coyote()
 	if jump_buffer and coyote_time:
 		jump(player.JUMP_VELOCITY)
-
 
 func jump(impulse: float) -> void:
 	player.vertical_velocity.y = impulse
@@ -29,7 +27,6 @@ func jump(impulse: float) -> void:
 
 	if player_slide.is_sliding:
 		player_slide.stop_slide()
-
 
 func update_coyote() -> void:
 	if player.is_on_floor():
@@ -39,7 +36,6 @@ func update_coyote() -> void:
 		if was_on_floor:
 			coyote_timer.start()
 		was_on_floor = false
-
 
 func _on_jump_buffer_timeout() -> void:
 	jump_buffer = false

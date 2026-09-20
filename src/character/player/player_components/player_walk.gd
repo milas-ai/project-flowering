@@ -20,17 +20,14 @@ func _physics_process(delta: float) -> void:
 
 	walk(delta)
 
-
 func calculate_speed() -> float:
 	speed_multiplier = 1 + int(player_input.running)
 	return player.BASE_SPEED * speed_multiplier
-
 
 func calculate_direction(delta: float) -> Vector3:
 	var direction: Vector3 = (player.transform.basis * Vector3(player_input.h_input_dir.x,0,player_input.h_input_dir.y)).normalized()
 	target_direction = Math.lerpfd(target_direction, direction, TURNING_SPEED, delta)
 	return target_direction * Vector3(1,0,1)
-
 
 func walk(delta: float) -> void:
 	if player.horizontal_direction:
