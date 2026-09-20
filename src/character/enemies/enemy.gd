@@ -2,18 +2,18 @@ extends Character
 class_name Enemy
 
 
-@onready var player: Player = $"../Player"
-@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
+const friction: float = 25
 
 @export var steady: bool = false
 @export var attack_cooldown: float = 2.0
 @export var near_sight_radius: float = 10.0
 @export var far_sight_radius: float = 20.0
 
+@onready var player: Player = $"../Player"
+@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
+
 var player_on_far_sight: bool = false
 var player_on_near_sight: bool = false
-
-const friction: float = 25
 
 
 func _ready() -> void:

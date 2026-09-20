@@ -2,10 +2,11 @@ extends Node
 class_name PlayerPush
 
 
+@export var push_force = 10.0
+
 @onready var player: Player = $"../.."
 @onready var player_input: PlayerInput = $"../../Input"
 @onready var ray_cast = $"../../CharacterModel/RayCast3D"
-@export var push_force = 10.0
 
 var is_pushing: bool = false
 

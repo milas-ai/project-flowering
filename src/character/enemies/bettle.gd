@@ -4,9 +4,9 @@ class_name Bettle
 
 signal shoot(bullet, direction, location, speed)
 
-var Bullet = preload("res://src/entities/bullet.tscn")
-
 @export var bullet_speed: float = 10.0
+
+var Bullet = preload("res://src/entities/bullet.tscn")
 
 
 func attack_player() -> void:

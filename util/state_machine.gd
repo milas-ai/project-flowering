@@ -2,11 +2,11 @@ extends Node
 class_name StateMachine
 
 
+@export var body: Node
+
 var state: State = null
 var previous_state: State = null
 var states: Dictionary[StringName, State] = {}
-
-@export var body: Node
 
 
 func _ready() -> void:    

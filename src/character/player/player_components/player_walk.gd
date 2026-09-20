@@ -2,14 +2,14 @@ extends Node
 class_name PlayerWalk
 
 
+const TURNING_SPEED: float = 7
+
 @onready var player_input: PlayerInput = $"../../Input"
 @onready var player: Player = $"../.."
 @onready var player_slide: PlayerSlide = $"../Slide"
 
 var speed_multiplier: float = 1
 var target_direction: Vector3 = Vector3.ZERO
-
-const TURNING_SPEED: float = 7
 
 
 func _physics_process(delta: float) -> void:

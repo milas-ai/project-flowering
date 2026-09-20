@@ -4,11 +4,11 @@ class_name PlayerJump
 
 @onready var player: Player = $"../.."
 @onready var player_slide: PlayerSlide = $"../Slide"
+@onready var jump_buff_timer: Timer = $JumpBuffer
+@onready var coyote_timer: Timer = $CoyoteTime
 
 var was_on_floor: bool = false
-@onready var jump_buff_timer: Timer = $JumpBuffer
 var jump_buffer: bool = false
-@onready var coyote_timer: Timer = $CoyoteTime
 var coyote_time: bool = false
 
 

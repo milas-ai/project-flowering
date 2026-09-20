@@ -2,13 +2,13 @@ extends Node
 class_name PlayerSlide
 
 
-@onready var player_input: PlayerInput = $"../../Input"
-@onready var player: Player = $"../.."
-
 const BASE_SLIDE_SPEED: float = 10.0
 const MAX_SLIDE_SPEED: float = 100.0
 const SLOPE_ACCELERATION: float = 50.0
 const STEER_INFLUENCE: float = 1.0
+
+@onready var player_input: PlayerInput = $"../../Input"
+@onready var player: Player = $"../.."
 
 var is_sliding: bool = false
 

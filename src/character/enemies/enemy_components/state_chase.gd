@@ -2,10 +2,10 @@ extends State
 class_name StateChase
 
 
+@export var desired_distance: float = 1.5
+
 @onready var navigation_agent: NavigationAgent3D = $"../../NavigationAgent3D"
 @onready var speed = body.SPEED if body.has_meta("SPEED") else body.BASE_SPEED
-
-@export var desired_distance: float = 1.5
 
 
 func _ready() -> void:
