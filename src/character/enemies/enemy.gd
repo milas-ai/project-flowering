@@ -2,7 +2,7 @@ extends Character
 class_name Enemy
 
 
-const friction: float = 25
+const FRICTION: float = 25
 
 @export var steady: bool = false
 @export var attack_cooldown: float = 2.0

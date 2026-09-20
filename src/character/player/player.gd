@@ -2,8 +2,8 @@ extends Character
 class_name Player
 
 
-const friction: float = 10
-const slide_friction: float = 1.0
+const FRICTION: float = 10
+const SLIDE_FRICTION: float = 1.0
 
 signal update_health(health)
 

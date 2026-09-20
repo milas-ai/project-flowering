@@ -33,8 +33,8 @@ func walk(delta: float) -> void:
 	if player.horizontal_direction:
 		player.speed = calculate_speed()
 		if player.horizontal_velocity.length() > 2 * player.speed:
-			player.horizontal_velocity = player.horizontal_velocity.lerp(player.horizontal_direction * player.speed, player.slide_friction * delta)
+			player.horizontal_velocity = player.horizontal_velocity.lerp(player.horizontal_direction * player.speed, player.SLIDE_FRICTION * delta)
 		else:
 			player.horizontal_velocity = player.horizontal_direction * player.speed
 	else:
-		player.horizontal_velocity = player.horizontal_velocity.lerp(Vector3.ZERO, player.friction * delta)
+		player.horizontal_velocity = player.horizontal_velocity.lerp(Vector3.ZERO, player.FRICTION * delta)
