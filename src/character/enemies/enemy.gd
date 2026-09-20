@@ -1,6 +1,7 @@
 extends Character
 class_name Enemy
 
+
 @onready var player: Player = $"../Player"
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 

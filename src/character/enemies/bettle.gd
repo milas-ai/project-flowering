@@ -1,6 +1,7 @@
 extends Enemy
 class_name Bettle
 
+
 signal shoot(bullet, direction, location, speed)
 
 var Bullet = preload("res://src/entities/bullet.tscn")

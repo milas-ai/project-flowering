@@ -1,5 +1,6 @@
 extends Node
 
+
 @export var player: Player
 @export var model: Node3D
 @export var slide_component: Node
@@ -7,6 +8,7 @@ extends Node
 @onready var player_push: PlayerPush = $"../../Action/Push"
 
 var is_stunning: bool = false
+
 
 func _on_player_input_stun_pressed():
 	is_stunning = true

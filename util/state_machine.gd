@@ -1,6 +1,7 @@
 extends Node
 class_name StateMachine
 
+
 var state: State = null
 var previous_state: State = null
 var states: Dictionary[StringName, State] = {}

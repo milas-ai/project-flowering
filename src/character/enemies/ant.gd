@@ -4,6 +4,7 @@ class_name Ant
 
 const SPEED: float = 7
 
+
 func attack_player() -> void:
   look_at(player.global_transform.origin, Vector3.UP)
   rotation.x = 0

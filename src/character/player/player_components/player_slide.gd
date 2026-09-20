@@ -1,6 +1,7 @@
 extends Node
 class_name PlayerSlide
 
+
 @onready var player_input: PlayerInput = $"../../Input"
 @onready var player: Player = $"../.."
 

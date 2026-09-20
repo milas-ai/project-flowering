@@ -1,6 +1,7 @@
 extends State
 class_name StateIdle
 
+
 func _enter() -> void:
 	if body.animation_player.get_assigned_animation() != "idle":
 		body.animation_player.play("idle")
