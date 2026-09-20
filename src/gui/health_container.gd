@@ -10,7 +10,7 @@ const MAX_HEALTH = 6
 
 
 func _ready() -> void:
-	for i in range(MAX_HEALTH/2 + MAX_HEALTH%2):
+	for i in range(int(float(MAX_HEALTH) / 2) + MAX_HEALTH%2):
 		var texture_rect = TextureRect.new()
 		texture_rect.texture = full_heart_texture
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -19,7 +19,7 @@ func _ready() -> void:
 		hearts.append(texture_rect)
 
 func _on_player_update_health(health) -> void:
-	for i in range(MAX_HEALTH/2 + MAX_HEALTH%2):
+	for i in range(int(float(MAX_HEALTH) / 2) + MAX_HEALTH%2):
 		if health >= (i*2+1)+1:
 			hearts[i].texture = full_heart_texture
 		elif health >= i*2+1:
