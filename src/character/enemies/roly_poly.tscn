@@ -21,6 +21,7 @@ radius = 20.0
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_0ok0v")
+attack_cooldown = 100.0
 near_sight_radius = 20.0
 far_sight_radius = 30.0
 
