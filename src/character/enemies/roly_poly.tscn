@@ -33,6 +33,11 @@ shape = SubResource("CapsuleShape3D_xqupr")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
 
+[node name="ExplosionArea" type="Area3D" parent="." unique_id=687035384]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionArea" unique_id=202786756]
+shape = SubResource("SphereShape3D_h4oqn")
+
 [node name="NearSight" type="Area3D" parent="." unique_id=235301322]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NearSight" unique_id=369910475]
