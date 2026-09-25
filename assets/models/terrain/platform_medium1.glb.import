@@ -42,12 +42,12 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "Material.002": {
-"use_external/enabled": false,
+"use_external/enabled": true,
 "use_external/fallback_path": "res://src/materials/grass.tres",
 "use_external/path": "uid://c37fynk4pxceo"
 },
 "Material.003": {
-"use_external/enabled": false,
+"use_external/enabled": true,
 "use_external/fallback_path": "res://src/materials/mountain_wall.tres",
 "use_external/path": "uid://m5bgbwlnfin3"
 }

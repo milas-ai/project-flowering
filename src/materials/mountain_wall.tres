@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://m5bgbwlnfin3"]
+
+[ext_resource type="Shader" uid="uid://tyfinw2yncub" path="res://src/materials/mountain_wall.gdshader" id="1_fqo1v"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fqo1v")
+shader_parameter/base_color = Color(0.33659342, 0.3682764, 0.3899176, 1)
+shader_parameter/light_strength = 0.25
+shader_parameter/step_blur = 0.015
+shader_parameter/cutoff_light = 0.2
+shader_parameter/weight_light = 0.3
+shader_parameter/cutoff_penumbra = 0.1
+shader_parameter/weight_penumbra = 0.15

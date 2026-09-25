@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c37fynk4pxceo"]
+
+[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/materials/grass.gdshader" id="1_pdvrj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pdvrj")
+shader_parameter/base_color = Color(0.398157, 0.44917053, 0.2344754, 1)
+shader_parameter/light_strength = 0.1430000067925
+shader_parameter/step_blur = 0.038000001805
+shader_parameter/cutoff_light = 0.23600001121
+shader_parameter/weight_light = 0.1690000080275
+shader_parameter/cutoff_penumbra = 0.06400000304
+shader_parameter/weight_penumbra = 0.26000001235
