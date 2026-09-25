@@ -1,6 +1,9 @@
 shader_type spatial;
 
+group_uniforms Albedo;
 uniform vec3 base_color: source_color;
+
+group_uniforms Lighting;
 uniform float light_strength: hint_range(0.0, 1.0) = .25;
 uniform float step_blur: hint_range(0.0, 0.1) = .015;
 uniform float cutoff_light: hint_range(0.0, 1.0) = .2;
