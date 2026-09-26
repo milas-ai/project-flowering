@@ -28,7 +28,4 @@ func _on_player_input_push_pressed():
 			var hit_point = ray_cast.get_collision_point() - hit_object.global_position
 			hit_object.apply_impulse(push_direction * push_force, hit_point)
 
-
-	await get_tree().create_timer(0.46).timeout
-	is_pushing = false
-	ray_cast.enabled = false
+	get_tree().create_timer(0.46).timeout.connect(func(): is_pushing = false; ray_cast.enabled = false)
