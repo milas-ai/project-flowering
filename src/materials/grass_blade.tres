@@ -4,13 +4,15 @@
 code = "// NOTE: Shader automatically converted from Godot Engine 4.7.stable's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+render_mode blend_mix, cull_disabled, diffuse_burley, specular_schlick_ggx, world_vertex_coords;
 
-uniform vec4 albedo : source_color;
-uniform float roughness : hint_range(0.0, 1.0);
-uniform float specular : hint_range(0.0, 1.0, 0.01);
-
-uniform sampler2D noise_texture;
+group_uniforms Grass;
+uniform sampler2D albedo_noise_texture;
+uniform sampler2D alpha_texture;
+uniform float roughness: hint_range(0.0, 1.0);
+uniform float specular: hint_range(0.0, 1.0, 0.01);
+uniform float transparency_mask_radius: hint_range(0.0, 30.0);
+uniform float transparency_exponent: hint_range(0.0, 10.0);
 
 group_uniforms Lighting;
 uniform float light_strength: hint_range(0.0, 1.0) = .25;
@@ -20,20 +22,22 @@ uniform float weight_light: hint_range(0.0, 1.0) = .3;
 uniform float cutoff_penumbra: hint_range(0.0, 1.0) = .1;
 uniform float weight_penumbra: hint_range(0.0, 1.0) = .15;	
 
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
-}
+global uniform vec3 player_position;
 
 void fragment() {
 	vec2 base_uv = UV;
 
-	ALBEDO = albedo.rgb;
-	ALBEDO = texture(noise_texture, NODE_POSITION_WORLD.xz).xyz;
+	ALBEDO = texture(albedo_noise_texture, NODE_POSITION_WORLD.xz).xyz;
 
 	SPECULAR = specular;
 
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
 	ROUGHNESS = roughness;
+	
+	
+	ALPHA = clamp(distance(NODE_POSITION_WORLD, player_position)/transparency_mask_radius, 0, 1);
+	ALPHA = pow(ALPHA, transparency_exponent);
+	ALPHA *= texture(alpha_texture, UV).a;
 }
 
 void light() {
@@ -44,27 +48,27 @@ void light() {
 	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
 	
 	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
-    SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
 }
 "
 
-[sub_resource type="Gradient" id="Gradient_pksqb"]
-offsets = PackedFloat32Array(0, 0.4921875, 1)
-colors = PackedColorArray(0.03171744, 0.123584546, 0.07278163, 1, 0.20938313, 0.2057916, 0.06309646, 1, 0.2645964, 0.15515026, 0.03724822, 1)
+[sub_resource type="Gradient" id="Gradient_gaxfg"]
+colors = PackedColorArray(0.0075785867, 0.16369057, 0.077505894, 1, 0.25172558, 0.1878275, 0.025181912, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sg6w8"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_npwvy"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_17fka"]
-noise = SubResource("FastNoiseLite_sg6w8")
-color_ramp = SubResource("Gradient_pksqb")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pksqb"]
+noise = SubResource("FastNoiseLite_npwvy")
+color_ramp = SubResource("Gradient_gaxfg")
 
 [resource]
 render_priority = 0
 shader = SubResource("Shader_5h1dc")
-shader_parameter/albedo = Color(0.3913625, 0.5103901, 0.2775066, 1)
+shader_parameter/albedo_noise_texture = SubResource("NoiseTexture2D_pksqb")
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.41999999061216
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_17fka")
+shader_parameter/transparency_mask_radius = 1.9200000912
+shader_parameter/transparency_exponent = 4.2800002033
 shader_parameter/light_strength = 0.1470000069825
 shader_parameter/step_blur = 0.062000002945
 shader_parameter/cutoff_light = 0.3050000144875

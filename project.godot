@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/mx_creative_console/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
@@ -85,3 +85,10 @@ stun={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+player_position={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
