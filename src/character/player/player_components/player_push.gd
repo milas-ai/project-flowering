@@ -4,6 +4,8 @@ class_name PlayerPush
 
 @export var push_force = 10.0
 
+const PUSHABLE_LAYER_BITMASK: int = 1 << (4 - 1)
+
 @onready var player: Player = $"../.."
 @onready var player_input: PlayerInput = $"../../Input"
 @onready var ray_cast = $"../../CharacterModel/RayCast3D"
@@ -15,31 +17,16 @@ func _ready():
 	ray_cast.enabled = false
 
 func _on_player_input_push_pressed():
-	ray_cast.enabled = true
-	ray_cast.force_raycast_update()
-	is_pushing = true
-
-	print("Is colliding? ", ray_cast.is_colliding())
-	if ray_cast.is_colliding():
-		print("Hit object: ", ray_cast.get_collider().name)
-
-	var forward_vector = ray_cast.global_transform.basis.z.normalized()
-	print("Player Global Position: ", player.global_position)
-	print("Raycast Forward Vector: ", forward_vector)
-	
-	if ray_cast.is_colliding():
-		var hit_object = ray_cast.get_collider()
+	if not is_pushing:
+		is_pushing = true
+		ray_cast.enabled = true
+		ray_cast.force_raycast_update()
 		
-		if hit_object is RigidBody3D:
-			if hit_object.freeze:
-				hit_object.freeze = false
-			
-			var push_direction = ray_cast.global_transform.basis.z.normalized()
-			
-			var hit_point = ray_cast.get_collision_point() - hit_object.global_position
-			hit_object.apply_impulse(push_direction * push_force, hit_point)
+		if ray_cast.is_colliding():
+			var hit_object = ray_cast.get_collider()
+			if hit_object.collision_layer & PUSHABLE_LAYER_BITMASK:
+				var push_direction = ray_cast.global_transform.basis.z.normalized()
+				var hit_point = ray_cast.get_collision_point() - hit_object.global_position
+				hit_object.apply_impulse(push_direction * push_force, hit_point)
 
-
-	await get_tree().create_timer(0.46).timeout
-	is_pushing = false
-	ray_cast.enabled = false
+		get_tree().create_timer(0.46).timeout.connect(func(): is_pushing = false; ray_cast.enabled = false)
