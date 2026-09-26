@@ -5,12 +5,6 @@ class_name RolyPoly
 const SPEED: float = 5
 const WORLD_LAYER_BITMASK: int = 1 << (2 - 1) # world layer is 2, so we shift 1 left by (2 - 1) = 1 to get the bitmask for layer 2
 
-@export var explosion_radius: float = 150.0
-
-
-func _ready() -> void:
-	super()
-	$"ExplosionArea/CollisionShape3D".shape.radius = explosion_radius
 
 func attack_player() -> void:
 	look_at(player.global_transform.origin, Vector3.UP)
