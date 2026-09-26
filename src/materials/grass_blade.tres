@@ -34,7 +34,9 @@ void fragment() {
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
 	ROUGHNESS = roughness;
 	
-	ALPHA = clamp(distance(NODE_POSITION_WORLD, player_position)/transparency_mask_radius, 0, 1);
+	vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
+	// for fragment, use: ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
+	ALPHA = clamp(distance(NODE_POSITION_VIEW, player_screen_pos)/transparency_mask_radius, 0, 1);
 	ALPHA = pow(ALPHA, transparency_exponent);
 	
 	ALPHA *= step(.9, texture(alpha_texture, UV).a);
@@ -67,8 +69,8 @@ shader = SubResource("Shader_5h1dc")
 shader_parameter/albedo_noise_texture = SubResource("NoiseTexture2D_pksqb")
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.41999999061216
-shader_parameter/transparency_mask_radius = 1.9200000912
-shader_parameter/transparency_exponent = 4.2800002033
+shader_parameter/transparency_mask_radius = 2.6400001254
+shader_parameter/transparency_exponent = 3.5600001691
 shader_parameter/light_strength = 0.1470000069825
 shader_parameter/step_blur = 0.062000002945
 shader_parameter/cutoff_light = 0.3050000144875
