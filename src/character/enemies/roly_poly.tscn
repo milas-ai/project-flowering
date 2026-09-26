@@ -11,8 +11,11 @@
 radius = 0.47705078
 height = 1.9169922
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 7.0
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4oqn"]
-radius = 10.0
+radius = 12.247564
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ay5lc"]
 radius = 20.0
@@ -34,16 +37,20 @@ shape = SubResource("CapsuleShape3D_xqupr")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
 
 [node name="ExplosionArea" type="Area3D" parent="." unique_id=687035384]
+collision_layer = 0
+collision_mask = 13
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionArea" unique_id=202786756]
-shape = SubResource("SphereShape3D_h4oqn")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionArea" unique_id=839732407]
+shape = SubResource("SphereShape3D_nhhn2")
 
 [node name="NearSight" type="Area3D" parent="." unique_id=235301322]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NearSight" unique_id=369910475]
 shape = SubResource("SphereShape3D_h4oqn")
 
 [node name="FarSight" type="Area3D" parent="." unique_id=8674721]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=1959011326]
 shape = SubResource("SphereShape3D_ay5lc")
