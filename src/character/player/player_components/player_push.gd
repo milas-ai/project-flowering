@@ -18,14 +18,6 @@ func _on_player_input_push_pressed():
 	ray_cast.enabled = true
 	ray_cast.force_raycast_update()
 	is_pushing = true
-
-	print("Is colliding? ", ray_cast.is_colliding())
-	if ray_cast.is_colliding():
-		print("Hit object: ", ray_cast.get_collider().name)
-
-	var forward_vector = ray_cast.global_transform.basis.z.normalized()
-	print("Player Global Position: ", player.global_position)
-	print("Raycast Forward Vector: ", forward_vector)
 	
 	if ray_cast.is_colliding():
 		var hit_object = ray_cast.get_collider()
