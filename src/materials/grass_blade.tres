@@ -1,0 +1,73 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
+
+[sub_resource type="Shader" id="Shader_5h1dc"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.7.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform float roughness : hint_range(0.0, 1.0);
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D noise_texture;
+
+group_uniforms Lighting;
+uniform float light_strength: hint_range(0.0, 1.0) = .25;
+uniform float step_blur: hint_range(0.0, 0.1) = .015;
+uniform float cutoff_light: hint_range(0.0, 1.0) = .2;
+uniform float weight_light: hint_range(0.0, 1.0) = .3;
+uniform float cutoff_penumbra: hint_range(0.0, 1.0) = .1;
+uniform float weight_penumbra: hint_range(0.0, 1.0) = .15;	
+
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	ALBEDO = albedo.rgb;
+	ALBEDO = texture(noise_texture, NODE_POSITION_WORLD.xz).xyz;
+
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	ROUGHNESS = roughness;
+}
+
+void light() {
+	float diffuse = max(dot(NORMAL, LIGHT), 0.0);
+	float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
+	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
+	
+	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+	
+	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+    SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_pksqb"]
+offsets = PackedFloat32Array(0, 0.4921875, 1)
+colors = PackedColorArray(0.03171744, 0.123584546, 0.07278163, 1, 0.20938313, 0.2057916, 0.06309646, 1, 0.2645964, 0.15515026, 0.03724822, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sg6w8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_17fka"]
+noise = SubResource("FastNoiseLite_sg6w8")
+color_ramp = SubResource("Gradient_pksqb")
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_5h1dc")
+shader_parameter/albedo = Color(0.3913625, 0.5103901, 0.2775066, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.41999999061216
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_17fka")
+shader_parameter/light_strength = 0.1470000069825
+shader_parameter/step_blur = 0.062000002945
+shader_parameter/cutoff_light = 0.3050000144875
+shader_parameter/weight_light = 0.1010000047975
+shader_parameter/cutoff_penumbra = 0.1950000092625
+shader_parameter/weight_penumbra = 0.186000008835

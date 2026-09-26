@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://c37fynk4pxceo"]
 
-[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/materials/grass_ground.gdshader" id="1_pdvrj"]
+[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/materials/grass_ground.gdshader" id="1_m7xlj"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_pdvrj")
+shader = ExtResource("1_m7xlj")
 shader_parameter/base_color = Color(0.398157, 0.44917053, 0.2344754, 1)
 shader_parameter/light_strength = 0.1430000067925
 shader_parameter/step_blur = 0.038000001805
