@@ -31,9 +31,6 @@ func _on_player_input_push_pressed():
 		var hit_object = ray_cast.get_collider()
 		
 		if hit_object is RigidBody3D:
-			if hit_object.freeze:
-				hit_object.freeze = false
-			
 			var push_direction = ray_cast.global_transform.basis.z.normalized()
 			
 			var hit_point = ray_cast.get_collision_point() - hit_object.global_position
