@@ -4,6 +4,7 @@ class_name RolyPoly
 
 const SPEED: float = 5
 const WORLD_LAYER_BITMASK: int = 1 << (2 - 1) # world layer is 2, so we shift 1 left by (2 - 1) = 1 to get the bitmask for layer 2
+const PUSHABLE_LAYER_BITMASK: int = 1 << (4 - 1)
 
 
 func attack_player() -> void:
@@ -19,5 +20,10 @@ func attack_player() -> void:
 			var collider = get_slide_collision(i).get_collider()
 			if collider and "collision_layer" in collider:
 				if collider.collision_layer & ~WORLD_LAYER_BITMASK:
-					# Explosion
+					for body in $ExplosionArea.get_overlapping_bodies():
+						if body.collision_layer & PUSHABLE_LAYER_BITMASK:
+							# Push the object away from the RolyPoly
+							pass
+						elif body.has_method("take_damage"):
+							body.take_damage(4)
 					queue_free()
