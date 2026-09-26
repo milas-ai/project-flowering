@@ -22,8 +22,9 @@ func attack_player() -> void:
 				if collider.collision_layer & ~WORLD_LAYER_BITMASK:
 					for body in $ExplosionArea.get_overlapping_bodies():
 						if body.collision_layer & PUSHABLE_LAYER_BITMASK:
-							# Push the object away from the RolyPoly
-							pass
+							var push_direction = global_transform.origin.direction_to(body.global_transform.origin)
+							push_direction.y = 0
+							body.apply_impulse(push_direction * 10)
 						elif body.has_method("take_damage"):
 							body.take_damage(4)
 					queue_free()
