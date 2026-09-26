@@ -42,7 +42,7 @@ slide_component = NodePath("../../Movement/Slide")
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterModel" unique_id=2016812921]
 enabled = false
-target_position = Vector3(0, 1, 5)
+target_position = Vector3(0, 1, 4)
 collision_mask = 8
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
