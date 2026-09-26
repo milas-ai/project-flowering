@@ -4,7 +4,7 @@
 code = "// NOTE: Shader automatically converted from Godot Engine 4.7.stable's StandardMaterial3D.
 
 shader_type spatial;
-render_mode blend_mix, cull_disabled, diffuse_burley, specular_schlick_ggx, world_vertex_coords;
+render_mode blend_mix, cull_disabled, diffuse_burley, specular_schlick_ggx, world_vertex_coords, depth_draw_always;
 
 group_uniforms Grass;
 uniform sampler2D albedo_noise_texture;
@@ -34,10 +34,10 @@ void fragment() {
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
 	ROUGHNESS = roughness;
 	
-	
 	ALPHA = clamp(distance(NODE_POSITION_WORLD, player_position)/transparency_mask_radius, 0, 1);
 	ALPHA = pow(ALPHA, transparency_exponent);
-	ALPHA *= texture(alpha_texture, UV).a;
+	
+	ALPHA *= step(.9, texture(alpha_texture, UV).a);
 }
 
 void light() {
