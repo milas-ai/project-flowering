@@ -8,6 +8,7 @@ render_mode blend_mix, cull_disabled, diffuse_burley, specular_schlick_ggx, worl
 
 group_uniforms Grass;
 uniform sampler2D albedo_noise_texture;
+const float NOISE_SCALE = .01;
 uniform sampler2D alpha_texture;
 uniform float roughness: hint_range(0.0, 1.0);
 uniform float specular: hint_range(0.0, 1.0, 0.01);
@@ -27,7 +28,7 @@ global uniform vec3 player_position;
 void fragment() {
 	vec2 base_uv = UV;
 
-	ALBEDO = texture(albedo_noise_texture, NODE_POSITION_WORLD.xz).xyz;
+	ALBEDO = texture(albedo_noise_texture, NODE_POSITION_WORLD.xz * NOISE_SCALE).xyz;
 
 	SPECULAR = specular;
 
@@ -43,7 +44,7 @@ void fragment() {
 }
 
 void light() {
-	float diffuse = max(dot(NORMAL, LIGHT), 0.0);
+	float diffuse = 1.0;
 	float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
 	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
 	
@@ -55,9 +56,13 @@ void light() {
 "
 
 [sub_resource type="Gradient" id="Gradient_gaxfg"]
-colors = PackedColorArray(0.0075785867, 0.16369057, 0.077505894, 1, 0.25172558, 0.1878275, 0.025181912, 1)
+colors = PackedColorArray(0.0075785867, 0.16369057, 0.077505894, 1, 0.28325915, 0.16908315, 0.021231076, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_npwvy"]
+frequency = 0.0319
+fractal_octaves = 1
+fractal_lacunarity = 2.94
+fractal_gain = 0.295
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pksqb"]
 noise = SubResource("FastNoiseLite_npwvy")
