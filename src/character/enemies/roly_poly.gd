@@ -13,6 +13,7 @@ func attack_player() -> void:
 	animation_player.stop()
 	animation_player.clear_queue()
 	animation_player.play("attack")
+	animation_player.queue("roll")
 	get_tree().create_timer(0.72).timeout.connect(func(): horizontal_velocity = -global_transform.basis.z * SPEED)
 	while true:
 		await get_tree().physics_frame
