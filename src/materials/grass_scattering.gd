@@ -6,18 +6,19 @@ const GRASS_MODEL_DIR: String = "res://src/materials/grass_blade.obj"
 const GRASS_COUNT_FACTOR: float = 1
 const MESH_SIZE: Vector2 = Vector2(1.5, 1.5)
 
-@export_range(0, 100) var grass_ammount: float = 4
+@export_range(0, 100) var grass_ammount: float = 100
 
 var multimesh_instance: MultiMeshInstance3D
 var target_mesh: MeshInstance3D
-
 
 func _ready() -> void:
 	scatter_grass()
 
 func scatter_grass() -> void:
-	if set_target_mesh() == false: return
-	reset_multimesh_node()
+	if set_target_mesh() == false:
+		printerr("No target mesh as child detected - must be child of index 0")
+		return
+	set_multimesh_node()
 	scatter_grass_in_multimesh_instance()
 
 func set_target_mesh() -> bool:
@@ -25,11 +26,7 @@ func set_target_mesh() -> bool:
 	if target_mesh is not MeshInstance3D: return false
 	return true
 
-func reset_multimesh_node() -> void:
-	# Delete old one
-	for _multimesh in get_children().filter(func(x): return x is MultiMeshInstance3D):
-		_multimesh.queue_free()
-	# Create new instance
+func set_multimesh_node() -> void:
 	multimesh_instance = MultiMeshInstance3D.new()
 	add_child(multimesh_instance)
 	multimesh_instance.owner = self
@@ -83,4 +80,8 @@ func scatter_grass_in_multimesh_instance() -> void:
 		#mesh_instance.rotate_y(rng.randf_range(0,PI))
 		#mesh_instance.position = p_random
 		#mesh_instance.mesh.center_offset.y = MESH_SIZE.y/2
-		multimesh_instance.multimesh.set_instance_transform(i, Transform3D(Basis(), p_random))
+		var transform: Transform3D = Transform3D(Basis(), p_random)
+		transform = transform. scaled_local(Vector3.ONE * rng.randf_range(.7,1.2))
+		#transform.looking_at(p_random + face_normal)
+		#transform = transform.rotated_local(Vector3.BACK, PI/2)
+		multimesh_instance.multimesh.set_instance_transform(i, transform)
