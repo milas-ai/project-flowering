@@ -31,11 +31,13 @@ shape = SubResource("CapsuleShape3D_nhhn2")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
 
 [node name="NearSight" type="Area3D" parent="." unique_id=1558613445]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NearSight" unique_id=1684025100]
 shape = SubResource("SphereShape3D_nhhn2")
 
 [node name="FarSight" type="Area3D" parent="." unique_id=628331767]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=389746851]
 shape = SubResource("SphereShape3D_gn4dx")

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfh6p3xh5ekmu"
-path.s3tc="res://.godot/imported/sow_bug_texture.png-a72dc6f2335ac0f2c2609f0a381b14bc.s3tc.ctex"
+uid="uid://qqrvgrljeq2g"
+path.s3tc="res://.godot/imported/roly_poly_0.png-e46c3d4b64fc31f63f076683caf4364c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6461b379a6f22401ac2e208421a40d21"
+"md5": "c0dd3fbaf734259d835b816eba94af8d"
 }
 
 [deps]
 
-source_file="res://assets/models/enemies/sow_bug_texture.png"
-dest_files=["res://.godot/imported/sow_bug_texture.png-a72dc6f2335ac0f2c2609f0a381b14bc.s3tc.ctex"]
+source_file="res://assets/models/enemies/roly_poly_0.png"
+dest_files=["res://.godot/imported/roly_poly_0.png-e46c3d4b64fc31f63f076683caf4364c.s3tc.ctex"]
 
 [params]
 
