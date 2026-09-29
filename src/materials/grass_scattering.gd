@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 
@@ -7,20 +6,14 @@ const GRASS_MODEL_DIR: String = "res://src/materials/grass_blade.obj"
 const GRASS_COUNT_FACTOR: float = 1
 const MESH_SIZE: Vector2 = Vector2(1.5, 1.5)
 
-@export var scatter: bool = false:
-	set(_value):
-		if Engine.is_editor_hint():
-			scatter_grass()
-@export var clear: bool = false:
-	set(_value):
-		if Engine.is_editor_hint():
-			for _multimesh in get_children().filter(func(x): return x is MultiMeshInstance3D):
-				_multimesh.queue_free()
 @export_range(0, 100) var grass_ammount: float = 4
 
 var multimesh_instance: MultiMeshInstance3D
 var target_mesh: MeshInstance3D
 
+
+func _ready() -> void:
+	scatter_grass()
 
 func scatter_grass() -> void:
 	if set_target_mesh() == false: return
