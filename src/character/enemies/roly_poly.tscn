@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cgaqmbv84ty31" path="res://src/character/enemies/roly_poly.gd" id="1_0ok0v"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="2_0ok0v"]
-[ext_resource type="PackedScene" uid="uid://t6iiaey2uhd6" path="res://assets/models/enemies/roly_poly.glb" id="2_tbead"]
+[ext_resource type="PackedScene" uid="uid://cqc81jofwwm8e" path="res://assets/models/enemies/roly_poly.tscn" id="2_tbead"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="3_tbead"]
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="4_4req0"]
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="5_6fqvn"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqupr"]
-radius = 0.47705078
-height = 1.9169922
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ok0v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
 radius = 7.0
@@ -30,9 +28,9 @@ far_sight_radius = 30.0
 
 [node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=93842891]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_xqupr")
+shape = SubResource("CapsuleShape3D_0ok0v")
 
-[node name="CharacterModel" parent="." unique_id=818684453 instance=ExtResource("2_tbead")]
+[node name="CharacterModel" parent="." unique_id=32804035 instance=ExtResource("2_tbead")]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1663361508]
 
