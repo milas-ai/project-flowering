@@ -52,6 +52,7 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 6.7, 6.7)
 
 [node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=2084889239]
+cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_efbnw")
 surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
