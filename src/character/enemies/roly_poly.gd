@@ -28,4 +28,5 @@ func attack_player() -> void:
 							body.apply_impulse(push_direction * 10)
 						elif body.has_method("take_damage"):
 							body.take_damage(4)
+					ParticleSystem.play(ParticleID.EXPLOSION, global_transform.origin)
 					queue_free()
