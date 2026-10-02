@@ -21,7 +21,7 @@ ParticleSystem="*uid://cawl0y3nndj04"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/mx_creative_console/plugin.cfg")
+enabled=PackedStringArray("res://addons/brackeys_particle_controls/plugin.cfg", "res://addons/mx_creative_console/plugin.cfg")
 
 [input]
 
