@@ -6,9 +6,11 @@
 render_priority = 0
 shader = ExtResource("1_m7xlj")
 shader_parameter/base_color = Color(0.398157, 0.44917053, 0.2344754, 1)
-shader_parameter/light_strength = 0.1430000067925
-shader_parameter/step_blur = 0.038000001805
-shader_parameter/cutoff_light = 0.23600001121
-shader_parameter/weight_light = 0.1690000080275
-shader_parameter/cutoff_penumbra = 0.06400000304
-shader_parameter/weight_penumbra = 0.26000001235
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/light_strength = 0.1470000069825
+shader_parameter/step_blur = 0.062000002945
+shader_parameter/cutoff_light = 0.3050000144875
+shader_parameter/weight_light = 0.1010000047975
+shader_parameter/cutoff_penumbra = 0.1950000092625
+shader_parameter/weight_penumbra = 0.186000008835

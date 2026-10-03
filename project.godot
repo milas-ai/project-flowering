@@ -15,9 +15,13 @@ run/main_scene="uid://dayem3vrpenok"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AcerolaShaderCompiler="*uid://d2rruf3m2d0vf"
+
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/AComputePlus/plugin.cfg")
 
 [input]
 
@@ -91,4 +95,8 @@ rendering_device/driver.windows="d3d12"
 player_position={
 "type": "vec3",
 "value": Vector3(0, 0, 0)
+}
+grass_albedo_texture={
+"type": "sampler2D",
+"value": "res://src/materials/grass_albedo_texture.tres"
 }
