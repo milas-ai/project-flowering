@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://c37fynk4pxceo"]
 
-[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/materials/grass_ground.gdshader" id="1_m7xlj"]
+[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/materials/grass_ground.gdshader" id="1_w01d3"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_m7xlj")
+shader = ExtResource("1_w01d3")
 shader_parameter/base_color = Color(0.398157, 0.44917053, 0.2344754, 1)
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
