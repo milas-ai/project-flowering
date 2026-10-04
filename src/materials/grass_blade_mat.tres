@@ -65,6 +65,7 @@ void vertex() {
 }
 
 void fragment() {
+	// Color texture
 	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(VERTEX,1)).xyz;
 	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
 	
@@ -73,11 +74,9 @@ void fragment() {
 	
 	// Transparency with player position
 	vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
-	// for fragment, use: ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
 	ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
 	ALPHA = pow(ALPHA, transparency_exponent);
 	
-	//ALPHA *= step(.9, texture(alpha_texture, UV).a);
 	LIGHT_VERTEX = node_pos_view;
 }
 
