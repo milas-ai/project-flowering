@@ -1,9 +1,8 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.7.stable's StandardMaterial3D.
-
-shader_type spatial;
+code = "shader_type spatial;
+render_mode depth_draw_always;
 
 group_uniforms Grass;
 const float NOISE_SCALE = .01;
@@ -20,8 +19,19 @@ uniform float weight_light: hint_range(0.0, 1.0) = .3;
 uniform float cutoff_penumbra: hint_range(0.0, 1.0) = .1;
 uniform float weight_penumbra: hint_range(0.0, 1.0) = .15;
 
+group_uniforms Wind;
+uniform float wind_bend_ammount = 1.0;
+uniform float sway_back: hint_range(0.0, 1.0) = 1.0;
+
 global uniform vec3 player_position;
 global uniform sampler2D grass_albedo_texture;
+global uniform sampler2D wind_noise_texture;
+global uniform vec3 wind_direction;
+global uniform float wind_scale;
+global uniform float wind_speed;
+global uniform float wind_strength;
+
+varying vec3 node_pos_view;
 
 
 void vertex() {
@@ -39,6 +49,19 @@ void vertex() {
 			vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
 			vec4(0.0, 0.0, 0.0, 1.0));
 	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	
+	// Set pos_view for cell light calculation 
+	node_pos_view = NODE_POSITION_VIEW;
+	
+	// Wind
+	vec3 vertex = (MODEL_MATRIX * vec4(VERTEX,1)).xyz; // use uv as vertex's global .xz
+	vertex = vertex * wind_scale - (wind_speed * TIME * wind_direction); // pan UV
+	vec3 displacement = texture(wind_noise_texture, vertex.xz).xyz;
+	displacement = displacement * (1.0 + sway_back) - sway_back;
+	displacement *= wind_bend_ammount * wind_strength;
+	float uv_mask = UV.x;
+	vec3 wind_direction_view = (VIEW_MATRIX * vec4(wind_direction,0)).xyz; //correct direction to follow world instead of view
+	VERTEX += displacement * uv_mask * wind_direction_view;
 }
 
 void fragment() {
@@ -55,6 +78,7 @@ void fragment() {
 	ALPHA = pow(ALPHA, transparency_exponent);
 	
 	//ALPHA *= step(.9, texture(alpha_texture, UV).a);
+	LIGHT_VERTEX = node_pos_view;
 }
 
 void light() {
@@ -82,3 +106,5 @@ shader_parameter/cutoff_light = 0.3050000144875
 shader_parameter/weight_light = 0.1010000047975
 shader_parameter/cutoff_penumbra = 0.1950000092625
 shader_parameter/weight_penumbra = 0.186000008835
+shader_parameter/wind_bend_ammount = 0.5
+shader_parameter/sway_back = 0.50000002375
