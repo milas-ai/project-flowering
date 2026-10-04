@@ -106,11 +106,11 @@ wind_noise_texture={
 }
 wind_speed={
 "type": "float",
-"value": 0.03
+"value": 0.05
 }
 wind_scale={
 "type": "float",
-"value": 0.5
+"value": 0.02
 }
 wind_strength={
 "type": "float",
