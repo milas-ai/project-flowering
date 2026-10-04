@@ -2,6 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://src/character/player/player.tscn" id="1_y578y"]
 [ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/stage1_terrain.tscn" id="2_44mmv"]
+[ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://assets/models/terrain/platform_medium_1.tscn" id="3_h3jej"]
+[ext_resource type="PackedScene" uid="uid://cmt7qqbfmtsa4" path="res://assets/models/terrain/ground_start.tscn" id="3_yhxt6"]
+[ext_resource type="PackedScene" uid="uid://chcx7fo0mcd61" path="res://assets/models/terrain/platform_medium_3.tscn" id="6_vv1jd"]
+[ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://assets/models/terrain/platform_medium_2.tscn" id="7_ageeb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h57rq"]
+sky_material = SubResource("ProceduralSkyMaterial_h3jej")
+
+[sub_resource type="Environment" id="Environment_rcjq6"]
+background_mode = 2
+sky = SubResource("Sky_h57rq")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Node3D" type="Node3D" unique_id=314279592]
 
@@ -25,6 +42,29 @@ size = Vector2i(576, 324)
 render_target_update_mode = 4
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=492502824 instance=ExtResource("1_y578y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.09107, 40.659065, -34.931236)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.70079, 37.602165, -29.912653)
 
 [node name="level1" parent="." unique_id=425937710 instance=ExtResource("2_44mmv")]
+process_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
+environment = SubResource("Environment_rcjq6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
+transform = Transform3D(-0.5959789, 0.49797207, -0.6299467, -0.7731716, -0.5676929, 0.28272018, -0.21682955, 0.65555215, 0.7233508, 143, 114, 0)
+light_color = Color(1, 0.95686275, 0.73333335, 1)
+shadow_enabled = true
+
+[node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
+
+[node name="GroundStart" parent="StageTerrain" unique_id=127661142 instance=ExtResource("3_yhxt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.84818, 36.127106, -34.68875)
+
+[node name="PlatformMedium1" parent="StageTerrain" unique_id=2071298694 instance=ExtResource("3_h3jej")]
+transform = Transform3D(0.64642197, 0, -0.7629801, 0, 1, 0, 0.7629801, 0, 0.64642197, 104.441635, 32.008797, -36.512196)
+
+[node name="PlatformMedium3" parent="StageTerrain" unique_id=840339369 instance=ExtResource("6_vv1jd")]
+transform = Transform3D(0.35705927, 0, -0.93408173, 0, 1, 0, 0.93408173, 0, 0.35705927, 116.28558, 38.895683, -57.276726)
+
+[node name="PlatformMedium2" parent="StageTerrain" unique_id=926300805 instance=ExtResource("7_ageeb")]
+transform = Transform3D(0.94544953, 0, 0.3257686, 0, 1, 0, -0.3257686, 0, 0.94544953, 113.34365, 35.585957, -45.518097)
