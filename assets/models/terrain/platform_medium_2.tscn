@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c17fj3qf02um4"]
 
-[ext_resource type="ArrayMesh" uid="uid://buh4s4piwhbqs" path="res://assets/models/terrain/models/medium_platfroms/platform_medium_2_top.obj" id="1_md0kh"]
+[ext_resource type="ArrayMesh" uid="uid://buh4s4piwhbqs" path="res://assets/models/terrain/models/platforms/medium/platform_medium_2_top.obj" id="1_md0kh"]
 [ext_resource type="Material" uid="uid://c37fynk4pxceo" path="res://src/materials/grass_ground_mat.tres" id="2_8rrqq"]
 [ext_resource type="Script" uid="uid://qdcq8lcexx7o" path="res://src/materials/grass_scattering.gd" id="3_md0kh"]
-[ext_resource type="ArrayMesh" uid="uid://bvdovdqi4yco" path="res://assets/models/terrain/models/medium_platfroms/platform_medium_2_wall.obj" id="4_8rrqq"]
+[ext_resource type="ArrayMesh" uid="uid://bvdovdqi4yco" path="res://assets/models/terrain/models/platforms/medium/platform_medium_2_wall.obj" id="4_8rrqq"]
 [ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://src/materials/mountain_wall_mat.tres" id="5_kvma0"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_md0kh"]

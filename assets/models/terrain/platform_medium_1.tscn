@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cat5dsapllaxy"]
 
 [ext_resource type="Material" uid="uid://c37fynk4pxceo" path="res://src/materials/grass_ground_mat.tres" id="2_gaxfg"]
-[ext_resource type="ArrayMesh" uid="uid://d0qrwt7fepvpn" path="res://assets/models/terrain/models/medium_platfroms/platform_medium_1_top.obj" id="2_ljqjb"]
-[ext_resource type="ArrayMesh" uid="uid://datn1do1ff58i" path="res://assets/models/terrain/models/medium_platfroms/platform_medium_1_wall.obj" id="3_5iw67"]
+[ext_resource type="ArrayMesh" uid="uid://d0qrwt7fepvpn" path="res://assets/models/terrain/models/platforms/medium/platform_medium_1_top.obj" id="2_ljqjb"]
+[ext_resource type="ArrayMesh" uid="uid://datn1do1ff58i" path="res://assets/models/terrain/models/platforms/medium/platform_medium_1_wall.obj" id="3_5iw67"]
 [ext_resource type="Script" uid="uid://qdcq8lcexx7o" path="res://src/materials/grass_scattering.gd" id="3_gaxfg"]
 [ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://src/materials/mountain_wall_mat.tres" id="5_8fwnj"]
 
