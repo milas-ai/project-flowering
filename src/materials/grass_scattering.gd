@@ -1,32 +1,25 @@
 extends Node
 
-
-const GRASS_MATERIAL_DIR: String = "res://src/materials/grass_blade.tres"
-const GRASS_MODEL_DIR: String = "res://src/materials/grass_blade.obj"
+const GRASS_MATERIAL_DIR: String = "res://src/materials/grass_blade_mat.tres"
+const GRASS_MODEL_DIR: String = "res://src/materials/grass_blade_model.res"
 const GRASS_COUNT_FACTOR: float = 1
-const MESH_SIZE: Vector2 = Vector2(1.5, 1.5)
 
 @export_range(0, 100) var grass_ammount: float = 100
+@export var target_mesh: MeshInstance3D
 
 var multimesh_instance: MultiMeshInstance3D
-var target_mesh: MeshInstance3D
+
 
 func _ready() -> void:
 	scatter_grass()
 
 func scatter_grass() -> void:
-	if set_target_mesh() == false:
-		printerr("No target mesh as child detected - must be child of index 0")
-		return
-	set_multimesh_node()
+	reset_multimesh_node()
 	scatter_grass_in_multimesh_instance()
 
-func set_target_mesh() -> bool:
-	target_mesh = get_child(0)
-	if target_mesh is not MeshInstance3D: return false
-	return true
-
-func set_multimesh_node() -> void:
+func reset_multimesh_node() -> void:
+	for instance in get_children().filter(func(x): return x is MultiMeshInstance3D):
+		instance.queue_free()
 	multimesh_instance = MultiMeshInstance3D.new()
 	add_child(multimesh_instance)
 	multimesh_instance.owner = self
@@ -46,8 +39,6 @@ func scatter_grass_in_multimesh_instance() -> void:
 	multimesh_instance.multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh_instance.multimesh.instance_count = grass_count
 	multimesh_instance.multimesh.visible_instance_count = grass_count
-	#mesh_instance.cast_shadow = false
-	
 	
 	#TODO: select random pos based on uv instead, so it doesent get squashed
 	for i in range(grass_count):
@@ -67,21 +58,6 @@ func scatter_grass_in_multimesh_instance() -> void:
 		var weight2 = max(weight_random1, weight_random2)
 		var p_random = p1 * weight1 + p2 * (weight2-weight1) + p3 * (1.0-weight2)
 		
-		var face_normal = mdt.get_face_normal(face_idx)
-		
-		#var mesh_instance = MeshInstance3D.new()
-		
-		#mesh_instance.mesh.size = MESH_SIZE
-		
-		#mesh_instance.mesh.orientation = QuadMesh.FACE_Z
-		#mesh_instance.look_at_from_position(p_random, p_random + face_normal) # - normal because of FACE_Z
-		#mesh_instance.position = p_random + face_normal * rng.randf_range(.01, .02)
-		#mesh_instance.scale = Vector3.ONE * rng.randf_range(2,4)
-		#mesh_instance.rotate_y(rng.randf_range(0,PI))
-		#mesh_instance.position = p_random
-		#mesh_instance.mesh.center_offset.y = MESH_SIZE.y/2
 		var transform: Transform3D = Transform3D(Basis(), p_random)
 		transform = transform. scaled_local(Vector3.ONE * rng.randf_range(.7,1.2))
-		#transform.looking_at(p_random + face_normal)
-		#transform = transform.rotated_local(Vector3.BACK, PI/2)
 		multimesh_instance.multimesh.set_instance_transform(i, transform)
