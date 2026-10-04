@@ -42,6 +42,9 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=389746851]
 shape = SubResource("SphereShape3D_gn4dx")
 
+[node name="BulletMarker" type="Marker3D" parent="." unique_id=628252464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34016204, -1.5099341)
+
 [node name="StateMachine" type="Node" parent="." unique_id=1721504690 node_paths=PackedStringArray("body")]
 script = ExtResource("5_tlsr3")
 body = NodePath("..")
