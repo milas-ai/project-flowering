@@ -86,6 +86,7 @@ void light() {
 	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
 	
 	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+	diffuse += UV.x * 0.002;
 	
 	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
 	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
