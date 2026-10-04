@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 const GRASS_MATERIAL_DIR: String = "res://src/materials/grass_blade_mat.tres"
@@ -6,6 +7,10 @@ const GRASS_COUNT_FACTOR: float = 1
 
 @export_range(0, 100) var grass_ammount: float = 100
 @export var target_mesh: MeshInstance3D
+## re-scatter grass on runtime
+@export var scatter: bool:
+	set(_val):
+		scatter_grass()
 
 var multimesh_instance: MultiMeshInstance3D
 
