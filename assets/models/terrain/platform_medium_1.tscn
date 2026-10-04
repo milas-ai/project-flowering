@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cat5dsapllaxy"]
 
+[ext_resource type="ArrayMesh" uid="uid://d0qrwt7fepvpn" path="res://assets/models/terrain/models/platforms/medium/platform_medium_1_top.obj" id="1_gaxfg"]
 [ext_resource type="Material" uid="uid://c37fynk4pxceo" path="res://src/materials/grass_ground_mat.tres" id="2_gaxfg"]
-[ext_resource type="ArrayMesh" uid="uid://d0qrwt7fepvpn" path="res://assets/models/terrain/models/platforms/medium/platform_medium_1_top.obj" id="2_ljqjb"]
-[ext_resource type="ArrayMesh" uid="uid://datn1do1ff58i" path="res://assets/models/terrain/models/platforms/medium/platform_medium_1_wall.obj" id="3_5iw67"]
 [ext_resource type="Script" uid="uid://qdcq8lcexx7o" path="res://src/materials/grass_scattering.gd" id="3_gaxfg"]
+[ext_resource type="ArrayMesh" uid="uid://datn1do1ff58i" path="res://assets/models/terrain/models/platforms/medium/platform_medium_1_wall.obj" id="4_i6s8l"]
 [ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://src/materials/mountain_wall_mat.tres" id="5_8fwnj"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ji41h"]
@@ -15,7 +15,7 @@ data = PackedVector3Array(11.8635, 5.9038, -4.1043, 10.855, 4.4139, -3.6531, 13.
 [node name="PlatformMedium1" type="Node3D" unique_id=2071298694]
 
 [node name="Top" type="MeshInstance3D" parent="." unique_id=668936370 node_paths=PackedStringArray("target_mesh")]
-mesh = ExtResource("2_ljqjb")
+mesh = ExtResource("1_gaxfg")
 surface_material_override/0 = ExtResource("2_gaxfg")
 script = ExtResource("3_gaxfg")
 grass_ammount = 10.0
@@ -29,7 +29,7 @@ collision_mask = 0
 shape = SubResource("ConcavePolygonShape3D_ji41h")
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=1161928346]
-mesh = ExtResource("3_5iw67")
+mesh = ExtResource("4_i6s8l")
 surface_material_override/0 = ExtResource("5_8fwnj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall" unique_id=1210131974]
