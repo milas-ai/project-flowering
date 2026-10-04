@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7mlm70smi36p"
+path="res://.godot/imported/platform_medium_3_wall.obj-5cce6cdeab4496bed36c5134b832911b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_medium_3_wall.obj-5cce6cdeab4496bed36c5134b832911b.mesh"]
+
+source_file="res://assets/models/terrain/models/medium_platfroms/platform_medium_3_wall.obj"
+dest_files=["res://.godot/imported/platform_medium_3_wall.obj-5cce6cdeab4496bed36c5134b832911b.mesh", "res://.godot/imported/platform_medium_3_wall.obj-5cce6cdeab4496bed36c5134b832911b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
