@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://doumdihcv0fck" path="res://src/character/player/player_components/player_animation.gd" id="6_3683m"]
 [ext_resource type="Script" uid="uid://bkfih402nulko" path="res://src/character/player/player_components/player_slide.gd" id="8_rfelt"]
 [ext_resource type="Script" uid="uid://bdsg0bxcxoh7w" path="res://src/character/player/player_components/player_push.gd" id="9_i8wnn"]
+[ext_resource type="Script" uid="uid://bcv2nemppxg3h" path="res://src/character/player/player_components/player_stun.gd" id="10_fkujh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -21,6 +22,9 @@ size = Vector2(2, 2)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfelt"]
 render_priority = 0
 shader = ExtResource("4_efbnw")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j5k5y"]
+radius = 7.0
 
 [node name="Player" type="CharacterBody3D" unique_id=492502824]
 collision_mask = 14
@@ -88,8 +92,17 @@ one_shot = true
 [node name="Push" type="Node" parent="Action" unique_id=1823654466]
 script = ExtResource("9_i8wnn")
 
+[node name="Stun" type="Node" parent="Action" unique_id=1271674831]
+script = ExtResource("10_fkujh")
+
+[node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
+shape = SubResource("SphereShape3D_j5k5y")
+
 [connection signal="jump_pressed" from="Input" to="Movement/Jump" method="_on_player_input_jump_pressed"]
 [connection signal="push_pressed" from="Input" to="Action/Push" method="_on_player_input_push_pressed"]
-[connection signal="stun_pressed" from="Input" to="CharacterModel/CharacterAnimation" method="_on_player_input_stun_pressed"]
+[connection signal="stun_pressed" from="Input" to="Action/Stun" method="_on_player_input_stun_pressed"]
 [connection signal="timeout" from="Movement/Jump/JumpBuffer" to="Movement/Jump" method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="Movement/Jump/CoyoteTime" to="Movement/Jump" method="_on_coyote_time_timeout"]
