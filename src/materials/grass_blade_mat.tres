@@ -77,7 +77,7 @@ void fragment() {
 	
 	SPECULAR = specular;
 	ROUGHNESS = roughness;
-	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz;
+	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
 	
 	// Transparency with player position
 	vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
@@ -85,6 +85,7 @@ void fragment() {
 	ALPHA = pow(ALPHA, transparency_exponent);
 	ALPHA *= step(.9,texture(alpha_texture, UV).a);
 	
+	// Set vertex as node's position for cell light calculation 
 	LIGHT_VERTEX = node_pos_view;
 }
 
@@ -94,6 +95,7 @@ void light() {
 	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
 	
 	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+	// Make the top of the blade lighter
 	//diffuse += (1.0 - UV.y) * TOP_LIGHT_WEIGHT;
 	
 	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
