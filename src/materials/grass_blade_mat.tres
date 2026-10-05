@@ -1,15 +1,21 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
+[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://src/materials/grass_blade.png" id="1_e22uu"]
+
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;
-render_mode depth_draw_always;
+render_mode cull_back, depth_draw_opaque;
+
+const float NOISE_SCALE = .01;
+const float TOP_LIGHT_WEIGHT = 0.006;
 
 group_uniforms Grass;
-const float NOISE_SCALE = .01;
+uniform sampler2D alpha_texture;
 uniform float roughness: hint_range(0.0, 1.0) = 1.0;
 uniform float specular: hint_range(0.0, 1.0, 0.01) = 0.2;
 uniform float transparency_mask_radius: hint_range(0.0, 30.0);
 uniform float transparency_exponent: hint_range(0.0, 10.0);
+
 
 group_uniforms Lighting;
 uniform float light_strength: hint_range(0.0, 1.0) = .25;
@@ -35,11 +41,11 @@ varying vec3 node_pos_view;
 
 
 void vertex() {
-	// Billboard Mode: Y-Billboard
+	// Billboard Mode: Enabled
 	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
-			vec4(normalize(cross(vec3(0.0, 1.0, 0.0), MAIN_CAM_INV_VIEW_MATRIX[2].xyz)), 0.0),
-			vec4(0.0, 1.0, 0.0, 0.0),
-			vec4(normalize(cross(MAIN_CAM_INV_VIEW_MATRIX[0].xyz, vec3(0.0, 1.0, 0.0))), 0.0),
+			MAIN_CAM_INV_VIEW_MATRIX[0],
+			MAIN_CAM_INV_VIEW_MATRIX[1],
+			MAIN_CAM_INV_VIEW_MATRIX[2],
 			MODEL_MATRIX[3]);
 
 	// Billboard Keep Scale: Enabled
@@ -59,23 +65,25 @@ void vertex() {
 	vec3 displacement = texture(wind_noise_texture, vertex.xz).xyz;
 	displacement = displacement * (1.0 + sway_back) - sway_back;
 	displacement *= wind_bend_ammount * wind_strength;
-	float uv_mask = UV.x;
+	float uv_mask = 1.0 - UV.y;
 	vec3 wind_direction_view = (VIEW_MATRIX * vec4(wind_direction,0)).xyz; //correct direction to follow world instead of view
 	VERTEX += displacement * uv_mask * wind_direction_view;
 }
 
 void fragment() {
 	// Color texture
-	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(VERTEX,1)).xyz;
+	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
 	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
 	
 	SPECULAR = specular;
 	ROUGHNESS = roughness;
+	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz;
 	
 	// Transparency with player position
 	vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
 	ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
 	ALPHA = pow(ALPHA, transparency_exponent);
+	ALPHA *= step(.9,texture(alpha_texture, UV).a);
 	
 	LIGHT_VERTEX = node_pos_view;
 }
@@ -86,7 +94,7 @@ void light() {
 	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
 	
 	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
-	diffuse += UV.x * 0.002;
+	//diffuse += (1.0 - UV.y) * TOP_LIGHT_WEIGHT;
 	
 	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
 	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
@@ -96,6 +104,7 @@ void light() {
 [resource]
 render_priority = 0
 shader = SubResource("Shader_5h1dc")
+shader_parameter/alpha_texture = ExtResource("1_e22uu")
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
 shader_parameter/transparency_mask_radius = 3.1730001507175
