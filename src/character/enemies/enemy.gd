@@ -11,6 +11,7 @@ const FRICTION: float = 25
 
 @onready var player: Player = get_tree().get_root().get_node("MainGame").player
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
+@onready var state_machine: StateMachine = $StateMachine
 
 var player_on_far_sight: bool = false
 var player_on_near_sight: bool = false
@@ -31,3 +32,6 @@ func _on_near_sight_body_entered(_body: Node3D) -> void:
 
 func _on_near_sight_body_exited(_body: Node3D) -> void:
 	player_on_near_sight = false
+
+func apply_stun() -> void:
+	state_machine.transition_to("StateStunned")
