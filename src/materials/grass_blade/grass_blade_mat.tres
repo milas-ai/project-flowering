@@ -1,13 +1,14 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
-[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://src/materials/grass_blade/grass_blade.png" id="1_e22uu"]
+[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://src/materials/grass_blade/grass_blade.png" id="1_o5tcc"]
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;
 render_mode cull_back, depth_draw_always, alpha_to_coverage;
 
 const float NOISE_SCALE = .01;
-const float TOP_LIGHT_WEIGHT = 0.006;
+//const float TOP_LIGHT_WEIGHT = 0.006;
+const vec3 LIGHT_SAMPLE_OFFSET = vec3(0,.7,0);
 
 group_uniforms Grass;
 uniform sampler2D alpha_texture;
@@ -59,7 +60,7 @@ void vertex() {
 	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
 	
 	// Set pos_view for cell light calculation 
-	node_pos_view = NODE_POSITION_VIEW;
+	node_pos_view = NODE_POSITION_VIEW + LIGHT_SAMPLE_OFFSET;
 	
 	// Wind
 	vec3 vertex = (MODEL_MATRIX * vec4(VERTEX,1)).xyz; // use uv as vertex's global .xz
@@ -113,7 +114,7 @@ void light() {
 [resource]
 render_priority = 0
 shader = SubResource("Shader_5h1dc")
-shader_parameter/alpha_texture = ExtResource("1_e22uu")
+shader_parameter/alpha_texture = ExtResource("1_o5tcc")
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
 shader_parameter/light_strength = 0.1470000069825
