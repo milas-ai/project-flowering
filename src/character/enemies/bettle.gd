@@ -15,5 +15,6 @@ func attack_player() -> void:
   animation_player.stop()
   animation_player.clear_queue()
   animation_player.play("attack")
-  get_tree().create_timer(0.72).timeout.connect(func(): shoot.emit(Bullet, rotation, global_transform.origin + Vector3.UP * 0.5 - global_transform.basis.z, bullet_speed))
+  ParticleSystem.play(ParticleID.ACID_SPEW, $BulletMarker.global_transform.origin, global_rotation)
+  get_tree().create_timer(0.72).timeout.connect(func(): shoot.emit(Bullet, rotation, $BulletMarker.global_transform.origin, bullet_speed))
   animation_player.queue("idle")

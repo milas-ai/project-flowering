@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cawl0y3nndj04"]
+
+[ext_resource type="Script" uid="uid://bf73s0w0riodb" path="res://src/globals/particle_system/particle_system.gd" id="1_45fi4"]
+[ext_resource type="Resource" uid="uid://c84yo3yjsnrml" path="res://assets/particles/particle_database.tres" id="2_mdcs8"]
+
+[node name="ParticleSystem" type="Node" unique_id=1512452405]
+script = ExtResource("1_45fi4")
+database = ExtResource("2_mdcs8")
