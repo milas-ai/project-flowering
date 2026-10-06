@@ -4,13 +4,14 @@
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;
-render_mode cull_back, depth_draw_opaque;
+render_mode cull_back, depth_draw_always, alpha_to_coverage;
 
 const float NOISE_SCALE = .01;
 const float TOP_LIGHT_WEIGHT = 0.006;
 
 group_uniforms Grass;
 uniform sampler2D alpha_texture;
+//uniform vec3 accent_grass_color: source_color;
 uniform float roughness: hint_range(0.0, 1.0) = 1.0;
 uniform float specular: hint_range(0.0, 1.0, 0.01) = 0.2;
 uniform float transparency_mask_radius: hint_range(0.0, 30.0);
@@ -38,6 +39,7 @@ global uniform float wind_speed;
 global uniform float wind_strength;
 
 varying vec3 node_pos_view;
+//varying flat int instance_id;
 
 
 void vertex() {
@@ -68,12 +70,15 @@ void vertex() {
 	float uv_mask = 1.0 - UV.y;
 	vec3 wind_direction_view = (VIEW_MATRIX * vec4(wind_direction,0)).xyz; //correct direction to follow world instead of view
 	VERTEX += displacement * uv_mask * wind_direction_view;
+	
+	//instance_id = INSTANCE_ID;
 }
 
 void fragment() {
 	// Color texture
 	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
 	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
+	//if (fract(float(instance_id)/1000.0) < .005) ALBEDO = accent_grass_color;
 	
 	SPECULAR = specular;
 	ROUGHNESS = roughness;
