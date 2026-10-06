@@ -14,8 +14,8 @@ uniform sampler2D alpha_texture;
 //uniform vec3 accent_grass_color: source_color;
 uniform float roughness: hint_range(0.0, 1.0) = 1.0;
 uniform float specular: hint_range(0.0, 1.0, 0.01) = 0.2;
-uniform float transparency_mask_radius: hint_range(0.0, 30.0);
-uniform float transparency_exponent: hint_range(0.0, 10.0);
+//uniform float transparency_mask_radius: hint_range(0.0, 30.0);
+//uniform float transparency_exponent: hint_range(0.0, 10.0);
 
 
 group_uniforms Lighting;
@@ -30,7 +30,7 @@ group_uniforms Wind;
 uniform float wind_bend_ammount = 1.0;
 uniform float sway_back: hint_range(0.0, 1.0) = 1.0;
 
-global uniform vec3 player_position;
+//global uniform vec3 player_position;
 global uniform sampler2D grass_albedo_texture;
 global uniform sampler2D wind_noise_texture;
 global uniform vec3 wind_direction;
@@ -85,9 +85,11 @@ void fragment() {
 	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
 	
 	// Transparency with player position
-	vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
-	ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
-	ALPHA = pow(ALPHA, transparency_exponent);
+	//vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
+	//ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
+	//ALPHA = pow(ALPHA, transparency_exponent);
+	
+	// Set alpha mask
 	ALPHA *= step(.9,texture(alpha_texture, UV).a);
 	
 	// Set vertex as node's position for cell light calculation 
@@ -114,8 +116,6 @@ shader = SubResource("Shader_5h1dc")
 shader_parameter/alpha_texture = ExtResource("1_e22uu")
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
-shader_parameter/transparency_mask_radius = 3.1730001507175
-shader_parameter/transparency_exponent = 0.9810000465975
 shader_parameter/light_strength = 0.1470000069825
 shader_parameter/step_blur = 0.062000002945
 shader_parameter/cutoff_light = 0.3050000144875
