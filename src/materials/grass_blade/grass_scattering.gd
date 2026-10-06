@@ -1,8 +1,8 @@
 @tool
 extends Node
 
-const GRASS_MATERIAL_DIR: String = "res://src/materials/grass_blade_mat.tres"
-const GRASS_MODEL_DIR: String = "res://src/materials/grass_blade_model.res"
+const GRASS_MATERIAL_DIR: String = "res://src/materials/grass_blade/grass_blade_mat.tres"
+const GRASS_MODEL_DIR: String = "res://src/materials/grass_blade/grass_blade_model.res"
 const GRASS_COUNT_FACTOR: float = 1
 
 @export_range(0, 100) var grass_ammount: float = 100
