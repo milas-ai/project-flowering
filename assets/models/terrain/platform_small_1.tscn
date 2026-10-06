@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bica5b2qxhuh5"]
 
 [ext_resource type="ArrayMesh" uid="uid://owrm5gps6yuq" path="res://assets/models/terrain/models/platforms/small/platform_small_1_top.obj" id="1_nqmok"]
-[ext_resource type="Material" uid="uid://c37fynk4pxceo" path="res://src/materials/grass_ground_mat.tres" id="2_7g2s7"]
-[ext_resource type="Script" uid="uid://qdcq8lcexx7o" path="res://src/materials/grass_scattering.gd" id="3_yw5cg"]
+[ext_resource type="Material" uid="uid://c37fynk4pxceo" path="res://src/materials/grass_ground/grass_ground_mat.tres" id="2_7g2s7"]
+[ext_resource type="Script" uid="uid://qdcq8lcexx7o" path="res://src/materials/grass_blade/grass_scattering.gd" id="3_yw5cg"]
 [ext_resource type="ArrayMesh" uid="uid://dxopobyefrv1o" path="res://assets/models/terrain/models/platforms/small/platform_small_1_wall.obj" id="4_7g2s7"]
-[ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://src/materials/mountain_wall_mat.tres" id="5_u6yss"]
+[ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://src/materials/mountain_wall/mountain_wall_mat.tres" id="5_u6yss"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nqmok"]
 data = PackedVector3Array(-0.0001, 3.1028, -3.5472, 3.6443, 3.1627, -3.6443, -0.0001, 2.8803, -0.0001, -0.0001, 2.8803, -0.0001, 3.6443, 3.1627, -3.6443, 3.5935, 3.1306999, -0.0001, -3.3974998, 3.0140998, 0.0094, -0.0001, 3.1028, -3.5472, -0.0001, 2.8803, -0.0001, -3.2786999, 2.9679, -3.2717, -0.0001, 3.1028, -3.5472, -3.3974998, 3.0140998, 0.0094, -3.3974998, 3.0140998, 0.0094, -0.0001, 2.8803, -0.0001, -3.5182998, 3.0707, 3.4917998, -3.5182998, 3.0707, 3.4917998, -0.0001, 2.8803, -0.0001, 0.0047, 3.0537, 3.4487, -0.0001, 2.8803, -0.0001, 3.5935, 3.1306999, -0.0001, 0.0047, 3.0537, 3.4487, 0.0047, 3.0537, 3.4487, 3.5935, 3.1306999, -0.0001, 3.2833998, 2.9724998, 3.28)

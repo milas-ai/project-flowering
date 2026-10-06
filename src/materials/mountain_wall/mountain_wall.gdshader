@@ -17,8 +17,14 @@ uniform float specular_power: hint_range(0.0, 10.0) = 10;
 uniform float specular_blur: hint_range(0.0, 0.5) = .015;
 uniform float cutoff_specular: hint_range(0.0, 1.0) = .1;
 
+global uniform vec3 player_position;
+
 void fragment() {
 	ALBEDO = base_color;
+	// see through (broken)
+	//vec3 player_proj_pos = (PROJECTION_MATRIX * VIEW_MATRIX * vec4(player_position, 1)).xyz;
+	//vec3 vertex_proj_pos = (PROJECTION_MATRIX * VIEW_MATRIX * vec4(VERTEX, 1)).xyz;
+	//ALPHA = clamp(distance(vertex_proj_pos, player_proj_pos)/10.0, 0, 1);
 }
 
 void light() {

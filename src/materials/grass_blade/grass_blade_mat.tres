@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
-[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://src/materials/grass_blade.png" id="1_e22uu"]
+[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://src/materials/grass_blade/grass_blade.png" id="1_e22uu"]
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;

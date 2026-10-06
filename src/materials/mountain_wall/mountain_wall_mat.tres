@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://m5bgbwlnfin3"]
 
-[ext_resource type="Shader" uid="uid://tyfinw2yncub" path="res://src/materials/mountain_wall.gdshader" id="1_fqo1v"]
+[ext_resource type="Shader" uid="uid://tyfinw2yncub" path="res://src/materials/mountain_wall/mountain_wall.gdshader" id="1_fqo1v"]
 
 [resource]
 render_priority = 0
