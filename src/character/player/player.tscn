@@ -34,11 +34,11 @@ debug_fill = false
 [node name="CharacterModel" parent="." unique_id=2104047668 instance=ExtResource("2_rfelt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
 
-[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("player", "model", "slide_component")]
+[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("_player", "_model", "_slide_component")]
 script = ExtResource("6_3683m")
-player = NodePath("../..")
-model = NodePath("..")
-slide_component = NodePath("../../Movement/Slide")
+_player = NodePath("../..")
+_model = NodePath("..")
+_slide_component = NodePath("../../Movement/Slide")
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterModel" unique_id=2016812921]
 enabled = false
