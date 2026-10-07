@@ -1,3 +1,4 @@
+@abstract
 extends Node
 class_name State
 
@@ -16,11 +17,8 @@ func update(delta: float) -> void:
 	elapsed_time += delta
 	_update(delta)
 
-func _enter() -> void:
-	return
+@abstract func _enter() -> void
 
-func _exit() -> void:
-	return
+@abstract func _exit() -> void
 
-func _update(_delta: float) -> void:
-	pass
+@abstract func _update(_delta: float) -> void

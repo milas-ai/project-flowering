@@ -16,3 +16,6 @@ func _update(_delta: float) -> void:
 		on_cooldown = true
 		body.attack_player()
 		get_tree().create_timer(body.animation_player.current_animation_length + body.attack_cooldown).timeout.connect(func(): on_cooldown = false)
+
+func _exit() -> void:
+	pass
