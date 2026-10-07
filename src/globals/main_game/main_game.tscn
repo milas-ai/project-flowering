@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cwg6plif5r5wv"]
+
+[ext_resource type="Script" uid="uid://bepxrixjm04iu" path="res://src/globals/main_game/main_game.gd" id="1_tt0k7"]
+
+[node name="MainGame" type="Node" unique_id=1025930605]
+script = ExtResource("1_tt0k7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=422820909]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=276803158]
+handle_input_locally = false
+size = Vector2i(576, 324)
+render_target_update_mode = 4
+
+[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=716154110]
+process_mode = 1
+
+[node name="LevelRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=326016225]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=630348644]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]
+process_mode = 1
+layer = 10
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1616494610]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=531358870]
+process_mode = 2
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1057544421]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
