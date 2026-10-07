@@ -9,7 +9,7 @@ const FRICTION: float = 25
 @export var near_sight_radius: float = 10.0
 @export var far_sight_radius: float = 20.0
 
-@onready var player: Player = $"../Player"
+@onready var player: Player = get_tree().get_root().get_node("MainGame").player
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 
 var player_on_far_sight: bool = false
