@@ -32,4 +32,4 @@ func _fall(delta: float) -> void:
 func take_damage(amount: int) -> void:
 	_health -= amount
 	if _health <= 0:
-		print(self.name + " has died!")
+		queue_free()
