@@ -13,3 +13,6 @@ func _enter() -> void:
 
 func _update(_delta: float) -> void:
 	body.horizontal_velocity = Vector3.ZERO
+
+func _exit() -> void:
+	pass
