@@ -12,9 +12,11 @@ func _ready() -> void:
 	navigation_agent.path_desired_distance = 1.5
 	navigation_agent.target_desired_distance = desired_distance
 
+
 func _enter() -> void:
 	if body.player_on_far_sight:
 		body.animation_player.play("walk")
+
 
 func _update(_delta: float) -> void:
 	if not body.player_on_far_sight:
@@ -31,6 +33,7 @@ func _update(_delta: float) -> void:
 	body.horizontal_direction.y = 0
 	body.horizontal_velocity = body.horizontal_direction.normalized() * speed
 	body.look_at(body.global_transform.origin + body.horizontal_direction, Vector3.UP)
+
 
 func _exit() -> void:
 	body.horizontal_direction = Vector3.ZERO

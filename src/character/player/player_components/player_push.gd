@@ -16,6 +16,7 @@ var is_pushing: bool = false
 func _ready():
 	ray_cast.enabled = false
 
+
 func _on_player_input_push_pressed():
 	if not is_pushing:
 		is_pushing = true

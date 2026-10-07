@@ -19,6 +19,7 @@ func _ready() -> void:
 		add_child(texture_rect)
 		hearts.append(texture_rect)
 
+
 func _on_player_update_health(health) -> void:
 	for i in range(int(float(MAX_HEALTH) / 2) + MAX_HEALTH%2):
 		if health >= (i*2+1)+1:
@@ -33,6 +34,7 @@ func _on_player_update_health(health) -> void:
 			if hearts[i].texture != empty_heart_texture:
 				animate_heart(i)
 				hearts[i].texture = empty_heart_texture
+
 
 func animate_heart(index: int) -> void:
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)

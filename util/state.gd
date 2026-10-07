@@ -13,12 +13,16 @@ func enter() -> void:
 	elapsed_time = 0
 	_enter()
 
+
 func update(delta: float) -> void:
 	elapsed_time += delta
 	_update(delta)
 
+
 @abstract func _enter() -> void
 
+
 @abstract func _exit() -> void
+
 
 @abstract func _update(_delta: float) -> void

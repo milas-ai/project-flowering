@@ -20,14 +20,18 @@ func _ready() -> void:
 	$"FarSight/CollisionShape3D".shape.radius = far_sight_radius
 	$"NearSight/CollisionShape3D".shape.radius = near_sight_radius
 
+
 func _on_far_sight_body_entered(_body: Node3D) -> void:
 	player_on_far_sight = true
+
 
 func _on_far_sight_body_exited(_body: Node3D) -> void:
 	player_on_far_sight = false
 
+
 func _on_near_sight_body_entered(_body: Node3D) -> void:
 	player_on_near_sight = true
+
 
 func _on_near_sight_body_exited(_body: Node3D) -> void:
 	player_on_near_sight = false

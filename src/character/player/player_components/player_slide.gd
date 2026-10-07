@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 		player.horizontal_velocity = final_slide_dir * current_speed * Vector3(1,0,1)
 		player.vertical_velocity = final_slide_dir * current_speed * Vector3(0,1,0)
 
+
 func start_slide() -> void:
 	if $SlideCooldown.time_left > 0:
 		return
@@ -60,6 +61,7 @@ func start_slide() -> void:
 	
 	player.horizontal_velocity = downhill_dir * starting_speed * Vector3(1,0,1)
 	player.vertical_velocity = downhill_dir * starting_speed * Vector3(0,1,0)
+
 
 func stop_slide() -> void:
 	is_sliding = false

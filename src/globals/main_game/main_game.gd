@@ -17,6 +17,7 @@ func _ready() -> void:
 	_init_player()
 	load_level("uid://dayem3vrpenok")
 
+
 func _init_player() -> void:
 	var player_scene: PackedScene = ResourceLoader.load(PLAYER_SCENE_UID)
 	if not player_scene:
@@ -30,12 +31,14 @@ func _init_player() -> void:
 
 	entity_root.add_child(player)
 
+
 func _place_player_at_spawn_point() -> void:
 	if not player or not _current_level:
 		push_error("Player or current level is not initialized.")
 		return
 
 	player.global_position = _current_level.get_player_spawn_point()
+
 
 func load_level(level_scene_uid: String) -> void:
 	if _current_level:
