@@ -12,18 +12,16 @@ radius = 0.5209961
 height = 2.5195313
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h4oqn"]
-radius = 10.0
+radius = 1.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ay5lc"]
-radius = 20.0
+radius = 10.0
 
 [node name="Ant" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_gbvur")
 attack_cooldown = 1.0
-near_sight_radius = 1.5
-far_sight_radius = 10.0
 
 [node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=201496094]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
