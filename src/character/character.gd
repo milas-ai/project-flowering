@@ -10,25 +10,25 @@ var vertical_velocity: Vector3 = Vector3.ZERO
 var horizontal_velocity: Vector3 = Vector3.ZERO
 var horizontal_direction: Vector3 = Vector3.ZERO
 var speed: float
-var health: int
+var _health: int
 
 
 func _ready() -> void:
-	health = BASE_HEALTH
+	_health = BASE_HEALTH
 
 
 func _physics_process(delta: float) -> void:
-	fall(delta)
+	_fall(delta)
 	velocity = horizontal_velocity + vertical_velocity
 	move_and_slide()
 
 
-func fall(delta: float) -> void:
+func _fall(delta: float) -> void:
 	if not is_on_floor():
 		vertical_velocity += get_gravity() * delta
 
 
 func take_damage(amount: int) -> void:
-	health -= amount
-	if health <= 0:
+	_health -= amount
+	if _health <= 0:
 		print(self.name + " has died!")

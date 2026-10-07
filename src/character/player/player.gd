@@ -9,7 +9,7 @@ signal update_health(health)
 
 
 func take_damage(amount: int) -> void:
-	health -= amount
-	emit_signal("update_health", health)
-	if health <= 0:
+	_health -= amount
+	emit_signal("update_health", _health)
+	if _health <= 0:
 		get_tree().quit()

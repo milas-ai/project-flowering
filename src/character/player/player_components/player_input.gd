@@ -11,7 +11,7 @@ signal stun_pressed
 var h_input_dir = Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
-var camera_rotation: float = deg_to_rad(45)
+var _camera_rotation: float = deg_to_rad(45)
 
 
 func _process(_delta: float) -> void:
@@ -24,12 +24,12 @@ func _process(_delta: float) -> void:
 	if $CameraRotationCooldown.time_left == 0:
 		if Input.is_action_pressed("ui_left"):
 			$CameraRotationCooldown.start()
-			camera_rotation -= deg_to_rad(90)
+			_camera_rotation -= deg_to_rad(90)
 		elif Input.is_action_pressed("ui_right"):
 			$CameraRotationCooldown.start()
-			camera_rotation += deg_to_rad(90)
+			_camera_rotation += deg_to_rad(90)
 	else:
-		_camera_pivot.rotation.y = lerp_angle(_camera_pivot.rotation.y, camera_rotation, 0.1)
+		_camera_pivot.rotation.y = lerp_angle(_camera_pivot.rotation.y, _camera_rotation, 0.1)
 
 
 func _input(event: InputEvent) -> void:

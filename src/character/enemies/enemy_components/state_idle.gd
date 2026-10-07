@@ -2,12 +2,12 @@ class_name StateIdle
 extends State
 
 
-func _enter() -> void:
+func enter() -> void:
 	if body.animation_player.get_assigned_animation() != "idle":
 		body.animation_player.play("idle")
 
 
-func _update(_delta: float) -> void:
+func update(_delta: float) -> void:
 	if body.player_on_far_sight and not body.steady:
 		state_machine.transition_to("StateChase")
 		return
@@ -17,5 +17,5 @@ func _update(_delta: float) -> void:
 		state_machine.transition_to("StateAttack")
 
 
-func _exit() -> void:
+func exit() -> void:
 	pass

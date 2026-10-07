@@ -4,44 +4,44 @@ extends Node
 
 const TURNING_SPEED: float = 7
 
-@onready var player_input: PlayerInput = $"../../Input"
-@onready var player: Player = $"../.."
-@onready var player_slide: PlayerSlide = $"../Slide"
+@onready var _player_input: PlayerInput = $"../../Input"
+@onready var _player: Player = $"../.."
+@onready var _player_slide: PlayerSlide = $"../Slide"
 
-var speed_multiplier: float = 1
-var target_direction: Vector3 = Vector3.ZERO
+var _speed_multiplier: float = 1
+var _target_direction: Vector3 = Vector3.ZERO
 
 
 func _physics_process(delta: float) -> void:
 	# Velocity's components reflected back for collisions
-	player.horizontal_velocity = player.velocity * Vector3(1,0,1)
-	player.vertical_velocity = player.velocity * Vector3(0,1,0)
+	_player.horizontal_velocity = _player.velocity * Vector3(1,0,1)
+	_player.vertical_velocity = _player.velocity * Vector3(0,1,0)
 	
-	if player_input.sliding and player_slide.is_sliding:
+	if _player_input.sliding and _player_slide.is_sliding:
 		return
 	
-	player.speed = calculate_speed()
-	player.horizontal_direction = calculate_direction(delta)
-	walk(delta)
+	_player.speed = _calculate_speed()
+	_player.horizontal_direction = _calculate_direction(delta)
+	_walk(delta)
 
 
-func calculate_speed() -> float:
-	speed_multiplier = 1 + int(player_input.running)
-	return player.BASE_SPEED * speed_multiplier
+func _calculate_speed() -> float:
+	_speed_multiplier = 1 + int(_player_input.running)
+	return _player.BASE_SPEED * _speed_multiplier
 
 
-func calculate_direction(delta: float) -> Vector3:
-	var direction: Vector3 = (player.transform.basis * Vector3(player_input.h_input_dir.x,0,player_input.h_input_dir.y)).normalized()
-	target_direction = Math.lerpfd(target_direction, direction, TURNING_SPEED, delta)
-	return target_direction * Vector3(1,0,1)
+func _calculate_direction(delta: float) -> Vector3:
+	var direction: Vector3 = (_player.transform.basis * Vector3(_player_input.h_input_dir.x,0,_player_input.h_input_dir.y)).normalized()
+	_target_direction = Math.lerpfd(_target_direction, direction, TURNING_SPEED, delta)
+	return _target_direction * Vector3(1,0,1)
 
 
-func walk(delta: float) -> void:
-	if player.horizontal_direction:
-		player.speed = calculate_speed()
-		if player.horizontal_velocity.length() > 2 * player.speed:
-			player.horizontal_velocity = player.horizontal_velocity.lerp(player.horizontal_direction * player.speed, player.SLIDE_FRICTION * delta)
+func _walk(delta: float) -> void:
+	if _player.horizontal_direction:
+		_player.speed = _calculate_speed()
+		if _player.horizontal_velocity.length() > 2 * _player.speed:
+			_player.horizontal_velocity = _player.horizontal_velocity.lerp(_player.horizontal_direction * _player.speed, _player.SLIDE_FRICTION * delta)
 		else:
-			player.horizontal_velocity = player.horizontal_direction * player.speed
+			_player.horizontal_velocity = _player.horizontal_direction * _player.speed
 	else:
-		player.horizontal_velocity = player.horizontal_velocity.lerp(Vector3.ZERO, player.FRICTION * delta)
+		_player.horizontal_velocity = _player.horizontal_velocity.lerp(Vector3.ZERO, _player.FRICTION * delta)
