@@ -6,9 +6,9 @@ const BASE_SPEED: float = 5
 const JUMP_VELOCITY: float = 7
 const BASE_HEALTH: int = 6
 
-var vertical_velocity: Vector3 = Vector3.ZERO
-var horizontal_velocity: Vector3 = Vector3.ZERO
-var horizontal_direction: Vector3 = Vector3.ZERO
+var vertical_velocity := Vector3.ZERO
+var horizontal_velocity := Vector3.ZERO
+var horizontal_direction := Vector3.ZERO
 var speed: float
 var _health: int
 

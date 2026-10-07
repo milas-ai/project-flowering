@@ -9,7 +9,7 @@ const TURNING_SPEED: float = 7
 @onready var _player_slide: PlayerSlide = $"../Slide"
 
 var _speed_multiplier: float = 1
-var _target_direction: Vector3 = Vector3.ZERO
+var _target_direction := Vector3.ZERO
 
 
 func _physics_process(delta: float) -> void:

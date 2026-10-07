@@ -1,8 +1,8 @@
 extends Node3D
 
 
-func _on_bettle_shoot(Bullet, direction, location, speed) -> void:
-	var spawned_bullet = Bullet.instantiate()
+func _on_bettle_shoot(Bullet: PackedScene, direction: Vector3, location: Vector3, speed: float) -> void:
+	var spawned_bullet: RigidBody3D = Bullet.instantiate()
 	add_child(spawned_bullet)
 	spawned_bullet.rotation = direction
 	spawned_bullet.position = location
@@ -11,7 +11,7 @@ func _on_bettle_shoot(Bullet, direction, location, speed) -> void:
 
 
 func get_player_spawn_point() -> Vector3:
-	var spawn_point = $PlayerSpawnPoint
+	var spawn_point: Marker3D = $PlayerSpawnPoint
 	if spawn_point:
 		return spawn_point.global_position
 	else:

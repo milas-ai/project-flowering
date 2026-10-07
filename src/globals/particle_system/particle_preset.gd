@@ -7,7 +7,7 @@ extends Node3D
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 
-func run_effect(time: float = 2.0):
+func run_effect(time: float = 2.0) -> void:
 	if _animation_player:
 		_animation_player.play("emit")
 	else:

@@ -18,12 +18,12 @@ func attack_player() -> void:
 	while true:
 		await get_tree().physics_frame
 		for i in get_slide_collision_count():
-			var collider = get_slide_collision(i).get_collider()
+			var collider: CollisionObject3D = get_slide_collision(i).get_collider()
 			if collider and "collision_layer" in collider:
 				if collider.collision_layer & ~WORLD_LAYER_BITMASK:
 					for body in $ExplosionArea.get_overlapping_bodies():
 						if body.collision_layer & PUSHABLE_LAYER_BITMASK:
-							var push_direction = global_transform.origin.direction_to(body.global_transform.origin)
+							var push_direction: Vector3 = global_transform.origin.direction_to(body.global_transform.origin)
 							push_direction.y = 0
 							body.apply_impulse(push_direction * 10)
 						elif body.has_method("take_damage"):

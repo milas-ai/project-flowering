@@ -5,7 +5,7 @@ extends State
 @export var _desired_distance: float = 1.5
 
 @onready var _navigation_agent: NavigationAgent3D = $"../../NavigationAgent3D"
-@onready var _speed = body.SPEED if body.has_meta("SPEED") else body.BASE_SPEED
+@onready var _speed: float = body.SPEED if body.has_meta("SPEED") else body.BASE_SPEED
 
 
 func _ready() -> void:

@@ -14,8 +14,8 @@ var is_sliding: bool = false
 
 
 func _physics_process(delta: float) -> void:
-	var floor_normal = _player.get_floor_normal()
-	var is_on_slope = _player.is_on_floor() and floor_normal.y < 0.98
+	var floor_normal: Vector3 = _player.get_floor_normal()
+	var is_on_slope: bool = _player.is_on_floor() and floor_normal.y < 0.98
 
 	if _player_input.sliding and not is_sliding and is_on_slope:
 		_start_slide()
@@ -29,18 +29,18 @@ func _physics_process(delta: float) -> void:
 			_stop_slide()
 			return
 
-		var downhill_dir = Vector3.DOWN.slide(floor_normal).normalized()
+		var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 		
-		var current_speed = (_player.horizontal_velocity+_player.vertical_velocity).length()
+		var current_speed: float = (_player.horizontal_velocity+_player.vertical_velocity).length()
 		
 		current_speed = move_toward(current_speed, MAX_SLIDE_SPEED, SLOPE_ACCELERATION * delta)
 		
-		var final_slide_dir = downhill_dir
+		var final_slide_dir: Vector3 = downhill_dir
 		
 		if _player.horizontal_direction != Vector3.ZERO:
-			var slope_right = downhill_dir.cross(floor_normal).normalized()
+			var slope_right: Vector3 = downhill_dir.cross(floor_normal).normalized()
 			
-			var steer_side_amount = _player.horizontal_direction.dot(slope_right)
+			var steer_side_amount: float = _player.horizontal_direction.dot(slope_right)
 			
 			final_slide_dir = (downhill_dir + (slope_right * steer_side_amount * STEER_INFLUENCE)).normalized()
 			
@@ -54,10 +54,10 @@ func _start_slide() -> void:
 	if $SlideCooldown.time_left > 0:
 		return
 	is_sliding = true
-	var floor_normal = _player.get_floor_normal()
-	var downhill_dir = Vector3.DOWN.slide(floor_normal).normalized()
+	var floor_normal: Vector3 = _player.get_floor_normal()
+	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
-	var starting_speed = max(_player.horizontal_velocity.length(), BASE_SLIDE_SPEED)
+	var starting_speed: float = max(_player.horizontal_velocity.length(), BASE_SLIDE_SPEED)
 	
 	_player.horizontal_velocity = downhill_dir * starting_speed * Vector3(1,0,1)
 	_player.vertical_velocity = downhill_dir * starting_speed * Vector3(0,1,0)
