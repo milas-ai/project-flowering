@@ -1,5 +1,5 @@
-extends Node
 class_name PlayerSlide
+extends Node
 
 
 const BASE_SLIDE_SPEED: float = 8.0

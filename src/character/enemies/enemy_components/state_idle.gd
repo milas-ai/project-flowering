@@ -1,5 +1,5 @@
-extends State
 class_name StateIdle
+extends State
 
 
 func _enter() -> void:

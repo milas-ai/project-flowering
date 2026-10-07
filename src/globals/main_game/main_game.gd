@@ -1,5 +1,5 @@
-extends Node
 class_name MainGame
+extends Node
 
 
 const PLAYER_SCENE_UID = "uid://cn4xgyysgu8vt"

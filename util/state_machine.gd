@@ -1,5 +1,5 @@
-extends Node
 class_name StateMachine
+extends Node
 
 
 @export var body: Node

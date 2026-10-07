@@ -1,5 +1,5 @@
-extends CharacterBody3D
 class_name Character
+extends CharacterBody3D
 
 
 const BASE_SPEED: float = 5

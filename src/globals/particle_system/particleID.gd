@@ -1,5 +1,5 @@
-extends RefCounted
 class_name ParticleID
+extends RefCounted
 
 
 const EXPLOSION = &"explosion"

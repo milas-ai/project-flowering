@@ -1,5 +1,5 @@
-extends Character
 class_name Enemy
+extends Character
 
 
 const FRICTION: float = 25

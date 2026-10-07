@@ -1,5 +1,5 @@
-extends Enemy
 class_name RolyPoly
+extends Enemy
 
 
 const SPEED: float = 5

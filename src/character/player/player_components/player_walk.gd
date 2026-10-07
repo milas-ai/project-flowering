@@ -1,5 +1,5 @@
-extends Node
 class_name PlayerWalk
+extends Node
 
 
 const TURNING_SPEED: float = 7

@@ -1,5 +1,5 @@
-extends Enemy
 class_name Bettle
+extends Enemy
 
 
 signal shoot(bullet, direction, location, speed)

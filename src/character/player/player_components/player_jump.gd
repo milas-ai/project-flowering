@@ -1,5 +1,5 @@
-extends Node
 class_name PlayerJump
+extends Node
 
 
 @onready var player: Player = $"../.."

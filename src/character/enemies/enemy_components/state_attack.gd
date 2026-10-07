@@ -1,5 +1,5 @@
-extends State
 class_name StateAttack
+extends State
 
 
 var on_cooldown: bool = false

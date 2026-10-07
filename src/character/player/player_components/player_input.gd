@@ -1,5 +1,5 @@
-extends Node
 class_name PlayerInput
+extends Node
 
 
 signal jump_pressed

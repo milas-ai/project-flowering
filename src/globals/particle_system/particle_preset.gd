@@ -1,5 +1,5 @@
-extends Node3D
 class_name ParticlePreset
+extends Node3D
 
 
 @export var id: StringName

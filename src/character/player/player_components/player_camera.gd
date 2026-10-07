@@ -1,5 +1,5 @@
-extends Node3D
 class_name PlayerCamera
+extends Node3D
 
 
 var camera_rotation: float = deg_to_rad(45)

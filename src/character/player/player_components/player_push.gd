@@ -1,5 +1,5 @@
-extends Node
 class_name PlayerPush
+extends Node
 
 
 @export var push_force = 10.0

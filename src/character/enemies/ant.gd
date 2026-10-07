@@ -1,5 +1,5 @@
-extends Enemy
 class_name Ant
+extends Enemy
 
 
 const SPEED: float = 7

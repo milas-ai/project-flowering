@@ -1,5 +1,5 @@
-extends Character
 class_name Player
+extends Character
 
 
 const FRICTION: float = 10

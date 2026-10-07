@@ -1,5 +1,5 @@
-extends State
 class_name StateChase
+extends State
 
 
 @export var desired_distance: float = 1.5
