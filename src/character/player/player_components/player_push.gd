@@ -22,7 +22,7 @@ func _on_player_input_push_pressed() -> void:
 		_ray_cast.force_raycast_update()
 		
 		if _ray_cast.is_colliding():
-			var hit_object: CollisionObject3D = _ray_cast.get_collider()
+			var hit_object: Object = _ray_cast.get_collider()
 			if hit_object.collision_layer & PUSHABLE_LAYER_BITMASK:
 				var push_direction: Vector3 = _ray_cast.global_transform.basis.z.normalized()
 				var hit_point: Vector3 = _ray_cast.get_collision_point() - hit_object.global_position

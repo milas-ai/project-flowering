@@ -18,7 +18,7 @@ func attack_player() -> void:
 	while true:
 		await get_tree().physics_frame
 		for i in get_slide_collision_count():
-			var collider: CollisionObject3D = get_slide_collision(i).get_collider()
+			var collider: Object = get_slide_collision(i).get_collider()
 			if collider and "collision_layer" in collider:
 				if collider.collision_layer & ~WORLD_LAYER_BITMASK:
 					for body in $ExplosionArea.get_overlapping_bodies():
