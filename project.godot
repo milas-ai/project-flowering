@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project Flowering"
-run/main_scene="uid://dayem3vrpenok"
+run/main_scene="uid://cwg6plif5r5wv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
