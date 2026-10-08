@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwbwt3paorqwv" path="res://src/character/enemies/ant/ant.gd" id="1_gbvur"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="2_gbvur"]
-[ext_resource type="PackedScene" uid="uid://box4iqlb7w81q" path="res://assets/models/enemies/ant.glb" id="2_pljm0"]
+[ext_resource type="PackedScene" uid="uid://box4iqlb7w81q" path="res://assets/models/enemies/ant_model.glb" id="2_pljm0"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="3_pljm0"]
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="4_mtr0v"]
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="5_ql16m"]
