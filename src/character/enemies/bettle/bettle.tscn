@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfv7t0b64ff47"]
 
 [ext_resource type="Script" uid="uid://b2pxyfofy27o" path="res://src/character/enemies/bettle/bettle.gd" id="1_en1k1"]
-[ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle.glb" id="2_xiojd"]
+[ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle_model.glb" id="2_xiojd"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="5_tlsr3"]
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="6_en1k1"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="6_y1e6u"]

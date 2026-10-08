@@ -1,3 +1,4 @@
+class_name BettleBullet
 extends RigidBody3D
 
 

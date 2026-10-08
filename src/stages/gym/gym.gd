@@ -14,7 +14,7 @@ func get_player_spawn_point() -> Vector3:
 
 
 func _on_bettle_shoot(direction: Vector3, location: Vector3, speed: float) -> void:
-	var spawned_bullet: RigidBody3D = _bettle_bullet_scene.instantiate()
+	var spawned_bullet: BettleBullet = _bettle_bullet_scene.instantiate()
 	add_child(spawned_bullet)
 	spawned_bullet.rotation = direction
 	spawned_bullet.position = location
