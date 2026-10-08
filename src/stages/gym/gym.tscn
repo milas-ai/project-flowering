@@ -6,16 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dfv7t0b64ff47" path="res://src/character/enemies/bettle/bettle.tscn" id="4_l7x8x"]
 [ext_resource type="PackedScene" uid="uid://c88yr21yjr2wk" path="res://src/character/enemies/ant/ant.tscn" id="5_q722t"]
 [ext_resource type="PackedScene" uid="uid://bhd5vasd3pgwm" path="res://src/character/enemies/roly_poly/roly_poly.tscn" id="6_01b04"]
-[ext_resource type="PackedScene" uid="uid://c4dpb7unnm5hj" path="res://src/gui/health_container/health_container.tscn" id="7_dtgu8"]
 
-[node name="Node3D" type="Node3D" unique_id=314279592]
+[node name="Gym" type="Node3D" unique_id=314279592]
 script = ExtResource("1_sj3ow")
-
-[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=37583053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.579)
 
 [node name="Terrain" parent="." unique_id=77169490 instance=ExtResource("2_p0m3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11140442, -0.07516813, 0.02130127)
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=37583053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.579)
 
 [node name="Pillar" parent="." unique_id=459556221 instance=ExtResource("3_28adb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.5, 20)
@@ -32,8 +31,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1168, 0.42482376, -1.61939
 
 [node name="RolyPoly" parent="." unique_id=656354051 instance=ExtResource("6_01b04")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7273464, 0.42482567, 43.12167)
-
-[node name="HealthContainer" parent="." unique_id=1007251824 instance=ExtResource("7_dtgu8")]
 
 [connection signal="shoot" from="Bettle2" to="." method="_on_bettle_shoot"]
 [connection signal="shoot" from="Bettle3" to="." method="_on_bettle_shoot"]
