@@ -15,7 +15,7 @@ var _coyote_time: bool = false
 func _physics_process(_delta: float) -> void:
 	_update_coyote()
 	if _jump_buffer and _coyote_time:
-		_jump(_player.JUMP_VELOCITY)
+		_jump(BaseStat.PLAYER.JUMP_VELOCITY)
 
 
 func _jump(impulse: float) -> void:

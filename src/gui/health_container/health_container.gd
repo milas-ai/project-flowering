@@ -1,8 +1,6 @@
 extends HBoxContainer
 
 
-const MAX_HEALTH: int = 6
-
 @onready var _hearts: Array[Node]
 @onready var _empty_heart_texture: Texture2D = load("res://assets/gui/empty_heart.png")
 @onready var _half_heart_texture: Texture2D = load("res://assets/gui/half_heart.png")
@@ -10,7 +8,7 @@ const MAX_HEALTH: int = 6
 
 
 func _ready() -> void:
-	for i in range(int(float(MAX_HEALTH) / 2) + MAX_HEALTH%2):
+	for i in range(int(float(BaseStat.PLAYER.HEALTH) / 2) + BaseStat.PLAYER.HEALTH%2):
 		var texture_rect := TextureRect.new()
 		texture_rect.texture = _full_heart_texture
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -30,7 +28,7 @@ func _animate_heart(index: int) -> void:
 
 
 func _on_player_update_health(health: int) -> void:
-	for i in range(int(float(MAX_HEALTH) / 2) + MAX_HEALTH%2):
+	for i in range(int(float(BaseStat.PLAYER.HEALTH) / 2) + BaseStat.PLAYER.HEALTH%2):
 		if health >= (i*2+1)+1:
 			if _hearts[i].texture != _full_heart_texture:
 				_animate_heart(i)

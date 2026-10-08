@@ -2,7 +2,12 @@ class_name Ant
 extends Enemy
 
 
-const SPEED: float = 7
+static var SPEED: float = BaseStat.ENEMY.ANT.SPEED
+static var FRICTION: float = BaseStat.ENEMY.ANT.FRICTION
+
+
+func _ready() -> void:
+	_health = BaseStat.ENEMY.ANT.HEALTH
 
 
 func attack_player() -> void:
@@ -14,6 +19,6 @@ func attack_player() -> void:
 	get_tree().create_timer(0.67).timeout.connect(
 			func():
 				if player_on_near_sight:
-					player.take_damage(3)
+					player.take_damage(BaseStat.ENEMY.ANT.DAMAGE)
 	)
 	animation_player.queue("idle")

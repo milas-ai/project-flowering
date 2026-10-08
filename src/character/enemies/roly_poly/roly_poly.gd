@@ -2,12 +2,18 @@ class_name RolyPoly
 extends Enemy
 
 
-const SPEED: float = 5
 const WORLD_LAYER_BITMASK: int = 1 << (2 - 1) # world layer is 2, so we shift 1 left by (2 - 1) = 1 to get the bitmask for layer 2
 const PUSHABLE_LAYER_BITMASK: int = 1 << (4 - 1)
 
+static var SPEED: float = BaseStat.ENEMY.ROLY_POLY.SPEED
+static var FRICTION: float = BaseStat.ENEMY.ROLY_POLY.FRICTION
+
 @onready var _explosion_area: Area3D = $ExplosionArea
 
+
+func _ready() -> void:
+	_health = BaseStat.ENEMY.ROLY_POLY.HEALTH
+	
 
 func attack_player() -> void:
 	look_at(player.global_transform.origin, Vector3.UP)
@@ -32,6 +38,6 @@ func attack_player() -> void:
 							push_direction.y = 0
 							body.apply_impulse(push_direction * 10)
 						elif body.has_method("take_damage"):
-							body.take_damage(4)
+							body.take_damage(BaseStat.ENEMY.ROLY_POLY.DAMAGE)
 					ParticleSystem.play(ParticleID.EXPLOSION, global_transform.origin)
 					queue_free()

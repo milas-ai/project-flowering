@@ -5,7 +5,6 @@ extends State
 @export var _desired_distance: float = 1.5
 
 @onready var _navigation_agent: NavigationAgent3D = $"../../NavigationAgent3D"
-@onready var _speed: float = body.SPEED if body.has_meta("SPEED") else body.BASE_SPEED
 
 
 func _ready() -> void:
@@ -31,7 +30,7 @@ func update(_delta: float) -> void:
 
 	body.horizontal_direction = _navigation_agent.get_next_path_position() - body.global_transform.origin
 	body.horizontal_direction.y = 0
-	body.horizontal_velocity = body.horizontal_direction.normalized() * _speed
+	body.horizontal_velocity = body.horizontal_direction.normalized() * body.SPEED
 	body.look_at(body.global_transform.origin + body.horizontal_direction, Vector3.UP)
 
 

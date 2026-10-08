@@ -3,19 +3,9 @@ class_name Character
 extends CharacterBody3D
 
 
-const BASE_SPEED: float = 5
-const JUMP_VELOCITY: float = 7
-const BASE_HEALTH: int = 6
-
 var vertical_velocity := Vector3.ZERO
 var horizontal_velocity := Vector3.ZERO
 var horizontal_direction := Vector3.ZERO
-var speed: float
-var _health: int
-
-
-func _ready() -> void:
-	_health = BASE_HEALTH
 
 
 func _physics_process(delta: float) -> void:
@@ -24,10 +14,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func take_damage(amount: int) -> void:
-	_health -= amount
-	if _health <= 0:
-		queue_free()
+@abstract func take_damage(amount: int) -> void
 
 
 func _fall(delta: float) -> void:

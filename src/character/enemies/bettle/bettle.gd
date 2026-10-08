@@ -4,9 +4,16 @@ extends Enemy
 
 signal shoot(direction, location, speed)
 
+static var SPEED: float = BaseStat.ENEMY.BETTLE.SPEED
+static var FRICTION: float = BaseStat.ENEMY.BETTLE.FRICTION
+
 @export var _bullet_speed: float = 10.0
 
 @onready var _bullet_marker: Marker3D = $BulletMarker
+
+
+func _ready() -> void:
+	_health = BaseStat.ENEMY.BETTLE.HEALTH
 
 
 func attack_player() -> void:

@@ -2,10 +2,9 @@ class_name Player
 extends Character
 
 
-signal update_health(health)
+signal update_health(health: int)
 
-const FRICTION: float = 10
-const SLIDE_FRICTION: float = 1.0
+var _health: int = BaseStat.PLAYER.HEALTH
 
 
 func take_damage(amount: int) -> void:

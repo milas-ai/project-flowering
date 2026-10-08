@@ -2,11 +2,6 @@ class_name PlayerSlide
 extends Node
 
 
-const BASE_SLIDE_SPEED: float = 8.0
-const MAX_SLIDE_SPEED: float = 100.0
-const SLOPE_ACCELERATION: float = 20.0
-const STEER_INFLUENCE: float = 1.0
-
 var is_sliding: bool = false
 
 @onready var _player_input: PlayerInput = $"../../Input"
@@ -34,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		
 		var current_speed: float = (_player.horizontal_velocity+_player.vertical_velocity).length()
 		
-		current_speed = move_toward(current_speed, MAX_SLIDE_SPEED, SLOPE_ACCELERATION * delta)
+		current_speed = move_toward(current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
 		
 		var final_slide_dir: Vector3 = downhill_dir
 		
@@ -43,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			
 			var steer_side_amount: float = _player.horizontal_direction.dot(slope_right)
 			
-			final_slide_dir = (downhill_dir + (slope_right * steer_side_amount * STEER_INFLUENCE)).normalized()
+			final_slide_dir = (downhill_dir + (slope_right * steer_side_amount * BaseStat.PLAYER.STEER_INFLUENCE)).normalized()
 			
 			final_slide_dir = final_slide_dir.slide(floor_normal).normalized()
 
@@ -58,7 +53,7 @@ func _start_slide() -> void:
 	var floor_normal: Vector3 = _player.get_floor_normal()
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
-	var starting_speed: float = max(_player.horizontal_velocity.length(), BASE_SLIDE_SPEED)
+	var starting_speed: float = max(_player.horizontal_velocity.length(), BaseStat.PLAYER.SLIDE_SPEED)
 	
 	_player.horizontal_velocity = downhill_dir * starting_speed * Vector3(1,0,1)
 	_player.vertical_velocity = downhill_dir * starting_speed * Vector3(0,1,0)
