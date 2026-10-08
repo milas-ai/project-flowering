@@ -9,9 +9,6 @@ var is_stunning: bool = false
 
 const ENEMY_LAYER_BITMASK: int = 1 << (3 - 1)
 
-func _ready():
-	player_input.stun_pressed.connect(_on_player_input_stun_pressed)
-
 func _on_player_input_stun_pressed():
 	if not is_stunning:
 		is_stunning = true
