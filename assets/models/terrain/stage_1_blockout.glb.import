@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://br10un1abpthf"
-path="res://.godot/imported/stage1.glb-da57fc3129d232b1c96a88c621da1d55.scn"
+path="res://.godot/imported/stage_1_blockout.glb-121bebe90398905fb763bd13bbd60030.scn"
 
 [deps]
 
-source_file="res://src/terrain/stage1.glb"
-dest_files=["res://.godot/imported/stage1.glb-da57fc3129d232b1c96a88c621da1d55.scn"]
+source_file="res://assets/models/terrain/stage_1_blockout.glb"
+dest_files=["res://.godot/imported/stage_1_blockout.glb-121bebe90398905fb763bd13bbd60030.scn"]
 
 [params]
 
