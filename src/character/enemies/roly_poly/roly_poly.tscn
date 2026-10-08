@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhd5vasd3pgwm"]
 
-[ext_resource type="Script" uid="uid://cgaqmbv84ty31" path="res://src/character/enemies/roly_poly.gd" id="1_0ok0v"]
+[ext_resource type="Script" uid="uid://cgaqmbv84ty31" path="res://src/character/enemies/roly_poly/roly_poly.gd" id="1_0ok0v"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="2_0ok0v"]
 [ext_resource type="PackedScene" uid="uid://cqc81jofwwm8e" path="res://assets/models/enemies/roly_poly.tscn" id="2_tbead"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="3_tbead"]

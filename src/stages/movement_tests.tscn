@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://src/terrain/greybox.tscn" id="1_hv5vy"]
 [ext_resource type="Script" uid="uid://cb1586lgmmqto" path="res://src/stages/movement_tests.gd" id="1_tki1a"]
 [ext_resource type="PackedScene" uid="uid://c218p2xu1wqgf" path="res://src/entities/pushable/test_pillar.tscn" id="4_dw62b"]
-[ext_resource type="PackedScene" uid="uid://dfv7t0b64ff47" path="res://src/character/enemies/bettle.tscn" id="7_vi5l1"]
-[ext_resource type="PackedScene" uid="uid://c88yr21yjr2wk" path="res://src/character/enemies/ant.tscn" id="12_vx00b"]
+[ext_resource type="PackedScene" uid="uid://dfv7t0b64ff47" path="res://src/character/enemies/bettle/bettle.tscn" id="7_vi5l1"]
+[ext_resource type="PackedScene" uid="uid://c88yr21yjr2wk" path="res://src/character/enemies/ant/ant.tscn" id="12_vx00b"]
 [ext_resource type="Script" uid="uid://dsnxua1wnc762" path="res://src/gui/health_container.gd" id="13_1yhe4"]
-[ext_resource type="PackedScene" uid="uid://bhd5vasd3pgwm" path="res://src/character/enemies/roly_poly.tscn" id="14_1yhe4"]
+[ext_resource type="PackedScene" uid="uid://bhd5vasd3pgwm" path="res://src/character/enemies/roly_poly/roly_poly.tscn" id="14_1yhe4"]
 
 [node name="Node3D" type="Node3D" unique_id=314279592]
 script = ExtResource("1_tki1a")

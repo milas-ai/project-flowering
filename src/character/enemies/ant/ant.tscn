@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c88yr21yjr2wk"]
 
-[ext_resource type="Script" uid="uid://bwbwt3paorqwv" path="res://src/character/enemies/ant.gd" id="1_gbvur"]
+[ext_resource type="Script" uid="uid://bwbwt3paorqwv" path="res://src/character/enemies/ant/ant.gd" id="1_gbvur"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="2_gbvur"]
 [ext_resource type="PackedScene" uid="uid://box4iqlb7w81q" path="res://assets/models/enemies/ant.glb" id="2_pljm0"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="3_pljm0"]
