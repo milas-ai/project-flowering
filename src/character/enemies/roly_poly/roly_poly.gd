@@ -2,9 +2,6 @@ class_name RolyPoly
 extends Enemy
 
 
-const WORLD_LAYER_BITMASK: int = 1 << (2 - 1) # world layer is 2, so we shift 1 left by (2 - 1) = 1 to get the bitmask for layer 2
-const PUSHABLE_LAYER_BITMASK: int = 1 << (4 - 1)
-
 static var SPEED: float = BaseStat.ENEMY.ROLY_POLY.SPEED
 static var FRICTION: float = BaseStat.ENEMY.ROLY_POLY.FRICTION
 
@@ -31,9 +28,9 @@ func attack_player() -> void:
 		for i in get_slide_collision_count():
 			var collider: Object = get_slide_collision(i).get_collider()
 			if collider and "collision_layer" in collider:
-				if collider.collision_layer & ~WORLD_LAYER_BITMASK:
+				if collider.collision_layer & ~LayerBitmask.WORLD:
 					for body in _explosion_area.get_overlapping_bodies():
-						if body.collision_layer & PUSHABLE_LAYER_BITMASK:
+						if body.collision_layer & LayerBitmask.PUSHABLE:
 							var push_direction: Vector3 = global_transform.origin.direction_to(body.global_transform.origin)
 							push_direction.y = 0
 							body.apply_impulse(push_direction * 10)
