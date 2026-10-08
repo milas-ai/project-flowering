@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvfpc7xbno2al"]
 
-[ext_resource type="Script" uid="uid://cuhndknefoxx" path="res://src/entities/bullet.gd" id="1_knkie"]
+[ext_resource type="Script" uid="uid://cuhndknefoxx" path="res://src/entities/bullet/bullet.gd" id="1_knkie"]
 [ext_resource type="Material" uid="uid://bv31q4p0rsobg" path="res://assets/materials/entities/mat_bullet.tres" id="2_84wr8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5wuxl"]
