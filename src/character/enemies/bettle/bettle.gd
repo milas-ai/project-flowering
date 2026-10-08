@@ -10,11 +10,14 @@ signal shoot(direction, location, speed)
 
 
 func attack_player() -> void:
-  look_at(player.global_transform.origin, Vector3.UP)
-  rotation.x = 0
-  animation_player.stop()
-  animation_player.clear_queue()
-  animation_player.play("attack")
-  ParticleSystem.play(ParticleID.ACID_SPEW, _bullet_marker.global_transform.origin, global_rotation)
-  get_tree().create_timer(0.72).timeout.connect(func(): shoot.emit(rotation, _bullet_marker.global_transform.origin, _bullet_speed))
-  animation_player.queue("idle")
+	look_at(player.global_transform.origin, Vector3.UP)
+	rotation.x = 0
+	animation_player.stop()
+	animation_player.clear_queue()
+	animation_player.play("attack")
+	ParticleSystem.play(ParticleID.ACID_SPEW, _bullet_marker.global_transform.origin, global_rotation)
+	get_tree().create_timer(0.72).timeout.connect(
+			func():
+				shoot.emit(rotation, _bullet_marker.global_transform.origin, _bullet_speed)
+	)
+	animation_player.queue("idle")

@@ -31,7 +31,9 @@ func _calculate_speed() -> float:
 
 
 func _calculate_direction(delta: float) -> Vector3:
-	var direction: Vector3 = (_player.transform.basis * Vector3(_player_input.h_input_dir.x,0,_player_input.h_input_dir.y)).normalized()
+	var direction := (
+			Vector3(_player_input.h_input_dir.x,0,_player_input.h_input_dir.y) * _player.transform.basis
+	).normalized()
 	_target_direction = Math.lerpfd(_target_direction, direction, TURNING_SPEED, delta)
 	return _target_direction * Vector3(1,0,1)
 
@@ -40,7 +42,9 @@ func _walk(delta: float) -> void:
 	if _player.horizontal_direction:
 		_player.speed = _calculate_speed()
 		if _player.horizontal_velocity.length() > 2 * _player.speed:
-			_player.horizontal_velocity = _player.horizontal_velocity.lerp(_player.horizontal_direction * _player.speed, _player.SLIDE_FRICTION * delta)
+			_player.horizontal_velocity = _player.horizontal_velocity.lerp(
+					_player.horizontal_direction * _player.speed, _player.SLIDE_FRICTION * delta
+			)
 		else:
 			_player.horizontal_velocity = _player.horizontal_direction * _player.speed
 	else:
