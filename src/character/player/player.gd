@@ -1,15 +1,14 @@
-extends Character
 class_name Player
+extends Character
 
 
-const FRICTION: float = 10
-const SLIDE_FRICTION: float = 1.0
+signal update_health(health: int)
 
-signal update_health(health)
+var _health: int = BaseStat.PLAYER.HEALTH
 
 
 func take_damage(amount: int) -> void:
-	health -= amount
-	emit_signal("update_health", health)
-	if health <= 0:
+	_health -= amount
+	emit_signal("update_health", _health)
+	if _health <= 0:
 		get_tree().quit()

@@ -23,6 +23,25 @@ ParticleSystem="*uid://cawl0y3nndj04"
 
 enabled=PackedStringArray("res://addons/brackeys_particle_controls/plugin.cfg", "res://addons/mx_creative_console/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://assets/animations/": "red",
+"res://assets/gui/": "green",
+"res://assets/logo/": "teal",
+"res://assets/materials/": "yellow",
+"res://assets/models/": "orange",
+"res://assets/particles/": "blue",
+"res://assets/textures/": "pink",
+"res://src/character/": "red",
+"res://src/entities/": "orange",
+"res://src/globals/": "teal",
+"res://src/gui/": "green",
+"res://src/shaders/": "blue",
+"res://src/stages/": "pink",
+"res://src/terrain/": "purple"
+}
+
 [input]
 
 slide={

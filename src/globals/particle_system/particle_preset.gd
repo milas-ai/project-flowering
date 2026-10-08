@@ -1,15 +1,15 @@
-extends Node3D
 class_name ParticlePreset
+extends Node3D
 
 
 @export var id: StringName
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _animation_player: AnimationPlayer = get_node_or_null("AnimationPlayer")
 
 
-func run_effect(time: float = 2.0):
-	if animation_player:
-		animation_player.play("emit")
+func run_effect(time: float = 2.0) -> void:
+	if _animation_player:
+		_animation_player.play("emit")
 	else:
 		for child in get_children():
 			if child is GPUParticles3D:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bycb8jot3yc52"]
 
 [ext_resource type="Script" uid="uid://nfplxlsobkrt" path="res://src/globals/particle_system/particle_preset.gd" id="1_3q2fk"]
-[ext_resource type="Material" uid="uid://bv31q4p0rsobg" path="res://assets/materials/entities/mat_bullet.tres" id="2_dvqn6"]
+[ext_resource type="Material" uid="uid://bv31q4p0rsobg" path="res://assets/materials/entities/bettle_bullet_mat.tres" id="2_dvqn6"]
 
 [sub_resource type="Curve" id="Curve_oe6gr"]
 _limits = [0.0, 10.0, 0.0, 1.0]

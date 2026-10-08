@@ -3,17 +3,18 @@ extends Node
 
 @export var database: ParticleDatabase
 
-var particle_dictionary = {}
+var _particle_dictionary: Dictionary = {}
 
 
 func _ready() -> void:
 	for preset in database.particles:
-		particle_dictionary[ preset.get_state().get_node_property_value(0,1) ] = preset
+		_particle_dictionary[ preset.get_state().get_node_property_value(0,1) ] = preset
 
-func play(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO, time: float = 2.0):
-	var particle_scene = particle_dictionary.get(particle_id)
+
+func play(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO, time: float = 2.0) -> void:
+	var particle_scene: PackedScene = _particle_dictionary.get(particle_id)
 	if particle_scene:
-		var particle_instance = particle_scene.instantiate()
+		var particle_instance: ParticlePreset = particle_scene.instantiate()
 		get_tree().current_scene.add_child(particle_instance)
 		particle_instance.global_transform.origin = position
 		particle_instance.global_rotation = rotation

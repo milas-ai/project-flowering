@@ -23,7 +23,7 @@ render_target_update_mode = 4
 [node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=716154110]
 process_mode = 1
 
-[node name="LevelRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=326016225]
+[node name="StageRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=326016225]
 unique_name_in_owner = true
 
 [node name="EntityRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=630348644]
