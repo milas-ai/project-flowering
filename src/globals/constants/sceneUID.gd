@@ -2,12 +2,13 @@ class_name SceneUID
 extends RefCounted
 
 
-const PLAYER: StringName = "uid://cn4xgyysgu8vt"
-
-# Stages
-const STAGE_GYM: StringName = "uid://dayem3vrpenok"
-const STAGE_1: StringName = "uid://cnohyrkccqdd6"
+const PLAYER: String = "uid://cn4xgyysgu8vt"
 
 
-# Entities
-const BETTLE_BULLET: StringName = "uid://dvfpc7xbno2al"
+class STAGES:
+	const GYM: String = "uid://dayem3vrpenok"
+	const MOUNTAIN: String = "uid://cnohyrkccqdd6"
+
+
+class ENTITIES:
+	const BETTLE_BULLET: String = "uid://dvfpc7xbno2al"

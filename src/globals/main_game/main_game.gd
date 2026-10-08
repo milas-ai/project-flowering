@@ -13,7 +13,7 @@ var _current_stage: Node3D = null
 
 func _ready() -> void:
 	_init_player()
-	load_stage(SceneUID.STAGE_GYM)
+	load_stage(SceneUID.STAGES.GYM)
 
 
 func load_stage(stage_scene_uid: String) -> void:
