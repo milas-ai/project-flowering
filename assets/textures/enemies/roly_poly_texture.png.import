@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qqrvgrljeq2g"
-path.s3tc="res://.godot/imported/roly_poly_0.png-e46c3d4b64fc31f63f076683caf4364c.s3tc.ctex"
+path.s3tc="res://.godot/imported/roly_poly_texture.png-bf483958f1d084bd4ad21b1898cea02e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/models/enemies/roly_poly_0.png"
-dest_files=["res://.godot/imported/roly_poly_0.png-e46c3d4b64fc31f63f076683caf4364c.s3tc.ctex"]
+source_file="res://assets/textures/enemies/roly_poly_texture.png"
+dest_files=["res://.godot/imported/roly_poly_texture.png-bf483958f1d084bd4ad21b1898cea02e.s3tc.ctex"]
 
 [params]
 

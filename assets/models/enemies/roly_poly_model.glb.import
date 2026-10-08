@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://t6iiaey2uhd6"
-path="res://.godot/imported/roly_poly.glb-7ffb3064756806bc50a8f5f9d393ab90.scn"
+path="res://.godot/imported/roly_poly_model.glb-4b54bb86e4bbe16209b33dede5b8d4ef.scn"
 
 [deps]
 
-source_file="res://assets/models/enemies/roly_poly.glb"
-dest_files=["res://.godot/imported/roly_poly.glb-7ffb3064756806bc50a8f5f9d393ab90.scn"]
+source_file="res://assets/models/enemies/roly_poly_model.glb"
+dest_files=["res://.godot/imported/roly_poly_model.glb-4b54bb86e4bbe16209b33dede5b8d4ef.scn"]
 
 [params]
 
@@ -38,7 +38,7 @@ animation/import_rest_as_RESET=true
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
-materials/extract_path=""
+materials/extract_path="res://assets/materials/enemies/roly_poly"
 _subresources={
 "animations": {
 "RESET": {
@@ -10320,6 +10320,13 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"materials": {
+"material_0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/enemies/roly_poly_mat.tres",
+"use_external/path": "uid://diuuk5n2eq3gw"
 }
 }
 }
