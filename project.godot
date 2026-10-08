@@ -32,6 +32,7 @@ folder_colors={
 "res://assets/materials/": "yellow",
 "res://assets/models/": "orange",
 "res://assets/particles/": "blue",
+"res://assets/textures/": "pink",
 "res://src/character/": "red",
 "res://src/entities/": "orange",
 "res://src/globals/": "teal",
