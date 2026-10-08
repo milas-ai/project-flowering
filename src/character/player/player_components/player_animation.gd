@@ -8,6 +8,7 @@ extends Node
 var is_stunning: bool = false
 
 @onready var _player_push: PlayerPush = $"../../Action/Push"
+@onready var _player_input: PlayerInput = $"../../Input"
 
 
 func _process(_delta: float) -> void:
@@ -33,7 +34,7 @@ func _process(_delta: float) -> void:
 		anim.play("Stun")
 	elif _player.horizontal_velocity.length() < 1:
 		anim.play("Idle")
-	elif not $"../../Input".running:
+	elif not _player_input.running:
 		anim.play("Walk")
 	else:
 		anim.play("Run")

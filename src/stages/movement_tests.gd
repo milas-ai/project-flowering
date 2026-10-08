@@ -1,10 +1,12 @@
 extends Node3D
 
 
+@onready var _player_spawn_point: Marker3D = $PlayerSpawnPoint
+
+
 func get_player_spawn_point() -> Vector3:
-	var spawn_point: Marker3D = $PlayerSpawnPoint
-	if spawn_point:
-		return spawn_point.global_position
+	if _player_spawn_point:
+		return _player_spawn_point.global_position
 	else:
 		push_error("Player spawn point not found in the level.")
 		return Vector3.ZERO

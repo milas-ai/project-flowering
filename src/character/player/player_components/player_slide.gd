@@ -11,6 +11,7 @@ var is_sliding: bool = false
 
 @onready var _player_input: PlayerInput = $"../../Input"
 @onready var _player: Player = $"../.."
+@onready var _slide_cooldown: Timer = $SlideCooldown
 
 
 func _physics_process(delta: float) -> void:
@@ -51,7 +52,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _start_slide() -> void:
-	if $SlideCooldown.time_left > 0:
+	if _slide_cooldown.time_left > 0:
 		return
 	is_sliding = true
 	var floor_normal: Vector3 = _player.get_floor_normal()
@@ -65,4 +66,4 @@ func _start_slide() -> void:
 
 func _stop_slide() -> void:
 	is_sliding = false
-	$SlideCooldown.start()
+	_slide_cooldown.start()

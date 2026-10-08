@@ -6,6 +6,8 @@ const SPEED: float = 5
 const WORLD_LAYER_BITMASK: int = 1 << (2 - 1) # world layer is 2, so we shift 1 left by (2 - 1) = 1 to get the bitmask for layer 2
 const PUSHABLE_LAYER_BITMASK: int = 1 << (4 - 1)
 
+@onready var _explosion_area: Area3D = $ExplosionArea
+
 
 func attack_player() -> void:
 	look_at(player.global_transform.origin, Vector3.UP)
@@ -21,7 +23,7 @@ func attack_player() -> void:
 			var collider: Object = get_slide_collision(i).get_collider()
 			if collider and "collision_layer" in collider:
 				if collider.collision_layer & ~WORLD_LAYER_BITMASK:
-					for body in $ExplosionArea.get_overlapping_bodies():
+					for body in _explosion_area.get_overlapping_bodies():
 						if body.collision_layer & PUSHABLE_LAYER_BITMASK:
 							var push_direction: Vector3 = global_transform.origin.direction_to(body.global_transform.origin)
 							push_direction.y = 0

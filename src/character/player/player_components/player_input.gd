@@ -12,6 +12,7 @@ var sliding: bool = false
 var _camera_rotation: float = deg_to_rad(45)
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
+@onready var _camera_rotation_cooldown: Timer = $CameraRotationCooldown
 
 
 func _process(_delta: float) -> void:
@@ -21,12 +22,12 @@ func _process(_delta: float) -> void:
 	running = Input.is_action_pressed("run")
 	sliding = Input.is_action_pressed("slide")
 
-	if $CameraRotationCooldown.time_left == 0:
+	if _camera_rotation_cooldown.time_left == 0:
 		if Input.is_action_pressed("ui_left"):
-			$CameraRotationCooldown.start()
+			_camera_rotation_cooldown.start()
 			_camera_rotation -= deg_to_rad(90)
 		elif Input.is_action_pressed("ui_right"):
-			$CameraRotationCooldown.start()
+			_camera_rotation_cooldown.start()
 			_camera_rotation += deg_to_rad(90)
 	else:
 		_camera_pivot.rotation.y = lerp_angle(_camera_pivot.rotation.y, _camera_rotation, 0.1)

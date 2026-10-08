@@ -8,6 +8,8 @@ signal shoot(bullet, direction, location, speed)
 
 var Bullet: PackedScene = preload("res://src/entities/bullet.tscn")
 
+@onready var _bullet_marker: Marker3D = $BulletMarker
+
 
 func attack_player() -> void:
   look_at(player.global_transform.origin, Vector3.UP)
@@ -15,6 +17,6 @@ func attack_player() -> void:
   animation_player.stop()
   animation_player.clear_queue()
   animation_player.play("attack")
-  ParticleSystem.play(ParticleID.ACID_SPEW, $BulletMarker.global_transform.origin, global_rotation)
-  get_tree().create_timer(0.72).timeout.connect(func(): shoot.emit(Bullet, rotation, $BulletMarker.global_transform.origin, _bullet_speed))
+  ParticleSystem.play(ParticleID.ACID_SPEW, _bullet_marker.global_transform.origin, global_rotation)
+  get_tree().create_timer(0.72).timeout.connect(func(): shoot.emit(Bullet, rotation, _bullet_marker.global_transform.origin, _bullet_speed))
   animation_player.queue("idle")
