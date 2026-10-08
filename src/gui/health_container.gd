@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 
-const MAX_HEALTH = 6
+const MAX_HEALTH: int = 6
 
 @onready var _hearts: Array[Node]
 @onready var _empty_heart_texture: Texture2D = load("res://assets/gui/empty_heart.png")

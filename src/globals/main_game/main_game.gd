@@ -2,7 +2,7 @@ class_name MainGame
 extends Node
 
 
-const PLAYER_SCENE_UID = "uid://cn4xgyysgu8vt"
+const PLAYER_SCENE_UID: StringName = "uid://cn4xgyysgu8vt"
 
 @onready var level_root: Node3D = %LevelRoot
 @onready var entity_root: Node3D = %EntityRoot
