@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctvgrtbvslypc" path="res://src/character/player/player.gd" id="1_2orxn"]
 [ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/character/player/player_components/player_input.gd" id="2_8eijk"]
-[ext_resource type="PackedScene" uid="uid://c7fu7p6nj0myg" path="res://assets/models/player/character.tscn" id="2_rfelt"]
+[ext_resource type="PackedScene" uid="uid://dvdj30kmiprtu" path="res://assets/models/player/player_model.glb" id="2_i8wnn"]
 [ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
 [ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="4_efbnw"]
 [ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
@@ -31,8 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46020508, 0)
 shape = SubResource("CapsuleShape3D_8e4qx")
 debug_fill = false
 
-[node name="CharacterModel" parent="." unique_id=2104047668 instance=ExtResource("2_rfelt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
+[node name="CharacterModel" parent="." unique_id=1477237356 instance=ExtResource("2_i8wnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44177362, 0)
 
 [node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("_player", "_model", "_slide_component")]
 script = ExtResource("6_3683m")
@@ -41,6 +41,7 @@ _model = NodePath("..")
 _slide_component = NodePath("../../Movement/Slide")
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterModel" unique_id=2016812921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
 enabled = false
 target_position = Vector3(0, 1, 4)
 collision_mask = 8
