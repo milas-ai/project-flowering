@@ -4,7 +4,7 @@ extends Node3D
 
 @export var id: StringName
 
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _animation_player: AnimationPlayer = get_node_or_null("AnimationPlayer")
 
 
 func run_effect(time: float = 2.0) -> void:
