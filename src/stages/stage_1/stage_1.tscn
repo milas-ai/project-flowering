@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnohyrkccqdd6"]
 
 [ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://src/character/player/player.tscn" id="1_y578y"]
-[ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/stage1_terrain.tscn" id="2_44mmv"]
+[ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/stage_1_terrain.tscn" id="2_44mmv"]
 
 [node name="Node3D" type="Node3D" unique_id=314279592]
 

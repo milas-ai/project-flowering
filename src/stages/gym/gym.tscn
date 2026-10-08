@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dayem3vrpenok"]
 
 [ext_resource type="Script" uid="uid://cb1586lgmmqto" path="res://src/stages/gym/gym.gd" id="1_sj3ow"]
-[ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://src/terrain/greybox.tscn" id="2_p0m3h"]
+[ext_resource type="PackedScene" uid="uid://d0ouvwsetcj5f" path="res://src/terrain/gym_terrain.tscn" id="2_p0m3h"]
 [ext_resource type="PackedScene" uid="uid://c218p2xu1wqgf" path="res://src/entities/pushable/test_pillar.tscn" id="3_28adb"]
 [ext_resource type="PackedScene" uid="uid://dfv7t0b64ff47" path="res://src/character/enemies/bettle/bettle.tscn" id="4_l7x8x"]
 [ext_resource type="PackedScene" uid="uid://c88yr21yjr2wk" path="res://src/character/enemies/ant/ant.tscn" id="5_q722t"]
