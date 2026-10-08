@@ -24,7 +24,7 @@ size = Vector2(50.74, 50)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xmf62"]
 
-[node name="Level" type="Node3D" unique_id=77169490]
+[node name="Stage" type="Node3D" unique_id=77169490]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1709450405]
 environment = SubResource("Environment_i8c35")

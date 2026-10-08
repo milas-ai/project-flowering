@@ -14,7 +14,7 @@ script = ExtResource("1_sj3ow")
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=37583053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.579)
 
-[node name="Level" parent="." unique_id=77169490 instance=ExtResource("2_p0m3h")]
+[node name="Terrain" parent="." unique_id=77169490 instance=ExtResource("2_p0m3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11140442, -0.07516813, 0.02130127)
 
 [node name="Pillar" parent="." unique_id=459556221 instance=ExtResource("3_28adb")]

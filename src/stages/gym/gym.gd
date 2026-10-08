@@ -8,7 +8,7 @@ func get_player_spawn_point() -> Vector3:
 	if _player_spawn_point:
 		return _player_spawn_point.global_position
 	else:
-		push_error("Player spawn point not found in the level.")
+		push_error("Player spawn point not found in the stage.")
 		return Vector3.ZERO
 
 
