@@ -6,7 +6,7 @@ signal shoot(bullet, direction, location, speed)
 
 @export var _bullet_speed: float = 10.0
 
-var Bullet: PackedScene = preload("res://src/entities/bullet.tscn")
+var Bullet: PackedScene = ResourceLoader.load(SceneUID.BETTLE_BULLET)
 
 @onready var _bullet_marker: Marker3D = $BulletMarker
 
