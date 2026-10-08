@@ -7,10 +7,10 @@ const MAX_SLIDE_SPEED: float = 100.0
 const SLOPE_ACCELERATION: float = 20.0
 const STEER_INFLUENCE: float = 1.0
 
+var is_sliding: bool = false
+
 @onready var _player_input: PlayerInput = $"../../Input"
 @onready var _player: Player = $"../.."
-
-var is_sliding: bool = false
 
 
 func _physics_process(delta: float) -> void:

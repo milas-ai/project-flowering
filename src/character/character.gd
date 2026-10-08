@@ -24,12 +24,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _fall(delta: float) -> void:
-	if not is_on_floor():
-		vertical_velocity += get_gravity() * delta
-
-
 func take_damage(amount: int) -> void:
 	_health -= amount
 	if _health <= 0:
 		queue_free()
+
+
+func _fall(delta: float) -> void:
+	if not is_on_floor():
+		vertical_velocity += get_gravity() * delta

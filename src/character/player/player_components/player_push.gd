@@ -2,13 +2,13 @@ class_name PlayerPush
 extends Node
 
 
-@export var _push_force: float = 10.0
-
 const PUSHABLE_LAYER_BITMASK: int = 1 << (4 - 1)
 
-@onready var _ray_cast: RayCast3D = $"../../CharacterModel/RayCast3D"
+@export var _push_force: float = 10.0
 
 var is_pushing: bool = false
+
+@onready var _ray_cast: RayCast3D = $"../../CharacterModel/RayCast3D"
 
 
 func _ready() -> void:

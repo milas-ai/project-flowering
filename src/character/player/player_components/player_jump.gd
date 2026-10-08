@@ -2,19 +2,14 @@ class_name PlayerJump
 extends Node
 
 
-@onready var _player: Player = $"../.."
-@onready var _player_slide: PlayerSlide = $"../Slide"
-@onready var _jump_buff_timer: Timer = $JumpBuffer
-@onready var _coyote_timer: Timer = $CoyoteTime
-
 var _was_on_floor: bool = false
 var _jump_buffer: bool = false
 var _coyote_time: bool = false
 
-
-func _on_player_input_jump_pressed() -> void:
-	_jump_buffer = true
-	_jump_buff_timer.start()
+@onready var _player: Player = $"../.."
+@onready var _player_slide: PlayerSlide = $"../Slide"
+@onready var _jump_buff_timer: Timer = $JumpBuffer
+@onready var _coyote_timer: Timer = $CoyoteTime
 
 
 func _physics_process(_delta: float) -> void:
@@ -39,6 +34,11 @@ func _update_coyote() -> void:
 		if _was_on_floor:
 			_coyote_timer.start()
 		_was_on_floor = false
+
+
+func _on_player_input_jump_pressed() -> void:
+	_jump_buffer = true
+	_jump_buff_timer.start()
 
 
 func _on_jump_buffer_timeout() -> void:

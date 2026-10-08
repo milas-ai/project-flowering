@@ -5,15 +5,9 @@ extends Node
 @export var _model: Node3D
 @export var _slide_component: PlayerSlide
 
-@onready var _player_push: PlayerPush = $"../../Action/Push"
-
 var is_stunning: bool = false
 
-
-func _on_player_input_stun_pressed() -> void:
-	is_stunning = true
-	await get_tree().create_timer(0.8).timeout
-	is_stunning = false
+@onready var _player_push: PlayerPush = $"../../Action/Push"
 
 
 func _process(_delta: float) -> void:
@@ -43,4 +37,9 @@ func _process(_delta: float) -> void:
 		anim.play("Walk")
 	else:
 		anim.play("Run")
-	
+
+
+func _on_player_input_stun_pressed() -> void:
+	is_stunning = true
+	await get_tree().create_timer(0.8).timeout
+	is_stunning = false
