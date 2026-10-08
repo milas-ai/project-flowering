@@ -22,3 +22,7 @@ func attack_player() -> void:
 					player.take_damage(BaseStat.ENEMY.ANT.DAMAGE)
 	)
 	animation_player.queue("idle")
+
+
+func apply_stun() -> void:
+  state_machine.transition_to("StateStunned")

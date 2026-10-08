@@ -29,12 +29,25 @@ func attack_player() -> void:
 			var collider: Object = get_slide_collision(i).get_collider()
 			if collider and "collision_layer" in collider:
 				if collider.collision_layer & ~LayerBitmask.WORLD:
-					for body in _explosion_area.get_overlapping_bodies():
-						if body.collision_layer & LayerBitmask.PUSHABLE:
-							var push_direction: Vector3 = global_transform.origin.direction_to(body.global_transform.origin)
-							push_direction.y = 0
-							body.apply_impulse(push_direction * 10)
-						elif body.has_method("take_damage"):
-							body.take_damage(BaseStat.ENEMY.ROLY_POLY.DAMAGE)
-					ParticleSystem.play(ParticleID.EXPLOSION, global_transform.origin)
-					queue_free()
+					_explode()
+
+
+func apply_stun() -> void:
+	if state_machine.state and state_machine.state.name != "StateAttack":
+		state_machine.transition_to("StateStunned")
+	else:
+		horizontal_velocity = Vector3.ZERO
+		animation_player.stop()
+		get_tree().create_timer(3).timeout.connect(_explode)
+
+
+func _explode() -> void:
+	for body in _explosion_area.get_overlapping_bodies():
+		if body.collision_layer & LayerBitmask.PUSHABLE:
+			var push_direction: Vector3 = global_transform.origin.direction_to(body.global_transform.origin)
+			push_direction.y = 0
+			body.apply_impulse(push_direction * 10)
+		elif body.has_method("take_damage"):
+			body.take_damage(BaseStat.ENEMY.ROLY_POLY.DAMAGE)
+	ParticleSystem.play(ParticleID.EXPLOSION, global_transform.origin)
+	queue_free()
