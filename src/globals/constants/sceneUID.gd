@@ -12,3 +12,7 @@ class STAGES:
 
 class ENTITIES:
 	const BETTLE_BULLET: String = "uid://dvfpc7xbno2al"
+
+
+class GUI:
+	const HEALTH_CONTAINER: String = "uid://c4dpb7unnm5hj"
