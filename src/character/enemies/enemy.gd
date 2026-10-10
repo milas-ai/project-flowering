@@ -10,7 +10,7 @@ var player_on_far_sight: bool = false
 var player_on_near_sight: bool = false
 var _health: int
 
-@onready var player: Player = get_tree().get_root().get_node("MainGame").player
+@onready var player: Player = $/root/MainGame.player
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 
 
