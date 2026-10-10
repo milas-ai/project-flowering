@@ -4,11 +4,13 @@ extends Character
 
 signal update_health(health: int)
 
-var _health: int = BaseStat.PLAYER.HEALTH
+var _health: int = BaseStat.PLAYER.HEALTH:
+	set(value):
+		_health = value
+		emit_signal("update_health", _health)
 
 
 func take_damage(amount: int) -> void:
 	_health -= amount
-	emit_signal("update_health", _health)
 	if _health <= 0:
 		get_tree().quit()

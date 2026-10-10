@@ -22,12 +22,13 @@ class ENEMY:
 		const SPEED: float = 7.0
 		const DAMAGE: int = 2
 		const FRICTION: float = 25.0
-	
+
 	class BETTLE:
 		const HEALTH: int = 3
 		const SPEED: float = 9.0
 		const DAMAGE: int = 1
 		const FRICTION: float = 25.0
+
 	class ROLY_POLY:
 		const HEALTH: int = 4
 		const SPEED: float = 5.0
