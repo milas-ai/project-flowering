@@ -7,13 +7,14 @@ var _current_stage: Node3D = null
 
 @onready var stage_root: Node3D = %StageRoot
 @onready var entity_root: Node3D = %EntityRoot
-@onready var hud_root: Control = %HudRoot
+@onready var hud_root: HudRoot = %HudRoot
 @onready var pause_root: Control = %PauseRoot
 
 
 func _ready() -> void:
 	_init_player()
 	load_stage(SceneUID.STAGES.GYM)
+	hud_root.load_main_stage_hud()
 
 
 func load_stage(stage_scene_uid: String) -> void:
