@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwg6plif5r5wv"]
 
 [ext_resource type="Script" uid="uid://bepxrixjm04iu" path="res://src/globals/main_game/main_game.gd" id="1_tt0k7"]
+[ext_resource type="Script" uid="uid://c88rn35hhi0j1" path="res://src/globals/main_game/hud_root.gd" id="2_twwxd"]
 
 [node name="MainGame" type="Node" unique_id=1025930605]
 script = ExtResource("1_tt0k7")
@@ -39,6 +40,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_twwxd")
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=531358870]
 process_mode = 2
