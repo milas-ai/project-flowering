@@ -54,7 +54,9 @@ collision_mask = 8
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=442019790]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 6.7, 6.7)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 50, 50)
+projection = 1
+size = 15.0
 
 [node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=2084889239]
 mesh = SubResource("QuadMesh_efbnw")
@@ -62,10 +64,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_rfelt")
 
 [node name="Input" type="Node" parent="." unique_id=1950561987]
 script = ExtResource("2_8eijk")
-
-[node name="CameraRotationCooldown" type="Timer" parent="Input" unique_id=1248911479]
-wait_time = 0.3
-one_shot = true
 
 [node name="Movement" type="Node" parent="." unique_id=899911534]
 
