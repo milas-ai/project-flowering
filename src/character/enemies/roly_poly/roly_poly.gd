@@ -6,6 +6,7 @@ static var SPEED: float = BaseStat.ENEMY.ROLY_POLY.SPEED
 static var FRICTION: float = BaseStat.ENEMY.ROLY_POLY.FRICTION
 
 @onready var _explosion_area: Area3D = $ExplosionArea
+@onready var _material: Material = $CharacterModel/controller/Skeleton3D/controller.get_active_material(0)
 
 
 func _ready() -> void:
@@ -33,12 +34,18 @@ func attack_player() -> void:
 
 
 func apply_stun() -> void:
-	if state_machine.state and state_machine.state.name != "StateAttack":
-		state_machine.transition_to("StateStunned")
-	else:
-		horizontal_velocity = Vector3.ZERO
-		animation_player.stop()
-		get_tree().create_timer(3).timeout.connect(_explode)
+	animation_player.play("roll")
+	_state_machine.transition_to("StateStunned")
+	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	var flash_duration: float = 0.3
+	var min_duration: float = 0.05
+	var acceleration: float = 0.75
+
+	while flash_duration > min_duration:
+		tween.tween_property(_material, "emission_energy_multiplier", 1.0, flash_duration)
+		tween.tween_property(_material, "emission_energy_multiplier", 0.0, flash_duration)
+		flash_duration *= acceleration
+	tween.tween_callback(_explode)
 
 
 func _explode() -> void:
@@ -51,3 +58,4 @@ func _explode() -> void:
 			body.take_damage(BaseStat.ENEMY.ROLY_POLY.DAMAGE)
 	ParticleSystem.play(ParticleID.EXPLOSION, global_transform.origin)
 	queue_free()
+	
