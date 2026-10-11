@@ -2099,7 +2099,7 @@ _subresources={
 },
 "Hit": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Hit.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_hit.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://dbejrdp625yce",
 "settings/loop_mode": 0,
@@ -4155,7 +4155,7 @@ _subresources={
 },
 "Idle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Idle.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_idle.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://hu5ewmb6f30",
 "settings/loop_mode": 0,
@@ -6211,7 +6211,7 @@ _subresources={
 },
 "Jump": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Jump.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_jump.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://dvcso37v17ab7",
 "settings/loop_mode": 0,
@@ -8267,7 +8267,7 @@ _subresources={
 },
 "Poke": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Poke.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_poke.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://bwp6v32ujf2p7",
 "settings/loop_mode": 0,
@@ -12379,7 +12379,7 @@ _subresources={
 },
 "Run": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Run.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_run.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://c16lr5kkucvyk",
 "settings/loop_mode": 0,
@@ -14435,7 +14435,7 @@ _subresources={
 },
 "Slide": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Slide.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_slide.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://bwn3emmn0rni",
 "settings/loop_mode": 0,
@@ -16491,7 +16491,7 @@ _subresources={
 },
 "Stun": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Stun.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_stun.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://rbwpl0dj2xw1",
 "settings/loop_mode": 0,
@@ -18547,7 +18547,7 @@ _subresources={
 },
 "Walk": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/player/Walk.res",
+"save_to_file/fallback_path": "res://assets/animations/player/player_walk.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://cb4hasy7d2tyv",
 "settings/loop_mode": 0,
