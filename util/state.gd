@@ -1,26 +1,16 @@
-extends Node
+@abstract
 class_name State
+extends Node
 
 
 @onready var state_machine: StateMachine = get_parent()
 @onready var body: Node = state_machine.body
 
-var elapsed_time: float = 0.0
+
+@abstract func enter() -> void
 
 
-func enter() -> void:
-	elapsed_time = 0
-	_enter()
+@abstract func update(_delta: float) -> void
 
-func update(delta: float) -> void:
-	elapsed_time += delta
-	_update(delta)
 
-func _enter() -> void:
-	return
-
-func _exit() -> void:
-	return
-
-func _update(_delta: float) -> void:
-	pass
+@abstract func exit() -> void

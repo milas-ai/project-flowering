@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ctvgrtbvslypc" path="res://src/character/player/player.gd" id="1_2orxn"]
 [ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/character/player/player_components/player_input.gd" id="2_8eijk"]
-[ext_resource type="PackedScene" uid="uid://c7fu7p6nj0myg" path="res://assets/models/player/character.tscn" id="2_rfelt"]
+[ext_resource type="PackedScene" uid="uid://dvdj30kmiprtu" path="res://assets/models/player/player_model.glb" id="2_i8wnn"]
 [ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
 [ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="4_efbnw"]
 [ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
 [ext_resource type="Script" uid="uid://doumdihcv0fck" path="res://src/character/player/player_components/player_animation.gd" id="6_3683m"]
 [ext_resource type="Script" uid="uid://bkfih402nulko" path="res://src/character/player/player_components/player_slide.gd" id="8_rfelt"]
 [ext_resource type="Script" uid="uid://bdsg0bxcxoh7w" path="res://src/character/player/player_components/player_push.gd" id="9_i8wnn"]
+[ext_resource type="Script" uid="uid://bcv2nemppxg3h" path="res://src/character/player/player_components/player_stun.gd" id="10_fkujh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -22,6 +23,9 @@ size = Vector2(2, 2)
 render_priority = 0
 shader = ExtResource("4_efbnw")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_j5k5y"]
+radius = 7.0
+
 [node name="Player" type="CharacterBody3D" unique_id=492502824]
 collision_mask = 14
 script = ExtResource("1_2orxn")
@@ -31,16 +35,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46020508, 0)
 shape = SubResource("CapsuleShape3D_8e4qx")
 debug_fill = false
 
-[node name="CharacterModel" parent="." unique_id=2104047668 instance=ExtResource("2_rfelt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
+[node name="CharacterModel" parent="." unique_id=1477237356 instance=ExtResource("2_i8wnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44177362, 0)
 
-[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("player", "model", "slide_component")]
+[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("_player", "_model", "_slide_component")]
 script = ExtResource("6_3683m")
-player = NodePath("../..")
-model = NodePath("..")
-slide_component = NodePath("../../Movement/Slide")
+_player = NodePath("../..")
+_model = NodePath("..")
+_slide_component = NodePath("../../Movement/Slide")
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterModel" unique_id=2016812921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
 enabled = false
 target_position = Vector3(0, 1, 4)
 collision_mask = 8
@@ -49,7 +54,9 @@ collision_mask = 8
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=442019790]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 6.7, 6.7)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 50, 50)
+projection = 1
+size = 15.0
 
 [node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=2084889239]
 cast_shadow = 0
@@ -59,10 +66,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
 
 [node name="Input" type="Node" parent="." unique_id=1950561987]
 script = ExtResource("2_8eijk")
-
-[node name="CameraRotationCooldown" type="Timer" parent="Input" unique_id=1248911479]
-wait_time = 0.3
-one_shot = true
 
 [node name="Movement" type="Node" parent="." unique_id=899911534]
 
@@ -90,8 +93,17 @@ one_shot = true
 [node name="Push" type="Node" parent="Action" unique_id=1823654466]
 script = ExtResource("9_i8wnn")
 
+[node name="Stun" type="Node" parent="Action" unique_id=1271674831]
+script = ExtResource("10_fkujh")
+
+[node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
+shape = SubResource("SphereShape3D_j5k5y")
+
 [connection signal="jump_pressed" from="Input" to="Movement/Jump" method="_on_player_input_jump_pressed"]
 [connection signal="push_pressed" from="Input" to="Action/Push" method="_on_player_input_push_pressed"]
-[connection signal="stun_pressed" from="Input" to="CharacterModel/CharacterAnimation" method="_on_player_input_stun_pressed"]
+[connection signal="stun_pressed" from="Input" to="Action/Stun" method="_on_player_input_stun_pressed"]
 [connection signal="timeout" from="Movement/Jump/JumpBuffer" to="Movement/Jump" method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="Movement/Jump/CoyoteTime" to="Movement/Jump" method="_on_coyote_time_timeout"]
