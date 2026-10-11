@@ -28,8 +28,3 @@ func attack_player() -> void:
 				shoot.emit(rotation, _bullet_marker.global_transform.origin, _bullet_speed)
 	)
 	animation_player.queue("idle")
-
-
-func apply_stun() -> void:
-  state_machine.transition_to("StateStunned")
-	
