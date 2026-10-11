@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ParticleDatabase" format=3 uid="uid://c84yo3yjsnrml"]
+
+[ext_resource type="PackedScene" uid="uid://cqxbi5flqt2ad" path="res://assets/particles/explosion.tscn" id="1_swssu"]
+[ext_resource type="PackedScene" uid="uid://bycb8jot3yc52" path="res://assets/particles/acid_spew.tscn" id="2_4ejht"]
+[ext_resource type="Script" uid="uid://b738we186qgo1" path="res://src/globals/particle_system/particle_database.gd" id="2_wehjd"]
+
+[resource]
+script = ExtResource("2_wehjd")
+particles = Array[PackedScene]([ExtResource("1_swssu"), ExtResource("2_4ejht")])
+metadata/_custom_type_script = "uid://b738we186qgo1"

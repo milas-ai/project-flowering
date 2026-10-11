@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c26o1vdkosp71"]
+
+[resource]
+resource_name = "firefly"
+cull_mode = 2
+albedo_color = Color(0.6507892, 1, 0.1574258, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.9336314, 1, 0.10318885, 1)
+emission_energy_multiplier = 5.0999985
