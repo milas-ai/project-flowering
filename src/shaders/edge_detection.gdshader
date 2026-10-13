@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode ambient_light_disabled;
+render_mode ambient_light_disabled, specular_disabled;
 
 uniform sampler2D screen_texture : hint_screen_texture, filter_nearest;
 uniform sampler2D depth_texture : hint_depth_texture, filter_linear_mipmap;
@@ -25,6 +25,7 @@ void vertex() {
 }
 
 void fragment() {
+	float edge_opacity = 0.8;
 	float offset_size = 1.0 / VIEWPORT_SIZE.x; // Using texel size based on viewport
 	float zero_roughness_mask = ceil(texture(normal_rough_texture, SCREEN_UV).a);
 
@@ -53,11 +54,20 @@ void fragment() {
 	}
 	normal_border = step(0.2, normal_border);
 	normal_border = clamp(normal_border - inverse_depth_border, 0.0, 1.0);
-	
-	float edge_alpha = 0.7;
-	float highlight = clamp(normal_border - depth_border, 0.0, 1.0);
+
 	ALBEDO = texture(screen_texture, SCREEN_UV).rgb;
-	ALBEDO += highlight * 0.0;
-	ALBEDO -= depth_border * 1.0;
-	ALPHA = clamp(0.1, edge_alpha, (depth_border + normal_border * 5.0));
+	ALPHA = clamp(0.1, edge_opacity, (depth_border + normal_border * 5.0));
+}
+
+void light() {
+	float light_intensity = 1.5;
+
+	vec4 normal = texture(normal_rough_texture, SCREEN_UV) * 2.0 - 1.0;
+	float light_alignment = dot(normal.xyz, LIGHT);
+	light_alignment = pow(light_alignment, 2.25); // Sharpen transition of light and shadow
+	light_alignment = clamp(light_alignment, 0.0, 1.0);
+
+	if (LIGHT_IS_DIRECTIONAL) {
+		DIFFUSE_LIGHT += mix(vec3(1.0), light_alignment * LIGHT_COLOR * light_intensity, ALPHA);
+	}
 }
