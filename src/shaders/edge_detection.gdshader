@@ -25,7 +25,7 @@ void vertex() {
 }
 
 void fragment() {
-	float offset_size = 0.001;
+	float offset_size = 1.0 / VIEWPORT_SIZE.x; // Using texel size based on viewport
 
 	vec2 offset[4];
 	offset[0] = SCREEN_UV + vec2(0.0, -1.0) * offset_size; // top
@@ -42,7 +42,7 @@ void fragment() {
 		inverse_depth_border += clamp(depth - offset_depth, 0.0, 1.0);
 	}
 	inverse_depth_border = clamp(step(0.9, inverse_depth_border) * 10.0, 0.0, 1.0);
-	depth_border = smoothstep(0, 0.1, depth_border);
+	depth_border = smoothstep(0.25, 0.35, depth_border);
 
 	vec3 normal = texture(normal_rough_texture, SCREEN_UV).xyz * 2.0 - 1.0;
 	float normal_border = 0.0;
