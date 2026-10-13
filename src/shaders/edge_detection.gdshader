@@ -17,20 +17,26 @@ void vertex() {
 }
 
 void fragment() {
-	float offset = 0.0001;
+	float offset_size = 0.001;
+
+	vec2 offset[4];
+	offset[0] = SCREEN_UV + vec2(-1.0, 1.0) * offset_size; // bottom-left
+	offset[1] = SCREEN_UV + vec2(1.0, -1.0) * offset_size; // top-right
+	offset[2] = SCREEN_UV + vec2(1.0, 1.0) * offset_size; // bottom-right
+	offset[3] = SCREEN_UV + vec2(-1.0, -1.0) * offset_size; // top-left
 
 	float depth = linear_depth(SCREEN_UV, INV_PROJECTION_MATRIX);
-	float depth_border_up    = linear_depth(SCREEN_UV - vec2(0, offset), INV_PROJECTION_MATRIX) - depth;
-	float depth_border_down  = linear_depth(SCREEN_UV + vec2(0, offset), INV_PROJECTION_MATRIX) - depth;
-	float depth_border_left  = linear_depth(SCREEN_UV - vec2(offset, 0), INV_PROJECTION_MATRIX) - depth;
-	float depth_border_right = linear_depth(SCREEN_UV + vec2(offset, 0), INV_PROJECTION_MATRIX) - depth;
-	float depth_border = clamp(depth_border_up + depth_border_down + depth_border_left + depth_border_right, 0.0, 1.0);
-	depth_border = smoothstep(0, 0.01, depth_border); // Adjust the threshold for edge detection
+	float depth_border_bottom_left    = linear_depth(offset[0], INV_PROJECTION_MATRIX) - depth;
+	float depth_border_top_right  = linear_depth(offset[1], INV_PROJECTION_MATRIX) - depth;
+	float depth_border_bottom_right = linear_depth(offset[2], INV_PROJECTION_MATRIX) - depth;
+	float depth_border_top_left = linear_depth(offset[3], INV_PROJECTION_MATRIX) - depth;
+	float depth_border = clamp(depth_border_bottom_left + depth_border_top_right + depth_border_bottom_right + depth_border_top_left, 0.0, 1.0);
+	depth_border = smoothstep(0, 0.1, depth_border); // Adjust the threshold for edge detection
 
-	vec3 normals_bottom_left = texture(normal_rough_texture, SCREEN_UV + vec2(-offset, offset)).xyz;
-	vec3 normals_top_right = texture(normal_rough_texture, SCREEN_UV + vec2(offset, -offset)).xyz;
-	vec3 normals_bottom_right = texture(normal_rough_texture, SCREEN_UV + vec2(offset, offset)).xyz;
-	vec3 normals_top_left = texture(normal_rough_texture, SCREEN_UV + vec2(-offset, -offset)).xyz;
+	vec3 normals_bottom_left = texture(normal_rough_texture, offset[0]).xyz;
+	vec3 normals_top_right = texture(normal_rough_texture, offset[1]).xyz;
+	vec3 normals_bottom_right = texture(normal_rough_texture, offset[2]).xyz;
+	vec3 normals_top_left = texture(normal_rough_texture, offset[3]).xyz;
 	float normal_border = clamp(length(normals_bottom_left - normals_top_right) + length(normals_bottom_right - normals_top_left), 0.0, 1.0);
 	normal_border = smoothstep(0, 0.15, normal_border);
 	
