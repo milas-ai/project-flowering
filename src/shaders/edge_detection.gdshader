@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, fog_disabled;
+render_mode ambient_light_disabled;
 
 uniform sampler2D depth_texture : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D normal_rough_texture : hint_normal_roughness_texture, filter_nearest;
@@ -34,10 +34,14 @@ void fragment() {
 
 	float depth = linear_depth(SCREEN_UV, INV_PROJECTION_MATRIX);
 	float depth_border = 0.0;
+	float inverse_depth_border = 0.5;
 	for (int i = 0; i < offset.length(); i++) {
-		depth_border += clamp(linear_depth(offset[i], INV_PROJECTION_MATRIX) - depth, 0.0, 1.0);
+		float offset_depth = linear_depth(offset[i], INV_PROJECTION_MATRIX);
+		depth_border += clamp(offset_depth - depth, 0.0, 1.0);
+		inverse_depth_border += clamp(depth - offset_depth, 0.0, 1.0);
 	}
-	depth_border = smoothstep(0, 0.1, depth_border); // Adjust the threshold for edge detection
+	inverse_depth_border = clamp(step(0.9, inverse_depth_border) * 10.0, 0.0, 1.0);
+	depth_border = smoothstep(0, 0.1, depth_border);
 
 	vec3 normal = texture(normal_rough_texture, SCREEN_UV).xyz * 2.0 - 1.0;
 	float normal_border = 0.0;
@@ -45,7 +49,8 @@ void fragment() {
 		vec3 offset_normal = texture(normal_rough_texture, offset[i]).xyz * 2.0 - 1.0;
 		normal_border += normal_edge_indicator(normal, offset_normal, depth_border);
 	}
-	normal_border = smoothstep(0.2, 0.2, normal_border);
+	normal_border = step(0.2, normal_border);
+	normal_border = clamp(normal_border - inverse_depth_border, 0.0, 1.0);
 	
 	float outline = normal_border + depth_border;
 	ALBEDO = outline * vec3(0.0);
