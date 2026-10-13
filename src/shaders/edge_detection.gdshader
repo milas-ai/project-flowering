@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode unshaded, fog_disabled;
 
-uniform sampler2D depth_texture : hint_depth_texture, repeat_disable;
+uniform sampler2D depth_texture : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D normal_rough_texture : hint_normal_roughness_texture, filter_nearest;
 
 float linear_depth(vec2 uv, mat4 inv_projection_matrix) {
@@ -27,22 +27,21 @@ void fragment() {
 	float offset_size = 0.001;
 
 	vec2 offset[4];
-	offset[0] = SCREEN_UV + vec2(-1.0, 1.0) * offset_size; // bottom-left
-	offset[1] = SCREEN_UV + vec2(1.0, -1.0) * offset_size; // top-right
-	offset[2] = SCREEN_UV + vec2(1.0, 1.0) * offset_size; // bottom-right
-	offset[3] = SCREEN_UV + vec2(-1.0, -1.0) * offset_size; // top-left
+	offset[0] = SCREEN_UV + vec2(0.0, -1.0) * offset_size; // top
+	offset[1] = SCREEN_UV + vec2(0.0, 1.0) * offset_size; // bottom
+	offset[2] = SCREEN_UV + vec2(-1.0, 0.0) * offset_size; // left
+	offset[3] = SCREEN_UV + vec2(1.0, 0.0) * offset_size; // right
 
 	float depth = linear_depth(SCREEN_UV, INV_PROJECTION_MATRIX);
-	float depth_border_bottom_left    = linear_depth(offset[0], INV_PROJECTION_MATRIX) - depth;
-	float depth_border_top_right  = linear_depth(offset[1], INV_PROJECTION_MATRIX) - depth;
-	float depth_border_bottom_right = linear_depth(offset[2], INV_PROJECTION_MATRIX) - depth;
-	float depth_border_top_left = linear_depth(offset[3], INV_PROJECTION_MATRIX) - depth;
-	float depth_border = clamp(depth_border_bottom_left + depth_border_top_right + depth_border_bottom_right + depth_border_top_left, 0.0, 1.0);
+	float depth_border = 0.0;
+	for (int i = 0; i < offset.length(); i++) {
+		depth_border += clamp(linear_depth(offset[i], INV_PROJECTION_MATRIX) - depth, 0.0, 1.0);
+	}
 	depth_border = smoothstep(0, 0.1, depth_border); // Adjust the threshold for edge detection
 
 	vec3 normal = texture(normal_rough_texture, SCREEN_UV).xyz * 2.0 - 1.0;
 	float normal_border = 0.0;
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < offset.length(); i++) {
 		vec3 offset_normal = texture(normal_rough_texture, offset[i]).xyz * 2.0 - 1.0;
 		normal_border += normal_edge_indicator(normal, offset_normal, depth_border);
 	}
