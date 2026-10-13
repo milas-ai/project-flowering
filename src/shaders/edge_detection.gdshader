@@ -1,6 +1,7 @@
 shader_type spatial;
 render_mode ambient_light_disabled;
 
+uniform sampler2D screen_texture : hint_screen_texture, filter_nearest;
 uniform sampler2D depth_texture : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D normal_rough_texture : hint_normal_roughness_texture, filter_nearest;
 
@@ -52,7 +53,10 @@ void fragment() {
 	normal_border = step(0.2, normal_border);
 	normal_border = clamp(normal_border - inverse_depth_border, 0.0, 1.0);
 	
-	float outline = normal_border + depth_border;
-	ALBEDO = outline * vec3(0.0);
-	ALPHA = outline;
+	float edge_alpha = 0.7;
+	float highlight = clamp(normal_border - depth_border, 0.0, 1.0);
+	ALBEDO = texture(screen_texture, SCREEN_UV).rgb;
+	ALBEDO += highlight * 0.0;
+	ALBEDO -= depth_border * 1.0;
+	ALPHA = clamp(0.1, edge_alpha, (depth_border + normal_border * 5.0));
 }
