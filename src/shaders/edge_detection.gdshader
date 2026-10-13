@@ -6,7 +6,10 @@ uniform sampler2D normal_rough_texture : hint_normal_roughness_texture;
 
 float linear_depth(vec2 uv, mat4 inv_projection_matrix) {
 	float depth_raw = texture(depth_texture, uv).x;
-	return 1.0 / (depth_raw * inv_projection_matrix[2].w + inv_projection_matrix[3].w);
+	vec3 normalized_device_coordinates = vec3(uv * 2.0 - 1.0, depth_raw);
+	vec4 view_space_position = inv_projection_matrix * vec4(normalized_device_coordinates, 1.0);
+	view_space_position.xyz /= view_space_position.w;
+	return -view_space_position.z;
 }
 
 void vertex() {
