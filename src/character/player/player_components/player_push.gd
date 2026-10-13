@@ -1,45 +1,32 @@
-extends Node
 class_name PlayerPush
+extends Node
 
 
-@export var push_force = 10.0
-
-@onready var player: Player = $"../.."
-@onready var player_input: PlayerInput = $"../../Input"
-@onready var ray_cast = $"../../CharacterModel/RayCast3D"
+@export var _push_force: float = 10.0
 
 var is_pushing: bool = false
 
+@onready var _ray_cast: RayCast3D = $"../../CharacterModel/RayCast3D"
 
-func _ready():
-	ray_cast.enabled = false
 
-func _on_player_input_push_pressed():
-	ray_cast.enabled = true
-	ray_cast.force_raycast_update()
-	is_pushing = true
+func _ready() -> void:
+	_ray_cast.enabled = false
 
-	print("Is colliding? ", ray_cast.is_colliding())
-	if ray_cast.is_colliding():
-		print("Hit object: ", ray_cast.get_collider().name)
 
-	var forward_vector = ray_cast.global_transform.basis.z.normalized()
-	print("Player Global Position: ", player.global_position)
-	print("Raycast Forward Vector: ", forward_vector)
-	
-	if ray_cast.is_colliding():
-		var hit_object = ray_cast.get_collider()
+func _on_player_input_push_pressed() -> void:
+	if not is_pushing:
+		is_pushing = true
+		_ray_cast.enabled = true
+		_ray_cast.force_raycast_update()
 		
-		if hit_object is RigidBody3D:
-			if hit_object.freeze:
-				hit_object.freeze = false
-			
-			var push_direction = ray_cast.global_transform.basis.z.normalized()
-			
-			var hit_point = ray_cast.get_collision_point() - hit_object.global_position
-			hit_object.apply_impulse(push_direction * push_force, hit_point)
+		if _ray_cast.is_colliding():
+			var hit_object: Object = _ray_cast.get_collider()
+			if hit_object.collision_layer & LayerBitmask.PUSHABLE:
+				var push_direction: Vector3 = _ray_cast.global_transform.basis.z.normalized()
+				var hit_point: Vector3 = _ray_cast.get_collision_point() - hit_object.global_position
+				hit_object.apply_impulse(push_direction * _push_force, hit_point)
 
-
-	await get_tree().create_timer(0.46).timeout
-	is_pushing = false
-	ray_cast.enabled = false
+		get_tree().create_timer(0.46).timeout.connect(
+				func():
+					is_pushing = false; _ray_cast.enabled = false
+		)

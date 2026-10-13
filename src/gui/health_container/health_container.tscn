@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c4dpb7unnm5hj"]
+
+[ext_resource type="Script" uid="uid://dsnxua1wnc762" path="res://src/gui/health_container/health_container.gd" id="1_b4vg1"]
+
+[node name="HealthContainer" type="HBoxContainer" unique_id=1007251824]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 178.0
+offset_bottom = 63.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_b4vg1")

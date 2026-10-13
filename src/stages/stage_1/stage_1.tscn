@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cnohyrkccqdd6"]
+
+[ext_resource type="PackedScene" uid="uid://cn4xgyysgu8vt" path="res://src/character/player/player.tscn" id="1_y578y"]
+[ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/stage_1_terrain.tscn" id="2_44mmv"]
+[ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://assets/models/terrain/platform_medium_1.tscn" id="3_h3jej"]
+[ext_resource type="PackedScene" uid="uid://cmt7qqbfmtsa4" path="res://assets/models/terrain/ground_start.tscn" id="3_yhxt6"]
+[ext_resource type="PackedScene" uid="uid://chcx7fo0mcd61" path="res://assets/models/terrain/platform_medium_3.tscn" id="6_vv1jd"]
+[ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://assets/models/terrain/platform_medium_2.tscn" id="7_ageeb"]
+[ext_resource type="PackedScene" uid="uid://ntujoik186m5" path="res://assets/models/terrain/rock_medium_2.tscn" id="7_ugwn6"]
+[ext_resource type="PackedScene" uid="uid://deykmpapcmhfx" path="res://assets/models/terrain/rock_small_1.tscn" id="8_cbjjq"]
+[ext_resource type="PackedScene" uid="uid://dckgyfxbevo7l" path="res://assets/models/terrain/rock_small_2.tscn" id="9_74use"]
+[ext_resource type="PackedScene" uid="uid://cix6x7xs365q8" path="res://assets/models/terrain/wall_small_1.tscn" id="10_x6shw"]
+[ext_resource type="PackedScene" uid="uid://dahrkqbss20jl" path="res://assets/models/terrain/wall_small_2.tscn" id="11_02y2o"]
+[ext_resource type="PackedScene" uid="uid://c3u3oq1x4ft7c" path="res://assets/models/terrain/rock_medium_1.tscn" id="11_3oabu"]
+[ext_resource type="PackedScene" uid="uid://xblqm6kqvlgf" path="res://assets/models/terrain/wall_medium_1.tscn" id="12_4848b"]
+[ext_resource type="PackedScene" uid="uid://b5okraoemwgqo" path="res://assets/models/terrain/ramp_small_1.tscn" id="13_n0n0r"]
+[ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://assets/models/terrain/platform_big_1.tscn" id="15_4848b"]
+[ext_resource type="PackedScene" uid="uid://bn3opqnvym278" path="res://assets/models/terrain/wall_small_3.tscn" id="16_n0n0r"]
+[ext_resource type="PackedScene" uid="uid://dvdcb3bdvcaf0" path="res://assets/models/terrain/ramp_small_2.tscn" id="17_vks4m"]
+[ext_resource type="PackedScene" uid="uid://b7g6fb68u2pcl" path="res://assets/models/terrain/platform_big_2.tscn" id="18_mienp"]
+[ext_resource type="PackedScene" uid="uid://bica5b2qxhuh5" path="res://assets/models/terrain/platform_small_1.tscn" id="19_7kfhd"]
+[ext_resource type="PackedScene" uid="uid://8m6xub0kgma8" path="res://assets/models/terrain/platform_donut.tscn" id="20_ayqu3"]
+[ext_resource type="PackedScene" uid="uid://ci8cn15ptya8y" path="res://assets/models/terrain/pillar_1.tscn" id="21_8l474"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h57rq"]
+sky_material = SubResource("ProceduralSkyMaterial_h3jej")
+
+[sub_resource type="Environment" id="Environment_rcjq6"]
+background_mode = 2
+sky = SubResource("Sky_h57rq")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=314279592]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1108915891]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=166639411]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=492502824 instance=ExtResource("1_y578y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.08244, 86.67366, -41.54605)
+
+[node name="WallSmall3" parent="SubViewportContainer/SubViewport" unique_id=2071298694 instance=ExtResource("12_4848b")]
+transform = Transform3D(0.48387194, 0.27801833, 0.24765253, 0.23046286, 0.09298277, -0.54422516, -0.2186033, 0.7134124, -0.025578972, 66.63579, 91.520294, -52.73457)
+
+[node name="level1" parent="." unique_id=425937710 instance=ExtResource("2_44mmv")]

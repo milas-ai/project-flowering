@@ -1,29 +1,31 @@
-extends Node
 class_name StateMachine
+extends Node
 
 
 @export var body: Node
 
-var state: State = null
-var previous_state: State = null
-var states: Dictionary[StringName, State] = {}
+var _state: State = null
+var _previous_state: State = null
+var _states: Dictionary[StringName, State] = {}
 
 
 func _ready() -> void:    
-	transition_to.call_deferred(get_child(0).name)
 	for child in get_children():
-		states[child.name] = child
+		_states[child.name] = child
+	transition_to.call_deferred(get_child(0).name)
+
 
 func _physics_process(delta: float) -> void:
-	if state != null:
-		state.update(delta)
+	if _state != null:
+		_state.update(delta)
+
 
 func transition_to(state_name: StringName) -> void:
-	previous_state = state
-	state = states[state_name]
+	_previous_state = _state
+	_state = _states[state_name]
 	
-	if state != previous_state:
-		if previous_state != null:
-			previous_state._exit()
-		if state != null:
-			state.enter()
+	if _state != _previous_state:
+		if _previous_state != null:
+			_previous_state.exit()
+		if _state != null:
+			_state.enter()
