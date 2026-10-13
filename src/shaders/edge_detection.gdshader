@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode unshaded, fog_disabled;
 
 uniform sampler2D depth_texture : hint_depth_texture, repeat_disable;
-uniform sampler2D normal_rough_texture : hint_normal_roughness_texture;
+uniform sampler2D normal_rough_texture : hint_normal_roughness_texture, filter_nearest;
 
 float linear_depth(vec2 uv, mat4 inv_projection_matrix) {
 	float depth_raw = texture(depth_texture, uv).x;
@@ -33,12 +33,12 @@ void fragment() {
 	float depth_border = clamp(depth_border_bottom_left + depth_border_top_right + depth_border_bottom_right + depth_border_top_left, 0.0, 1.0);
 	depth_border = smoothstep(0, 0.1, depth_border); // Adjust the threshold for edge detection
 
-	vec3 normals_bottom_left = texture(normal_rough_texture, offset[0]).xyz;
-	vec3 normals_top_right = texture(normal_rough_texture, offset[1]).xyz;
-	vec3 normals_bottom_right = texture(normal_rough_texture, offset[2]).xyz;
-	vec3 normals_top_left = texture(normal_rough_texture, offset[3]).xyz;
+	vec3 normals_bottom_left = texture(normal_rough_texture, offset[0]).xyz * 2.0 - 1.0;
+	vec3 normals_top_right = texture(normal_rough_texture, offset[1]).xyz * 2.0 - 1.0;
+	vec3 normals_bottom_right = texture(normal_rough_texture, offset[2]).xyz * 2.0 - 1.0;
+	vec3 normals_top_left = texture(normal_rough_texture, offset[3]).xyz * 2.0 - 1.0;
 	float normal_border = clamp(length(normals_bottom_left - normals_top_right) + length(normals_bottom_right - normals_top_left), 0.0, 1.0);
-	normal_border = smoothstep(0, 0.15, normal_border);
+	normal_border = smoothstep(0.5, 1.75, normal_border);
 	
 	float outline = normal_border + depth_border;
 	ALBEDO = outline * vec3(0.0);
