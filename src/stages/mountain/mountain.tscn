@@ -50,7 +50,7 @@ environment = SubResource("Environment_rcjq6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
 transform = Transform3D(-0.86161214, 0.5035572, 0.06367473, -0.37192738, -0.7117385, 0.59590113, 0.34539008, 0.48975334, 0.8005293, 90.6411, 62.653336, -51.521294)
-light_color = Color(1, 0.95686275, 0.73333335, 1)
+light_color = Color(1, 0.91446775, 0.478801, 1)
 shadow_enabled = true
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]

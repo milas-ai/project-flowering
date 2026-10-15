@@ -19,6 +19,16 @@ config/icon="res://icon.svg"
 
 ParticleSystem="*uid://cawl0y3nndj04"
 
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/mode=2
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+window/size/mode.editor=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/brackeys_particle_controls/plugin.cfg", "res://addons/mx_creative_console/plugin.cfg")
@@ -103,7 +113,9 @@ stun={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+anti_aliasing/screen_space_roughness_limiter/enabled=false
 
 [shader_globals]
 
