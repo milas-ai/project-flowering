@@ -4,7 +4,7 @@ extends RefCounted
 
 class PLAYER:
 	const HEALTH: int = 6
-	const SPEED: float = 5.0
+	const SPEED: float = 4.5
 	const DAMAGE: int = 2
 	const JUMP_VELOCITY: float = 7.0
 	const FRICTION: float = 10.0
