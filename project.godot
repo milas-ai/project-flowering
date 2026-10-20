@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ParticleSystem="*uid://cawl0y3nndj04"
-SaveSystem="*uid://sspf7kblwerb"
+SaveManager="*uid://sspf7kblwerb"
 
 [display]
 
