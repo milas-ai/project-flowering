@@ -44,6 +44,9 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=1959011326]
 shape = SubResource("SphereShape3D_ay5lc")
 
+[node name="StunMarker" type="Marker3D" parent="." unique_id=1942331234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
 [node name="StateMachine" type="Node" parent="." unique_id=1624807455 node_paths=PackedStringArray("body")]
 script = ExtResource("2_gbvur")
 body = NodePath("..")
