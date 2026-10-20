@@ -12,7 +12,6 @@ var h_input_dir := Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
 var mouse_sensitivity: int = 2
-var _camera_rotation: float = deg_to_rad(45)
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
 
@@ -30,6 +29,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.is_action_pressed("ui_cancel"):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if event.is_action_pressed("save_game_debug"):
+			var save_data := SaveManager.SaveData.new()
+			save_data.stage_uid = SceneUID.STAGES.MOUNTAIN
+			save_data.options = SaveManager.Options.new({
+					"volume": {"master": 80, "music": 70, "sfx": 90},
+					"aspect_ratio": Vector2(16, 9),
+					"fullscreen": true,
+					"language": "en",
+					"pixelation_level": 2
+			})
+			SaveManager.save(save_data)
+		if event.is_action_pressed("load_game_debug"):
+			var loaded_data := SaveManager.load()
+			print(loaded_data.stage_uid)
+			print(loaded_data.options.volume)
 
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
