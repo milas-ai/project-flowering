@@ -2,9 +2,9 @@ extends Node
 class_name PlayerStun
 
 
-@onready var stun_area: Area3D = $"../../StunArea"
-
 var is_stunning: bool = false
+
+@onready var stun_area: Area3D = $"../../StunArea"
 
 
 func _on_player_input_stun_pressed():
