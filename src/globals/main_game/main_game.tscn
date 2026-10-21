@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bepxrixjm04iu" path="res://src/globals/main_game/main_game.gd" id="1_tt0k7"]
 [ext_resource type="Script" uid="uid://c88rn35hhi0j1" path="res://src/globals/main_game/hud_root.gd" id="2_twwxd"]
 [ext_resource type="Shader" uid="uid://chviwd6q60duv" path="res://src/shaders/posterization.gdshader" id="2_w4awf"]
+[ext_resource type="Script" uid="uid://bi17bhvu7eoa" path="res://src/globals/main_game/pause_root.gd" id="4_77o2r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkujh"]
 shader = ExtResource("2_w4awf")
@@ -62,3 +63,4 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("4_77o2r")
