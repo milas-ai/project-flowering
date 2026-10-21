@@ -2,11 +2,32 @@ class_name Options
 extends Resource
 
 
-var volume: Dictionary[String, int]
-var aspect_ratio: Vector2
-var fullscreen: bool
-var language: StringName
-var pixelation_level: int
+signal volume_change(volume: Dictionary[String, int])
+signal aspect_ratio_change(aspect_ratio: Vector2)
+signal fullscreen_change(fullscreen: bool)
+signal language_change(language: StringName)
+signal pixelation_level_change(pixelation_level: int)
+
+var volume: Dictionary[String, int]:
+	set(value):
+		volume = value
+		emit_signal("volume_change", volume)
+var aspect_ratio: Vector2:
+	set(value):
+		aspect_ratio = value
+		emit_signal("aspect_ratio_change", aspect_ratio)
+var fullscreen: bool:
+	set(value):
+		fullscreen = value
+		emit_signal("fullscreen_change", fullscreen)
+var language: StringName:
+	set(value):
+		language = value
+		emit_signal("language_change", language)
+var pixelation_level: int:
+	set(value):
+		pixelation_level = value
+		emit_signal("pixelation_level_change", pixelation_level)
 
 
 func _init(data: Dictionary = {}):
