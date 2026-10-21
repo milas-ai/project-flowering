@@ -16,4 +16,3 @@ func _on_player_input_stun_pressed():
 					body.apply_stun()
 		
 		get_tree().create_timer(0.8).timeout.connect(func(): is_stunning = false)
-		
