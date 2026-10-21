@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cyu678w5s70ao"]
+
+[ext_resource type="Script" uid="uid://nfplxlsobkrt" path="res://src/globals/particle_system/particle_preset.gd" id="1_42h1u"]
+[ext_resource type="Texture2D" uid="uid://ds0rs1s5rqyl3" path="res://assets/textures/particles/star.png" id="2_20bin"]
+
+[sub_resource type="Curve" id="Curve_10om2"]
+
+[sub_resource type="Curve" id="Curve_oa1jp"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_enk0m"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_i4oi2"]
+curve_x = SubResource("Curve_10om2")
+curve_y = SubResource("Curve_oa1jp")
+curve_z = SubResource("Curve_enk0m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sgflu"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.5
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 1.0000001
+orbit_velocity_max = 1.0000001
+orbit_velocity_curve = SubResource("CurveXYZTexture_i4oi2")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.35
+scale_max = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx5p1"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_texture = ExtResource("2_20bin")
+emission_enabled = true
+emission = Color(1, 0.84313726, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_j5k5y"]
+material = SubResource("StandardMaterial3D_vx5p1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j5k5y"]
+use_rotation_velocity_3d = true
+rotation_velocity_3d_min = Vector3(0, -500, 0)
+rotation_velocity_3d_max = Vector3(0, -500, 0)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_20bin"]
+colors = PackedColorArray(1, 0.85882354, 0.26666668, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vx5p1"]
+gradient = SubResource("Gradient_20bin")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgflu"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1, 0.8784314, 0.26666668, 1)
+albedo_texture = SubResource("GradientTexture2D_vx5p1")
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_2ou3o"]
+material = SubResource("StandardMaterial3D_sgflu")
+inner_radius = 0.45
+outer_radius = 0.55
+rings = 6
+ring_segments = 3
+
+[node name="StunStar" type="Node3D" unique_id=1257359652]
+script = ExtResource("1_42h1u")
+id = &"stun_star"
+
+[node name="Stars" type="GPUParticles3D" parent="." unique_id=1104352853]
+emitting = false
+amount = 6
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+local_coords = true
+transform_align = 4
+transform_align_axis = 1
+process_material = SubResource("ParticleProcessMaterial_sgflu")
+draw_pass_1 = SubResource("QuadMesh_j5k5y")
+
+[node name="Trail" type="GPUParticles3D" parent="." unique_id=512987325]
+emitting = false
+amount = 1
+lifetime = 3.0
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_j5k5y")
+draw_pass_1 = SubResource("TorusMesh_2ou3o")
