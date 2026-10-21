@@ -17,6 +17,21 @@ func _ready() -> void:
 	hud_root.load_main_stage_hud()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if get_tree().paused:
+		return
+	
+	if event is InputEventKey:
+		if event.is_action_pressed("pause"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().paused = true
+			
+	if event is InputEventMouseButton:
+		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		return
+
+
 func load_stage(stage_scene_uid: String) -> void:
 	if _current_stage:
 		_current_stage.queue_free()

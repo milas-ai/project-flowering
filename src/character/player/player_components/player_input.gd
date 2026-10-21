@@ -21,15 +21,6 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		return
-	
-	if event is InputEventKey:
-		if event.is_action_pressed("ui_cancel"):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			_mouse_rotate(event)
