@@ -3,8 +3,9 @@ extends Node
 
 
 var player: Player = null
-var options: Options = null
+var options: Options
 var _current_stage: Node3D = null
+var _current_stage_uid: String
 
 @onready var stage_root: Node3D = %StageRoot
 @onready var entity_root: Node3D = %EntityRoot
@@ -13,14 +14,9 @@ var _current_stage: Node3D = null
 
 
 func _ready() -> void:
-	var save_data: SaveManager.SaveData = SaveManager.load()
-	if save_data:
-		options = save_data.options
-	else:
-		options = Options.new()
-		
+	_load_save_data()
 	_init_player()
-	load_stage(SceneUID.STAGES.GYM)
+	load_stage(_current_stage_uid)
 	pause_root.init_options_menu()
 	hud_root.load_main_stage_hud()
 
@@ -66,6 +62,16 @@ func load_stage(stage_scene_uid: String) -> void:
 	await get_tree().process_frame
 	_place_player_at_spawn_point()
 
+	_current_stage_uid = stage_scene_uid
+	save_game()
+
+
+func save_game() -> void:
+	var save_data := SaveManager.SaveData.new()
+	save_data.options = options
+	save_data.stage_uid = _current_stage_uid
+	SaveManager.save(save_data)
+
 
 func _init_player() -> void:
 	var player_scene: PackedScene = ResourceLoader.load(SceneUID.PLAYER)
@@ -87,3 +93,13 @@ func _place_player_at_spawn_point() -> void:
 		return
 
 	player.global_position = _current_stage.get_player_spawn_point()
+
+
+func _load_save_data() -> void:
+	var save_data: SaveManager.SaveData = SaveManager.load()
+	if save_data:
+		options = save_data.options
+		_current_stage_uid = save_data.stage_uid
+	else:
+		options = Options.new()
+		_current_stage_uid = SceneUID.STAGES.GYM
