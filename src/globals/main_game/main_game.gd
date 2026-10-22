@@ -28,9 +28,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.is_action_pressed("pause"):
 			get_viewport().set_input_as_handled()
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().paused = true
-			pause_root.show_options_menu()
+			pause_game()
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
@@ -92,6 +90,18 @@ func set_pixelization_level(pixelization_level: int) -> void:
 
 func set_mouse_sensitivity(mouse_sensitivity: int) -> void:
 	options.mouse_sensitivity = max(1, mouse_sensitivity)
+
+
+func pause_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	pause_root.show_options_menu()
+
+
+func resume_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pause_root.hide_options_menu()
+	get_tree().paused = false
 
 
 func save_game() -> void:

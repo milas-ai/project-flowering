@@ -83,6 +83,7 @@ func _on_pixelization_down_pressed() -> void:
 
 func _on_save_settings_pressed() -> void:
 	_main_game.save_game()
+	_main_game.resume_game()
 
 
 func _on_exit_game_pressed() -> void:
