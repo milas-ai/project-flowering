@@ -3,24 +3,22 @@ extends Resource
 
 
 signal volume_change(volume: Dictionary[String, int])
-signal aspect_ratio_change(aspect_ratio: Vector2)
+signal aspect_ratio_change(retro_aspect_ratio: bool)
 signal fullscreen_change(fullscreen: bool)
 signal language_change(language: StringName)
 signal pixelization_level_change(pixelization_level: int)
 signal mouse_sensitivity_change(mouse_sensitivity: int)
 
 const LANGUAGE_OPTIONS: Array[StringName] = ["pt", "en"]
-const ASPECT_RATIO_OPTIONS: Array[Vector2] = [Vector2(3, 4), Vector2(16, 9), Vector2(21, 9)]
-
 
 var volume: Dictionary[String, int]:
 	set(value):
 		volume = value
 		emit_signal("volume_change", volume)
-var aspect_ratio: Vector2:
+var retro_aspect_ratio: bool:
 	set(value):
-		aspect_ratio = value
-		emit_signal("aspect_ratio_change", aspect_ratio)
+		retro_aspect_ratio = value
+		emit_signal("aspect_ratio_change", retro_aspect_ratio)
 var fullscreen: bool:
 	set(value):
 		fullscreen = value
@@ -54,25 +52,10 @@ static func language_string_to_index(language_string: StringName) -> int:
 	return index
 
 
-static func aspect_ratio_index_to_vector(index: int) -> Vector2:
-	if index < 0 or index >= ASPECT_RATIO_OPTIONS.size():
-		push_error("Invalid aspect ratio index: %d" % index)
-		return ASPECT_RATIO_OPTIONS[0]
-	return ASPECT_RATIO_OPTIONS[index]
-
-
-static func aspect_ratio_vector_to_index(aspect_ratio_vector: Vector2) -> int:
-	var index: int = ASPECT_RATIO_OPTIONS.find(aspect_ratio_vector)
-	if index == -1:
-		push_error("Invalid aspect ratio: %s" % aspect_ratio_vector)
-		return 0
-	return index
-
-
 func _init(data: Dictionary = {}):
 	volume.assign(data.get("volume", {"master": 100, "music": 100, "sfx": 100}))
-	aspect_ratio = data.get("aspect_ratio", Vector2(16, 9))
-	fullscreen = data.get("fullscreen", false)
+	retro_aspect_ratio = data.get("retro_aspect_ratio", true)
+	fullscreen = data.get("fullscreen", true)
 	language = data.get("language", "pt")
 	pixelization_level = data.get("pixelization_level", 5)
 	mouse_sensitivity = data.get("mouse_sensitivity", 5)
@@ -81,7 +64,7 @@ func _init(data: Dictionary = {}):
 func to_dict() -> Dictionary:
 	return {
 		"volume": volume,
-		"aspect_ratio": aspect_ratio,
+		"retro_aspect_ratio": retro_aspect_ratio,
 		"fullscreen": fullscreen,
 		"language": language,
 		"pixelization_level": pixelization_level,

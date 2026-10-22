@@ -74,8 +74,12 @@ func _change_volume(volume_type: String, delta: int) -> void:
 	options.volume_change.emit(options.volume)
 
 
-func _set_aspect_ratio(index: int) -> void:
-	options.aspect_ratio = Options.aspect_ratio_index_to_vector(index)
+func _set_aspect_ratio(retro_aspect_ratio: bool) -> void:
+	options.retro_aspect_ratio = retro_aspect_ratio
+	if options.retro_aspect_ratio:
+		get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+	else:
+		get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP_HEIGHT
 
 
 func _set_fullscreen(fullscreen: bool) -> void:
@@ -157,7 +161,7 @@ func _load_save_data() -> void:
 	_change_volume("master", 0)
 	_change_volume("music", 0)
 	_change_volume("sfx", 0)
-	_set_aspect_ratio(Options.aspect_ratio_vector_to_index(options.aspect_ratio))
+	_set_aspect_ratio(options.retro_aspect_ratio)
 	_set_fullscreen(options.fullscreen)
 	_set_language(Options.language_string_to_index(options.language))
 	_change_pixelization_level(0)

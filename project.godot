@@ -24,6 +24,7 @@ SaveManager="*uid://sspf7kblwerb"
 
 window/size/viewport_width=1600
 window/size/viewport_height=1200
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 window/size/mode.editor=0
