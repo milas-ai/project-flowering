@@ -70,6 +70,7 @@ func change_volume(volume_type: String, delta: int) -> void:
 		return
 
 	options.volume[volume_type] = clamp(options.volume[volume_type] + delta, 0, 100)
+	options.volume_change.emit(options.volume)
 
 
 func set_aspect_ratio(index: int) -> void:
