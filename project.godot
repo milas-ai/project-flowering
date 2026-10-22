@@ -15,6 +15,10 @@ run/main_scene="uid://cwg6plif5r5wv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cskcjpx3rk7rb"
+
 [autoload]
 
 ParticleSystem="*uid://cawl0y3nndj04"
@@ -37,12 +41,14 @@ enabled=PackedStringArray("res://addons/brackeys_particle_controls/plugin.cfg", 
 
 folder_colors={
 "res://assets/animations/": "red",
+"res://assets/audio/": "yellow",
 "res://assets/gui/": "green",
 "res://assets/logo/": "teal",
 "res://assets/materials/": "yellow",
 "res://assets/models/": "orange",
 "res://assets/particles/": "blue",
 "res://assets/textures/": "pink",
+"res://src/audio/": "yellow",
 "res://src/character/": "red",
 "res://src/entities/": "orange",
 "res://src/globals/": "teal",
