@@ -3,6 +3,7 @@ extends Node
 
 
 var player: Player = null
+var options: Options = null
 var _current_stage: Node3D = null
 
 @onready var stage_root: Node3D = %StageRoot
@@ -12,19 +13,28 @@ var _current_stage: Node3D = null
 
 
 func _ready() -> void:
+	var save_data: SaveManager.SaveData = SaveManager.load()
+	if save_data:
+		options = save_data.options
+	else:
+		options = Options.new()
+		
 	_init_player()
 	load_stage(SceneUID.STAGES.GYM)
+	pause_root.init_options_menu()
 	hud_root.load_main_stage_hud()
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if get_tree().paused:
 		return
-	
+		
 	if event is InputEventKey:
 		if event.is_action_pressed("pause"):
+			get_viewport().set_input_as_handled()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			get_tree().paused = true
+			pause_root.show_options_menu()
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
