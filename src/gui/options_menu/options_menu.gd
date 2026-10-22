@@ -8,7 +8,6 @@ extends Control
 @onready var _mouse_sensitivity_slider: HSlider = %MouseSensitivitySlider
 
 
-
 func _ready() -> void:
 	_connect_options_change_signals()
 	_connect_ui_signals()
@@ -29,7 +28,6 @@ func _connect_options_change_signals() -> void:
 	_main_game.options.fullscreen_change.connect(_on_fullscreen_change)
 	_main_game.options.language_change.connect(_on_language_change)
 	_main_game.options.pixelization_level_change.connect(_on_pixelization_level_change)
-	_main_game.options.mouse_sensitivity_change.connect(_on_mouse_sensitivity_change)
 
 
 func _connect_ui_signals() -> void:
@@ -64,10 +62,6 @@ func _on_language_change(language: StringName) -> void:
 
 func _on_pixelization_level_change(pixelization_level: int) -> void:
 	print("Pixelization level changed to: %s" % pixelization_level)
-
-
-func _on_mouse_sensitivity_change(mouse_sensitivity: int) -> void:
-	_mouse_sensitivity_slider.value = mouse_sensitivity
 
 
 # UI Signal Handlers
