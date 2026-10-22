@@ -66,11 +66,44 @@ func load_stage(stage_scene_uid: String) -> void:
 	save_game()
 
 
+func change_volume(volume_type: String, delta: int) -> void:
+	if not options.volume.has(volume_type):
+		push_error("Invalid volume type: %s" % volume_type)
+		return
+
+	options.volume[volume_type] = clamp(options.volume[volume_type] + delta, 0, 100)
+
+
+func set_aspect_ratio(index: int) -> void:
+	options.aspect_ratio = Options.aspect_ratio_index_to_vector(index)
+
+
+func set_fullscreen(fullscreen: bool) -> void:
+	options.fullscreen = fullscreen
+
+
+func set_language(index: int) -> void:
+	options.language = Options.language_index_to_string(index)
+
+
+func set_pixelization_level(pixelization_level: int) -> void:
+	options.pixelization_level = max(1, pixelization_level)
+
+
+func set_mouse_sensitivity(mouse_sensitivity: int) -> void:
+	options.mouse_sensitivity = max(1, mouse_sensitivity)
+
+
 func save_game() -> void:
 	var save_data := SaveManager.SaveData.new()
 	save_data.options = options
 	save_data.stage_uid = _current_stage_uid
 	SaveManager.save(save_data)
+
+
+func exit_game() -> void:
+	save_game()
+	get_tree().quit()
 
 
 func _init_player() -> void:
