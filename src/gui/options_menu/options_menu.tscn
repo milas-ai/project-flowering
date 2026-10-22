@@ -53,20 +53,58 @@ layout_mode = 2
 text = "OPTIONS_MENU_TITLE"
 horizontal_alignment = 1
 
-[node name="VolumeContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=412901249]
+[node name="VolumeContainerMaster" type="HBoxContainer" parent="VBoxContainer" unique_id=412901249]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VolumeContainer" unique_id=503954255]
+[node name="Label" type="Label" parent="VBoxContainer/VolumeContainerMaster" unique_id=503954255]
 layout_mode = 2
 text = "VOLUME_MASTER_LABEL"
 
-[node name="VolumeUpButton" type="Button" parent="VBoxContainer/VolumeContainer" unique_id=1924070426]
+[node name="VolumeMasterUpButton" type="Button" parent="VBoxContainer/VolumeContainerMaster" unique_id=1924070426]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
 
-[node name="VolumeDownButton" type="Button" parent="VBoxContainer/VolumeContainer" unique_id=898586892]
+[node name="VolumeMasterDownButton" type="Button" parent="VBoxContainer/VolumeContainerMaster" unique_id=898586892]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="VolumeContainerMusic" type="HBoxContainer" parent="VBoxContainer" unique_id=1506694505]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VolumeContainerMusic" unique_id=1784492435]
+layout_mode = 2
+text = "VOLUME_MUSIC_LABEL"
+
+[node name="VolumeMusicUpButton" type="Button" parent="VBoxContainer/VolumeContainerMusic" unique_id=860276210]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="VolumeMusicDownButton" type="Button" parent="VBoxContainer/VolumeContainerMusic" unique_id=1066154121]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="VolumeContainerSFX" type="HBoxContainer" parent="VBoxContainer" unique_id=1839787123]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VolumeContainerSFX" unique_id=249581524]
+layout_mode = 2
+text = "VOLUME_SFX_LABEL"
+
+[node name="VolumeSFXUpButton" type="Button" parent="VBoxContainer/VolumeContainerSFX" unique_id=1729081209]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="VolumeSFXDownButton" type="Button" parent="VBoxContainer/VolumeContainerSFX" unique_id=721697264]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
