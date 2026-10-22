@@ -40,10 +40,8 @@ func _connect_ui_signals() -> void:
 	_fullscreen_check_button.toggled.connect(_main_game._set_fullscreen)
 	_aspect_ratio_drop_button.item_selected.connect(_main_game._set_aspect_ratio)
 	_language_drop_button.item_selected.connect(_main_game._set_language)
-	%PixelizationUpButton.pressed.connect(
-			_main_game._set_pixelization_level.bind(_main_game.options.pixelization_level + 1))
-	%PixelizationDownButton.pressed.connect(
-			_main_game._set_pixelization_level.bind(_main_game.options.pixelization_level - 1))
+	%PixelizationUpButton.pressed.connect(_main_game._change_pixelization_level.bind(+1))
+	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
 	_mouse_sensitivity_slider.value_changed.connect(_main_game._set_mouse_sensitivity)
 	%SaveSettingsButton.pressed.connect(_main_game._resume_game)
 	%ExitGameButton.pressed.connect(_main_game._exit_game)

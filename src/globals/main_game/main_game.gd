@@ -14,6 +14,7 @@ var _current_stage_uid: String
 
 
 func _ready() -> void:
+	SaveManager.delete_save()
 	_load_save_data()
 	_init_player()
 	_load_stage(_current_stage_uid)
@@ -85,8 +86,9 @@ func _set_language(index: int) -> void:
 	options.language = Options.language_index_to_string(index)
 
 
-func _set_pixelization_level(pixelization_level: int) -> void:
-	options.pixelization_level = max(1, pixelization_level)
+
+func _change_pixelization_level(delta: int) -> void:
+	options.pixelization_level = max(1, options.pixelization_level + delta)
 
 
 func _set_mouse_sensitivity(mouse_sensitivity: int) -> void:
