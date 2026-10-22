@@ -2,7 +2,7 @@ class_name PlayerInput
 extends Node
 
 
-const DEGREES_PER_UNIT: float = 0.001
+const DEGREES_PER_UNIT: float = 0.0002
 
 signal jump_pressed
 signal push_pressed
@@ -50,4 +50,9 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	var viewport_transform: Transform2D = get_tree().root.get_final_transform()
 	var mouse_motion: Vector2 = event.xformed_by(viewport_transform).relative
 	
-	_camera_pivot.rotate_y(-mouse_motion.x * _main_game.options.mouse_sensitivity * DEGREES_PER_UNIT)
+	_camera_pivot.rotate_y(
+			-mouse_motion.x *
+			_main_game.options.mouse_sensitivity *
+			_main_game.options.pixelization_level *
+			DEGREES_PER_UNIT
+	)

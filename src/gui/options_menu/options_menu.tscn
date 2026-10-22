@@ -180,7 +180,7 @@ size_flags_vertical = 1
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_38wcy")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25pqe")
 min_value = 1.0
-max_value = 10.0
+max_value = 9.0
 value = 1.0
 
 [node name="SaveSettingsButton" type="Button" parent="VBoxContainer" unique_id=929491612]
