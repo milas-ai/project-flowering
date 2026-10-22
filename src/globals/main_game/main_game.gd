@@ -80,6 +80,10 @@ func _set_aspect_ratio(index: int) -> void:
 
 func _set_fullscreen(fullscreen: bool) -> void:
 	options.fullscreen = fullscreen
+	if options.fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _set_language(index: int) -> void:
