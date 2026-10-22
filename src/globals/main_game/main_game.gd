@@ -73,6 +73,11 @@ func _change_volume(volume_type: String, delta: int) -> void:
 	options.volume[volume_type] = clamp(options.volume[volume_type] + delta, 0, 100)
 	options.volume_change.emit(options.volume)
 
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index(volume_type.capitalize()),
+		options.volume[volume_type] / 100.0
+	)
+
 
 func _set_aspect_ratio(retro_aspect_ratio: bool) -> void:
 	options.retro_aspect_ratio = retro_aspect_ratio
