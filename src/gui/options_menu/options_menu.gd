@@ -1,6 +1,19 @@
 extends Control
 
 
+func _ready() -> void:
+	%VolumeUpButton.pressed.connect(_on_volume_up_pressed)
+	%VolumeDownButton.pressed.connect(_on_volume_down_pressed)
+	%FullscreenCheckButton.toggled.connect(_on_fullscreen_toggled)
+	%AspectRatioDropButton.item_selected.connect(_on_aspect_ratio_selected)
+	%LanguageDropButton.item_selected.connect(_on_language_selected)
+	%PixelizationUpButton.pressed.connect(_on_pixelization_up_pressed)
+	%PixelizationDownButton.pressed.connect(_on_pixelization_down_pressed)
+	%MouseSensitivitySlider.value_changed.connect(_on_mouse_sensitivity_changed)
+	%SaveSettingsButton.pressed.connect(_on_save_settings_pressed)
+	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
+	
+	
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
 	print("Volume changed to: %s" % volume)
 
@@ -23,3 +36,43 @@ func _on_pixelization_level_change(pixelization_level: int) -> void:
 
 func _on_mouse_sensitivity_change(mouse_sensitivity: int) -> void:
 	print("Mouse sensitivity changed to: %s" % mouse_sensitivity)
+
+
+func _on_volume_up_pressed() -> void:
+	print("Volume Up button pressed")
+
+
+func _on_volume_down_pressed() -> void:
+	print("Volume Down button pressed")
+
+
+func _on_fullscreen_toggled(button_pressed: bool) -> void:
+	print("Fullscreen toggled: %s" % button_pressed)
+
+
+func _on_aspect_ratio_selected(index: int) -> void:
+	print("Aspect ratio selected: %d" % index)
+
+
+func _on_language_selected(index: int) -> void:
+	print("Language selected: %d" % index)
+
+
+func _on_pixelization_up_pressed() -> void:
+	print("Pixelization Up button pressed")
+
+
+func _on_pixelization_down_pressed() -> void:
+	print("Pixelization Down button pressed")
+
+
+func _on_mouse_sensitivity_changed(value: float) -> void:
+	print("Mouse sensitivity changed to: %f" % value)
+
+
+func _on_save_settings_pressed() -> void:
+	print("Save Settings button pressed")
+
+
+func _on_exit_game_pressed() -> void:
+	print("Exit Game button pressed")

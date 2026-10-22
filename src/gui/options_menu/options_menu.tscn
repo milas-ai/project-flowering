@@ -61,11 +61,13 @@ layout_mode = 2
 text = "VOLUME_MASTER_LABEL"
 
 [node name="VolumeUpButton" type="Button" parent="VBoxContainer/VolumeContainer" unique_id=1924070426]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
 
 [node name="VolumeDownButton" type="Button" parent="VBoxContainer/VolumeContainer" unique_id=898586892]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
@@ -78,6 +80,7 @@ layout_mode = 2
 text = "FULLSCREEN_LABEL"
 
 [node name="FullscreenCheckButton" type="CheckButton" parent="VBoxContainer/FullscreenContainer" unique_id=828594670]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 
@@ -89,6 +92,7 @@ layout_mode = 2
 text = "ASPECT_RATIO_LABEL"
 
 [node name="AspectRatioDropButton" type="OptionButton" parent="VBoxContainer/AspectRatioContainer" unique_id=1106366927]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 
@@ -100,6 +104,7 @@ layout_mode = 2
 text = "LANGUAGE_LABEL"
 
 [node name="LanguageDropButton" type="OptionButton" parent="VBoxContainer/LanguageContainer" unique_id=1520234289]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 
@@ -111,11 +116,13 @@ layout_mode = 2
 text = "PIXELIZATION_LABEL"
 
 [node name="PixelizationUpButton" type="Button" parent="VBoxContainer/PixelizationContainer" unique_id=1302447006]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
 
 [node name="PixelizationDownButton" type="Button" parent="VBoxContainer/PixelizationContainer" unique_id=844116850]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
@@ -127,7 +134,8 @@ layout_mode = 2
 layout_mode = 2
 text = "MOUSE_SENSITIVITY_LABEL"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/MouseSensitivityContainer" unique_id=1449384001]
+[node name="MouseSensitivitySlider" type="HSlider" parent="VBoxContainer/MouseSensitivityContainer" unique_id=1449384001]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -138,9 +146,11 @@ max_value = 10.0
 value = 1.0
 
 [node name="SaveSettingsButton" type="Button" parent="VBoxContainer" unique_id=929491612]
+unique_name_in_owner = true
 layout_mode = 2
 text = "SAVE_SETTINGS_LABEL"
 
 [node name="ExitGameButton" type="Button" parent="VBoxContainer" unique_id=1754607002]
+unique_name_in_owner = true
 layout_mode = 2
 text = "EXIT_GAME_LABEL"
