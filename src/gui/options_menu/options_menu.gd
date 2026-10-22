@@ -31,16 +31,18 @@ func _connect_options_change_signals() -> void:
 
 
 func _connect_ui_signals() -> void:
-	%VolumeUpButton.pressed.connect(_on_volume_up_pressed)
-	%VolumeDownButton.pressed.connect(_on_volume_down_pressed)
+	%VolumeMasterUpButton.pressed.connect(_main_game.change_volume.bind("master", +10))
+	%VolumeMasterDownButton.pressed.connect(_main_game.change_volume.bind("master", -10))
 	_fullscreen_check_button.toggled.connect(_main_game.set_fullscreen)
 	_aspect_ratio_drop_button.item_selected.connect(_main_game.set_aspect_ratio)
 	_language_drop_button.item_selected.connect(_main_game.set_language)
-	%PixelizationUpButton.pressed.connect(_on_pixelization_up_pressed)
-	%PixelizationDownButton.pressed.connect(_on_pixelization_down_pressed)
+	%PixelizationUpButton.pressed.connect(
+			_main_game.set_pixelization_level.bind(_main_game.options.pixelization_level + 1))
+	%PixelizationDownButton.pressed.connect(
+			_main_game.set_pixelization_level.bind(_main_game.options.pixelization_level - 1))
 	_mouse_sensitivity_slider.value_changed.connect(_main_game.set_mouse_sensitivity)
-	%SaveSettingsButton.pressed.connect(_on_save_settings_pressed)
-	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
+	%SaveSettingsButton.pressed.connect(_main_game.resume_game)
+	%ExitGameButton.pressed.connect(_main_game.exit_game)
 	
 
 # Options Signal Handlers
@@ -62,29 +64,3 @@ func _on_language_change(language: StringName) -> void:
 
 func _on_pixelization_level_change(pixelization_level: int) -> void:
 	print("Pixelization level changed to: %s" % pixelization_level)
-
-
-# UI Signal Handlers
-func _on_volume_up_pressed() -> void:
-	_main_game.change_volume("master", 10)
-
-
-func _on_volume_down_pressed() -> void:
-	_main_game.change_volume("master", -10)
-
-
-func _on_pixelization_up_pressed() -> void:
-	_main_game.set_pixelization_level(_main_game.options.pixelization_level + 1)
-
-
-func _on_pixelization_down_pressed() -> void:
-	_main_game.set_pixelization_level(_main_game.options.pixelization_level - 1)
-
-
-func _on_save_settings_pressed() -> void:
-	_main_game.save_game()
-	_main_game.resume_game()
-
-
-func _on_exit_game_pressed() -> void:
-	_main_game.exit_game()

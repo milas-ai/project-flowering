@@ -100,6 +100,7 @@ func pause_game() -> void:
 
 
 func resume_game() -> void:
+	save_game()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pause_root.hide_options_menu()
 	get_tree().paused = false
