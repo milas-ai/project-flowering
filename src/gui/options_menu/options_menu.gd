@@ -2,11 +2,25 @@ extends Control
 
 
 @onready var _main_game: MainGame = $/root/MainGame
+@onready var _aspect_ratio_drop_button: OptionButton = %AspectRatioDropButton
+@onready var _fullscreen_check_button: CheckButton = %FullscreenCheckButton
+@onready var _language_drop_button: OptionButton = %LanguageDropButton
+@onready var _mouse_sensitivity_slider: HSlider = %MouseSensitivitySlider
+
 
 
 func _ready() -> void:
 	_connect_options_change_signals()
 	_connect_ui_signals()
+
+	for language in Options.LANGUAGE_OPTIONS:
+		_language_drop_button.add_item(language)
+	
+	for aspect_ratio in Options.ASPECT_RATIO_OPTIONS:
+		_aspect_ratio_drop_button.add_item("%dx%d" % [aspect_ratio.x, aspect_ratio.y])
+
+	_fullscreen_check_button.button_pressed = _main_game.options.fullscreen
+	_mouse_sensitivity_slider.value = _main_game.options.mouse_sensitivity
 
 
 func _connect_options_change_signals() -> void:
@@ -21,30 +35,31 @@ func _connect_options_change_signals() -> void:
 func _connect_ui_signals() -> void:
 	%VolumeUpButton.pressed.connect(_on_volume_up_pressed)
 	%VolumeDownButton.pressed.connect(_on_volume_down_pressed)
-	%FullscreenCheckButton.toggled.connect(_on_fullscreen_toggled)
-	%AspectRatioDropButton.item_selected.connect(_on_aspect_ratio_selected)
-	%LanguageDropButton.item_selected.connect(_on_language_selected)
+	_fullscreen_check_button.toggled.connect(_main_game.set_fullscreen)
+	_aspect_ratio_drop_button.item_selected.connect(_main_game.set_aspect_ratio)
+	_language_drop_button.item_selected.connect(_main_game.set_language)
 	%PixelizationUpButton.pressed.connect(_on_pixelization_up_pressed)
 	%PixelizationDownButton.pressed.connect(_on_pixelization_down_pressed)
-	%MouseSensitivitySlider.value_changed.connect(_on_mouse_sensitivity_changed)
+	_mouse_sensitivity_slider.value_changed.connect(_main_game.set_mouse_sensitivity)
 	%SaveSettingsButton.pressed.connect(_on_save_settings_pressed)
 	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
 	
 
+# Options Signal Handlers
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
 	print("Volume changed to: %s" % volume)
 
 
 func _on_aspect_ratio_change(aspect_ratio: Vector2) -> void:
-	print("Aspect ratio changed to: %s" % aspect_ratio)
+	_aspect_ratio_drop_button.selected = Options.aspect_ratio_vector_to_index(aspect_ratio)
 
 
 func _on_fullscreen_change(fullscreen: bool) -> void:
-	print("Fullscreen changed to: %s" % fullscreen)
+	_fullscreen_check_button.button_pressed = _main_game.options.fullscreen
 
 
 func _on_language_change(language: StringName) -> void:
-	print("Language changed to: %s" % language)
+	_language_drop_button.selected = Options.language_string_to_index(language)
 
 
 func _on_pixelization_level_change(pixelization_level: int) -> void:
@@ -52,44 +67,29 @@ func _on_pixelization_level_change(pixelization_level: int) -> void:
 
 
 func _on_mouse_sensitivity_change(mouse_sensitivity: int) -> void:
-	print("Mouse sensitivity changed to: %s" % mouse_sensitivity)
+	_mouse_sensitivity_slider.value = mouse_sensitivity
 
 
+# UI Signal Handlers
 func _on_volume_up_pressed() -> void:
-	print("Volume Up button pressed")
+	_main_game.change_volume("master", 10)
 
 
 func _on_volume_down_pressed() -> void:
-	print("Volume Down button pressed")
-
-
-func _on_fullscreen_toggled(button_pressed: bool) -> void:
-	print("Fullscreen toggled: %s" % button_pressed)
-
-
-func _on_aspect_ratio_selected(index: int) -> void:
-	print("Aspect ratio selected: %d" % index)
-
-
-func _on_language_selected(index: int) -> void:
-	print("Language selected: %d" % index)
+	_main_game.change_volume("master", -10)
 
 
 func _on_pixelization_up_pressed() -> void:
-	print("Pixelization Up button pressed")
+	_main_game.set_pixelization_level(_main_game.options.pixelization_level + 1)
 
 
 func _on_pixelization_down_pressed() -> void:
-	print("Pixelization Down button pressed")
-
-
-func _on_mouse_sensitivity_changed(value: float) -> void:
-	print("Mouse sensitivity changed to: %f" % value)
+	_main_game.set_pixelization_level(_main_game.options.pixelization_level - 1)
 
 
 func _on_save_settings_pressed() -> void:
-	print("Save Settings button pressed")
+	_main_game.save_game()
 
 
 func _on_exit_game_pressed() -> void:
-	print("Exit Game button pressed")
+	_main_game.exit_game()
