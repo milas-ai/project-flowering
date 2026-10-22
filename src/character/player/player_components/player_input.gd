@@ -11,9 +11,9 @@ signal stun_pressed
 var h_input_dir := Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
-var mouse_sensitivity: int = 2
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
+@onready var _main_game: MainGame = $/root/MainGame
 
 
 func _ready() -> void:
@@ -50,4 +50,4 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	var viewport_transform: Transform2D = get_tree().root.get_final_transform()
 	var mouse_motion: Vector2 = event.xformed_by(viewport_transform).relative
 	
-	_camera_pivot.rotate_y(-mouse_motion.x * mouse_sensitivity * DEGREES_PER_UNIT)
+	_camera_pivot.rotate_y(-mouse_motion.x * _main_game.options.mouse_sensitivity * DEGREES_PER_UNIT)

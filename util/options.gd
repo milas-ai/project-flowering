@@ -41,7 +41,7 @@ func _init(data: Dictionary = {}):
 	fullscreen = data.get("fullscreen", false)
 	language = data.get("language", "pt")
 	pixelization_level = data.get("pixelization_level", 1)
-	mouse_sensitivity = data.get("mouse_sensitivity", 2)
+	mouse_sensitivity = data.get("mouse_sensitivity", 4)
 
 
 func _to_dict() -> Dictionary:
