@@ -31,25 +31,24 @@ func _connect_options_change_signals() -> void:
 
 
 func _connect_ui_signals() -> void:
-	%VolumeMasterUpButton.pressed.connect(_main_game.change_volume.bind("master", +10))
-	%VolumeMasterDownButton.pressed.connect(_main_game.change_volume.bind("master", -10))
-	%VolumeMusicUpButton.pressed.connect(_main_game.change_volume.bind("music", +10))
-	%VolumeMusicDownButton.pressed.connect(_main_game.change_volume.bind("music", -10))
-	%VolumeSFXUpButton.pressed.connect(_main_game.change_volume.bind("sfx", +10))
-	%VolumeSFXDownButton.pressed.connect(_main_game.change_volume.bind("sfx", -10))
-	_fullscreen_check_button.toggled.connect(_main_game.set_fullscreen)
-	_aspect_ratio_drop_button.item_selected.connect(_main_game.set_aspect_ratio)
-	_language_drop_button.item_selected.connect(_main_game.set_language)
+	%VolumeMasterUpButton.pressed.connect(_main_game._change_volume.bind("master", +10))
+	%VolumeMasterDownButton.pressed.connect(_main_game._change_volume.bind("master", -10))
+	%VolumeMusicUpButton.pressed.connect(_main_game._change_volume.bind("music", +10))
+	%VolumeMusicDownButton.pressed.connect(_main_game._change_volume.bind("music", -10))
+	%VolumeSFXUpButton.pressed.connect(_main_game._change_volume.bind("sfx", +10))
+	%VolumeSFXDownButton.pressed.connect(_main_game._change_volume.bind("sfx", -10))
+	_fullscreen_check_button.toggled.connect(_main_game._set_fullscreen)
+	_aspect_ratio_drop_button.item_selected.connect(_main_game._set_aspect_ratio)
+	_language_drop_button.item_selected.connect(_main_game._set_language)
 	%PixelizationUpButton.pressed.connect(
-			_main_game.set_pixelization_level.bind(_main_game.options.pixelization_level + 1))
+			_main_game._set_pixelization_level.bind(_main_game.options.pixelization_level + 1))
 	%PixelizationDownButton.pressed.connect(
-			_main_game.set_pixelization_level.bind(_main_game.options.pixelization_level - 1))
-	_mouse_sensitivity_slider.value_changed.connect(_main_game.set_mouse_sensitivity)
-	%SaveSettingsButton.pressed.connect(_main_game.resume_game)
-	%ExitGameButton.pressed.connect(_main_game.exit_game)
+			_main_game._set_pixelization_level.bind(_main_game.options.pixelization_level - 1))
+	_mouse_sensitivity_slider.value_changed.connect(_main_game._set_mouse_sensitivity)
+	%SaveSettingsButton.pressed.connect(_main_game._resume_game)
+	%ExitGameButton.pressed.connect(_main_game._exit_game)
 	
 
-# Options Signal Handlers
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
 	print("Volume changed to: %s" % volume)
 

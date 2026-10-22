@@ -74,7 +74,7 @@ func _init(data: Dictionary = {}):
 	aspect_ratio = data.get("aspect_ratio", Vector2(16, 9))
 	fullscreen = data.get("fullscreen", false)
 	language = data.get("language", "pt")
-	pixelization_level = data.get("pixelization_level", 1)
+	pixelization_level = data.get("pixelization_level", 5)
 	mouse_sensitivity = data.get("mouse_sensitivity", 4)
 
 
