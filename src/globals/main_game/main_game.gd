@@ -97,6 +97,7 @@ func _set_fullscreen(fullscreen: bool) -> void:
 
 func _set_language(index: int) -> void:
 	options.language = Options.language_index_to_string(index)
+	TranslationServer.set_locale(options.language)
 
 
 func _change_pixelization_level(delta: int) -> void:

@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 	_aspect_ratio_check_button.button_pressed = _main_game.options.retro_aspect_ratio
 	_fullscreen_check_button.button_pressed = _main_game.options.fullscreen
+	_language_drop_button.selected = Options.language_string_to_index(_main_game.options.language)
 	_mouse_sensitivity_slider.value = _main_game.options.mouse_sensitivity
 
 
