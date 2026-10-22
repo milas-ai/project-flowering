@@ -16,3 +16,4 @@ class ENTITIES:
 
 class GUI:
 	const HEALTH_CONTAINER: String = "uid://c4dpb7unnm5hj"
+	const OPTIONS_MENU: String = "uid://d67rn6nj7tho"
