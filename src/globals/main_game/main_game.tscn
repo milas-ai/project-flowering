@@ -14,7 +14,8 @@ shader_parameter/post_effect_gamma = 1.067
 [node name="MainGame" type="Node" unique_id=1025930605]
 script = ExtResource("1_tt0k7")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=422820909]
+[node name="GameViewport" type="SubViewportContainer" parent="." unique_id=422820909]
+unique_name_in_owner = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_fkujh")
 anchors_preset = 15
@@ -25,20 +26,20 @@ grow_vertical = 2
 stretch = true
 stretch_shrink = 5
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=276803158]
+[node name="SubViewport" type="SubViewport" parent="GameViewport" unique_id=276803158]
 handle_input_locally = false
 scaling_3d_mode = 5
 canvas_item_default_texture_filter = 0
 size = Vector2i(320, 240)
 render_target_update_mode = 4
 
-[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=716154110]
+[node name="World" type="Node3D" parent="GameViewport/SubViewport" unique_id=716154110]
 process_mode = 1
 
-[node name="StageRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=326016225]
+[node name="StageRoot" type="Node3D" parent="GameViewport/SubViewport/World" unique_id=326016225]
 unique_name_in_owner = true
 
-[node name="EntityRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=630348644]
+[node name="EntityRoot" type="Node3D" parent="GameViewport/SubViewport/World" unique_id=630348644]
 unique_name_in_owner = true
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]

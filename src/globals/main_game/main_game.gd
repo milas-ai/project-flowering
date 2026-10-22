@@ -11,10 +11,10 @@ var _current_stage_uid: String
 @onready var entity_root: Node3D = %EntityRoot
 @onready var hud_root: HudRoot = %HudRoot
 @onready var pause_root: Control = %PauseRoot
+@onready var _game_container: SubViewportContainer = %GameViewport
 
 
 func _ready() -> void:
-	SaveManager.delete_save()
 	_load_save_data()
 	_init_player()
 	_load_stage(_current_stage_uid)
@@ -86,9 +86,9 @@ func _set_language(index: int) -> void:
 	options.language = Options.language_index_to_string(index)
 
 
-
 func _change_pixelization_level(delta: int) -> void:
 	options.pixelization_level = max(1, options.pixelization_level + delta)
+	_game_container.stretch_shrink = options.pixelization_level
 
 
 func _set_mouse_sensitivity(mouse_sensitivity: int) -> void:
@@ -150,3 +150,10 @@ func _load_save_data() -> void:
 	else:
 		options = Options.new()
 		_current_stage_uid = SceneUID.STAGES.GYM
+	_change_volume("master", 0)
+	_change_volume("music", 0)
+	_change_volume("sfx", 0)
+	_set_aspect_ratio(Options.aspect_ratio_vector_to_index(options.aspect_ratio))
+	_set_fullscreen(options.fullscreen)
+	_set_language(Options.language_string_to_index(options.language))
+	_change_pixelization_level(0)
