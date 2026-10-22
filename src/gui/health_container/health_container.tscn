@@ -6,8 +6,8 @@
 texture_filter = 1
 offset_left = 16.0
 offset_top = 15.0
-offset_right = 178.0
-offset_bottom = 63.0
+offset_right = 336.625
+offset_bottom = 110.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_b4vg1")
