@@ -4,22 +4,14 @@ extends Control
 
 var _options_menu: Control
 
+@onready var _main_game: MainGame = $/root/MainGame
+
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.is_action_pressed("pause"):
 			get_viewport().set_input_as_handled()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			hide_options_menu()
-			get_tree().paused = false
-
-
-func show_options_menu() -> void:
-	_options_menu.show()
-
-
-func hide_options_menu() -> void:
-	_options_menu.hide()
+			_main_game._resume_game()
 
 
 func init_options_menu() -> void:
@@ -33,5 +25,4 @@ func init_options_menu() -> void:
 		push_error("Failed to instantiate options menu scene.")
 		return
 	
-	_options_menu.hide()
 	add_child(_options_menu)

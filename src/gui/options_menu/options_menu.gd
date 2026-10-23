@@ -40,7 +40,7 @@ func _connect_ui_signals() -> void:
 	%PixelizationUpButton.pressed.connect(_main_game._change_pixelization_level.bind(+1))
 	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
 	_mouse_sensitivity_slider.value_changed.connect(_main_game._set_mouse_sensitivity)
-	%SaveSettingsButton.pressed.connect(_main_game._resume_game)
+	%SaveSettingsButton.pressed.connect(_main_game._save_game)
 	%ExitGameButton.pressed.connect(_main_game._exit_game)
 	
 

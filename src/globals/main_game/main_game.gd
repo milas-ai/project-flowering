@@ -112,13 +112,12 @@ func _set_mouse_sensitivity(mouse_sensitivity: int) -> void:
 func _pause_game() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
-	pause_root.show_options_menu()
+	pause_root.show()
 
 
 func _resume_game() -> void:
-	_save_game()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pause_root.hide_options_menu()
+	pause_root.hide()
 	get_tree().paused = false
 
 
