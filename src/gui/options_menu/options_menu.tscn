@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu/options_menu_background.png" id="2_l5aju"]
 [ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
+[ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_button.gd" id="4_np2dk"]
 [ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1uldi"]
@@ -136,13 +137,15 @@ text = "VOLUME_MASTER_LABEL"
 [node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=637900615]
 layout_mode = 2
 
-[node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=898586892]
+[node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1838664420]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "-"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeMasterBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=2071873027]
 unique_name_in_owner = true
@@ -152,13 +155,15 @@ size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_bh28n")
 stretch_mode = 5
 
-[node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1924070426]
+[node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1406912247]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "+"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeContainerMusic" type="HSplitContainer" parent="MiddleTopContainer" unique_id=913381340]
 layout_mode = 2
@@ -172,13 +177,15 @@ text = "VOLUME_MUSIC_LABEL"
 [node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=308356445]
 layout_mode = 2
 
-[node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=1066154121]
+[node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=106128891]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "-"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeMusicBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=2105529387]
 unique_name_in_owner = true
@@ -188,13 +195,15 @@ size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_r42jx")
 stretch_mode = 5
 
-[node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=860276210]
+[node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=387822301]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "+"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeContainerSFX" type="HSplitContainer" parent="MiddleTopContainer" unique_id=12513577]
 layout_mode = 2
@@ -208,13 +217,15 @@ text = "VOLUME_SFX_LABEL"
 [node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=1642605877]
 layout_mode = 2
 
-[node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=721697264]
+[node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=1376383619]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "-"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeSFXBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=33379571]
 unique_name_in_owner = true
@@ -224,13 +235,15 @@ size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_xk5be")
 stretch_mode = 5
 
-[node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=1729081209]
+[node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=2140736147]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "+"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="MiddleBottomContainer" type="VBoxContainer" parent="." unique_id=465981876]
 layout_mode = 1
@@ -288,13 +301,15 @@ text = "PIXELIZATION_LABEL"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=844116850]
+[node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=420079014]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "-"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="PixelizationLevelBar" type="TextureRect" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=570478370]
 unique_name_in_owner = true
@@ -304,13 +319,15 @@ size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_lvwp7")
 stretch_mode = 5
 
-[node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=1302447006]
+[node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=627330665]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "+"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="BottomContainer" type="VBoxContainer" parent="." unique_id=2122233641]
 layout_mode = 1
@@ -346,19 +363,23 @@ min_value = 1.0
 max_value = 9.0
 value = 1.0
 
-[node name="SaveSettingsButton" type="Button" parent="BottomContainer" unique_id=929491612]
+[node name="SaveSettingsButton" type="Button" parent="BottomContainer" unique_id=1452572868]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "SAVE_SETTINGS_LABEL"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
-[node name="ExitGameButton" type="Button" parent="BottomContainer" unique_id=1754607002]
+[node name="ExitGameButton" type="Button" parent="BottomContainer" unique_id=1687624133]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "EXIT_GAME_LABEL"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="BackgroundLeaves" type="TextureRect" parent="." unique_id=1701805384]
 material = SubResource("ShaderMaterial_nhhn2")
