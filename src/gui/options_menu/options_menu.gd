@@ -6,6 +6,10 @@ extends Control
 @onready var _fullscreen_check_button: CheckButton = %FullscreenCheckButton
 @onready var _language_drop_button: OptionButton = %LanguageDropButton
 @onready var _mouse_sensitivity_slider: HSlider = %MouseSensitivitySlider
+@onready var _volume_master_bar: TextureRect = %VolumeMasterBar
+@onready var _volume_music_bar: TextureRect = %VolumeMusicBar
+@onready var _volume_sfx_bar: TextureRect = %VolumeSFXBar
+@onready var _pixelization_level_bar: TextureRect = %PixelizationLevelBar
 
 
 func _ready() -> void:
@@ -19,6 +23,8 @@ func _ready() -> void:
 	_fullscreen_check_button.button_pressed = _main_game.options.fullscreen
 	_language_drop_button.selected = Options.language_string_to_index(_main_game.options.language)
 	_mouse_sensitivity_slider.value = _main_game.options.mouse_sensitivity
+	_on_volume_change(_main_game.options.volume)
+	_on_pixelization_level_change(_main_game.options.pixelization_level)
 
 
 func _connect_options_change_signals() -> void:
@@ -45,7 +51,9 @@ func _connect_ui_signals() -> void:
 	
 
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
-	print("Volume changed to: %s" % volume)
+	_volume_master_bar.texture.region.position.y = 9 * volume["master"] / 10.0
+	_volume_music_bar.texture.region.position.y = 9 * volume["music"] / 10.0
+	_volume_sfx_bar.texture.region.position.y = 9 * volume["sfx"] / 10.0
 
 
 func _on_language_change(language: StringName) -> void:
@@ -53,4 +61,4 @@ func _on_language_change(language: StringName) -> void:
 
 
 func _on_pixelization_level_change(pixelization_level: int) -> void:
-	print("Pixelization level changed to: %s" % pixelization_level)
+	_pixelization_level_bar.texture.region.position.y = 9 * (pixelization_level-1)

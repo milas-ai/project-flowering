@@ -101,7 +101,7 @@ func _set_language(index: int) -> void:
 
 
 func _change_pixelization_level(delta: int) -> void:
-	options.pixelization_level = max(1, options.pixelization_level + delta)
+	options.pixelization_level = clamp(1, options.pixelization_level + delta, 11)
 	_game_container.stretch_shrink = options.pixelization_level
 
 
