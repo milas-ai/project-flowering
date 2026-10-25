@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://d67rn6nj7tho"]
 
 [ext_resource type="Script" uid="uid://bwn76d87d6xf1" path="res://src/gui/options_menu/options_menu.gd" id="1_25pqe"]
+[ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu_background.png" id="2_l5aju"]
+[ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu_leaves.png" id="3_o4mbq"]
 
 [sub_resource type="Theme" id="Theme_diise"]
-default_font_size = 50
+default_font_size = 25
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38wcy"]
 
@@ -21,145 +23,203 @@ size_flags_vertical = 6
 theme = SubResource("Theme_diise")
 script = ExtResource("1_25pqe")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1885276552]
+[node name="Background" type="TextureRect" parent="." unique_id=2032872823]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -702.0
-offset_top = -153.5
-offset_right = 702.0
-offset_bottom = 153.5
+offset_left = -533.07416
+offset_top = -389.0
+offset_right = 533.0742
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_l5aju")
+
+[node name="TopContainer" type="VBoxContainer" parent="." unique_id=1885276552]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -268.0
+offset_right = 419.0
+offset_bottom = -187.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionsLabel" type="Label" parent="VBoxContainer" unique_id=699427967]
+[node name="OptionsLabel" type="Label" parent="TopContainer" unique_id=699427967]
 layout_mode = 2
 text = "OPTIONS_MENU_TITLE"
 horizontal_alignment = 1
 
-[node name="VolumeContainerMaster" type="HBoxContainer" parent="VBoxContainer" unique_id=412901249]
+[node name="LanguageContainer" type="HBoxContainer" parent="TopContainer" unique_id=64716509]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/VolumeContainerMaster" unique_id=503954255]
-layout_mode = 2
-text = "VOLUME_MASTER_LABEL"
-
-[node name="VolumeMasterUpButton" type="Button" parent="VBoxContainer/VolumeContainerMaster" unique_id=1924070426]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "+"
-
-[node name="VolumeMasterDownButton" type="Button" parent="VBoxContainer/VolumeContainerMaster" unique_id=898586892]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "-"
-
-[node name="VolumeContainerMusic" type="HBoxContainer" parent="VBoxContainer" unique_id=1506694505]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/VolumeContainerMusic" unique_id=1784492435]
-layout_mode = 2
-text = "VOLUME_MUSIC_LABEL"
-
-[node name="VolumeMusicUpButton" type="Button" parent="VBoxContainer/VolumeContainerMusic" unique_id=860276210]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "+"
-
-[node name="VolumeMusicDownButton" type="Button" parent="VBoxContainer/VolumeContainerMusic" unique_id=1066154121]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "-"
-
-[node name="VolumeContainerSFX" type="HBoxContainer" parent="VBoxContainer" unique_id=1839787123]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/VolumeContainerSFX" unique_id=249581524]
-layout_mode = 2
-text = "VOLUME_SFX_LABEL"
-
-[node name="VolumeSFXUpButton" type="Button" parent="VBoxContainer/VolumeContainerSFX" unique_id=1729081209]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "+"
-
-[node name="VolumeSFXDownButton" type="Button" parent="VBoxContainer/VolumeContainerSFX" unique_id=721697264]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "-"
-
-[node name="FullscreenContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=810904996]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/FullscreenContainer" unique_id=411521269]
-layout_mode = 2
-text = "FULLSCREEN_LABEL"
-
-[node name="FullscreenCheckButton" type="CheckButton" parent="VBoxContainer/FullscreenContainer" unique_id=828594670]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
-
-[node name="AspectRatioContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=455003474]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/AspectRatioContainer" unique_id=13994623]
-layout_mode = 2
-text = "ASPECT_RATIO_LABEL"
-
-[node name="AspectRatioCheckButton" type="CheckButton" parent="VBoxContainer/AspectRatioContainer" unique_id=690122303]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
-
-[node name="LanguageContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=64716509]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/LanguageContainer" unique_id=1364942011]
+[node name="Label" type="Label" parent="TopContainer/LanguageContainer" unique_id=1364942011]
 layout_mode = 2
 text = "LANGUAGE_LABEL"
 
-[node name="LanguageDropButton" type="OptionButton" parent="VBoxContainer/LanguageContainer" unique_id=1520234289]
+[node name="LanguageDropButton" type="OptionButton" parent="TopContainer/LanguageContainer" unique_id=1520234289]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="PixelizationContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1199042734]
+[node name="MiddleTopContainer" type="VBoxContainer" parent="." unique_id=1558241949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -149.0
+offset_right = 420.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeContainerMaster" type="HBoxContainer" parent="MiddleTopContainer" unique_id=412901249]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/PixelizationContainer" unique_id=492589098]
+[node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=503954255]
 layout_mode = 2
-text = "PIXELIZATION_LABEL"
+text = "VOLUME_MASTER_LABEL"
 
-[node name="PixelizationUpButton" type="Button" parent="VBoxContainer/PixelizationContainer" unique_id=1302447006]
+[node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=1924070426]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "+"
 
-[node name="PixelizationDownButton" type="Button" parent="VBoxContainer/PixelizationContainer" unique_id=844116850]
+[node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=898586892]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
 
-[node name="MouseSensitivityContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=63560032]
+[node name="VolumeContainerMusic" type="HBoxContainer" parent="MiddleTopContainer" unique_id=1506694505]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MouseSensitivityContainer" unique_id=1178664477]
+[node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=1784492435]
+layout_mode = 2
+text = "VOLUME_MUSIC_LABEL"
+
+[node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=860276210]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=1066154121]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="VolumeContainerSFX" type="HBoxContainer" parent="MiddleTopContainer" unique_id=1839787123]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=249581524]
+layout_mode = 2
+text = "VOLUME_SFX_LABEL"
+
+[node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=1729081209]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=721697264]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="MiddleBottomContainer" type="VBoxContainer" parent="." unique_id=465981876]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = 20.0
+offset_right = 418.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="MiddleBottomContainer" unique_id=810904996]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MiddleBottomContainer/FullscreenContainer" unique_id=411521269]
+layout_mode = 2
+text = "FULLSCREEN_LABEL"
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="MiddleBottomContainer/FullscreenContainer" unique_id=828594670]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="AspectRatioContainer" type="HBoxContainer" parent="MiddleBottomContainer" unique_id=455003474]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=13994623]
+layout_mode = 2
+text = "ASPECT_RATIO_LABEL"
+
+[node name="AspectRatioCheckButton" type="CheckButton" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=690122303]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="PixelizationContainer" type="HBoxContainer" parent="MiddleBottomContainer" unique_id=1199042734]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MiddleBottomContainer/PixelizationContainer" unique_id=492589098]
+layout_mode = 2
+text = "PIXELIZATION_LABEL"
+
+[node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer" unique_id=1302447006]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer" unique_id=844116850]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="BottomContainer" type="VBoxContainer" parent="." unique_id=2122233641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = 180.0
+offset_right = 427.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MouseSensitivityContainer" type="HBoxContainer" parent="BottomContainer" unique_id=63560032]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BottomContainer/MouseSensitivityContainer" unique_id=1178664477]
 layout_mode = 2
 text = "MOUSE_SENSITIVITY_LABEL"
 
-[node name="MouseSensitivitySlider" type="HSlider" parent="VBoxContainer/MouseSensitivityContainer" unique_id=1449384001]
+[node name="MouseSensitivitySlider" type="HSlider" parent="BottomContainer/MouseSensitivityContainer" unique_id=1449384001]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -170,12 +230,28 @@ min_value = 1.0
 max_value = 9.0
 value = 1.0
 
-[node name="SaveSettingsButton" type="Button" parent="VBoxContainer" unique_id=929491612]
+[node name="SaveSettingsButton" type="Button" parent="BottomContainer" unique_id=929491612]
 unique_name_in_owner = true
 layout_mode = 2
 text = "SAVE_SETTINGS_LABEL"
 
-[node name="ExitGameButton" type="Button" parent="VBoxContainer" unique_id=1754607002]
+[node name="ExitGameButton" type="Button" parent="BottomContainer" unique_id=1754607002]
 unique_name_in_owner = true
 layout_mode = 2
 text = "EXIT_GAME_LABEL"
+
+[node name="BackgroundLeaves" type="TextureRect" parent="." unique_id=1701805384]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -533.07416
+offset_top = -389.0
+offset_right = 533.0742
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_o4mbq")
