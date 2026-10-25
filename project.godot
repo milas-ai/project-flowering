@@ -42,6 +42,7 @@ enabled=PackedStringArray("res://addons/brackeys_particle_controls/plugin.cfg", 
 folder_colors={
 "res://assets/animations/": "red",
 "res://assets/audio/": "yellow",
+"res://assets/fonts/": "orange",
 "res://assets/gui/": "green",
 "res://assets/logo/": "teal",
 "res://assets/materials/": "yellow",
