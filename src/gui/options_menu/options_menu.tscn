@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bwn76d87d6xf1" path="res://src/gui/options_menu/options_menu.gd" id="1_25pqe"]
 [ext_resource type="Theme" uid="uid://chwg4ghnq04ed" path="res://assets/gui/base_theme.tres" id="1_hxtx7"]
-[ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu_background.png" id="2_l5aju"]
+[ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu/options_menu_background.png" id="2_l5aju"]
 [ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
-[ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu_leaves.png" id="3_o4mbq"]
+[ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38wcy"]
 
@@ -233,8 +233,9 @@ text = "MOUSE_SENSITIVITY_LABEL"
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="BottomContainer/MouseSensitivityContainer" unique_id=1449384001]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 size_flags_vertical = 1
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_38wcy")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25pqe")
