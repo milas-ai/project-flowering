@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwn76d87d6xf1" path="res://src/gui/options_menu/options_menu.gd" id="1_25pqe"]
 [ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu_background.png" id="2_l5aju"]
+[ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu_leaves.png" id="3_o4mbq"]
 
 [sub_resource type="Theme" id="Theme_diise"]
@@ -10,6 +11,10 @@ default_font_size = 25
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38wcy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25pqe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhhn2"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 2.5
 
 [node name="OptionsMenu" type="Control" unique_id=917780670]
 layout_mode = 3
@@ -241,6 +246,7 @@ layout_mode = 2
 text = "EXIT_GAME_LABEL"
 
 [node name="BackgroundLeaves" type="TextureRect" parent="." unique_id=1701805384]
+material = SubResource("ShaderMaterial_nhhn2")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
