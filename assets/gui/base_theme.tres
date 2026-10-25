@@ -22,6 +22,8 @@ corner_radius_bottom_left = 2
 shadow_offset = Vector2(3, 2)
 anti_aliasing = false
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r42jx"]
+
 [sub_resource type="FontVariation" id="FontVariation_bh28n"]
 base_font = ExtResource("2_7gdon")
 
@@ -40,6 +42,7 @@ baseline_offset = -0.06
 default_font = SubResource("FontVariation_xk5be")
 default_font_size = 24
 Button/styles/normal = SubResource("StyleBoxFlat_whmtg")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_r42jx")
 HSlider/constants/grabber_offset = -5
 HSlider/icons/grabber = ExtResource("1_r42jx")
 HSlider/icons/grabber_disabled = ExtResource("2_bh28n")

@@ -2,8 +2,8 @@ extends Control
 
 
 @onready var _main_game: MainGame = $/root/MainGame
-@onready var _aspect_ratio_check_button: CheckButton = %AspectRatioCheckButton
-@onready var _fullscreen_check_button: CheckButton = %FullscreenCheckButton
+@onready var _aspect_ratio_check_box: CheckBox = %AspectRatioCheckBox
+@onready var _fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var _language_drop_button: OptionButton = %LanguageDropButton
 @onready var _mouse_sensitivity_slider: HSlider = %MouseSensitivitySlider
 @onready var _volume_master_bar: TextureRect = %VolumeMasterBar
@@ -19,8 +19,8 @@ func _ready() -> void:
 	for language in Options.LANGUAGE_OPTIONS:
 		_language_drop_button.add_item(language)
 	
-	_aspect_ratio_check_button.button_pressed = _main_game.options.retro_aspect_ratio
-	_fullscreen_check_button.button_pressed = _main_game.options.fullscreen
+	_aspect_ratio_check_box.button_pressed = _main_game.options.retro_aspect_ratio
+	_fullscreen_check_box.button_pressed = _main_game.options.fullscreen
 	_language_drop_button.selected = Options.language_string_to_index(_main_game.options.language)
 	_mouse_sensitivity_slider.value = _main_game.options.mouse_sensitivity
 	_on_volume_change(_main_game.options.volume)
@@ -40,8 +40,8 @@ func _connect_ui_signals() -> void:
 	%VolumeMusicDownButton.pressed.connect(_main_game._change_volume.bind("music", -10))
 	%VolumeSFXUpButton.pressed.connect(_main_game._change_volume.bind("sfx", +10))
 	%VolumeSFXDownButton.pressed.connect(_main_game._change_volume.bind("sfx", -10))
-	_fullscreen_check_button.toggled.connect(_main_game._set_fullscreen)
-	_aspect_ratio_check_button.toggled.connect(_main_game._set_aspect_ratio)
+	_fullscreen_check_box.toggled.connect(_main_game._set_fullscreen)
+	_aspect_ratio_check_box.toggled.connect(_main_game._set_aspect_ratio)
 	_language_drop_button.item_selected.connect(_main_game._set_language)
 	%PixelizationUpButton.pressed.connect(_main_game._change_pixelization_level.bind(+1))
 	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
