@@ -5,6 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu/options_menu_background.png" id="2_l5aju"]
 [ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
+[ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh28n"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r42jx"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk5be"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvwp7"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38wcy"]
 
@@ -67,6 +84,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="Label" type="Label" parent="TopContainer/LanguageContainer" unique_id=1364942011]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 text = "LANGUAGE_LABEL"
 
@@ -90,62 +108,110 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VolumeContainerMaster" type="HBoxContainer" parent="MiddleTopContainer" unique_id=412901249]
+[node name="VolumeContainerMaster" type="HSplitContainer" parent="MiddleTopContainer" unique_id=340332769]
 layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=503954255]
 layout_mode = 2
 text = "VOLUME_MASTER_LABEL"
 
-[node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=1924070426]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=637900615]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "+"
 
-[node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=898586892]
+[node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=898586892]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "-"
 
-[node name="VolumeContainerMusic" type="HBoxContainer" parent="MiddleTopContainer" unique_id=1506694505]
+[node name="VolumeMasterBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=2071873027]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_bh28n")
+stretch_mode = 5
+
+[node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1924070426]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
+
+[node name="VolumeContainerMusic" type="HSplitContainer" parent="MiddleTopContainer" unique_id=913381340]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=1784492435]
 layout_mode = 2
 text = "VOLUME_MUSIC_LABEL"
 
-[node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=860276210]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=308356445]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "+"
 
-[node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=1066154121]
+[node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=1066154121]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "-"
 
-[node name="VolumeContainerSFX" type="HBoxContainer" parent="MiddleTopContainer" unique_id=1839787123]
+[node name="VolumeMusicBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=2105529387]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_r42jx")
+stretch_mode = 5
+
+[node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=860276210]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
+
+[node name="VolumeContainerSFX" type="HSplitContainer" parent="MiddleTopContainer" unique_id=12513577]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=249581524]
 layout_mode = 2
 text = "VOLUME_SFX_LABEL"
 
-[node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=1729081209]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=1642605877]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "+"
 
-[node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=721697264]
+[node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=721697264]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "-"
+
+[node name="VolumeSFXBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=33379571]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "-"
+texture = SubResource("AtlasTexture_xk5be")
+stretch_mode = 5
+
+[node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=1729081209]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
 
 [node name="MiddleBottomContainer" type="VBoxContainer" parent="." unique_id=465981876]
 layout_mode = 1
@@ -162,8 +228,10 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="FullscreenContainer" type="HBoxContainer" parent="MiddleBottomContainer" unique_id=810904996]
+[node name="FullscreenContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=2019234738]
 layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleBottomContainer/FullscreenContainer" unique_id=411521269]
 layout_mode = 2
@@ -174,8 +242,10 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="AspectRatioContainer" type="HBoxContainer" parent="MiddleBottomContainer" unique_id=455003474]
+[node name="AspectRatioContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1019993388]
 layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=13994623]
 layout_mode = 2
@@ -186,28 +256,41 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="PixelizationContainer" type="HBoxContainer" parent="MiddleBottomContainer" unique_id=1199042734]
+[node name="PixelizationContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1254990897]
 layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleBottomContainer/PixelizationContainer" unique_id=492589098]
 layout_mode = 2
 text = "PIXELIZATION_LABEL"
 
-[node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer" unique_id=1302447006]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleBottomContainer/PixelizationContainer" unique_id=1467177930]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "+"
 
-[node name="Pixelization" type="Label" parent="MiddleBottomContainer/PixelizationContainer" unique_id=1473898693]
-layout_mode = 2
-text = "2"
-
-[node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer" unique_id=844116850]
+[node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=844116850]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "-"
+
+[node name="PixelizationLevelBar" type="TextureRect" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=570478370]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_lvwp7")
+stretch_mode = 5
+
+[node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=1302447006]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
 
 [node name="BottomContainer" type="VBoxContainer" parent="." unique_id=2122233641]
 layout_mode = 1
