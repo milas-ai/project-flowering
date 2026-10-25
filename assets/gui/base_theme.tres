@@ -2,7 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://dfmkf5iaojerb" path="res://assets/fonts/ADLaM_Display/ADLaMDisplay-Regular.ttf" id="1_45jnv"]
 [ext_resource type="FontFile" uid="uid://c0sh07kw3bow7" path="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_jo68l"]
+[ext_resource type="Texture2D" uid="uid://dm7nlkts56fpq" path="res://assets/gui/grabber/grabber.png" id="1_r42jx"]
 [ext_resource type="FontFile" uid="uid://lb2ri4qen85k" path="res://assets/fonts/Oi/Oi-Regular.ttf" id="2_7gdon"]
+[ext_resource type="Texture2D" uid="uid://m6rqax8olwxr" path="res://assets/gui/grabber/grabber_disabled.png" id="2_bh28n"]
+[ext_resource type="Texture2D" uid="uid://bhaqfy24k7nbp" path="res://assets/gui/grabber/grabber_highlight.png" id="3_lvwp7"]
 [ext_resource type="FontFile" uid="uid://5fhu45ae6gll" path="res://assets/fonts/Moirai_One/MoiraiOne-Regular.ttf" id="3_whmtg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whmtg"]
@@ -37,6 +40,10 @@ baseline_offset = -0.06
 default_font = SubResource("FontVariation_xk5be")
 default_font_size = 24
 Button/styles/normal = SubResource("StyleBoxFlat_whmtg")
+HSlider/constants/grabber_offset = -5
+HSlider/icons/grabber = ExtResource("1_r42jx")
+HSlider/icons/grabber_disabled = ExtResource("2_bh28n")
+HSlider/icons/grabber_highlight = ExtResource("3_lvwp7")
 HeaderLarge/font_sizes/font_size = 45
 HeaderLarge/fonts/font = SubResource("FontVariation_bh28n")
 HeaderMedium/font_sizes/font_size = 40
