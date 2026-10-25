@@ -7,17 +7,33 @@
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
 [ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1uldi"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh28n"]
 atlas = ExtResource("4_xk5be")
 region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xk5be"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r42jx"]
 atlas = ExtResource("4_xk5be")
 region = Rect2(0, 0, 0, 9)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_np2dk"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xk5be"]
 atlas = ExtResource("4_xk5be")
 region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvqwv"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvwp7"]
 atlas = ExtResource("4_xk5be")
@@ -130,6 +146,7 @@ text = "-"
 
 [node name="VolumeMasterBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=2071873027]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1uldi")
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_bh28n")
@@ -165,6 +182,7 @@ text = "-"
 
 [node name="VolumeMusicBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=2105529387]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xk5be")
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_r42jx")
@@ -200,6 +218,7 @@ text = "-"
 
 [node name="VolumeSFXBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=33379571]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_np2dk")
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_xk5be")
@@ -237,7 +256,7 @@ split_offset = 400
 layout_mode = 2
 text = "FULLSCREEN_LABEL"
 
-[node name="FullscreenCheckButton" type="CheckButton" parent="MiddleBottomContainer/FullscreenContainer" unique_id=828594670]
+[node name="FullscreenCheckBox" type="CheckBox" parent="MiddleBottomContainer/FullscreenContainer" unique_id=172117526]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -251,7 +270,7 @@ split_offset = 400
 layout_mode = 2
 text = "ASPECT_RATIO_LABEL"
 
-[node name="AspectRatioCheckButton" type="CheckButton" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=690122303]
+[node name="AspectRatioCheckBox" type="CheckBox" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=1823916614]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
@@ -279,6 +298,7 @@ text = "-"
 
 [node name="PixelizationLevelBar" type="TextureRect" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=570478370]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gvqwv")
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_lvwp7")
