@@ -29,9 +29,9 @@ texture_margin_bottom = 8.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iqqx"]
 texture = ExtResource("1_bh28n")
 texture_margin_left = 24.0
-texture_margin_top = 8.0
+texture_margin_top = 10.0
 texture_margin_right = 24.0
-texture_margin_bottom = 8.0
+texture_margin_bottom = 10.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjk06"]
 
