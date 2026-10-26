@@ -1,12 +1,61 @@
 [gd_resource type="Theme" format=3 uid="uid://chwg4ghnq04ed"]
 
-[ext_resource type="FontFile" uid="uid://dfmkf5iaojerb" path="res://assets/fonts/ADLaM_Display/ADLaMDisplay-Regular.ttf" id="1_45jnv"]
+[ext_resource type="Texture2D" uid="uid://dwu40fgjene1r" path="res://assets/gui/options_menu/button.png" id="1_bh28n"]
 [ext_resource type="FontFile" uid="uid://c0sh07kw3bow7" path="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_jo68l"]
 [ext_resource type="Texture2D" uid="uid://dm7nlkts56fpq" path="res://assets/gui/options_menu/grabber/grabber.png" id="1_r42jx"]
 [ext_resource type="FontFile" uid="uid://lb2ri4qen85k" path="res://assets/fonts/Oi/Oi-Regular.ttf" id="2_7gdon"]
+[ext_resource type="Texture2D" uid="uid://sbvbsvhev1xn" path="res://assets/gui/options_menu/check_box_checked.png" id="2_167cb"]
 [ext_resource type="Texture2D" uid="uid://m6rqax8olwxr" path="res://assets/gui/options_menu/grabber/grabber_disabled.png" id="2_bh28n"]
+[ext_resource type="Texture2D" uid="uid://dbkxlj4drq1o5" path="res://assets/gui/options_menu/check_box.png" id="2_lvwp7"]
 [ext_resource type="Texture2D" uid="uid://bhaqfy24k7nbp" path="res://assets/gui/options_menu/grabber/grabber_highlight.png" id="3_lvwp7"]
 [ext_resource type="FontFile" uid="uid://5fhu45ae6gll" path="res://assets/fonts/Moirai_One/MoiraiOne-Regular.ttf" id="3_whmtg"]
+[ext_resource type="FontFile" uid="uid://cir1fbbmf7yoa" path="res://assets/fonts/Tiny5/Tiny5-Regular.ttf" id="7_r42jx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bh28n"]
+texture = ExtResource("1_bh28n")
+texture_margin_left = 24.0
+texture_margin_top = 8.0
+texture_margin_right = 24.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.5426961, 0.5197574, 0.51308143, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvwp7"]
+texture = ExtResource("1_bh28n")
+texture_margin_left = 24.0
+texture_margin_top = 8.0
+texture_margin_right = 24.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iqqx"]
+texture = ExtResource("1_bh28n")
+texture_margin_left = 24.0
+texture_margin_top = 8.0
+texture_margin_right = 24.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjk06"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_167cb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lm7od"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kr06p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_svkcg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_846kx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_167cb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lm7od"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kr06p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svkcg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvkuv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_846kx"]
 
 [sub_resource type="FontVariation" id="FontVariation_bh28n"]
 base_font = ExtResource("2_7gdon")
@@ -19,12 +68,33 @@ base_font = ExtResource("1_jo68l")
 baseline_offset = -0.06
 
 [sub_resource type="FontVariation" id="FontVariation_xk5be"]
-base_font = ExtResource("1_45jnv")
-baseline_offset = -0.06
+base_font = ExtResource("7_r42jx")
+variation_embolden = -0.14
+variation_transform = Transform2D(1.2, 0, 0, 1, 0, 0)
+spacing_glyph = 2
 
 [resource]
 default_font = SubResource("FontVariation_xk5be")
-default_font_size = 24
+default_font_size = 29
+Button/styles/disabled = SubResource("StyleBoxTexture_bh28n")
+Button/styles/focus = SubResource("StyleBoxTexture_lvwp7")
+Button/styles/hover = SubResource("StyleBoxTexture_6iqqx")
+Button/styles/normal = SubResource("StyleBoxTexture_6iqqx")
+Button/styles/pressed = SubResource("StyleBoxTexture_6iqqx")
+CheckBox/icons/checked = ExtResource("2_167cb")
+CheckBox/icons/checked_disabled = SubResource("CompressedTexture2D_kjk06")
+CheckBox/icons/radio_checked = SubResource("CompressedTexture2D_167cb")
+CheckBox/icons/radio_checked_disabled = SubResource("CompressedTexture2D_lm7od")
+CheckBox/icons/radio_unchecked = SubResource("CompressedTexture2D_kr06p")
+CheckBox/icons/radio_unchecked_disabled = SubResource("CompressedTexture2D_svkcg")
+CheckBox/icons/unchecked = ExtResource("2_lvwp7")
+CheckBox/icons/unchecked_disabled = SubResource("CompressedTexture2D_846kx")
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_167cb")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_lm7od")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_kr06p")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_svkcg")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_uvkuv")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_846kx")
 HSlider/constants/grabber_offset = -5
 HSlider/icons/grabber = ExtResource("1_r42jx")
 HSlider/icons/grabber_disabled = ExtResource("2_bh28n")
@@ -34,6 +104,15 @@ HeaderLarge/fonts/font = SubResource("FontVariation_bh28n")
 HeaderMedium/font_sizes/font_size = 40
 HeaderMedium/fonts/font = SubResource("FontVariation_gvqwv")
 HeaderSmall/font_sizes/font_size = 35
+OptionButton/styles/disabled = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/disabled_mirrored = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/focus = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/hover = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/hover_mirrored = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/normal = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/normal_mirrored = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/pressed = SubResource("StyleBoxTexture_6iqqx")
+OptionButton/styles/pressed_mirrored = SubResource("StyleBoxTexture_6iqqx")
 TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
 TooltipLabel/font_sizes/font_size = 24
 TooltipLabel/fonts/font = SubResource("FontVariation_jo68l")

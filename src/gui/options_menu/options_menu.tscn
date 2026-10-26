@@ -7,6 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
 [ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_button.gd" id="4_np2dk"]
 [ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
+[ext_resource type="Texture2D" uid="uid://cmfvqjmkopb20" path="res://assets/gui/options_menu/button_plus.png" id="7_gvqwv"]
+[ext_resource type="Texture2D" uid="uid://ceof4qjtf5qa0" path="res://assets/gui/options_menu/button_minus.png" id="8_1uldi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r42jx"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bh28n"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvwp7"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_167cb"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lm7od"]
+texture = ExtResource("8_1uldi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1uldi"]
 shader = ExtResource("3_hxtx7")
@@ -15,6 +32,21 @@ shader_parameter/frequency = 0.5
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh28n"]
 atlas = ExtResource("4_xk5be")
 region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0caxs"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvqwv"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1uldi"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjk06"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ud21e"]
+texture = ExtResource("7_gvqwv")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xk5be"]
 shader = ExtResource("3_hxtx7")
@@ -67,10 +99,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -533.07416
-offset_top = -389.0
-offset_right = 533.0742
-offset_bottom = 389.0
+offset_left = -545.40753
+offset_top = -398.0
+offset_right = 545.4077
+offset_bottom = 398.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -84,9 +116,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -419.0
-offset_top = -273.0
+offset_top = -281.0
 offset_right = 419.0
-offset_bottom = -189.0
+offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -118,9 +150,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -420.0
-offset_top = -149.0
+offset_top = -156.0
 offset_right = 420.0
-offset_bottom = -9.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -139,17 +171,24 @@ layout_mode = 2
 
 [node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1838664420]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeMasterBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=2071873027]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_1uldi")
+custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_bh28n")
@@ -157,11 +196,17 @@ stretch_mode = 5
 
 [node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1406912247]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "+"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
@@ -179,17 +224,24 @@ layout_mode = 2
 
 [node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=106128891]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeMusicBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=2105529387]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_xk5be")
+custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_r42jx")
@@ -197,11 +249,17 @@ stretch_mode = 5
 
 [node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=387822301]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "+"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
@@ -219,17 +277,24 @@ layout_mode = 2
 
 [node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=1376383619]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeSFXBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=33379571]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_np2dk")
+custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_xk5be")
@@ -237,11 +302,17 @@ stretch_mode = 5
 
 [node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=2140736147]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "+"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
@@ -253,7 +324,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -418.0
-offset_top = 21.0
+offset_top = 22.0
 offset_right = 418.0
 offset_bottom = 142.0
 grow_horizontal = 2
@@ -271,8 +342,12 @@ text = "FULLSCREEN_LABEL"
 
 [node name="FullscreenCheckBox" type="CheckBox" parent="MiddleBottomContainer/FullscreenContainer" unique_id=172117526]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
+size_flags_vertical = 4
+button_pressed = true
 
 [node name="AspectRatioContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1019993388]
 layout_mode = 2
@@ -285,6 +360,8 @@ text = "ASPECT_RATIO_LABEL"
 
 [node name="AspectRatioCheckBox" type="CheckBox" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=1823916614]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 10
 
@@ -303,17 +380,24 @@ size_flags_horizontal = 3
 
 [node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=420079014]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "-"
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="PixelizationLevelBar" type="TextureRect" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=570478370]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_gvqwv")
+custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_lvwp7")
@@ -321,11 +405,17 @@ stretch_mode = 5
 
 [node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=627330665]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "+"
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
 script = ExtResource("4_np2dk")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
@@ -339,7 +429,7 @@ anchor_bottom = 0.5
 offset_left = -427.0
 offset_top = 178.0
 offset_right = 427.0
-offset_bottom = 309.0
+offset_bottom = 321.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -389,10 +479,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -533.07416
-offset_top = -389.0
-offset_right = 533.0742
-offset_bottom = 389.0
+offset_left = -545.40753
+offset_top = -398.0
+offset_right = 545.4077
+offset_bottom = 398.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
