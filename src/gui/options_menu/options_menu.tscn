@@ -6,9 +6,12 @@
 [ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
 [ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_button.gd" id="4_np2dk"]
+[ext_resource type="Script" uid="uid://cymd4blfr7sii" path="res://src/gui/animated_option_button.gd" id="4_ud21e"]
 [ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
 [ext_resource type="Texture2D" uid="uid://cmfvqjmkopb20" path="res://assets/gui/options_menu/button_plus.png" id="7_gvqwv"]
 [ext_resource type="Texture2D" uid="uid://ceof4qjtf5qa0" path="res://assets/gui/options_menu/button_minus.png" id="8_1uldi"]
+[ext_resource type="Script" uid="uid://ly0ct8tkdxbi" path="res://src/gui/animated_checkbox.gd" id="10_6iqqx"]
+[ext_resource type="Script" uid="uid://bwgr5pgmpjj8m" path="res://src/gui/animated_h_slider.gd" id="11_6iqqx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r42jx"]
 texture = ExtResource("8_1uldi")
@@ -118,7 +121,7 @@ anchor_bottom = 0.5
 offset_left = -419.0
 offset_top = -281.0
 offset_right = 419.0
-offset_bottom = -192.0
+offset_bottom = -197.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -137,10 +140,11 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 text = "LANGUAGE_LABEL"
 
-[node name="LanguageDropButton" type="OptionButton" parent="TopContainer/LanguageContainer" unique_id=1520234289]
+[node name="LanguageDropButton" type="OptionButton" parent="TopContainer/LanguageContainer" unique_id=576437219]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("4_ud21e")
 
 [node name="MiddleTopContainer" type="VBoxContainer" parent="." unique_id=1558241949]
 layout_mode = 1
@@ -340,7 +344,7 @@ split_offset = 400
 layout_mode = 2
 text = "FULLSCREEN_LABEL"
 
-[node name="FullscreenCheckBox" type="CheckBox" parent="MiddleBottomContainer/FullscreenContainer" unique_id=172117526]
+[node name="FullscreenCheckBox" type="CheckBox" parent="MiddleBottomContainer/FullscreenContainer" unique_id=1079778211]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -348,6 +352,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 button_pressed = true
+script = ExtResource("10_6iqqx")
 
 [node name="AspectRatioContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1019993388]
 layout_mode = 2
@@ -358,12 +363,13 @@ split_offset = 400
 layout_mode = 2
 text = "ASPECT_RATIO_LABEL"
 
-[node name="AspectRatioCheckBox" type="CheckBox" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=1823916614]
+[node name="AspectRatioCheckBox" type="CheckBox" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=1874250199]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("10_6iqqx")
 
 [node name="PixelizationContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1254990897]
 layout_mode = 2
@@ -441,7 +447,7 @@ layout_mode = 2
 layout_mode = 2
 text = "MOUSE_SENSITIVITY_LABEL"
 
-[node name="MouseSensitivitySlider" type="HSlider" parent="BottomContainer/MouseSensitivityContainer" unique_id=1449384001]
+[node name="MouseSensitivitySlider" type="HSlider" parent="BottomContainer/MouseSensitivityContainer" unique_id=1420681519]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -452,6 +458,8 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25pqe"
 min_value = 1.0
 max_value = 9.0
 value = 1.0
+script = ExtResource("11_6iqqx")
+metadata/_custom_type_script = "uid://bwgr5pgmpjj8m"
 
 [node name="SaveSettingsButton" type="Button" parent="BottomContainer" unique_id=1452572868]
 unique_name_in_owner = true
