@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bepxrixjm04iu" path="res://src/globals/main_game/main_game.gd" id="1_tt0k7"]
 [ext_resource type="Script" uid="uid://c88rn35hhi0j1" path="res://src/globals/main_game/hud_root.gd" id="2_twwxd"]
 [ext_resource type="Shader" uid="uid://chviwd6q60duv" path="res://src/shaders/posterization.gdshader" id="2_w4awf"]
+[ext_resource type="Script" uid="uid://bi17bhvu7eoa" path="res://src/globals/main_game/pause_root.gd" id="4_77o2r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkujh"]
 shader = ExtResource("2_w4awf")
@@ -10,10 +11,15 @@ shader_parameter/posterization_level = 10.0
 shader_parameter/pre_effect_gamma = 1.167
 shader_parameter/post_effect_gamma = 1.067
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77o2r"]
+bg_color = Color(0, 0, 0, 0.56600004)
+anti_aliasing = false
+
 [node name="MainGame" type="Node" unique_id=1025930605]
 script = ExtResource("1_tt0k7")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=422820909]
+[node name="GameViewport" type="SubViewportContainer" parent="." unique_id=422820909]
+unique_name_in_owner = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_fkujh")
 anchors_preset = 15
@@ -22,22 +28,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 2
+stretch_shrink = 5
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=276803158]
+[node name="SubViewport" type="SubViewport" parent="GameViewport" unique_id=276803158]
 handle_input_locally = false
 scaling_3d_mode = 5
 canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 size = Vector2i(320, 240)
 render_target_update_mode = 4
 
-[node name="World" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=716154110]
+[node name="World" type="Node3D" parent="GameViewport/SubViewport" unique_id=716154110]
 process_mode = 1
 
-[node name="StageRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=326016225]
+[node name="StageRoot" type="Node3D" parent="GameViewport/SubViewport/World" unique_id=326016225]
 unique_name_in_owner = true
 
-[node name="EntityRoot" type="Node3D" parent="SubViewportContainer/SubViewport/World" unique_id=630348644]
+[node name="EntityRoot" type="Node3D" parent="GameViewport/SubViewport/World" unique_id=630348644]
 unique_name_in_owner = true
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]
@@ -58,7 +66,21 @@ layer = 20
 
 [node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1057544421]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_77o2r")
+
+[node name="Background" type="Panel" parent="PauseLayer/PauseRoot" unique_id=706689158]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_77o2r")

@@ -3,21 +3,41 @@ extends Node
 
 
 var player: Player = null
+var options: Options
 var _current_stage: Node3D = null
+var _current_stage_uid: String
 
 @onready var stage_root: Node3D = %StageRoot
 @onready var entity_root: Node3D = %EntityRoot
 @onready var hud_root: HudRoot = %HudRoot
 @onready var pause_root: Control = %PauseRoot
+@onready var _game_container: SubViewportContainer = %GameViewport
 
 
 func _ready() -> void:
+	_load_save_data()
 	_init_player()
-	load_stage(SceneUID.STAGES.GYM)
+	_load_stage(_current_stage_uid)
+	pause_root.init_options_menu()
 	hud_root.load_main_stage_hud()
 
 
-func load_stage(stage_scene_uid: String) -> void:
+func _input(event: InputEvent) -> void:
+	if get_tree().paused:
+		return
+		
+	if event is InputEventKey:
+		if event.is_action_pressed("pause"):
+			get_viewport().set_input_as_handled()
+			_pause_game()
+			
+	if event is InputEventMouseButton:
+		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		return
+
+
+func _load_stage(stage_scene_uid: String) -> void:
 	if _current_stage:
 		_current_stage.queue_free()
 		_current_stage = null
@@ -41,6 +61,77 @@ func load_stage(stage_scene_uid: String) -> void:
 	await get_tree().process_frame
 	_place_player_at_spawn_point()
 
+	_current_stage_uid = stage_scene_uid
+	_save_game()
+
+
+func _change_volume(volume_type: String, delta: int) -> void:
+	if not options.volume.has(volume_type):
+		push_error("Invalid volume type: %s" % volume_type)
+		return
+
+	options.volume[volume_type] = clamp(options.volume[volume_type] + delta, 0, 100)
+	options.volume_change.emit(options.volume)
+
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index(volume_type.capitalize()),
+		options.volume[volume_type] / 100.0
+	)
+
+
+func _set_aspect_ratio(retro_aspect_ratio: bool) -> void:
+	options.retro_aspect_ratio = retro_aspect_ratio
+	if options.retro_aspect_ratio:
+		get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+	else:
+		get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP_HEIGHT
+
+
+func _set_fullscreen(fullscreen: bool) -> void:
+	options.fullscreen = fullscreen
+	if options.fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _set_language(index: int) -> void:
+	options.language = Options.language_index_to_string(index)
+	TranslationServer.set_locale(options.language)
+
+
+func _change_pixelization_level(delta: int) -> void:
+	options.pixelization_level = clamp(1, options.pixelization_level + delta, 11)
+	_game_container.stretch_shrink = options.pixelization_level
+
+
+func _set_mouse_sensitivity(mouse_sensitivity: int) -> void:
+	options.mouse_sensitivity = max(1, mouse_sensitivity)
+
+
+func _pause_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	pause_root.show()
+
+
+func _resume_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pause_root.hide()
+	get_tree().paused = false
+
+
+func _save_game() -> void:
+	var save_data := SaveManager.SaveData.new()
+	save_data.options = options
+	save_data.stage_uid = _current_stage_uid
+	SaveManager.save(save_data)
+
+
+func _exit_game() -> void:
+	_save_game()
+	get_tree().quit()
+
 
 func _init_player() -> void:
 	var player_scene: PackedScene = ResourceLoader.load(SceneUID.PLAYER)
@@ -62,3 +153,20 @@ func _place_player_at_spawn_point() -> void:
 		return
 
 	player.global_position = _current_stage.get_player_spawn_point()
+
+
+func _load_save_data() -> void:
+	var save_data: SaveManager.SaveData = SaveManager.load()
+	if save_data:
+		options = save_data.options
+		_current_stage_uid = save_data.stage_uid
+	else:
+		options = Options.new()
+		_current_stage_uid = SceneUID.STAGES.GYM
+	_change_volume("master", 0)
+	_change_volume("music", 0)
+	_change_volume("sfx", 0)
+	_set_aspect_ratio(options.retro_aspect_ratio)
+	_set_fullscreen(options.fullscreen)
+	_set_language(Options.language_string_to_index(options.language))
+	_change_pixelization_level(0)
