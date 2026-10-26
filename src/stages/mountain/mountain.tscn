@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnohyrkccqdd6"]
 
-[ext_resource type="Script" uid="uid://cgd4cie6vfwbp" path="res://src/stages/mountain/mountain.gd" id="1_yarnj"]
+[ext_resource type="Script" uid="uid://duu016e02tjwd" path="res://src/stages/base_stage.gd" id="1_4se7b"]
 [ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/mountain/mountain_blockout.tscn" id="2_4se7b"]
 [ext_resource type="PackedScene" uid="uid://cmt7qqbfmtsa4" path="res://src/terrain/mountain/ground/mountain_ground_start.tscn" id="3_x2kea"]
 [ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_1.tscn" id="4_iwdui"]
@@ -36,8 +36,9 @@ sky = SubResource("Sky_h57rq")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Mountain" type="Node3D" unique_id=314279592]
-script = ExtResource("1_yarnj")
+[node name="Mountain" type="Node3D" unique_id=138948264]
+script = ExtResource("1_4se7b")
+metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
 process_mode = 4
