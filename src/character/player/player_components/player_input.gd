@@ -12,7 +12,6 @@ var h_input_dir := Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
 var mouse_sensitivity: int = 2
-var _camera_rotation: float = deg_to_rad(45)
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
 

@@ -19,7 +19,7 @@ height = 0.92041016
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfelt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xw1uj"]
 render_priority = 0
 shader = ExtResource("4_efbnw")
 
@@ -50,6 +50,12 @@ enabled = false
 target_position = Vector3(0, 1, 4)
 collision_mask = 8
 
+[node name="Light" type="OmniLight3D" parent="CharacterModel" unique_id=593747209]
+transform = Transform3D(-1.1920929e-07, -1, 1.19209204e-07, 7.1525574e-07, -1.1920929e-07, -1, 1, -1.19209204e-07, 7.1525574e-07, -0.319, 0.25, 0.484)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.0
+omni_range = 7.5
+
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
@@ -59,8 +65,10 @@ projection = 1
 size = 15.0
 
 [node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=2084889239]
+cast_shadow = 0
+extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_efbnw")
-surface_material_override/0 = SubResource("ShaderMaterial_rfelt")
+surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
 
 [node name="Input" type="Node" parent="." unique_id=1950561987]
 script = ExtResource("2_8eijk")
