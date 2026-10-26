@@ -115,7 +115,7 @@ pause={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://assets/translations/translations.pt.translation", "res://assets/translations/translations.en.translation")
+locale/translations=PackedStringArray("res://assets/translations/translations.pt.translation", "res://assets/translations/translations.en.translation", "res://assets/translations/translations.es.translation")
 
 [layer_names]
 

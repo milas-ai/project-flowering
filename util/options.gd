@@ -9,7 +9,7 @@ signal language_change(language: StringName)
 signal pixelization_level_change(pixelization_level: int)
 signal mouse_sensitivity_change(mouse_sensitivity: int)
 
-const LANGUAGE_OPTIONS: Array[StringName] = ["pt", "en"]
+const LANGUAGE_OPTIONS: Array[StringName] = ["pt", "en", "es"]
 
 var volume: Dictionary[String, int]:
 	set(value):
