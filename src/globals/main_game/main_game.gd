@@ -3,7 +3,7 @@ extends Node
 
 
 var player: Player = null
-var _current_stage: Node3D = null
+var _current_stage: BaseStage = null
 
 @onready var stage_root: Node3D = %StageRoot
 @onready var entity_root: Node3D = %EntityRoot
@@ -30,7 +30,7 @@ func load_stage(stage_scene_uid: String) -> void:
 		push_error("Failed to load stage scene: %s" % stage_scene_uid)
 		return
 
-	_current_stage = stage_scene.instantiate() as Node3D
+	_current_stage = stage_scene.instantiate() as BaseStage
 	if not _current_stage:
 		push_error("Failed to instantiate stage scene: %s" % stage_scene_uid)
 		return
