@@ -1,3 +1,4 @@
+class_name BaseStage
 extends Node3D
 
 
