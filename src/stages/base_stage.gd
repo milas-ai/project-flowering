@@ -2,8 +2,10 @@ class_name BaseStage
 extends Node3D
 
 
+@export var has_life_hud: bool = true
+
+@onready var enemy_spawn_points := get_tree().get_nodes_in_group("enemy_spawn_points")
 @onready var _player_spawn_point: Marker3D = $PlayerSpawnPoint
-@onready var _bettle_bullet_scene: PackedScene = preload(SceneUID.ENTITIES.BETTLE_BULLET)
 
 
 func get_player_spawn_point() -> Vector3:
@@ -12,12 +14,3 @@ func get_player_spawn_point() -> Vector3:
 	else:
 		push_error("Player spawn point not found in the stage.")
 		return Vector3.ZERO
-
-
-func _on_bettle_shoot(direction: Vector3, location: Vector3, speed: float) -> void:
-	var spawned_bullet: BettleBullet = _bettle_bullet_scene.instantiate()
-	add_child(spawned_bullet)
-	spawned_bullet.rotation = direction
-	spawned_bullet.position = location
-	spawned_bullet.velocity = -spawned_bullet.global_transform.basis.z
-	spawned_bullet.speed = speed

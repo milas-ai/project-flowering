@@ -6,15 +6,21 @@ var player: Player = null
 var _current_stage: BaseStage = null
 
 @onready var stage_root: Node3D = %StageRoot
-@onready var entity_root: Node3D = %EntityRoot
+@onready var entity_root: EntityRoot = %EntityRoot
 @onready var hud_root: HudRoot = %HudRoot
 @onready var pause_root: Control = %PauseRoot
 
 
 func _ready() -> void:
 	_init_player()
+
 	load_stage(SceneUID.STAGES.MOUNTAIN)
-	hud_root.load_main_stage_hud()
+	await get_tree().process_frame
+
+	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
+
+	if _current_stage.has_life_hud:
+		hud_root.load_main_stage_hud()
 
 
 func load_stage(stage_scene_uid: String) -> void:
