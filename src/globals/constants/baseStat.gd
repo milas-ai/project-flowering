@@ -28,6 +28,7 @@ class ENEMY:
 		const SPEED: float = 9.0
 		const DAMAGE: int = 1
 		const FRICTION: float = 25.0
+		const BULLET_SPEED: float = 40.0
 
 	class ROLY_POLY:
 		const HEALTH: int = 4
