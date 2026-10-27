@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ci8cn15ptya8y" path="res://src/terrain/mountain/pillar/mountain_pillar_1.tscn" id="21_2laby"]
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
-[ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/oclusion_area_3D.gd" id="24_iwdui"]
+[ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
