@@ -4,6 +4,7 @@ extends Node3D
 
 @export var has_life_hud: bool = true
 
+@onready var enemy_spawn_points := get_tree().get_nodes_in_group("enemy_spawn_points")
 @onready var _player_spawn_point: Marker3D = $PlayerSpawnPoint
 @onready var _bettle_bullet_scene: PackedScene = preload(SceneUID.ENTITIES.BETTLE_BULLET)
 
