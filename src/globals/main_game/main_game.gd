@@ -13,8 +13,12 @@ var _current_stage: BaseStage = null
 
 func _ready() -> void:
 	_init_player()
+
 	load_stage(SceneUID.STAGES.MOUNTAIN)
-	hud_root.load_main_stage_hud()
+	
+	await get_tree().process_frame
+	if _current_stage.has_life_hud:
+		hud_root.load_main_stage_hud()
 
 
 func load_stage(stage_scene_uid: String) -> void:

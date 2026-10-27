@@ -2,6 +2,8 @@ class_name BaseStage
 extends Node3D
 
 
+@export var has_life_hud: bool = true
+
 @onready var _player_spawn_point: Marker3D = $PlayerSpawnPoint
 @onready var _bettle_bullet_scene: PackedScene = preload(SceneUID.ENTITIES.BETTLE_BULLET)
 
