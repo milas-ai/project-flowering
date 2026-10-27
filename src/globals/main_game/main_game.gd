@@ -15,8 +15,10 @@ func _ready() -> void:
 	_init_player()
 
 	load_stage(SceneUID.STAGES.MOUNTAIN)
-	
 	await get_tree().process_frame
+
+	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
+
 	if _current_stage.has_life_hud:
 		hud_root.load_main_stage_hud()
 
