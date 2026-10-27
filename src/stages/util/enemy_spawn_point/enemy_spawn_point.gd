@@ -10,4 +10,10 @@ func _ready() -> void:
 	add_to_group("enemy_spawn_points")
 
 
-@abstract func apply_enemy_properties(enemy: Enemy) -> void
+func setup_enemy(enemy: Enemy) -> void:
+	enemy.steady = steady
+	enemy.position = global_position
+	_apply_enemy_properties(enemy)
+
+
+@abstract func _apply_enemy_properties(enemy: Enemy) -> void
