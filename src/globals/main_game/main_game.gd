@@ -6,7 +6,7 @@ var player: Player = null
 var _current_stage: BaseStage = null
 
 @onready var stage_root: Node3D = %StageRoot
-@onready var entity_root: Node3D = %EntityRoot
+@onready var entity_root: EntityRoot = %EntityRoot
 @onready var hud_root: HudRoot = %HudRoot
 @onready var pause_root: Control = %PauseRoot
 
