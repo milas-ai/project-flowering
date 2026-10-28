@@ -2,7 +2,7 @@ class_name PlayerInput
 extends Node
 
 
-const DEGREES_PER_UNIT: float = 0.001
+const DEGREES_PER_UNIT: float = 0.0002
 
 signal jump_pressed
 signal push_pressed
@@ -11,9 +11,9 @@ signal stun_pressed
 var h_input_dir := Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
-var mouse_sensitivity: int = 2
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
+@onready var _main_game: MainGame = $/root/MainGame
 
 
 func _ready() -> void:
@@ -21,15 +21,6 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		return
-	
-	if event is InputEventKey:
-		if event.is_action_pressed("ui_cancel"):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			_mouse_rotate(event)
@@ -59,4 +50,9 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	var viewport_transform: Transform2D = get_tree().root.get_final_transform()
 	var mouse_motion: Vector2 = event.xformed_by(viewport_transform).relative
 	
-	_camera_pivot.rotate_y(-mouse_motion.x * mouse_sensitivity * DEGREES_PER_UNIT)
+	_camera_pivot.rotate_y(
+			-mouse_motion.x *
+			_main_game.options.mouse_sensitivity *
+			_main_game.options.pixelization_level *
+			DEGREES_PER_UNIT
+	)

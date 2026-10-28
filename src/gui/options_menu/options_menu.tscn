@@ -1,0 +1,497 @@
+[gd_scene format=3 uid="uid://d67rn6nj7tho"]
+
+[ext_resource type="Script" uid="uid://bwn76d87d6xf1" path="res://src/gui/options_menu/options_menu.gd" id="1_25pqe"]
+[ext_resource type="Theme" uid="uid://chwg4ghnq04ed" path="res://assets/gui/base_theme.tres" id="1_hxtx7"]
+[ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu/options_menu_background.png" id="2_l5aju"]
+[ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
+[ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
+[ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_button.gd" id="4_np2dk"]
+[ext_resource type="Script" uid="uid://cymd4blfr7sii" path="res://src/gui/animated_option_button.gd" id="4_ud21e"]
+[ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
+[ext_resource type="Texture2D" uid="uid://cmfvqjmkopb20" path="res://assets/gui/options_menu/button_plus.png" id="7_gvqwv"]
+[ext_resource type="Texture2D" uid="uid://ceof4qjtf5qa0" path="res://assets/gui/options_menu/button_minus.png" id="8_1uldi"]
+[ext_resource type="Script" uid="uid://ly0ct8tkdxbi" path="res://src/gui/animated_checkbox.gd" id="10_6iqqx"]
+[ext_resource type="Script" uid="uid://bwgr5pgmpjj8m" path="res://src/gui/animated_h_slider.gd" id="11_6iqqx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r42jx"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bh28n"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvwp7"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_167cb"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lm7od"]
+texture = ExtResource("8_1uldi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1uldi"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh28n"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0caxs"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvqwv"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1uldi"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjk06"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ud21e"]
+texture = ExtResource("7_gvqwv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xk5be"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r42jx"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_np2dk"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk5be"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvqwv"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvwp7"]
+atlas = ExtResource("4_xk5be")
+region = Rect2(0, 0, 0, 9)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38wcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25pqe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhhn2"]
+shader = ExtResource("3_hxtx7")
+shader_parameter/frequency = 2.5
+
+[node name="OptionsMenu" type="Control" unique_id=917780670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_hxtx7")
+script = ExtResource("1_25pqe")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2032872823]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.40753
+offset_top = -398.0
+offset_right = 545.4077
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_l5aju")
+
+[node name="TopContainer" type="VBoxContainer" parent="." unique_id=1885276552]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -281.0
+offset_right = 419.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="OptionsLabel" type="Label" parent="TopContainer" unique_id=699427967]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "OPTIONS_MENU_TITLE"
+horizontal_alignment = 1
+
+[node name="LanguageContainer" type="HBoxContainer" parent="TopContainer" unique_id=64716509]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopContainer/LanguageContainer" unique_id=1364942011]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "LANGUAGE_LABEL"
+
+[node name="LanguageDropButton" type="OptionButton" parent="TopContainer/LanguageContainer" unique_id=576437219]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+script = ExtResource("4_ud21e")
+
+[node name="MiddleTopContainer" type="VBoxContainer" parent="." unique_id=1558241949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -156.0
+offset_right = 420.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VolumeContainerMaster" type="HSplitContainer" parent="MiddleTopContainer" unique_id=340332769]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=503954255]
+layout_mode = 2
+text = "VOLUME_MASTER_LABEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=637900615]
+layout_mode = 2
+
+[node name="VolumeMasterDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1838664420]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="VolumeMasterBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=2071873027]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1uldi")
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_bh28n")
+stretch_mode = 5
+
+[node name="VolumeMasterUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMaster/HBoxContainer" unique_id=1406912247]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="VolumeContainerMusic" type="HSplitContainer" parent="MiddleTopContainer" unique_id=913381340]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=1784492435]
+layout_mode = 2
+text = "VOLUME_MUSIC_LABEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=308356445]
+layout_mode = 2
+
+[node name="VolumeMusicDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=106128891]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="VolumeMusicBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=2105529387]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_xk5be")
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_r42jx")
+stretch_mode = 5
+
+[node name="VolumeMusicUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerMusic/HBoxContainer" unique_id=387822301]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="VolumeContainerSFX" type="HSplitContainer" parent="MiddleTopContainer" unique_id=12513577]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=249581524]
+layout_mode = 2
+text = "VOLUME_SFX_LABEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=1642605877]
+layout_mode = 2
+
+[node name="VolumeSFXDownButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=1376383619]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="VolumeSFXBar" type="TextureRect" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=33379571]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_np2dk")
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_xk5be")
+stretch_mode = 5
+
+[node name="VolumeSFXUpButton" type="Button" parent="MiddleTopContainer/VolumeContainerSFX/HBoxContainer" unique_id=2140736147]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="MiddleBottomContainer" type="VBoxContainer" parent="." unique_id=465981876]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = 22.0
+offset_right = 418.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="FullscreenContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=2019234738]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="Label" type="Label" parent="MiddleBottomContainer/FullscreenContainer" unique_id=411521269]
+layout_mode = 2
+text = "FULLSCREEN_LABEL"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="MiddleBottomContainer/FullscreenContainer" unique_id=1079778211]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+button_pressed = true
+script = ExtResource("10_6iqqx")
+
+[node name="AspectRatioContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1019993388]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="Label" type="Label" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=13994623]
+layout_mode = 2
+text = "ASPECT_RATIO_LABEL"
+
+[node name="AspectRatioCheckBox" type="CheckBox" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=1874250199]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+script = ExtResource("10_6iqqx")
+
+[node name="PixelizationContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1254990897]
+layout_mode = 2
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="Label" type="Label" parent="MiddleBottomContainer/PixelizationContainer" unique_id=492589098]
+layout_mode = 2
+text = "PIXELIZATION_LABEL"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleBottomContainer/PixelizationContainer" unique_id=1467177930]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PixelizationDownButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=420079014]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_167cb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lm7od")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="PixelizationLevelBar" type="TextureRect" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=570478370]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gvqwv")
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_lvwp7")
+stretch_mode = 5
+
+[node name="PixelizationUpButton" type="Button" parent="MiddleBottomContainer/PixelizationContainer/HBoxContainer" unique_id=627330665]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(44, 44)
+custom_maximum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_kjk06")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ud21e")
+text = " "
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="BottomContainer" type="VBoxContainer" parent="." unique_id=2122233641]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = 178.0
+offset_right = 427.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MouseSensitivityContainer" type="HBoxContainer" parent="BottomContainer" unique_id=63560032]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BottomContainer/MouseSensitivityContainer" unique_id=1178664477]
+layout_mode = 2
+text = "MOUSE_SENSITIVITY_LABEL"
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="BottomContainer/MouseSensitivityContainer" unique_id=1420681519]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_38wcy")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_25pqe")
+min_value = 1.0
+max_value = 9.0
+value = 1.0
+script = ExtResource("11_6iqqx")
+metadata/_custom_type_script = "uid://bwgr5pgmpjj8m"
+
+[node name="SaveSettingsButton" type="Button" parent="BottomContainer" unique_id=1452572868]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "SAVE_SETTINGS_LABEL"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="ExitGameButton" type="Button" parent="BottomContainer" unique_id=1687624133]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "EXIT_GAME_LABEL"
+script = ExtResource("4_np2dk")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="BackgroundLeaves" type="TextureRect" parent="." unique_id=1701805384]
+material = SubResource("ShaderMaterial_nhhn2")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.40753
+offset_top = -398.0
+offset_right = 545.4077
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_o4mbq")
