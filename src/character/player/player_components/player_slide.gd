@@ -20,11 +20,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_sliding:
 		if not _player.is_on_floor() or not _player_input.sliding:
-			_stop_slide()
+			stop_slide()
 			return
 
 		if not is_on_slope:
-			_stop_slide()
+			stop_slide()
 			return
 
 		var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
@@ -68,6 +68,6 @@ func _start_slide() -> void:
 	_player.vertical_velocity = downhill_dir * starting_speed * Vector3(0,1,0)
 
 
-func _stop_slide() -> void:
+func stop_slide() -> void:
 	is_sliding = false
 	_slide_cooldown.start()
