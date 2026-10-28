@@ -4,6 +4,7 @@ extends Node
 
 var is_sliding: bool = false
 var _target_direction := Vector3.ZERO
+var _current_speed: float = 0.0
 
 @onready var _player_input: PlayerInput = $"../../Input"
 @onready var _player: Player = $"../.."
@@ -28,9 +29,7 @@ func _physics_process(delta: float) -> void:
 
 		var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 		
-		var current_speed: float = (_player.horizontal_velocity+_player.vertical_velocity).length()
-		
-		current_speed = move_toward(current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
+		_current_speed = move_toward(_current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
 		
 		var final_slide_dir: Vector3 = downhill_dir
 
@@ -45,8 +44,8 @@ func _physics_process(delta: float) -> void:
 			
 			final_slide_dir = final_slide_dir.slide(floor_normal).normalized()
 
-		_player.horizontal_velocity = final_slide_dir * current_speed * Vector3(1,0,1)
-		_player.vertical_velocity = final_slide_dir * current_speed * Vector3(0,1,0)
+		_player.horizontal_velocity = final_slide_dir * _current_speed * Vector3(1,0,1)
+		_player.vertical_velocity = final_slide_dir * _current_speed * Vector3(0,1,0)
 
 func _calculate_direction(delta: float) -> Vector3:
 	var direction := (
@@ -63,6 +62,7 @@ func _start_slide() -> void:
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
 	var starting_speed: float = max(_player.horizontal_velocity.length(), BaseStat.PLAYER.SLIDE_SPEED)
+	_current_speed = starting_speed
 	
 	_player.horizontal_velocity = downhill_dir * starting_speed * Vector3(1,0,1)
 	_player.vertical_velocity = downhill_dir * starting_speed * Vector3(0,1,0)
