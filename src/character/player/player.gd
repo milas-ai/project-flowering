@@ -5,10 +5,10 @@ extends Character
 signal update_health(health: int)
 signal dead()
 
-var _health: int = BaseStat.PLAYER.HEALTH:
+var health: int = BaseStat.PLAYER.HEALTH:
 	set(value):
-		_health = value
-		emit_signal("update_health", _health)
+		health = value
+		emit_signal("update_health", health)
 
 
 func _process(_delta: float) -> void:
@@ -16,6 +16,6 @@ func _process(_delta: float) -> void:
 
 
 func take_damage(amount: int) -> void:
-	_health -= amount
-	if _health <= 0:
+	health -= amount
+	if health <= 0:
 		emit_signal("dead")
