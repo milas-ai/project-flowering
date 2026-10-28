@@ -17,15 +17,7 @@ var _current_stage_uid: String
 func _ready() -> void:
 	_load_save_data()
 	_init_player()
-	_load_stage(_current_stage_uid)
-	pause_root.init_options_menu()
-
-	await get_tree().process_frame
-
-	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
-
-	if _current_stage.has_life_hud:
-		hud_root.load_main_stage_hud()
+	reset_stage()
 
 
 func _input(event: InputEvent) -> void:
@@ -41,6 +33,22 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
+
+
+func transition_to_stage(stage_scene_uid: String) -> void:
+	_load_stage(stage_scene_uid)
+	pause_root.init_options_menu()
+
+	await get_tree().process_frame
+
+	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
+
+	if _current_stage.has_life_hud:
+		hud_root.load_main_stage_hud()
+
+
+func reset_stage() -> void:
+	transition_to_stage(_current_stage_uid)
 
 
 func _load_stage(stage_scene_uid: String) -> void:
