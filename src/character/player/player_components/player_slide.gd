@@ -3,6 +3,7 @@ extends Node
 
 
 var is_sliding: bool = false
+var _target_direction := Vector3.ZERO
 
 @onready var _player_input: PlayerInput = $"../../Input"
 @onready var _player: Player = $"../.."
@@ -32,6 +33,8 @@ func _physics_process(delta: float) -> void:
 		current_speed = move_toward(current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
 		
 		var final_slide_dir: Vector3 = downhill_dir
+
+		_player.horizontal_direction = _calculate_direction(delta)
 		
 		if _player.horizontal_direction != Vector3.ZERO:
 			var slope_right: Vector3 = downhill_dir.cross(floor_normal).normalized()
@@ -45,6 +48,12 @@ func _physics_process(delta: float) -> void:
 		_player.horizontal_velocity = final_slide_dir * current_speed * Vector3(1,0,1)
 		_player.vertical_velocity = final_slide_dir * current_speed * Vector3(0,1,0)
 
+func _calculate_direction(delta: float) -> Vector3:
+	var direction := (
+			Vector3(_player_input.h_input_dir.x,0,_player_input.h_input_dir.y) * _player.transform.basis
+	).normalized()
+	_target_direction = Math.lerpfd(_target_direction, direction, BaseStat.PLAYER.TURNING_SPEED, delta)
+	return _target_direction * Vector3(1,0,1)
 
 func _start_slide() -> void:
 	if _slide_cooldown.time_left > 0:
