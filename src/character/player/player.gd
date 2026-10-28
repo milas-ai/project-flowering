@@ -3,6 +3,7 @@ extends Character
 
 
 signal update_health(health: int)
+signal dead()
 
 var _health: int = BaseStat.PLAYER.HEALTH:
 	set(value):
@@ -13,7 +14,8 @@ var _health: int = BaseStat.PLAYER.HEALTH:
 func _process(_delta: float) -> void:
 	RenderingServer.global_shader_parameter_set("player_position", global_position)
 
+
 func take_damage(amount: int) -> void:
 	_health -= amount
 	if _health <= 0:
-		get_tree().quit()
+		emit_signal("dead")
