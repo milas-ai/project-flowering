@@ -2,7 +2,8 @@ class_name PlayerInput
 extends Node
 
 
-const DEGREES_PER_UNIT: float = 0.0002
+const MOUSE_DEGREES_PER_UNIT: float = 0.0002
+const JOYSTICK_DEGREES_PER_UNIT: float = 0.001
 
 signal jump_pressed
 signal push_pressed
@@ -25,6 +26,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			_mouse_rotate(event)
 
+	if Input.is_action_just_pressed("jump"):
+		jump_pressed.emit()
+	if Input.is_action_just_pressed("push"):
+		push_pressed.emit()
+	if Input.is_action_just_pressed("stun"):
+		stun_pressed.emit()
+
 
 func _process(_delta: float) -> void:
 	h_input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -33,17 +41,8 @@ func _process(_delta: float) -> void:
 	running = Input.is_action_pressed("run")
 	sliding = Input.is_action_pressed("slide")
 
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("jump"):
-			jump_pressed.emit()
-	if event is InputEventMouseButton:
-		if Input.is_action_just_pressed("push"):
-			push_pressed.emit()
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("stun"):
-			stun_pressed.emit()
+	if Input.get_connected_joypads().size() > 0:
+		_joystick_rotate(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X))
 
 
 func _mouse_rotate(event: InputEventMouseMotion) -> void:
@@ -52,7 +51,16 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	
 	_camera_pivot.rotate_y(
 			-mouse_motion.x *
-			_main_game.options.mouse_sensitivity *
+			_main_game.options.camera_sensitivity *
 			_main_game.options.pixelization_level *
-			DEGREES_PER_UNIT
+			MOUSE_DEGREES_PER_UNIT
+	)
+
+
+func _joystick_rotate(axis_value: float) -> void:
+	_camera_pivot.rotate_y(
+		-axis_value *
+		_main_game.options.camera_sensitivity *
+		_main_game.options.pixelization_level *
+		JOYSTICK_DEGREES_PER_UNIT
 	)
