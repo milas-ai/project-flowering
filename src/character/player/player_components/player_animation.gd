@@ -3,6 +3,7 @@ extends Node
 
 @export var _player: Player
 @export var _model: Node3D
+@export var _shield: RigidBody3D
 @export var _slide_component: PlayerSlide
 
 @onready var _player_push: PlayerPush = $"../../Action/Push"
@@ -15,6 +16,7 @@ extends Node
 func _process(_delta: float) -> void:
 	if _player.horizontal_direction.length() > 0.1:
 		_model.look_at(_model.global_position + _player.horizontal_direction, Vector3.UP, true)
+		_shield.look_at(_shield.global_position + _player.horizontal_direction, Vector3.UP, true)
 	
 	# TODO: Interpolate
 	
