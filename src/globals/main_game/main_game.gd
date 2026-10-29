@@ -17,15 +17,7 @@ var _current_stage_uid: String
 func _ready() -> void:
 	_load_save_data()
 	_init_player()
-	_load_stage(_current_stage_uid)
-	pause_root.init_options_menu()
-
-	await get_tree().process_frame
-
-	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
-
-	if _current_stage.has_life_hud:
-		hud_root.load_main_stage_hud()
+	reset_stage()
 
 
 func _input(event: InputEvent) -> void:
@@ -43,10 +35,29 @@ func _input(event: InputEvent) -> void:
 		return
 
 
+func transition_to_stage(stage_scene_uid: String) -> void:
+	_load_stage(stage_scene_uid)
+	pause_root.init_options_menu()
+
+	await get_tree().process_frame
+
+	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
+
+	if _current_stage.has_life_hud:
+		hud_root.load_main_stage_hud()
+
+
+func reset_stage() -> void:
+	transition_to_stage(_current_stage_uid)
+
+
 func _load_stage(stage_scene_uid: String) -> void:
 	if _current_stage:
 		_current_stage.queue_free()
 		_current_stage = null
+		for child in entity_root.get_children():
+			if not child is Player:
+				child.queue_free()
 
 	# Wait for the last stage to be freed before loading the new one
 	await get_tree().process_frame
@@ -65,6 +76,7 @@ func _load_stage(stage_scene_uid: String) -> void:
 
 	# Wait for the new stage to be added to the scene tree before adding the player
 	await get_tree().process_frame
+	player.health = BaseStat.PLAYER.HEALTH
 	_place_player_at_spawn_point()
 
 	_current_stage_uid = stage_scene_uid
@@ -150,6 +162,7 @@ func _init_player() -> void:
 		push_error("Failed to instantiate player scene.")
 		return
 
+	player.dead.connect(reset_stage)
 	entity_root.add_child(player)
 
 
