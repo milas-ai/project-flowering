@@ -4,13 +4,11 @@ extends Control
 
 var _options_menu: Control
 
-@onready var _main_game: MainGame = $/root/MainGame
 
-
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		get_viewport().set_input_as_handled()
-		_main_game._resume_game()
+		_resume_game()
 
 
 func init_options_menu() -> void:
@@ -25,3 +23,17 @@ func init_options_menu() -> void:
 		return
 	
 	add_child(_options_menu)
+
+
+func pause_game(with_controller: bool = false) -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	if with_controller:
+		_options_menu.focus_first_control()
+	show()
+
+
+func _resume_game() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hide()
+	get_tree().paused = false
