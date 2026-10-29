@@ -13,6 +13,14 @@
 [ext_resource type="Script" uid="uid://djqimf4bw5p03" path="res://src/character/player/player_components/player_block.gd" id="11_c3qcs"]
 [ext_resource type="Script" uid="uid://d0jfm7japefli" path="res://src/character/player/player_components/player_attack.gd" id="12_xw1uj"]
 [ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/character/character_components/hurtbox_component_3D.gd" id="13_faa7f"]
+[ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="14_q4g54"]
+[ext_resource type="Script" uid="uid://cntjiavyqph61" path="res://src/character/player/player_components/state_player_attack.gd" id="15_tpoe8"]
+[ext_resource type="Script" uid="uid://cj4oj870ctx6g" path="res://src/character/player/player_components/state_player_block.gd" id="16_fv3qe"]
+[ext_resource type="Script" uid="uid://c50xg6ucuwrex" path="res://src/character/player/player_components/state_player_jump.gd" id="17_s60h0"]
+[ext_resource type="Script" uid="uid://dt4ry7jtb7c4d" path="res://src/character/player/player_components/state_player_move.gd" id="18_svsln"]
+[ext_resource type="Script" uid="uid://ca1cde4u1cruj" path="res://src/character/player/player_components/state_player_push.gd" id="19_ctn1p"]
+[ext_resource type="Script" uid="uid://bpu5le4qxh478" path="res://src/character/player/player_components/state_player_slide.gd" id="20_ne211"]
+[ext_resource type="Script" uid="uid://ubfr242no8cv" path="res://src/character/player/player_components/state_player_stun.gd" id="21_kx8rx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -147,6 +155,38 @@ metadata/_custom_type_script = "uid://y66w2o3cq0xj"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=1770045224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_gn4dx")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1172272797]
+script = ExtResource("14_q4g54")
+metadata/_custom_type_script = "uid://b5p37pnms07a3"
+
+[node name="StatePlayerAttack" type="Node" parent="StateMachine" unique_id=1656673416]
+script = ExtResource("15_tpoe8")
+metadata/_custom_type_script = "uid://cntjiavyqph61"
+
+[node name="StatePlayerBlock" type="Node" parent="StateMachine" unique_id=1177395934]
+script = ExtResource("16_fv3qe")
+metadata/_custom_type_script = "uid://cj4oj870ctx6g"
+
+[node name="StatePlayerJump" type="Node" parent="StateMachine" unique_id=31969445]
+script = ExtResource("17_s60h0")
+metadata/_custom_type_script = "uid://c50xg6ucuwrex"
+
+[node name="StatePlayerMove" type="Node" parent="StateMachine" unique_id=75871474]
+script = ExtResource("18_svsln")
+metadata/_custom_type_script = "uid://dt4ry7jtb7c4d"
+
+[node name="StatePlayerPush" type="Node" parent="StateMachine" unique_id=371503701]
+script = ExtResource("19_ctn1p")
+metadata/_custom_type_script = "uid://ca1cde4u1cruj"
+
+[node name="StatePlayerSlide" type="Node" parent="StateMachine" unique_id=1498594815]
+script = ExtResource("20_ne211")
+metadata/_custom_type_script = "uid://bpu5le4qxh478"
+
+[node name="StatePlayerStun" type="Node" parent="StateMachine" unique_id=427534442]
+script = ExtResource("21_kx8rx")
+metadata/_custom_type_script = "uid://ubfr242no8cv"
 
 [connection signal="attack_pressed" from="Input" to="Action/Attack" method="_on_player_input_attack_pressed"]
 [connection signal="block_pressed" from="Input" to="Action/Block" method="_on_player_input_block_pressed"]
