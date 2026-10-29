@@ -2,7 +2,8 @@ class_name PlayerInput
 extends Node
 
 
-const DEGREES_PER_UNIT: float = 0.0002
+const MOUSE_DEGREES_PER_UNIT: float = 0.0002
+const JOYSTICK_DEGREES_PER_UNIT: float = 0.001
 
 signal jump_pressed
 signal push_pressed
@@ -40,6 +41,9 @@ func _process(_delta: float) -> void:
 	running = Input.is_action_pressed("run")
 	sliding = Input.is_action_pressed("slide")
 
+	if Input.get_connected_joypads().size() > 0:
+		_joystick_rotate(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X))
+
 
 func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	var viewport_transform: Transform2D = get_tree().root.get_final_transform()
@@ -49,5 +53,14 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 			-mouse_motion.x *
 			_main_game.options.mouse_sensitivity *
 			_main_game.options.pixelization_level *
-			DEGREES_PER_UNIT
+			MOUSE_DEGREES_PER_UNIT
+	)
+
+
+func _joystick_rotate(axis_value: float) -> void:
+	_camera_pivot.rotate_y(
+		-axis_value *
+		_main_game.options.mouse_sensitivity *
+		_main_game.options.pixelization_level *
+		JOYSTICK_DEGREES_PER_UNIT
 	)
