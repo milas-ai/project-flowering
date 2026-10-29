@@ -24,7 +24,7 @@ class ENEMY:
 		const FRICTION: float = 25.0
 
 	class BETTLE:
-		const HEALTH: int = 3
+		const HEALTH: int = 5
 		const SPEED: float = 9.0
 		const DAMAGE: int = 1
 		const FRICTION: float = 25.0

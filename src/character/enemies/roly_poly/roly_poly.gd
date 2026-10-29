@@ -48,6 +48,13 @@ func apply_stun() -> void:
 	tween.tween_callback(_explode)
 
 
+func take_damage(amount: int) -> void:
+	if _state_machine.get_current_state() != "StateAttack":
+		_health -= amount
+		if _health <= 0:
+			queue_free()
+
+
 func _explode() -> void:
 	for body in _explosion_area.get_overlapping_bodies():
 		if body.collision_layer & LayerBitmask.PUSHABLE:
