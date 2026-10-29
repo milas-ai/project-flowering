@@ -145,7 +145,7 @@ transform = Transform3D(-0.8296612, 0, -0.55826724, 0, 1, 0, 0.55826724, 0, -0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.62911, 43.168827, -24.382936)
 
 [node name="RampSmall2" parent="StageTerrain" unique_id=991734459 instance=ExtResource("13_wq3j4")]
-transform = Transform3D(0.75147486, 0, -0.6597617, 0, 1, 0, 0.6597617, 0, 0.75147486, 102.42593, 56.517982, -34.541855)
+transform = Transform3D(0.7491625, 0.00093345466, -0.6623855, -0.004075276, 0.99998665, -0.0031999254, 0.66237366, 0.0050966716, 0.74915624, 102.466064, 56.51799, -34.324814)
 
 [node name="WallSmall7" parent="StageTerrain" unique_id=1492390345 instance=ExtResource("16_5rlpl")]
 transform = Transform3D(0.7430802, 0.0635702, -0.66617614, 0.019646311, 0.99297637, 0.11666958, 0.66891396, -0.099782735, 0.73661214, 100.9667, 59.90068, -40.847385)
@@ -476,68 +476,70 @@ metadata/_custom_type_script = "uid://dplfslvwve5ba"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.285141, 0, 5.8064995)
 shape = SubResource("BoxShape3D_gn4dx")
 
-[node name="BettleSpawnPoint" type="Marker3D" parent="." unique_id=2073272143]
+[node name="EnemiesSpawnPoints" type="Node3D" parent="." unique_id=1507018028]
+
+[node name="BettleSpawnPoint" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=2073272143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 60, -42)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint2" type="Marker3D" parent="." unique_id=982456456]
+[node name="BettleSpawnPoint2" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=982456456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.246735, 69.04856, -85.806725)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint3" type="Marker3D" parent="." unique_id=1724893406]
+[node name="BettleSpawnPoint3" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1724893406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.80044, 69.04856, -89.72518)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint4" type="Marker3D" parent="." unique_id=858362169]
+[node name="BettleSpawnPoint4" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=858362169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.857098, 69.04856, -99.92495)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint5" type="Marker3D" parent="." unique_id=784607562]
+[node name="BettleSpawnPoint5" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=784607562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.249336, 88.4732, -41.84297)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint6" type="Marker3D" parent="." unique_id=1500412955]
+[node name="BettleSpawnPoint6" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1500412955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.738216, 88.4732, -33.930798)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint7" type="Marker3D" parent="." unique_id=111706718]
+[node name="BettleSpawnPoint7" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=111706718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.990833, 91.16529, -29.010727)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint8" type="Marker3D" parent="." unique_id=1304754723]
+[node name="BettleSpawnPoint8" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1304754723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.080936, 103.64377, -11.518603)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint9" type="Marker3D" parent="." unique_id=849865378]
+[node name="BettleSpawnPoint9" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=849865378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.49883, 103.64377, 3.0017223)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint10" type="Marker3D" parent="." unique_id=926638678]
+[node name="BettleSpawnPoint10" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=926638678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.59735, 98.97363, 79.88764)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint11" type="Marker3D" parent="." unique_id=1768653056]
+[node name="BettleSpawnPoint11" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1768653056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.50941, 94.83262, 91.32865)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BettleSpawnPoint12" type="Marker3D" parent="." unique_id=1154465673]
+[node name="BettleSpawnPoint12" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1154465673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.4973, 89.24602, 103.78917)
 script = ExtResource("25_y0856")
 steady = true
