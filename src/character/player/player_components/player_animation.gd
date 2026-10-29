@@ -3,10 +3,12 @@ extends Node
 
 @export var _player: Player
 @export var _model: Node3D
+@export var _shield: RigidBody3D
 @export var _slide_component: PlayerSlide
 
 @onready var _player_push: PlayerPush = $"../../Action/Push"
 @onready var _player_stun: PlayerStun = $"../../Action/Stun"
+@onready var _player_block: PlayerBlock = $"../../Action/Block"
 @onready var _player_input: PlayerInput = $"../../Input"
 @onready var _animation_player: AnimationPlayer = $"../AnimationPlayer"
 
@@ -14,6 +16,7 @@ extends Node
 func _process(_delta: float) -> void:
 	if _player.horizontal_direction.length() > 0.1:
 		_model.look_at(_model.global_position + _player.horizontal_direction, Vector3.UP, true)
+		_shield.look_at(_shield.global_position + _player.horizontal_direction, Vector3.UP, true)
 	
 	# TODO: Interpolate
 	
@@ -30,6 +33,8 @@ func _process(_delta: float) -> void:
 		_animation_player.play("Poke")
 	elif _player_stun.is_stunning:
 		_animation_player.play("Stun")
+	elif _player_block.is_blocking:
+		_animation_player.play("Block")
 	elif _player.horizontal_velocity.length() < 1:
 		_animation_player.play("Idle")
 	elif _player_input.running:

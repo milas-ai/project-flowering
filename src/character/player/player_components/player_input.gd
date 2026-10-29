@@ -8,6 +8,8 @@ const JOYSTICK_DEGREES_PER_UNIT: float = 0.001
 signal jump_pressed
 signal push_pressed
 signal stun_pressed
+signal block_pressed
+signal block_released
 
 var h_input_dir := Vector2.ZERO
 var running: bool = false
@@ -32,6 +34,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		push_pressed.emit()
 	if Input.is_action_just_pressed("stun"):
 		stun_pressed.emit()
+	if Input.is_action_just_pressed("block"):
+		block_pressed.emit()
+	if Input.is_action_just_released("block"):
+		block_released.emit()
 
 
 func _process(_delta: float) -> void:
