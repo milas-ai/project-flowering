@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bkfih402nulko" path="res://src/character/player/player_components/player_slide.gd" id="8_rfelt"]
 [ext_resource type="Script" uid="uid://bdsg0bxcxoh7w" path="res://src/character/player/player_components/player_push.gd" id="9_i8wnn"]
 [ext_resource type="Script" uid="uid://bcv2nemppxg3h" path="res://src/character/player/player_components/player_stun.gd" id="10_fkujh"]
+[ext_resource type="Script" uid="uid://djqimf4bw5p03" path="res://src/character/player/player_components/player_block.gd" id="11_c3qcs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -102,12 +103,17 @@ script = ExtResource("9_i8wnn")
 [node name="Stun" type="Node" parent="Action" unique_id=1271674831]
 script = ExtResource("10_fkujh")
 
+[node name="Block" type="Node" parent="Action" unique_id=916281026]
+script = ExtResource("11_c3qcs")
+
 [node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
 shape = SubResource("SphereShape3D_j5k5y")
 
+[connection signal="block_pressed" from="Input" to="Action/Block" method="_on_player_input_block_pressed"]
+[connection signal="block_released" from="Input" to="Action/Block" method="_on_player_input_block_released"]
 [connection signal="jump_pressed" from="Input" to="Movement/Jump" method="_on_player_input_jump_pressed"]
 [connection signal="push_pressed" from="Input" to="Action/Push" method="_on_player_input_push_pressed"]
 [connection signal="stun_pressed" from="Input" to="Action/Stun" method="_on_player_input_stun_pressed"]
