@@ -51,7 +51,7 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	
 	_camera_pivot.rotate_y(
 			-mouse_motion.x *
-			_main_game.options.mouse_sensitivity *
+			_main_game.options.camera_sensitivity *
 			_main_game.options.pixelization_level *
 			MOUSE_DEGREES_PER_UNIT
 	)
@@ -60,7 +60,7 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 func _joystick_rotate(axis_value: float) -> void:
 	_camera_pivot.rotate_y(
 		-axis_value *
-		_main_game.options.mouse_sensitivity *
+		_main_game.options.camera_sensitivity *
 		_main_game.options.pixelization_level *
 		JOYSTICK_DEGREES_PER_UNIT
 	)

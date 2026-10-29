@@ -104,8 +104,8 @@ func _change_pixelization_level(delta: int) -> void:
 	_game_container.stretch_shrink = options.pixelization_level
 
 
-func _set_mouse_sensitivity(mouse_sensitivity: int) -> void:
-	options.mouse_sensitivity = max(1, mouse_sensitivity)
+func _set_camera_sensitivity(camera_sensitivity: int) -> void:
+	options.camera_sensitivity = max(1, camera_sensitivity)
 
 
 func _save_game() -> void:

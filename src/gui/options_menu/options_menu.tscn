@@ -430,7 +430,7 @@ size_flags_vertical = 4
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../../AspectRatioContainer/AspectRatioCheckBox")
 focus_neighbor_right = NodePath("../PixelizationUpButton")
-focus_neighbor_bottom = NodePath("../../../../BottomContainer/MouseSensitivityContainer/MouseSensitivitySlider")
+focus_neighbor_bottom = NodePath("../../../../BottomContainer/CameraSensitivityContainer/CameraSensitivitySlider")
 theme_override_styles/normal = SubResource("StyleBoxTexture_r42jx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_bh28n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lvwp7")
@@ -459,7 +459,7 @@ size_flags_vertical = 4
 focus_neighbor_left = NodePath("../PixelizationDownButton")
 focus_neighbor_top = NodePath("../../../AspectRatioContainer/AspectRatioCheckBox")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../../../BottomContainer/MouseSensitivityContainer/MouseSensitivitySlider")
+focus_neighbor_bottom = NodePath("../../../../BottomContainer/CameraSensitivityContainer/CameraSensitivitySlider")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0caxs")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gvqwv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1uldi")
@@ -484,14 +484,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="MouseSensitivityContainer" type="HBoxContainer" parent="BottomContainer" unique_id=63560032]
+[node name="CameraSensitivityContainer" type="HBoxContainer" parent="BottomContainer" unique_id=63560032]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BottomContainer/MouseSensitivityContainer" unique_id=1178664477]
+[node name="Label" type="Label" parent="BottomContainer/CameraSensitivityContainer" unique_id=1178664477]
 layout_mode = 2
-text = "MOUSE_SENSITIVITY_LABEL"
+text = "CAMERA_SENSITIVITY_LABEL"
 
-[node name="MouseSensitivitySlider" type="HSlider" parent="BottomContainer/MouseSensitivityContainer" unique_id=1420681519]
+[node name="CameraSensitivitySlider" type="HSlider" parent="BottomContainer/CameraSensitivityContainer" unique_id=1420681519]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -513,7 +513,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../MouseSensitivityContainer/MouseSensitivitySlider")
+focus_neighbor_top = NodePath("../CameraSensitivityContainer/CameraSensitivitySlider")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../ExitGameButton")
 text = "SAVE_SETTINGS_LABEL"

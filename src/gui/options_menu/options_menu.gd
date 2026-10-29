@@ -5,7 +5,7 @@ extends Control
 @onready var _aspect_ratio_check_box: CheckBox = %AspectRatioCheckBox
 @onready var _fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var _language_drop_button: OptionButton = %LanguageDropButton
-@onready var _mouse_sensitivity_slider: HSlider = %MouseSensitivitySlider
+@onready var _camera_sensitivity_slider: HSlider = %CameraSensitivitySlider
 @onready var _volume_master_bar: TextureRect = %VolumeMasterBar
 @onready var _volume_music_bar: TextureRect = %VolumeMusicBar
 @onready var _volume_sfx_bar: TextureRect = %VolumeSFXBar
@@ -22,7 +22,7 @@ func _ready() -> void:
 	_aspect_ratio_check_box.button_pressed = _main_game.options.retro_aspect_ratio
 	_fullscreen_check_box.button_pressed = _main_game.options.fullscreen
 	_language_drop_button.selected = Options.language_string_to_index(_main_game.options.language)
-	_mouse_sensitivity_slider.value = _main_game.options.mouse_sensitivity
+	_camera_sensitivity_slider.value = _main_game.options.camera_sensitivity
 	_on_volume_change(_main_game.options.volume)
 	_on_pixelization_level_change(_main_game.options.pixelization_level)
 
@@ -49,7 +49,7 @@ func _connect_ui_signals() -> void:
 	_language_drop_button.item_selected.connect(_main_game._set_language)
 	%PixelizationUpButton.pressed.connect(_main_game._change_pixelization_level.bind(+1))
 	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
-	_mouse_sensitivity_slider.value_changed.connect(_main_game._set_mouse_sensitivity)
+	_camera_sensitivity_slider.value_changed.connect(_main_game._set_camera_sensitivity)
 	%SaveSettingsButton.pressed.connect(_main_game._save_game)
 	%ExitGameButton.pressed.connect(_main_game._exit_game)
 	
