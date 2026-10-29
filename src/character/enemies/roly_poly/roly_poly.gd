@@ -35,7 +35,7 @@ func attack_player() -> void:
 
 func apply_stun() -> void:
 	animation_player.play("roll")
-	_state_machine.transition_to("StateStunned")
+	_state_machine.transition_to("StateEnemyStunned")
 	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	var flash_duration: float = 0.3
 	var min_duration: float = 0.05
@@ -49,7 +49,7 @@ func apply_stun() -> void:
 
 
 func take_damage(amount: int) -> void:
-	if _state_machine.get_current_state() != "StateAttack":
+	if _state_machine.get_current_state() != "StateEnemyAttack":
 		_health -= amount
 		if _health <= 0:
 			queue_free()

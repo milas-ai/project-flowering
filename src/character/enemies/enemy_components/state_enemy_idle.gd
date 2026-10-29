@@ -1,4 +1,4 @@
-class_name StateIdle
+class_name StateEnemyIdle
 extends State
 
 
@@ -9,12 +9,12 @@ func enter() -> void:
 
 func update(_delta: float) -> void:
 	if body.player_on_far_sight and not body.steady:
-		state_machine.transition_to("StateChase")
+		state_machine.transition_to("StateEnemyChase")
 		return
 	
 	if body.player_on_near_sight:
 		body.horizontal_velocity = Math.lerpfd(body.horizontal_velocity, Vector3.ZERO, body.FRICTION, _delta)
-		state_machine.transition_to("StateAttack")
+		state_machine.transition_to("StateEnemyAttack")
 
 
 func exit() -> void:

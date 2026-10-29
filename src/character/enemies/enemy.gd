@@ -25,7 +25,7 @@ func take_damage(amount: int) -> void:
 
 
 func apply_stun() -> void:
-	_state_machine.transition_to("StateStunned")
+	_state_machine.transition_to("StateEnemyStunned")
 
 
 func _on_far_sight_body_entered(_body: Node3D) -> void:

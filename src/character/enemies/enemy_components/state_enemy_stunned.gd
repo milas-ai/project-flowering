@@ -1,5 +1,5 @@
 extends State
-class_name StateStunned
+class_name StateEnemyStunned
 
 
 @export var stun_duration: float = 3.0
@@ -12,7 +12,7 @@ func enter() -> void:
 	body.animation_player.stop()
 	ParticleSystem.play(ParticleID.STUN_STAR, _stun_marker.global_transform.origin)
 
-	get_tree().create_timer(stun_duration).timeout.connect(func(): state_machine.transition_to("StateIdle"))
+	get_tree().create_timer(stun_duration).timeout.connect(func(): state_machine.transition_to("StateEnemyIdle"))
 
 
 func update(_delta: float) -> void:
