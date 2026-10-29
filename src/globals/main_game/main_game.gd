@@ -109,7 +109,7 @@ func _set_camera_sensitivity(camera_sensitivity: int) -> void:
 
 
 func _save_game() -> void:
-	var save_data := SaveManager.SaveData.new()
+	var save_data : SaveManager.SaveData = SaveManager.SaveData.new()
 	save_data.options = options
 	save_data.stage_uid = _current_stage_uid
 	SaveManager.save(save_data)
