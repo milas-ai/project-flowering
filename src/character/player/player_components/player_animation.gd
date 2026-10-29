@@ -9,6 +9,7 @@ extends Node
 @onready var _player_push: PlayerPush = $"../../Action/Push"
 @onready var _player_stun: PlayerStun = $"../../Action/Stun"
 @onready var _player_block: PlayerBlock = $"../../Action/Block"
+@onready var _player_attack: PlayerAttack = $"../../Action/Attack"
 @onready var _player_input: PlayerInput = $"../../Input"
 @onready var _animation_player: AnimationPlayer = $"../AnimationPlayer"
 
@@ -35,6 +36,8 @@ func _process(_delta: float) -> void:
 		_animation_player.play("Stun")
 	elif _player_block.is_blocking:
 		_animation_player.play("Block")
+	elif _player_attack.is_attacking:
+		_animation_player.play("Hit")
 	elif _player.horizontal_velocity.length() < 1:
 		_animation_player.play("Idle")
 	elif _player_input.running:
