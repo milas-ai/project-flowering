@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
 [ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
+[ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/bettle_spawn_point.gd" id="25_y0856"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -50,7 +51,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -156.80707, 108.30775, 7.6436987)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -13.030614, 113.46312, -21.47537)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
@@ -352,13 +353,13 @@ transform = Transform3D(0.9153267, -0.40271205, -1.7603103e-08, 0, -4.371139e-08
 transform = Transform3D(0.9356021, -0.32253814, -0.14358923, 0.27979517, 0.42932883, 0.85871494, -0.21532136, -0.84359133, 0.49192563, -125.290276, 57.272034, 68.38452)
 
 [node name="RockMedium9" parent="StageTerrain" unique_id=282633218 instance=ExtResource("7_jmp0g")]
-transform = Transform3D(0.38639104, 0.009598256, -0.5922345, 0.0023677177, -1.5357985, -0.0037228419, -0.70705026, 0.00010231859, -0.32365897, -137.16571, 86.91159, 102.84101)
+transform = Transform3D(0.3758261, -0.35662404, -0.5760636, -0.08976867, -1.4938502, 0.13750039, -0.7070502, 0.0001023183, -0.3236589, -137.16571, 83.842636, 102.84101)
 
 [node name="RockMedium10" parent="StageTerrain" unique_id=28687586 instance=ExtResource("7_jmp0g")]
-transform = Transform3D(0.018893614, 0.009598433, 0.67471653, 0.00017184594, -1.5357985, 0.004215789, 0.8055226, 0.00010250672, -0.015826225, -141.07822, 92.18637, 91.09491)
+transform = Transform3D(0.5625669, -0.35235313, 0.45769444, -0.18788539, -1.4874227, -0.05910112, 0.5453816, -0.14896487, -0.49247673, -141.07822, 88.635086, 91.09491)
 
 [node name="RockMedium11" parent="StageTerrain" unique_id=2064912249 instance=ExtResource("7_jmp0g")]
-transform = Transform3D(0.5562195, 0.009598289, -0.48828703, 0.003437375, -1.5357982, -0.003082687, -0.5829509, 0.00010230625, -0.46591517, -147.16779, 95.81618, 80.19976)
+transform = Transform3D(-0.057569712, -0.25721115, -0.66363347, -0.067330495, -1.5071586, 0.11690447, -0.8008597, 0.14520064, 0.037876368, -147.16779, 92.7739, 80.19976)
 
 [node name="RockSmall12" parent="StageTerrain" unique_id=896096052 instance=ExtResource("8_ot1hr")]
 transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97761816, -4.123951, 103.68486, -14.69809)
@@ -423,6 +424,48 @@ transform = Transform3D(0.25717103, 0, -1.4414527, 0, 0.99999994, 0, 0.92638606,
 [node name="WallSmall24" parent="StageTerrain" unique_id=393148383 instance=ExtResource("23_x2kea")]
 transform = Transform3D(-0.50436807, 0, 0.6959916, 0, 0.99999994, 0, -1.0141784, 0, -0.3461284, 18.977749, 93.741264, -49.013695)
 
+[node name="RockSmall14" parent="StageTerrain" unique_id=897119098 instance=ExtResource("9_ym1el")]
+transform = Transform3D(-1, -1.900984e-07, 0, 8.742278e-08, -2.1744723, 0, 0, 0, 1, 82.338066, 73.70998, -69.56148)
+
+[node name="RockSmall15" parent="StageTerrain" unique_id=843831886 instance=ExtResource("9_ym1el")]
+transform = Transform3D(-1.3257504, -1.4551397e-07, 0, -1.15900775e-07, 1.6644858, -1.4199595e-07, 1.0132367e-14, -1.4551397e-07, -1.6242445, 58.796944, 68.37052, -94.59288)
+
+[node name="RockSmall16" parent="StageTerrain" unique_id=1756133548 instance=ExtResource("9_ym1el")]
+transform = Transform3D(-1.29573, 0.32635605, 0.12924482, -0.280531, -1.5073894, -0.59696203, 4.3584173e-08, -0.6259254, 1.5050259, 51.447254, 69.090004, -99.12687)
+
+[node name="RockMedium17" parent="StageTerrain" unique_id=933305582 instance=ExtResource("7_jmp0g")]
+transform = Transform3D(-0.08201542, -0.86675274, 0.18469727, 0.8860422, -0.08384065, 0, 0.017399034, 0.18387593, 0.8706244, 86.17263, 68.92946, -77.126)
+
+[node name="RockMedium18" parent="StageTerrain" unique_id=1338946196 instance=ExtResource("7_jmp0g")]
+transform = Transform3D(0.028448269, -0.8285824, 0.32363868, -0.7058075, 0.17605442, 0.5127774, -0.54141164, -0.27304968, -0.6514732, 84.011475, 68.92946, -91.80949)
+
+[node name="RockMedium19" parent="StageTerrain" unique_id=31392562 instance=ExtResource("7_jmp0g")]
+transform = Transform3D(-0.8852997, -0.01049455, 0.090743326, 0.07954675, 0.34607685, 0.81609, -0.044908635, 0.8198906, -0.3433112, 66.89465, 67.829315, -101.489044)
+
+[node name="RockMedium20" parent="StageTerrain" unique_id=464968011 instance=ExtResource("7_jmp0g")]
+transform = Transform3D(0.111763895, -0.8167463, 0.33546117, -0.6863049, -0.2930981, -0.48495245, 0.55551285, -0.19778475, -0.6666233, 51.052452, 67.829315, -89.106606)
+
+[node name="PlatformSmall10" parent="StageTerrain" unique_id=2036779375 instance=ExtResource("19_kvbr1")]
+transform = Transform3D(0.73710954, 0, 0.13845408, 0, 0.75, 0, -0.13845408, 0, 0.73710954, 92.95236, 65.73132, -85.29734)
+
+[node name="PlatformSmall11" parent="StageTerrain" unique_id=1868982673 instance=ExtResource("19_kvbr1")]
+transform = Transform3D(0.6436068, 0, -0.38505894, 0, 0.7500001, 0, 0.38505894, 0, 0.6436068, 42.590504, 65.73132, -99.24575)
+
+[node name="PlatformSmall12" parent="StageTerrain" unique_id=526172766 instance=ExtResource("19_kvbr1")]
+transform = Transform3D(0.5105947, 0, -0.3054801, 0, 0.595, 0, 0.3054801, 0, 0.5105947, 71.11745, 65.73132, -90.29917)
+
+[node name="RockSmall17" parent="StageTerrain" unique_id=746628142 instance=ExtResource("9_ym1el")]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 56.580257, 88.90878, -44.772545)
+
+[node name="RockSmall18" parent="StageTerrain" unique_id=1620302917 instance=ExtResource("9_ym1el")]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 57.670273, 86.59553, -37.74728)
+
+[node name="Pillar5" parent="StageTerrain" unique_id=1049707963 instance=ExtResource("21_2laby")]
+transform = Transform3D(0.5094776, 0.0752167, 0, -0.0752167, 0.5094776, 0, 0, 0, 0.515, 47.582615, 86.82862, -42.86329)
+
+[node name="Pillar6" parent="StageTerrain" unique_id=1896674846 instance=ExtResource("21_2laby")]
+transform = Transform3D(0.22079673, 0.032597315, -0.4641241, -0.0752167, 0.5094776, 0, 0.4591473, 0.06778619, 0.22319001, 42.277504, 85.77551, -36.059376)
+
 [node name="OclusionArea3D" type="Area3D" parent="." unique_id=1340037707 node_paths=PackedStringArray("nodes_to_disable")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.674, 79.446434, -64.80816)
 script = ExtResource("24_iwdui")
@@ -432,3 +475,70 @@ metadata/_custom_type_script = "uid://dplfslvwve5ba"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea3D" unique_id=321497182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.285141, 0, 5.8064995)
 shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="BettleSpawnPoint" type="Marker3D" parent="." unique_id=2073272143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 60, -42)
+script = ExtResource("25_y0856")
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint2" type="Marker3D" parent="." unique_id=982456456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.246735, 69.04856, -85.806725)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint3" type="Marker3D" parent="." unique_id=1724893406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.80044, 69.04856, -89.72518)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint4" type="Marker3D" parent="." unique_id=858362169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.857098, 69.04856, -99.92495)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint5" type="Marker3D" parent="." unique_id=784607562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.249336, 88.4732, -41.84297)
+script = ExtResource("25_y0856")
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint6" type="Marker3D" parent="." unique_id=1500412955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.738216, 88.4732, -33.930798)
+script = ExtResource("25_y0856")
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint7" type="Marker3D" parent="." unique_id=111706718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.990833, 91.16529, -29.010727)
+script = ExtResource("25_y0856")
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint8" type="Marker3D" parent="." unique_id=1304754723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.080936, 103.64377, -11.518603)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint9" type="Marker3D" parent="." unique_id=849865378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.49883, 103.64377, 3.0017223)
+script = ExtResource("25_y0856")
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint10" type="Marker3D" parent="." unique_id=926638678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.59735, 98.97363, 79.88764)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint11" type="Marker3D" parent="." unique_id=1768653056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.50941, 94.83262, 91.32865)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint12" type="Marker3D" parent="." unique_id=1154465673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.4973, 89.24602, 103.78917)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
