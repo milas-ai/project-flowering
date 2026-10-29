@@ -1,4 +1,4 @@
-class_name BettleBullet
+class_name BeetleBullet
 extends RigidBody3D
 
 
@@ -10,5 +10,5 @@ func _process(delta: float) -> void:
 	var collision: KinematicCollision3D = move_and_collide(velocity * speed * delta)
 	if collision:
 		if collision.get_collider().has_method("take_damage"):
-			collision.get_collider().take_damage(BaseStat.ENEMY.BETTLE.DAMAGE)
+			collision.get_collider().take_damage(BaseStat.ENEMY.BEETLE.DAMAGE)
 		queue_free()
