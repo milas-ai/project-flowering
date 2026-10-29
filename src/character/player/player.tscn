@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bcv2nemppxg3h" path="res://src/character/player/player_components/player_stun.gd" id="10_fkujh"]
 [ext_resource type="Script" uid="uid://djqimf4bw5p03" path="res://src/character/player/player_components/player_block.gd" id="11_c3qcs"]
 [ext_resource type="Script" uid="uid://d0jfm7japefli" path="res://src/character/player/player_components/player_attack.gd" id="12_xw1uj"]
+[ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/character/character_components/hurtbox_component_3D.gd" id="13_faa7f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -31,6 +32,10 @@ radius = 7.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nhhn2"]
 height = 0.16
 radius = 0.47509766
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gn4dx"]
+height = 1.0
+radius = 2.9
 
 [node name="Player" type="CharacterBody3D" unique_id=492502824]
 collision_mask = 14
@@ -131,6 +136,17 @@ freeze = true
 [node name="ShieldCollisionShape3D" type="CollisionShape3D" parent="ShieldRigidBody3D" unique_id=387170960]
 transform = Transform3D(1, 0, 0, 0, 0.13917309, -0.990268, 0, 0.990268, 0.13917309, 0, 0.49082947, 0.5914937)
 shape = SubResource("CylinderShape3D_nhhn2")
+
+[node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=117184041]
+process_mode = 4
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("13_faa7f")
+metadata/_custom_type_script = "uid://y66w2o3cq0xj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=1770045224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_gn4dx")
 
 [connection signal="attack_pressed" from="Input" to="Action/Attack" method="_on_player_input_attack_pressed"]
 [connection signal="block_pressed" from="Input" to="Action/Block" method="_on_player_input_block_pressed"]
