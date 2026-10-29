@@ -26,10 +26,9 @@ func _input(event: InputEvent) -> void:
 	if get_tree().paused:
 		return
 		
-	if event is InputEventKey:
-		if event.is_action_pressed("pause"):
-			get_viewport().set_input_as_handled()
-			_pause_game()
+	if event.is_action_pressed("pause"):
+		get_viewport().set_input_as_handled()
+		_pause_game()
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:

@@ -8,10 +8,9 @@ var _options_menu: Control
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.is_action_pressed("pause"):
-			get_viewport().set_input_as_handled()
-			_main_game._resume_game()
+	if event.is_action_pressed("pause"):
+		get_viewport().set_input_as_handled()
+		_main_game._resume_game()
 
 
 func init_options_menu() -> void:
