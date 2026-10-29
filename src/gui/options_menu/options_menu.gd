@@ -27,6 +27,10 @@ func _ready() -> void:
 	_on_pixelization_level_change(_main_game.options.pixelization_level)
 
 
+func focus_first_control() -> void:
+	_language_drop_button.grab_focus.call_deferred()
+
+
 func _connect_options_change_signals() -> void:
 	_main_game.options.volume_change.connect(_on_volume_change)
 	_main_game.options.language_change.connect(_on_language_change)
