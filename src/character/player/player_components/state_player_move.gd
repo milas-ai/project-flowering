@@ -3,14 +3,26 @@ extends State
 
 
 var _speed: float = BaseStat.PLAYER.SPEED
+var _is_running: bool = false
 
 
 func enter() -> void:
-	body.animation_player.play("Walk")
+	if _is_running:
+		body.animation_player.play("Run")
+	else:
+		body.animation_player.play("Walk")
 
 
 func update(delta: float) -> void:
-	body.process_horizontal_movement(delta, _speed)
+	if _is_running:
+		body.animation_player.play("Run")
+		body.process_horizontal_movement(delta, body.input_direction, _speed * 2)
+	else:
+		body.animation_player.play("Walk")
+		body.process_horizontal_movement(delta, body.input_direction, _speed)
+
+	if body.input_direction.length() < 0.1:
+		state_machine.transition_to("StatePlayerIdle")
 
 
 func exit() -> void:
@@ -18,10 +30,8 @@ func exit() -> void:
 
 
 func start_running() -> void:
-	body.animation_player.play("Run")
-	_speed = BaseStat.PLAYER.SPEED * 2
+	_is_running = true
 
 
 func stop_running() -> void:
-	body.animation_player.play("Walk")
-	_speed = BaseStat.PLAYER.SPEED
+	_is_running = false
