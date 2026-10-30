@@ -6,7 +6,7 @@ extends State
 
 
 func enter() -> void:
-	body.animation_player.play("Push")
+	body.animation_player.play("Poke")
 	_ray_cast.enabled = true
 	_ray_cast.force_raycast_update()
 
