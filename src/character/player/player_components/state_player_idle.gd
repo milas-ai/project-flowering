@@ -7,7 +7,8 @@ func enter() -> void:
 
 
 func update(_delta: float) -> void:
-	pass
+	if body.vertical_velocity.y < 0:
+		state_machine.transition_to("StatePlayerFall")
 
 
 func exit() -> void:
