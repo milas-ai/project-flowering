@@ -56,8 +56,8 @@ seamless = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a20jj"]
 render_priority = 0
 shader = ExtResource("26_grnlo")
-shader_parameter/color1 = Color(0.47403812, 0.87441003, 0.90718955, 1)
-shader_parameter/color2 = Color(8.663535e-07, 0.52600175, 0.76665354, 1)
+shader_parameter/color1 = Color(0.26101992, 0.78963846, 0.7258296, 1)
+shader_parameter/color2 = Color(0, 0.27225816, 0.5365715, 1)
 shader_parameter/scale = 0.02
 shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
@@ -70,7 +70,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 117.833435, 39.39287, -10.274682)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 136.33997, 39.39287, -38.17701)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
@@ -81,9 +81,6 @@ light_color = Color(1, 0.91446775, 0.478801, 1)
 shadow_enabled = true
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
-
-[node name="GroundStart" parent="StageTerrain" unique_id=127661142 instance=ExtResource("3_x2kea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.84818, 36.127106, -34.68875)
 
 [node name="GroundStart2" parent="StageTerrain" unique_id=1501078668 instance=ExtResource("3_x2kea")]
 transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97761816, -52.79042, 27.898315, 378.02484)
@@ -116,13 +113,13 @@ transform = Transform3D(0.35705927, 0, -0.93408173, 0, 1, 0, 0.93408173, 0, 0.35
 transform = Transform3D(-0.91297454, 0, 0.4080165, 0, 1, 0, -0.4080165, 0, -0.91297454, 108.07028, 41.37386, -54.16896)
 
 [node name="RockMedium2" parent="StageTerrain" unique_id=14080960 instance=ExtResource("7_jmp0g")]
-transform = Transform3D(-0.8516279, 0, 0.5241469, -0.020990562, 0.9991978, -0.034105223, -0.52372646, -0.040047094, -0.8509447, 159.36723, 39.367573, -46.723736)
+transform = Transform3D(-0.9805768, -0.09500411, -0.17159049, -0.07586144, 0.9904789, -0.11487602, 0.1808703, -0.09962765, -0.9784477, 137.91188, 33.15453, -55.21656)
 
 [node name="RockSmall1" parent="StageTerrain" unique_id=124098740 instance=ExtResource("8_ot1hr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.6574, 40.216846, -44.793102)
+transform = Transform3D(0.7462812, 0, 0.66563076, 0, 1, 0, -0.66563076, 0, 0.7462812, 162.9334, 34.39735, -24.035475)
 
 [node name="RockSmall2" parent="StageTerrain" unique_id=524747551 instance=ExtResource("9_ym1el")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.84605, 40.193874, -42.216713)
+transform = Transform3D(0.7462812, 0, 0.66563076, 0, 1, 0, -0.66563076, 0, 0.7462812, 163.29655, 34.37438, -20.90708)
 
 [node name="RockSmall4" parent="StageTerrain" unique_id=1531923121 instance=ExtResource("9_ym1el")]
 transform = Transform3D(0.07408159, 1.6075795, 0, -2.1614668, 0.05509779, 0, 0, 0, 3.8854065, 103.07779, 52.969162, -45.11248)
@@ -131,7 +128,7 @@ transform = Transform3D(0.07408159, 1.6075795, 0, -2.1614668, 0.05509779, 0, 0, 
 transform = Transform3D(1, 0, 2.220446e-16, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 35.329304, 90.47023, -31.26837)
 
 [node name="RockSmall3" parent="StageTerrain" unique_id=1043724773 instance=ExtResource("9_ym1el")]
-transform = Transform3D(0.86475956, 0.50218606, -2.195125e-08, 0, -4.371139e-08, -1, -0.50218606, 0.86475956, -3.779984e-08, 118.123955, 36.896652, -9.969914)
+transform = Transform3D(1.5677474, -1.3129753, 0.24872273, 0.08186056, -0.28833723, -2.0380774, 1.3338164, 1.5609473, -0.16726172, 142.0441, 33.39137, -53.450375)
 
 [node name="WallSmall2" parent="StageTerrain" unique_id=1558826021 instance=ExtResource("10_k04n5")]
 transform = Transform3D(0.19391996, 0.8694797, 0.45431274, -0.3413364, 0.49396864, -0.7996777, -0.9197198, 0, 0.39257544, 104.60804, 48.232643, -73.16341)
@@ -485,6 +482,27 @@ transform = Transform3D(0.5094776, 0.0752167, 0, -0.0752167, 0.5094776, 0, 0, 0,
 [node name="Pillar6" parent="StageTerrain" unique_id=1896674846 instance=ExtResource("21_2laby")]
 transform = Transform3D(0.22079673, 0.032597315, -0.4641241, -0.0752167, 0.5094776, 0, 0.4591473, 0.06778619, 0.22319001, 42.277504, 85.77551, -36.059376)
 
+[node name="PlatformBig16" parent="StageTerrain" unique_id=1486278554 instance=ExtResource("15_y1tnk")]
+transform = Transform3D(1.3268169, 0, 0, 0, 1, 0, 0, 0, 1.3268169, 124.58328, 21.061983, -33.8088)
+
+[node name="PlatformBig17" parent="StageTerrain" unique_id=2009360971 instance=ExtResource("18_4mxpr")]
+transform = Transform3D(0.749341, 0, 0.6621843, 0, 0.824, 0, -0.6621843, 0, 0.749341, 149.32683, 21.032633, -23.63211)
+
+[node name="PlatformDonut2" parent="StageTerrain" unique_id=465511231 instance=ExtResource("20_4dak5")]
+transform = Transform3D(0.83139503, 0, 0.17298615, 0, 0.745, 0, -0.15652008, 0, 0.9188585, 149.9757, 31.712605, -46.64409)
+
+[node name="PlatformMedium21" parent="StageTerrain" unique_id=824342247 instance=ExtResource("4_iwdui")]
+transform = Transform3D(0.76784813, 0, 0.39250228, 0, 0.745, 0, -0.3551411, 0, 0.8486265, 148.07033, 28.321762, -45.05992)
+
+[node name="PlatformSmall13" parent="StageTerrain" unique_id=513002695 instance=ExtResource("19_kvbr1")]
+transform = Transform3D(0.99489653, 0, -0.10090065, 0, 1, 0, 0.10090065, 0, 0.99489653, 171.21727, 29.253183, -35.827614)
+
+[node name="PlatformMedium22" parent="StageTerrain" unique_id=1109489052 instance=ExtResource("5_y0856")]
+transform = Transform3D(0.81900597, 0, 0.573785, 0, 1, 0, -0.573785, 0, 0.81900597, 148.73503, 33.1877, -63.75805)
+
+[node name="PlatformMedium23" parent="StageTerrain" unique_id=1556704955 instance=ExtResource("6_grnlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.55852, 30.04198, -56.606426)
+
 [node name="OclusionArea3D" type="Area3D" parent="." unique_id=1340037707 node_paths=PackedStringArray("nodes_to_disable")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.674, 79.446434, -64.80816)
 script = ExtResource("24_iwdui")
@@ -565,6 +583,6 @@ steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1533823062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 35.76336, -44)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 30.1446, -44)
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
