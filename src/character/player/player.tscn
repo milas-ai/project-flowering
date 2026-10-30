@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://ca1cde4u1cruj" path="res://src/character/player/player_components/state_player_push.gd" id="19_ctn1p"]
 [ext_resource type="Script" uid="uid://bpu5le4qxh478" path="res://src/character/player/player_components/state_player_slide.gd" id="20_ne211"]
 [ext_resource type="Script" uid="uid://ubfr242no8cv" path="res://src/character/player/player_components/state_player_stun.gd" id="21_kx8rx"]
+[ext_resource type="Script" uid="uid://ckoymk5deee6w" path="res://src/character/player/player_components/state_player_idle.gd" id="22_fv3qe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -156,8 +157,9 @@ metadata/_custom_type_script = "uid://y66w2o3cq0xj"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_gn4dx")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1172272797]
+[node name="StateMachine" type="Node" parent="." unique_id=1172272797 node_paths=PackedStringArray("body")]
 script = ExtResource("14_tpoe8")
+body = NodePath("..")
 metadata/_custom_type_script = "uid://b5p37pnms07a3"
 
 [node name="StatePlayerAttack" type="Node" parent="StateMachine" unique_id=1656673416]
@@ -187,6 +189,10 @@ metadata/_custom_type_script = "uid://bpu5le4qxh478"
 [node name="StatePlayerStun" type="Node" parent="StateMachine" unique_id=427534442]
 script = ExtResource("21_kx8rx")
 metadata/_custom_type_script = "uid://ubfr242no8cv"
+
+[node name="StatePlayerIdle" type="Node" parent="StateMachine" unique_id=1433685177]
+script = ExtResource("22_fv3qe")
+metadata/_custom_type_script = "uid://ckoymk5deee6w"
 
 [connection signal="attack_pressed" from="Input" to="Action/Attack" method="_on_player_input_attack_pressed"]
 [connection signal="block_pressed" from="Input" to="Action/Block" method="_on_player_input_block_pressed"]
