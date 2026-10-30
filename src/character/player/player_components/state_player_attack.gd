@@ -2,7 +2,7 @@ class_name StatePlayerAttack
 extends State
 
 
-@onready var _hurtbox_component := $"../../HurtboxComponent3D"
+@onready var _hurtbox_component := body.get_node("HurtboxComponent3D")
 
 
 func enter() -> void:
