@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://djqimf4bw5p03" path="res://src/character/player/player_components/player_block.gd" id="11_c3qcs"]
 [ext_resource type="Script" uid="uid://d0jfm7japefli" path="res://src/character/player/player_components/player_attack.gd" id="12_xw1uj"]
 [ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/character/character_components/hurtbox_component_3D.gd" id="13_faa7f"]
-[ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="14_q4g54"]
+[ext_resource type="Script" uid="uid://ccat8kv0r7klk" path="res://src/character/player/player_components/player_state_machine.gd" id="14_tpoe8"]
 [ext_resource type="Script" uid="uid://cntjiavyqph61" path="res://src/character/player/player_components/state_player_attack.gd" id="15_tpoe8"]
 [ext_resource type="Script" uid="uid://cj4oj870ctx6g" path="res://src/character/player/player_components/state_player_block.gd" id="16_fv3qe"]
 [ext_resource type="Script" uid="uid://c50xg6ucuwrex" path="res://src/character/player/player_components/state_player_jump.gd" id="17_s60h0"]
@@ -157,7 +157,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_gn4dx")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1172272797]
-script = ExtResource("14_q4g54")
+script = ExtResource("14_tpoe8")
 metadata/_custom_type_script = "uid://b5p37pnms07a3"
 
 [node name="StatePlayerAttack" type="Node" parent="StateMachine" unique_id=1656673416]
