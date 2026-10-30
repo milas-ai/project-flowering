@@ -3,18 +3,17 @@ extends State
 
 
 var _speed: float = BaseStat.PLAYER.SPEED
-var _is_running: bool = false
 
 
 func enter() -> void:
-	if _is_running:
+	if state_machine.running_pressed:
 		body.animation_player.play("Run")
 	else:
 		body.animation_player.play("Walk")
 
 
 func update(delta: float) -> void:
-	if _is_running:
+	if state_machine.running_pressed:
 		body.animation_player.play("Run")
 		body.process_horizontal_movement(delta, body.input_direction, _speed * 2)
 	else:
@@ -27,11 +26,3 @@ func update(delta: float) -> void:
 
 func exit() -> void:
 	_speed = BaseStat.PLAYER.SPEED
-
-
-func start_running() -> void:
-	_is_running = true
-
-
-func stop_running() -> void:
-	_is_running = false
