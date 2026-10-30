@@ -7,6 +7,8 @@ var vertical_velocity := Vector3.ZERO
 var horizontal_velocity := Vector3.ZERO
 var horizontal_direction := Vector3.ZERO
 
+@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
+
 
 func _physics_process(delta: float) -> void:
 	_fall(delta)

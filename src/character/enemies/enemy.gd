@@ -11,7 +11,6 @@ var player_on_near_sight: bool = false
 var _health: int
 
 @onready var player: Player = $/root/MainGame.player
-@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 @onready var _state_machine: StateMachine = $StateMachine
 
 
