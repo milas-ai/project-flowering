@@ -11,9 +11,10 @@ signal stun_pressed
 signal attack_pressed
 signal block_pressed
 signal block_released
-
-var running: bool = false
-var sliding: bool = false
+signal run_pressed
+signal run_released
+signal slide_pressed
+signal slide_released
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
 @onready var _main_game: MainGame = $/root/MainGame
@@ -40,13 +41,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		block_pressed.emit()
 	if Input.is_action_just_released("block"):
 		block_released.emit()
+	if Input.is_action_just_pressed("run"):
+		run_pressed.emit()
+	if Input.is_action_just_released("run"):
+		run_released.emit()
+	if Input.is_action_just_pressed("slide"):
+		slide_pressed.emit()
+	if Input.is_action_just_released("slide"):
+		slide_released.emit()
 
 
 func _process(delta: float) -> void:
 	_calculate_input_direction(delta)
-	
-	running = Input.is_action_pressed("run")
-	sliding = Input.is_action_pressed("slide")
 
 	if Input.get_connected_joypads().size() > 0:
 		_joystick_rotate(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X))
