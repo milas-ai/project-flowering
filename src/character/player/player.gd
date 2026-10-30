@@ -13,6 +13,12 @@ var _health: int = BaseStat.PLAYER.HEALTH:
 		emit_signal("update_health", _health)
 
 
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	horizontal_velocity = velocity * Vector3(1,0,1)
+	vertical_velocity = velocity * Vector3(0,1,0)
+
+
 func take_damage(amount: int) -> void:
 	_health -= amount
 	if _health <= 0:

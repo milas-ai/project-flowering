@@ -11,10 +11,6 @@ var _speed_multiplier: float
 
 
 func _physics_process(delta: float) -> void:
-	# Velocity's components reflected back for collisions
-	_player.horizontal_velocity = _player.velocity * Vector3(1,0,1)
-	_player.vertical_velocity = _player.velocity * Vector3(0,1,0)
-	
 	if _player_input.sliding and _player_slide.is_sliding:
 		return
 	
