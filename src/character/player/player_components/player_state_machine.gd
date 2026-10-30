@@ -26,7 +26,8 @@ func _on_input_push_pressed():
 
 
 func _on_input_jump_pressed():
-	pass
+	if body.is_on_floor():
+		transition_to("StatePlayerJump")
 
 
 func _on_input_slide_pressed():

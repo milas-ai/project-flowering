@@ -3,12 +3,14 @@ extends State
 
 
 func enter() -> void:
-		pass
+	body.animation_player.play("Jump")
+	body.vertical_velocity.y = BaseStat.PLAYER.JUMP_VELOCITY
 
 
 func update(_delta: float) -> void:
-		pass
+	if body.vertical_velocity.y < 0:
+		state_machine.transition_to("StatePlayerFall")
 
 
 func exit() -> void:
-		pass
+	pass
