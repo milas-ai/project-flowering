@@ -1,6 +1,9 @@
 extends StateMachine
 
 
+@onready var _move_state := $StatePlayerMove
+
+
 func _process(_delta: float) -> void:
 	pass
 
@@ -41,8 +44,10 @@ func _on_input_slide_released():
 
 
 func _on_input_run_pressed():
-	pass
+	if _state.name == "StatePlayerMove":
+		_move_state.start_running()
 
 
 func _on_input_run_released():
-	pass
+	if _state.name == "StatePlayerMove":
+		_move_state.stop_running()
