@@ -6,7 +6,7 @@ extends State
 
 
 func enter() -> void:
-	body.animation_player.play("attack")
+	body.animation_player.play("Hit")
 	_hurtbox_component.process_mode = Node.PROCESS_MODE_INHERIT
 	
 	get_tree().create_timer(

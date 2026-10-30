@@ -6,7 +6,7 @@ extends State
 
 
 func enter() -> void:
-	body.animation_player.play("stun")
+	body.animation_player.play("Stun")
 	for entity in _stun_area.get_overlapping_bodies():
 		if entity.collision_layer & LayerBitmask.ENEMY:
 			entity.apply_stun()
