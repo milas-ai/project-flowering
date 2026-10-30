@@ -39,6 +39,12 @@ background_mode = 2
 sky = SubResource("Sky_h57rq")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.25046334, 0.584611, 0.78892934, 1)
+fog_density = 0.7229
+fog_aerial_perspective = 1.0
+fog_depth_curve = 17.148346
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
@@ -641,6 +647,5 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 30.1446, -44)
-visible = false
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
