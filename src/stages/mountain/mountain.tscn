@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
 [ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/bettle_spawn_point.gd" id="25_y0856"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
+[ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/god_rays.gdshader" id="27_jmp0g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -73,6 +74,31 @@ shader_parameter/color2 = Color(0, 0.27225816, 0.5365715, 1)
 shader_parameter/scale = 0.02
 shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_abukt"]
+top_radius = 0.9947264
+bottom_radius = 4.569727
+height = 54.268364
+radial_segments = 4
+rings = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grnlo"]
+render_priority = 0
+shader = ExtResource("27_jmp0g")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jmp0g"]
+top_radius = 0.0009999871
+bottom_radius = 1.241
+height = 54.268364
+radial_segments = 4
+rings = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ot1hr"]
+top_radius = 0.66320306
+bottom_radius = 1.9032031
+height = 54.268364
+radial_segments = 4
+rings = 0
+
 [node name="Mountain" type="Node3D" unique_id=138948264]
 script = ExtResource("1_4se7b")
 metadata/_custom_type_script = "uid://duu016e02tjwd"
@@ -82,7 +108,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 96.424774, 75.60254, -53.189163)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -67.551, 123.036125, -70.75583)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -650,3 +676,37 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 30.1446, -44)
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+
+[node name="GodRays" type="Node3D" parent="." unique_id=1530139876]
+
+[node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=964688825]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -81.231255, 145.62065, -71.14273)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.05
+mesh = SubResource("CylinderMesh_abukt")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[node name="GodRay2" type="MeshInstance3D" parent="GodRays" unique_id=772694437]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -82.89656, 145.62065, -66.17275)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.01
+mesh = SubResource("CylinderMesh_jmp0g")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[node name="GodRay3" type="MeshInstance3D" parent="GodRays" unique_id=1020407702]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -75.102745, 145.62065, -66.9392)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.03
+mesh = SubResource("CylinderMesh_jmp0g")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[node name="GodRay4" type="MeshInstance3D" parent="GodRays" unique_id=415136525]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -78.29015, 145.62065, -73.81929)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.03
+mesh = SubResource("CylinderMesh_ot1hr")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
