@@ -19,6 +19,18 @@ func _physics_process(delta: float) -> void:
 	vertical_velocity = velocity * Vector3(0,1,0)
 
 
+func process_horizontal_movement(delta: float, speed: float) -> void:
+	if input_direction:
+		if horizontal_velocity.length() > 2 * speed:
+			horizontal_velocity = horizontal_velocity.lerp(
+					input_direction * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta
+			)
+		else:
+			horizontal_velocity = input_direction * speed
+	else:
+		horizontal_velocity = horizontal_velocity.lerp(Vector3.ZERO, BaseStat.PLAYER.FRICTION * delta)
+
+
 func take_damage(amount: int) -> void:
 	_health -= amount
 	if _health <= 0:

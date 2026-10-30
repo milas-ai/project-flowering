@@ -15,22 +15,9 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	_speed = _calculate_speed()
-	_walk(delta)
+	_player.process_horizontal_movement(delta, _speed)
 
 
 func _calculate_speed() -> float:
 	_speed_multiplier = 1 + int(_player_input.running)
 	return BaseStat.PLAYER.SPEED * _speed_multiplier
-
-
-func _walk(delta: float) -> void:
-	if _player.input_direction:
-		_speed = _calculate_speed()
-		if _player.horizontal_velocity.length() > 2 * _speed:
-			_player.horizontal_velocity = _player.horizontal_velocity.lerp(
-					_player.input_direction * _speed, BaseStat.PLAYER.SLIDE_FRICTION * delta
-			)
-		else:
-			_player.horizontal_velocity = _player.input_direction * _speed
-	else:
-		_player.horizontal_velocity = _player.horizontal_velocity.lerp(Vector3.ZERO, BaseStat.PLAYER.FRICTION * delta)
