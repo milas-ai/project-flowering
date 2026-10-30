@@ -163,6 +163,10 @@ script = ExtResource("14_tpoe8")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://b5p37pnms07a3"
 
+[node name="StatePlayerIdle" type="Node" parent="StateMachine" unique_id=1433685177]
+script = ExtResource("22_fv3qe")
+metadata/_custom_type_script = "uid://ckoymk5deee6w"
+
 [node name="StatePlayerAttack" type="Node" parent="StateMachine" unique_id=1656673416]
 script = ExtResource("15_tpoe8")
 metadata/_custom_type_script = "uid://cntjiavyqph61"
@@ -190,10 +194,6 @@ metadata/_custom_type_script = "uid://bpu5le4qxh478"
 [node name="StatePlayerStun" type="Node" parent="StateMachine" unique_id=427534442]
 script = ExtResource("21_kx8rx")
 metadata/_custom_type_script = "uid://ubfr242no8cv"
-
-[node name="StatePlayerIdle" type="Node" parent="StateMachine" unique_id=1433685177]
-script = ExtResource("22_fv3qe")
-metadata/_custom_type_script = "uid://ckoymk5deee6w"
 
 [node name="StatePlayerFall" type="Node" parent="StateMachine" unique_id=1377305298]
 script = ExtResource("23_s60h0")
