@@ -13,6 +13,7 @@ func enter() -> void:
 
 
 func update(delta: float) -> void:
+	body.process_rotation(false)
 	if state_machine.running_pressed:
 		body.animation_player.play("Run")
 		body.process_horizontal_movement(delta, body.input_direction, _speed * 2)

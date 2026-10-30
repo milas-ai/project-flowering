@@ -22,6 +22,7 @@ func update(delta: float) -> void:
 		state_machine.transition_to("StatePlayerIdle")
 
 	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
+	body.process_rotation(true)
 
 	var floor_normal: Vector3 = body.get_floor_normal()
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()

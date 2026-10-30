@@ -12,6 +12,7 @@ func enter() -> void:
 
 func update(delta: float) -> void:
 	body.process_horizontal_movement(delta, Vector3.ZERO, BaseStat.PLAYER.SPEED)
+	body.process_rotation(false)
 
 
 func exit() -> void:

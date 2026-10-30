@@ -12,6 +12,7 @@ func update(delta: float) -> void:
 		state_machine.transition_to("StatePlayerFall")
 
 	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
+	body.process_rotation(false)
 
 
 func exit() -> void:
