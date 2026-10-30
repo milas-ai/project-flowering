@@ -4,38 +4,40 @@ extends StateMachine
 @onready var _move_state := $StatePlayerMove
 
 
-func _process(_delta: float) -> void:
-	pass
-
-
 func _on_input_attack_pressed():
-	pass
+	if _state.name not in ["StatePlayerStun", "StatePlayerPush"]:
+		transition_to("StatePlayerAttack")
 
 
 func _on_input_block_pressed():
-	pass
+	if _state.name not in ["StatePlayerAttack", "StatePlayerStun", "StatePlayerPush", "StatePlayerSlide"]:
+		transition_to("StatePlayerBlock")
 
 
 func _on_input_block_released():
-	pass
+	if _state.name == "StatePlayerBlock":
+		transition_to("StatePlayerIdle")
 
 
 func _on_input_stun_pressed():
-	pass
+	if _state.name not in ["StatePlayerAttack", "StatePlayerPush", "StatePlayerSlide"]:
+		transition_to("StatePlayerStun")
 
 
 func _on_input_push_pressed():
-	pass
+	if _state.name not in ["StatePlayerAttack", "StatePlayerStun", "StatePlayerSlide"]:
+		transition_to("StatePlayerPush")
 
 
 func _on_input_jump_pressed():
-	if body.is_on_floor():
+	if body.is_on_floor() and _state.name in ["StatePlayerIdle", "StatePlayerMove", "StatePlayerBlock"]:
 		transition_to("StatePlayerJump")
 
 
 func _on_input_slide_pressed():
-	if body.is_on_floor() and body.get_floor_normal().y < 0.98:
-		transition_to("StatePlayerSlide")
+	if _state.name not in ["StatePlayerAttack", "StatePlayerStun", "StatePlayerPush"]:
+		if body.is_on_floor() and body.get_floor_normal().y < 0.98:
+			transition_to("StatePlayerSlide")
 
 
 func _on_input_slide_released():
@@ -44,10 +46,8 @@ func _on_input_slide_released():
 
 
 func _on_input_run_pressed():
-	if _state.name == "StatePlayerMove":
-		_move_state.start_running()
+	_move_state.start_running()
 
 
 func _on_input_run_released():
-	if _state.name == "StatePlayerMove":
-		_move_state.stop_running()
+	_move_state.stop_running()
