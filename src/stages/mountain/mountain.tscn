@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
 [ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
 [ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/bettle_spawn_point.gd" id="25_y0856"]
+[ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,6 +43,24 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
 size = Vector3(10, 10, 10)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
+size = Vector2(200, 300)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28y55"]
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o5tcc"]
+noise = SubResource("FastNoiseLite_28y55")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a20jj"]
+render_priority = 0
+shader = ExtResource("26_grnlo")
+shader_parameter/color1 = Color(0.47403812, 0.87441003, 0.90718955, 1)
+shader_parameter/color2 = Color(8.663535e-07, 0.52600175, 0.76665354, 1)
+shader_parameter/scale = 0.02
+shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
+
 [node name="Mountain" type="Node3D" unique_id=138948264]
 script = ExtResource("1_4se7b")
 metadata/_custom_type_script = "uid://duu016e02tjwd"
@@ -51,7 +70,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -13.030614, 113.46312, -21.47537)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 117.833435, 39.39287, -10.274682)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
@@ -544,3 +563,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.4973, 89.24602, 103.7891
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1533823062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 35.76336, -44)
+mesh = SubResource("PlaneMesh_kgtat")
+surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
