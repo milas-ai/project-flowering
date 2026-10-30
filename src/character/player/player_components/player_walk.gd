@@ -31,7 +31,7 @@ func _calculate_speed() -> float:
 
 func _calculate_direction(delta: float) -> Vector3:
 	var direction := (
-			Vector3(_player_input.h_input_dir.x,0,_player_input.h_input_dir.y) * _player.transform.basis
+			Vector3(_player.input_direction.x,0,_player.input_direction.y) * _player.transform.basis
 	).normalized()
 	_target_direction = Math.lerpfd(_target_direction, direction, BaseStat.PLAYER.TURNING_SPEED, delta)
 	return _target_direction * Vector3(1,0,1)

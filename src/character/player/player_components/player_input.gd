@@ -12,7 +12,6 @@ signal attack_pressed
 signal block_pressed
 signal block_released
 
-var h_input_dir := Vector2.ZERO
 var running: bool = false
 var sliding: bool = false
 
@@ -44,8 +43,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	h_input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	h_input_dir = h_input_dir.rotated(-_camera_pivot.rotation.y)
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_direction = input_direction.rotated(-_camera_pivot.rotation.y)
+	_main_game.player.input_direction = input_direction
 	
 	running = Input.is_action_pressed("run")
 	sliding = Input.is_action_pressed("slide")
