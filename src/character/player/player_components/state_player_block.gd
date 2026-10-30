@@ -2,7 +2,7 @@ class_name StatePlayerBlock
 extends State
 
 
-@onready var _shield := body.get_node("ShieldRigidBody3D")
+@onready var _shield := body.get_node("CharacterModel/ShieldRigidBody3D")
 
 
 func enter() -> void:
