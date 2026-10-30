@@ -21,6 +21,8 @@ func update(delta: float) -> void:
 	if not body.is_on_floor() or not (body.is_on_floor() and body.get_floor_normal().y < 0.98):
 		state_machine.transition_to("StatePlayerIdle")
 
+	body.process_horizontal_movement(delta, BaseStat.PLAYER.SPEED)
+
 	var floor_normal: Vector3 = body.get_floor_normal()
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
