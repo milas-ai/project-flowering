@@ -10,7 +10,7 @@ func update(delta: float) -> void:
 	if body.vertical_velocity.y >= 0:
 		state_machine.transition_to("StatePlayerIdle")
 		
-	body.process_horizontal_movement(delta, BaseStat.PLAYER.SPEED)
+	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
 
 
 func exit() -> void:

@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	_speed = _calculate_speed()
-	_player.process_horizontal_movement(delta, _speed)
+	_player.process_horizontal_movement(delta, _player.input_direction, _speed)
 
 
 func _calculate_speed() -> float:

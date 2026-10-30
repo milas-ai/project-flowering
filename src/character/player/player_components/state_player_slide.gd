@@ -21,7 +21,7 @@ func update(delta: float) -> void:
 	if not body.is_on_floor() or not (body.is_on_floor() and body.get_floor_normal().y < 0.98):
 		state_machine.transition_to("StatePlayerIdle")
 
-	body.process_horizontal_movement(delta, BaseStat.PLAYER.SPEED)
+	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
 
 	var floor_normal: Vector3 = body.get_floor_normal()
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
@@ -30,7 +30,7 @@ func update(delta: float) -> void:
 	
 	var final_slide_dir: Vector3 = downhill_dir
 	
-	if body.input_direction != Vector3.ZERO:
+	if body.input_direction.length() > 0.1:
 		var slope_right: Vector3 = downhill_dir.cross(floor_normal).normalized()
 		
 		var steer_side_amount: float = body.input_direction.dot(slope_right)

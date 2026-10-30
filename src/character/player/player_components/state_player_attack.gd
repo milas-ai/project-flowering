@@ -17,7 +17,7 @@ func enter() -> void:
 
 
 func update(delta: float) -> void:
-	body.process_horizontal_movement(delta, BaseStat.PLAYER.SPEED)
+	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
 
 
 func exit() -> void:

@@ -19,14 +19,14 @@ func _physics_process(delta: float) -> void:
 	vertical_velocity = velocity * Vector3(0,1,0)
 
 
-func process_horizontal_movement(delta: float, speed: float) -> void:
-	if input_direction:
+func process_horizontal_movement(delta: float, direction_vector: Vector3, speed: float) -> void:
+	if direction_vector.length() > 0.1:
 		if horizontal_velocity.length() > 2 * speed:
 			horizontal_velocity = horizontal_velocity.lerp(
-					input_direction * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta
+					direction_vector * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta
 			)
 		else:
-			horizontal_velocity = input_direction * speed
+			horizontal_velocity = direction_vector * speed
 	else:
 		horizontal_velocity = horizontal_velocity.lerp(Vector3.ZERO, BaseStat.PLAYER.FRICTION * delta)
 
