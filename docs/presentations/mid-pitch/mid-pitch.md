@@ -139,7 +139,7 @@ Explorar técnicas de computação para otimizar e desenvolver simulações fís
 <div style="margin-right: 50px;">
 
 ## <i class="fas fa-bug"></i>&nbsp;Besouro
-<img src="assets/bettle_model.png" alt="Bettle model" style="width: 350px; height: auto; border-radius: 0.6em;">
+<img src="assets/beetle_model.png" alt="Beetle model" style="width: 350px; height: auto; border-radius: 0.6em;">
 
 </div>
 

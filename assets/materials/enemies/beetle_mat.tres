@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://c7nxierpll7i4"]
 
-[ext_resource type="Texture2D" uid="uid://bmif2p65073rb" path="res://assets/textures/enemies/bettle_texture.png" id="1_tmxln"]
+[ext_resource type="Texture2D" uid="uid://bmif2p65073rb" path="res://assets/textures/enemies/beetle_texture.png" id="1_tmxln"]
 
 [resource]
 resource_name = "material_0"

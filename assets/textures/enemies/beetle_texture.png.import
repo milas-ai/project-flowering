@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmif2p65073rb"
-path.s3tc="res://.godot/imported/bettle_texture.png-544a1b4026e092eb8270274722677f5d.s3tc.ctex"
+path.s3tc="res://.godot/imported/beetle_texture.png-e608bc10c257b7ac137011943f138957.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/textures/enemies/bettle_texture.png"
-dest_files=["res://.godot/imported/bettle_texture.png-544a1b4026e092eb8270274722677f5d.s3tc.ctex"]
+source_file="res://assets/textures/enemies/beetle_texture.png"
+dest_files=["res://.godot/imported/beetle_texture.png-e608bc10c257b7ac137011943f138957.s3tc.ctex"]
 
 [params]
 

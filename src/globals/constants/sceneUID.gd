@@ -11,7 +11,7 @@ class STAGES:
 
 
 class ENTITIES:
-	const BETTLE_BULLET: String = "uid://dvfpc7xbno2al"
+	const BEETLE_BULLET: String = "uid://dvfpc7xbno2al"
 
 
 class GUI:
