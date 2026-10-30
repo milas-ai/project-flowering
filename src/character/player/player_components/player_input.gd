@@ -42,10 +42,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		block_released.emit()
 
 
-func _process(_delta: float) -> void:
-	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	input_direction = input_direction.rotated(-_camera_pivot.rotation.y)
-	_main_game.player.input_direction = input_direction
+func _process(delta: float) -> void:
+	_calculate_input_direction(delta)
 	
 	running = Input.is_action_pressed("run")
 	sliding = Input.is_action_pressed("slide")
@@ -73,3 +71,19 @@ func _joystick_rotate(axis_value: float) -> void:
 		_main_game.options.pixelization_level *
 		JOYSTICK_DEGREES_PER_UNIT
 	)
+
+
+func _calculate_input_direction(delta: float) -> void:
+	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_vector = input_vector.rotated(-_camera_pivot.rotation.y)
+
+	var direction : Vector3 = (
+			Vector3(input_vector.x,0,input_vector.y) * _main_game.player.transform.basis
+	).normalized()
+
+	_main_game.player.input_direction = Math.lerpfd(
+			_main_game.player.input_direction,
+			direction,
+			BaseStat.PLAYER.TURNING_SPEED,
+			delta
+	) * Vector3(1,0,1)

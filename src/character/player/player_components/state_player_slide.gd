@@ -2,7 +2,6 @@ class_name StatePlayerSlide
 extends State
 
 
-var _target_direction := Vector3.ZERO
 var _current_speed: float = 0.0
 
 
@@ -28,13 +27,11 @@ func update(delta: float) -> void:
 	_current_speed = move_toward(_current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
 	
 	var final_slide_dir: Vector3 = downhill_dir
-
-	body.horizontal_direction = _calculate_direction(delta)
 	
-	if body.horizontal_direction != Vector3.ZERO:
+	if body.input_direction != Vector3.ZERO:
 		var slope_right: Vector3 = downhill_dir.cross(floor_normal).normalized()
 		
-		var steer_side_amount: float = body.horizontal_direction.dot(slope_right)
+		var steer_side_amount: float = body.input_direction.dot(slope_right)
 		
 		final_slide_dir = (downhill_dir + (slope_right * steer_side_amount * BaseStat.PLAYER.STEER_INFLUENCE)).normalized()
 		
@@ -45,13 +42,4 @@ func update(delta: float) -> void:
 
 
 func exit() -> void:
-	_target_direction = Vector3.ZERO
 	_current_speed = 0.0
-
-
-func _calculate_direction(delta: float) -> Vector3:
-	var direction : Vector3 = (
-			Vector3(body.input_direction.x,0,body.input_direction.y) * body.transform.basis
-	).normalized()
-	_target_direction = Math.lerpfd(_target_direction, direction, BaseStat.PLAYER.TURNING_SPEED, delta)
-	return _target_direction * Vector3(1,0,1)

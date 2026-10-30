@@ -5,7 +5,6 @@ extends CharacterBody3D
 
 var vertical_velocity := Vector3.ZERO
 var horizontal_velocity := Vector3.ZERO
-var horizontal_direction := Vector3.ZERO
 
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 

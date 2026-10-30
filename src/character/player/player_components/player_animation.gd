@@ -15,9 +15,9 @@ extends Node
 
 
 func _process(_delta: float) -> void:
-	if _player.horizontal_direction.length() > 0.1:
-		_model.look_at(_model.global_position + _player.horizontal_direction, Vector3.UP, true)
-		_shield.look_at(_shield.global_position + _player.horizontal_direction, Vector3.UP, true)
+	if _player.input_direction.length() > 0.1:
+		_model.look_at(_model.global_position + _player.input_direction, Vector3.UP, true)
+		_shield.look_at(_shield.global_position + _player.input_direction, Vector3.UP, true)
 	
 	# TODO: Interpolate
 	

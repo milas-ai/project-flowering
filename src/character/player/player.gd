@@ -4,7 +4,7 @@ extends Character
 
 signal update_health(health: int)
 
-var input_direction := Vector2.ZERO
+var input_direction := Vector3.ZERO
 
 
 var _health: int = BaseStat.PLAYER.HEALTH:
