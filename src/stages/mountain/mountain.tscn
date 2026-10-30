@@ -131,7 +131,7 @@ transform = Transform3D(1, 0, 2.220446e-16, 0, -1, -8.742278e-08, 0, 8.742278e-0
 transform = Transform3D(1.5677474, -1.3129753, 0.24872273, 0.08186056, -0.28833723, -2.0380774, 1.3338164, 1.5609473, -0.16726172, 142.0441, 33.39137, -53.450375)
 
 [node name="WallSmall2" parent="StageTerrain" unique_id=1558826021 instance=ExtResource("10_k04n5")]
-transform = Transform3D(0.19391996, 0.8694797, 0.45431274, -0.3413364, 0.49396864, -0.7996777, -0.9197198, 0, 0.39257544, 104.60804, 48.232643, -73.16341)
+transform = Transform3D(0.19391996, 0.8694797, 0.45431274, -0.3413364, 0.49396864, -0.7996777, -0.9197198, 0, 0.39257544, 102.659485, 48.232643, -73.16341)
 
 [node name="WallSmall11" parent="StageTerrain" unique_id=2071298694 instance=ExtResource("11_oixdd")]
 transform = Transform3D(0.48387194, 0.27801833, 0.24765253, 0.23046286, 0.09298277, -0.54422516, -0.2186033, 0.7134124, -0.025578972, 66.63579, 91.520294, -52.73457)
@@ -143,7 +143,7 @@ transform = Transform3D(0.42537406, 0, -0.9050176, 0, 1, 0, 0.9050176, 0, 0.4253
 transform = Transform3D(-0.582695, 0.23889844, 0.77678466, 0.11786374, 0.9705542, -0.21007797, -0.80409884, -0.030856617, -0.5936946, 93.51769, 60.352856, -69.672066)
 
 [node name="WallSmall4" parent="StageTerrain" unique_id=1623978829 instance=ExtResource("11_oixdd")]
-transform = Transform3D(0.8998858, 0, 0.43612564, 0, 1, 0, -0.43612564, 0, 0.8998858, 87.46965, 42.651714, -29.43461)
+transform = Transform3D(-0.020936003, -1.2828163, -0.012749191, 0.8368737, -0.032092113, 0.50962275, -0.40571404, 0, 1.051866, 83.608955, 27.101252, -28.823023)
 
 [node name="WallSmall5" parent="StageTerrain" unique_id=2108065356 instance=ExtResource("11_oixdd")]
 transform = Transform3D(-0.9904335, 0, -0.13799094, 0, 1, 0, 0.13799094, 0, -0.9904335, 81.06269, 53.229706, -55.25195)
@@ -586,3 +586,27 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170, 30.1446, -44)
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+
+[node name="WallSmall1" parent="." unique_id=1895734757 instance=ExtResource("23_x2kea")]
+transform = Transform3D(1.0025078, -0.14107172, 0.13416897, 0.14723688, 0.98588616, 0, -0.16288058, 0.022920363, 0.82579166, 78.6495, 30.45209, -89.342606)
+
+[node name="WallSmall2" parent="." unique_id=897922018 instance=ExtResource("23_x2kea")]
+transform = Transform3D(0.12219143, -0.028488562, -0.5230238, -0.13437293, 0.97671515, -0.022803579, 1.0544643, 0.12776649, 0.05770213, 60.858547, 30.493418, -99.45438)
+
+[node name="WallSmall4" parent="." unique_id=1348164017 instance=ExtResource("23_x2kea")]
+transform = Transform3D(0.12219143, -0.028488562, -0.5230238, -0.13437293, 0.97671515, -0.022803579, 1.0544643, 0.12776649, 0.05770213, 54.33868, 30.493422, -73.17945)
+
+[node name="WallSmall5" parent="." unique_id=1791057335 instance=ExtResource("23_x2kea")]
+transform = Transform3D(0.9336097, 0.0882733, -0.25294927, -0.13437292, 0.976715, -0.022803577, 0.5051716, 0.09666276, 0.4614109, 36.559616, 32.851295, -65.526634)
+
+[node name="WallSmall7" parent="." unique_id=931958679 instance=ExtResource("23_x2kea")]
+transform = Transform3D(0.9336097, 0.0882733, -0.25294927, -0.13437292, 0.976715, -0.022803577, 0.5051716, 0.09666276, 0.4614109, 9.685097, 63.947853, -65.526634)
+
+[node name="WallSmall3" parent="." unique_id=1655636326 instance=ExtResource("11_oixdd")]
+transform = Transform3D(0.31961897, 0.104593575, -1.3191589, 0.9482394, 0.000924699, 0.4481974, 0.028991591, -1.183341, -0.11624804, 102.10097, 25.151264, -61.369503)
+
+[node name="WallSmall6" parent="." unique_id=523157242 instance=ExtResource("23_x2kea")]
+transform = Transform3D(0.96870303, -0.24822244, 0, 0.24822244, 0.96870303, 0, 0, 0, 1, 4.6353846, 52.1454, -76.95457)
+
+[node name="WallSmall8" parent="." unique_id=1437772849 instance=ExtResource("23_x2kea")]
+transform = Transform3D(0.5312407, -0.051128916, -0.8456767, 0.120037794, 0.99265003, 0.015391029, 0.83867407, -0.109689504, 0.5334735, 50.52832, 41.268673, -32.359028)
