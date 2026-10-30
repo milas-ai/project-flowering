@@ -15,6 +15,10 @@ var _health: int = BaseStat.PLAYER.HEALTH:
 		emit_signal("update_health", _health)
 
 
+func _ready() -> void:
+	$"CharacterModel/HurtboxComponent3D".damage = BaseStat.PLAYER.DAMAGE
+
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	horizontal_velocity = velocity * Vector3(1,0,1)

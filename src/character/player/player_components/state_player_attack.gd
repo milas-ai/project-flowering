@@ -2,7 +2,7 @@ class_name StatePlayerAttack
 extends State
 
 
-@onready var _hurtbox_component := body.get_node("HurtboxComponent3D")
+@onready var _hurtbox_component := body.get_node("CharacterModel/HurtboxComponent3D")
 
 
 func enter() -> void:
@@ -17,7 +17,7 @@ func enter() -> void:
 
 
 func update(delta: float) -> void:
-	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
+	body.process_horizontal_movement(delta, Vector3.ZERO, BaseStat.PLAYER.SPEED)
 
 
 func exit() -> void:
