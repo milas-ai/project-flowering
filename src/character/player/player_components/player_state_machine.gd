@@ -1,6 +1,10 @@
 extends StateMachine
 
 
+func _process(_delta: float) -> void:
+	pass
+
+
 func _on_input_attack_pressed():
 	pass
 
@@ -26,11 +30,13 @@ func _on_input_jump_pressed():
 
 
 func _on_input_slide_pressed():
-	pass
+	if body.is_on_floor() and body.get_floor_normal().y < 0.98:
+		transition_to("StatePlayerSlide")
 
 
 func _on_input_slide_released():
-	pass
+	if _state.name == "StatePlayerSlide":
+		transition_to("StatePlayerIdle")
 
 
 func _on_input_run_pressed():
@@ -39,4 +45,3 @@ func _on_input_run_pressed():
 
 func _on_input_run_released():
 	pass
-	
