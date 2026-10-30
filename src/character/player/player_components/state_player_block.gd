@@ -2,13 +2,18 @@ class_name StatePlayerBlock
 extends State
 
 
+@onready var _shield := body.get_node("ShieldRigidBody3D")
+
+
 func enter() -> void:
-		pass
+	body.animation_player.play("block")
+	_shield.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func update(_delta: float) -> void:
-		pass
+	pass
 
 
 func exit() -> void:
-		pass
+	body.animation_player.play_backwards("block")
+	_shield.process_mode = Node.PROCESS_MODE_DISABLED
