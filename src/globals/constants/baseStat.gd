@@ -14,6 +14,7 @@ class PLAYER:
 	const SLOPE_ACCELERATION: float = 15.0
 	const STEER_INFLUENCE: float = 2.0
 	const TURNING_SPEED: float = 7.0
+	const PUSH_FORCE: float = 10.0
 
 
 class ENEMY:
