@@ -4,6 +4,7 @@ extends State
 
 var _current_speed: float
 var _exit_slide: bool
+var _sudden_stop: bool
 
 
 func enter() -> void:
@@ -11,6 +12,10 @@ func enter() -> void:
 	
 	_current_speed = max(BaseStat.PLAYER.SLIDE_SPEED, body.horizontal_velocity.length())
 	_exit_slide = false
+	_sudden_stop = true
+	get_tree().create_timer(0.1).timeout.connect(
+		func(): _sudden_stop = false
+	)
 
 func update(delta: float) -> void:
 	if not body.is_on_floor() or not (body.is_on_floor() and body.get_floor_normal().y < 0.98):
@@ -19,6 +24,10 @@ func update(delta: float) -> void:
 				func(): state_machine.transition_to("StatePlayerFall")
 			)
 			_exit_slide = true
+		if _sudden_stop: # Prevent the player from glitching between a ramp and a flat surface
+			get_tree().create_timer(0.05).timeout.connect(
+				func(): state_machine.transition_to("StatePlayerIdle")
+			)
 		return
 
 	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
