@@ -1,11 +1,11 @@
-class_name Bettle
+class_name Beetle
 extends Enemy
 
 
 signal shoot(direction, location, speed)
 
-static var SPEED: float = BaseStat.ENEMY.BETTLE.SPEED
-static var FRICTION: float = BaseStat.ENEMY.BETTLE.FRICTION
+static var SPEED: float = BaseStat.ENEMY.BEETLE.SPEED
+static var FRICTION: float = BaseStat.ENEMY.BEETLE.FRICTION
 
 @export var _bullet_speed: float = 40.0
 
@@ -13,7 +13,7 @@ static var FRICTION: float = BaseStat.ENEMY.BETTLE.FRICTION
 
 
 func _ready() -> void:
-	_health = BaseStat.ENEMY.BETTLE.HEALTH
+	_health = BaseStat.ENEMY.BEETLE.HEALTH
 
 
 func attack_player() -> void:

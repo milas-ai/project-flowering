@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfv7t0b64ff47"]
 
-[ext_resource type="Script" uid="uid://b2pxyfofy27o" path="res://src/character/enemies/bettle/bettle.gd" id="1_en1k1"]
-[ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/bettle_model.glb" id="2_xiojd"]
+[ext_resource type="Script" uid="uid://b2pxyfofy27o" path="res://src/character/enemies/beetle/beetle.gd" id="1_en1k1"]
+[ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/beetle_model.glb" id="2_xiojd"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="5_tlsr3"]
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_enemy_attack.gd" id="6_en1k1"]
 [ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_enemy_idle.gd" id="6_y1e6u"]
@@ -18,7 +18,7 @@ radius = 13.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_gn4dx"]
 radius = 15.0
 
-[node name="Bettle" type="CharacterBody3D" unique_id=386571338]
+[node name="Beetle" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_en1k1")

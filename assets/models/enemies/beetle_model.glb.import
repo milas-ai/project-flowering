@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cpqvecpvnton7"
-path="res://.godot/imported/bettle_model.glb-397cacfc65c5682704701cca6de5e433.scn"
+path="res://.godot/imported/beetle_model.glb-540d6534c3d3275a7e10460c9d389745.scn"
 
 [deps]
 
-source_file="res://assets/models/enemies/bettle_model.glb"
-dest_files=["res://.godot/imported/bettle_model.glb-397cacfc65c5682704701cca6de5e433.scn"]
+source_file="res://assets/models/enemies/beetle_model.glb"
+dest_files=["res://.godot/imported/beetle_model.glb-540d6534c3d3275a7e10460c9d389745.scn"]
 
 [params]
 
@@ -43,7 +43,7 @@ _subresources={
 "animations": {
 "RESET": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/enemies/bettle/bettle_reset.res",
+"save_to_file/fallback_path": "res://assets/animations/enemies/beetle/beetle_reset.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://45ebamr3yort",
 "settings/loop_mode": 0,
@@ -2099,7 +2099,7 @@ _subresources={
 },
 "attack": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/enemies/bettle/bettle_attack.res",
+"save_to_file/fallback_path": "res://assets/animations/enemies/beetle/beetle_attack.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://ye2ogp48enm6",
 "settings/loop_mode": 0,
@@ -4155,7 +4155,7 @@ _subresources={
 },
 "idle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/enemies/bettle/bettle_idle.res",
+"save_to_file/fallback_path": "res://assets/animations/enemies/beetle/beetle_idle.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://ckxycq8cataxj",
 "settings/loop_mode": 1,
@@ -6211,7 +6211,7 @@ _subresources={
 },
 "walk": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/enemies/bettle/bettle_walk.res",
+"save_to_file/fallback_path": "res://assets/animations/enemies/beetle/beetle_walk.res",
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://fuc5g2bledex",
 "settings/loop_mode": 1,
@@ -8269,7 +8269,7 @@ _subresources={
 "materials": {
 "material_0": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/enemies/bettle_mat.tres",
+"use_external/fallback_path": "res://assets/materials/enemies/beetle_mat.tres",
 "use_external/path": "uid://c7nxierpll7i4"
 }
 }
