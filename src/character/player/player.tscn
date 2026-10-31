@@ -3,20 +3,29 @@
 [ext_resource type="Script" uid="uid://ctvgrtbvslypc" path="res://src/character/player/player.gd" id="1_2orxn"]
 [ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/character/player/player_components/player_input.gd" id="2_8eijk"]
 [ext_resource type="PackedScene" uid="uid://dvdj30kmiprtu" path="res://assets/models/player/player_model.glb" id="2_i8wnn"]
-[ext_resource type="Script" uid="uid://b1163m82wykbd" path="res://src/character/player/player_components/player_walk.gd" id="3_gtsfv"]
 [ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="4_efbnw"]
-[ext_resource type="Script" uid="uid://cgl2lqvrh7khi" path="res://src/character/player/player_components/player_jump.gd" id="4_wu8e1"]
-[ext_resource type="Script" uid="uid://doumdihcv0fck" path="res://src/character/player/player_components/player_animation.gd" id="6_3683m"]
-[ext_resource type="Script" uid="uid://bkfih402nulko" path="res://src/character/player/player_components/player_slide.gd" id="8_rfelt"]
-[ext_resource type="Script" uid="uid://bdsg0bxcxoh7w" path="res://src/character/player/player_components/player_push.gd" id="9_i8wnn"]
-[ext_resource type="Script" uid="uid://bcv2nemppxg3h" path="res://src/character/player/player_components/player_stun.gd" id="10_fkujh"]
-[ext_resource type="Script" uid="uid://djqimf4bw5p03" path="res://src/character/player/player_components/player_block.gd" id="11_c3qcs"]
-[ext_resource type="Script" uid="uid://d0jfm7japefli" path="res://src/character/player/player_components/player_attack.gd" id="12_xw1uj"]
 [ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/character/character_components/hurtbox_component_3D.gd" id="13_faa7f"]
+[ext_resource type="Script" uid="uid://ccat8kv0r7klk" path="res://src/character/player/player_components/player_state_machine.gd" id="14_tpoe8"]
+[ext_resource type="Script" uid="uid://cntjiavyqph61" path="res://src/character/player/player_components/state_player_attack.gd" id="15_tpoe8"]
+[ext_resource type="Script" uid="uid://cj4oj870ctx6g" path="res://src/character/player/player_components/state_player_block.gd" id="16_fv3qe"]
+[ext_resource type="Script" uid="uid://c50xg6ucuwrex" path="res://src/character/player/player_components/state_player_jump.gd" id="17_s60h0"]
+[ext_resource type="Script" uid="uid://dt4ry7jtb7c4d" path="res://src/character/player/player_components/state_player_move.gd" id="18_svsln"]
+[ext_resource type="Script" uid="uid://ca1cde4u1cruj" path="res://src/character/player/player_components/state_player_push.gd" id="19_ctn1p"]
+[ext_resource type="Script" uid="uid://bpu5le4qxh478" path="res://src/character/player/player_components/state_player_slide.gd" id="20_ne211"]
+[ext_resource type="Script" uid="uid://ubfr242no8cv" path="res://src/character/player/player_components/state_player_stun.gd" id="21_kx8rx"]
+[ext_resource type="Script" uid="uid://ckoymk5deee6w" path="res://src/character/player/player_components/state_player_idle.gd" id="22_fv3qe"]
+[ext_resource type="Script" uid="uid://bdmacomrgo0ua" path="res://src/character/player/player_components/state_player_fall.gd" id="23_s60h0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
 height = 0.92041016
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nhhn2"]
+height = 0.16
+radius = 0.47509766
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wpuif"]
+size = Vector3(6, 1, 4)
 
 [sub_resource type="QuadMesh" id="QuadMesh_efbnw"]
 flip_faces = true
@@ -28,14 +37,6 @@ shader = ExtResource("4_efbnw")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j5k5y"]
 radius = 7.0
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_nhhn2"]
-height = 0.16
-radius = 0.47509766
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_gn4dx"]
-height = 1.0
-radius = 2.9
 
 [node name="Player" type="CharacterBody3D" unique_id=492502824]
 collision_mask = 14
@@ -49,13 +50,6 @@ debug_fill = false
 [node name="CharacterModel" parent="." unique_id=1477237356 instance=ExtResource("2_i8wnn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44177362, 0)
 
-[node name="CharacterAnimation" type="Node" parent="CharacterModel" unique_id=2038216933 node_paths=PackedStringArray("_player", "_model", "_shield", "_slide_component")]
-script = ExtResource("6_3683m")
-_player = NodePath("../..")
-_model = NodePath("..")
-_shield = NodePath("../../ShieldRigidBody3D")
-_slide_component = NodePath("../../Movement/Slide")
-
 [node name="RayCast3D" type="RayCast3D" parent="CharacterModel" unique_id=2016812921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0)
 enabled = false
@@ -67,6 +61,29 @@ transform = Transform3D(-1.1920929e-07, -1, 1.19209204e-07, 7.1525574e-07, -1.19
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.0
 omni_range = 7.5
+
+[node name="ShieldRigidBody3D" type="RigidBody3D" parent="CharacterModel" unique_id=212339813]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44177362, 0)
+collision_mask = 15
+lock_rotation = true
+freeze = true
+
+[node name="ShieldCollisionShape3D" type="CollisionShape3D" parent="CharacterModel/ShieldRigidBody3D" unique_id=387170960]
+transform = Transform3D(1, 0, 0, 0, 0.13917309, -0.990268, 0, 0.990268, 0.13917309, 0, 0.49082947, 0.5914937)
+shape = SubResource("CylinderShape3D_nhhn2")
+
+[node name="HurtboxComponent3D" type="Area3D" parent="CharacterModel" unique_id=117184041]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44177362, 0)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("13_faa7f")
+metadata/_custom_type_script = "uid://y66w2o3cq0xj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterModel/HurtboxComponent3D" unique_id=1770045224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+shape = SubResource("BoxShape3D_wpuif")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -85,41 +102,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
 [node name="Input" type="Node" parent="." unique_id=1950561987]
 script = ExtResource("2_8eijk")
 
-[node name="Movement" type="Node" parent="." unique_id=899911534]
-
-[node name="Walk" type="Node" parent="Movement" unique_id=724996064]
-script = ExtResource("3_gtsfv")
-
-[node name="Jump" type="Node" parent="Movement" unique_id=116527307]
-script = ExtResource("4_wu8e1")
-
-[node name="JumpBuffer" type="Timer" parent="Movement/Jump" unique_id=1289749366]
-wait_time = 0.08
-
-[node name="CoyoteTime" type="Timer" parent="Movement/Jump" unique_id=1673397862]
-wait_time = 0.05
-
-[node name="Slide" type="Node" parent="Movement" unique_id=1310771986]
-script = ExtResource("8_rfelt")
-
-[node name="SlideCooldown" type="Timer" parent="Movement/Slide" unique_id=1682295749]
-wait_time = 0.1
-one_shot = true
-
-[node name="Action" type="Node" parent="." unique_id=404422700]
-
-[node name="Push" type="Node" parent="Action" unique_id=1823654466]
-script = ExtResource("9_i8wnn")
-
-[node name="Stun" type="Node" parent="Action" unique_id=1271674831]
-script = ExtResource("10_fkujh")
-
-[node name="Block" type="Node" parent="Action" unique_id=916281026]
-script = ExtResource("11_c3qcs")
-
-[node name="Attack" type="Node" parent="Action" unique_id=1474778969]
-script = ExtResource("12_xw1uj")
-
 [node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
 collision_layer = 2
 collision_mask = 4
@@ -127,32 +109,54 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
 shape = SubResource("SphereShape3D_j5k5y")
 
-[node name="ShieldRigidBody3D" type="RigidBody3D" parent="." unique_id=212339813]
-process_mode = 4
-collision_mask = 15
-lock_rotation = true
-freeze = true
+[node name="StateMachine" type="Node" parent="." unique_id=1172272797 node_paths=PackedStringArray("body")]
+script = ExtResource("14_tpoe8")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://b5p37pnms07a3"
 
-[node name="ShieldCollisionShape3D" type="CollisionShape3D" parent="ShieldRigidBody3D" unique_id=387170960]
-transform = Transform3D(1, 0, 0, 0, 0.13917309, -0.990268, 0, 0.990268, 0.13917309, 0, 0.49082947, 0.5914937)
-shape = SubResource("CylinderShape3D_nhhn2")
+[node name="StatePlayerIdle" type="Node" parent="StateMachine" unique_id=1433685177]
+script = ExtResource("22_fv3qe")
+metadata/_custom_type_script = "uid://ckoymk5deee6w"
 
-[node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=117184041]
-process_mode = 4
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("13_faa7f")
-metadata/_custom_type_script = "uid://y66w2o3cq0xj"
+[node name="StatePlayerMove" type="Node" parent="StateMachine" unique_id=75871474]
+script = ExtResource("18_svsln")
+metadata/_custom_type_script = "uid://dt4ry7jtb7c4d"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=1770045224]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CylinderShape3D_gn4dx")
+[node name="StatePlayerJump" type="Node" parent="StateMachine" unique_id=31969445]
+script = ExtResource("17_s60h0")
+metadata/_custom_type_script = "uid://c50xg6ucuwrex"
 
-[connection signal="attack_pressed" from="Input" to="Action/Attack" method="_on_player_input_attack_pressed"]
-[connection signal="block_pressed" from="Input" to="Action/Block" method="_on_player_input_block_pressed"]
-[connection signal="block_released" from="Input" to="Action/Block" method="_on_player_input_block_released"]
-[connection signal="jump_pressed" from="Input" to="Movement/Jump" method="_on_player_input_jump_pressed"]
-[connection signal="push_pressed" from="Input" to="Action/Push" method="_on_player_input_push_pressed"]
-[connection signal="stun_pressed" from="Input" to="Action/Stun" method="_on_player_input_stun_pressed"]
-[connection signal="timeout" from="Movement/Jump/JumpBuffer" to="Movement/Jump" method="_on_jump_buffer_timeout"]
-[connection signal="timeout" from="Movement/Jump/CoyoteTime" to="Movement/Jump" method="_on_coyote_time_timeout"]
+[node name="StatePlayerFall" type="Node" parent="StateMachine" unique_id=1377305298]
+script = ExtResource("23_s60h0")
+metadata/_custom_type_script = "uid://bdmacomrgo0ua"
+
+[node name="StatePlayerAttack" type="Node" parent="StateMachine" unique_id=1656673416]
+script = ExtResource("15_tpoe8")
+metadata/_custom_type_script = "uid://cntjiavyqph61"
+
+[node name="StatePlayerBlock" type="Node" parent="StateMachine" unique_id=1177395934]
+script = ExtResource("16_fv3qe")
+metadata/_custom_type_script = "uid://cj4oj870ctx6g"
+
+[node name="StatePlayerPush" type="Node" parent="StateMachine" unique_id=371503701]
+script = ExtResource("19_ctn1p")
+metadata/_custom_type_script = "uid://ca1cde4u1cruj"
+
+[node name="StatePlayerSlide" type="Node" parent="StateMachine" unique_id=1498594815]
+script = ExtResource("20_ne211")
+metadata/_custom_type_script = "uid://bpu5le4qxh478"
+
+[node name="StatePlayerStun" type="Node" parent="StateMachine" unique_id=427534442]
+script = ExtResource("21_kx8rx")
+metadata/_custom_type_script = "uid://ubfr242no8cv"
+
+[connection signal="attack_pressed" from="Input" to="StateMachine" method="_on_input_attack_pressed"]
+[connection signal="block_pressed" from="Input" to="StateMachine" method="_on_input_block_pressed"]
+[connection signal="block_released" from="Input" to="StateMachine" method="_on_input_block_released"]
+[connection signal="jump_pressed" from="Input" to="StateMachine" method="_on_input_jump_pressed"]
+[connection signal="push_pressed" from="Input" to="StateMachine" method="_on_input_push_pressed"]
+[connection signal="run_pressed" from="Input" to="StateMachine" method="_on_input_run_pressed"]
+[connection signal="run_released" from="Input" to="StateMachine" method="_on_input_run_released"]
+[connection signal="slide_pressed" from="Input" to="StateMachine" method="_on_input_slide_pressed"]
+[connection signal="slide_released" from="Input" to="StateMachine" method="_on_input_slide_released"]
+[connection signal="stun_pressed" from="Input" to="StateMachine" method="_on_input_stun_pressed"]

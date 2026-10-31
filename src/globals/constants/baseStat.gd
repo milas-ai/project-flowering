@@ -8,12 +8,14 @@ class PLAYER:
 	const DAMAGE: int = 2
 	const JUMP_VELOCITY: float = 7.0
 	const FRICTION: float = 10.0
-	const SLIDE_FRICTION: float = 0.5
-	const SLIDE_SPEED: float = 12.0
+	const SLIDE_FRICTION: float = 1.0
+	const SLIDE_SPEED: float = 10.0
 	const MAX_SLIDE_SPEED: float = 100.0
 	const SLOPE_ACCELERATION: float = 15.0
 	const STEER_INFLUENCE: float = 2.0
-	const TURNING_SPEED: float = 7.0
+	const TURNING_SPEED: float = 5.0
+	const PUSH_FORCE: float = 10.0
+	const SLIDE_COYOTE_TIME: float = 0.4
 
 
 class ENEMY:

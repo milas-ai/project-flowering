@@ -1,4 +1,4 @@
-class_name StateAttack
+class_name StateEnemyAttack
 extends State
 
 
@@ -12,8 +12,8 @@ func enter() -> void:
 func update(_delta: float) -> void:
 	if not _on_cooldown:
 		if not body.player_on_near_sight:
-				state_machine.transition_to("StateChase" if not body.steady else "StateIdle")
-				return
+			state_machine.transition_to("StateEnemyChase" if not body.steady else "StateEnemyIdle")
+			return
 		_on_cooldown = true
 		body.attack_player()
 		get_tree().create_timer(

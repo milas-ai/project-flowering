@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bwbwt3paorqwv" path="res://src/character/enemies/ant/ant.gd" id="1_gbvur"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="2_gbvur"]
 [ext_resource type="PackedScene" uid="uid://box4iqlb7w81q" path="res://assets/models/enemies/ant_model.glb" id="2_pljm0"]
-[ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_idle.gd" id="3_pljm0"]
-[ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_chase.gd" id="4_mtr0v"]
-[ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_attack.gd" id="5_ql16m"]
-[ext_resource type="Script" uid="uid://cte7ggrq7jija" path="res://src/character/enemies/enemy_components/state_stunned.gd" id="7_pljm0"]
+[ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_enemy_idle.gd" id="3_pljm0"]
+[ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_enemy_chase.gd" id="4_mtr0v"]
+[ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_enemy_attack.gd" id="5_ql16m"]
+[ext_resource type="Script" uid="uid://cte7ggrq7jija" path="res://src/character/enemies/enemy_components/state_enemy_stunned.gd" id="7_pljm0"]
 [ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/character/character_components/hurtbox_component_3D.gd" id="8_bcgaa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mtr0v"]
@@ -57,19 +57,19 @@ script = ExtResource("2_gbvur")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://b5p37pnms07a3"
 
-[node name="StateIdle" type="Node" parent="StateMachine" unique_id=783951458]
+[node name="StateEnemyIdle" type="Node" parent="StateMachine" unique_id=783951458]
 script = ExtResource("3_pljm0")
 metadata/_custom_type_script = "uid://ddapfr8huqr7e"
 
-[node name="StateChase" type="Node" parent="StateMachine" unique_id=841656271]
+[node name="StateEnemyChase" type="Node" parent="StateMachine" unique_id=841656271]
 script = ExtResource("4_mtr0v")
 metadata/_custom_type_script = "uid://bqqx1nkj1145a"
 
-[node name="StateAttack" type="Node" parent="StateMachine" unique_id=702060198]
+[node name="StateEnemyAttack" type="Node" parent="StateMachine" unique_id=702060198]
 script = ExtResource("5_ql16m")
 metadata/_custom_type_script = "uid://bq43g2jkss01y"
 
-[node name="StateStunned" type="Node" parent="StateMachine" unique_id=149798119]
+[node name="StateEnemyStunned" type="Node" parent="StateMachine" unique_id=149798119]
 script = ExtResource("7_pljm0")
 metadata/_custom_type_script = "uid://cte7ggrq7jija"
 
