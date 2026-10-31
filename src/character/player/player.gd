@@ -42,7 +42,8 @@ func process_rotation(is_sliding: bool) -> void:
 		_character_model.look_at(_character_model.global_position + input_direction, Vector3.UP, true)
 	
 	if is_sliding:
-		_character_model.look_at(_character_model.global_position + horizontal_velocity, get_floor_normal(), true)
+		if get_floor_normal().length() > 0.1:
+			_character_model.look_at(_character_model.global_position + horizontal_velocity, get_floor_normal(), true)
 
 
 func take_damage(amount: int) -> void:
