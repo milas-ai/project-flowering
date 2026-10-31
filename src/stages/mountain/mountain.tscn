@@ -24,9 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
 [ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
+[ext_resource type="PackedScene" uid="uid://bh5hchi14h3rp" path="res://src/terrain/mountain/ramp/big/mountain_ramp_big_1.tscn" id="25_ot1hr"]
 [ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/bettle_spawn_point.gd" id="25_y0856"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
-[ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/god_rays.gdshader" id="27_jmp0g"]
+[ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="27_jmp0g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -593,9 +594,6 @@ transform = Transform3D(0.9153267, 0, 0.40271205, 0, 1, 0, -0.40271205, 0, 0.915
 [node name="RampMedium3" parent="StageTerrain/Section5" unique_id=1916783961 instance=ExtResource("22_4se7b")]
 transform = Transform3D(0.9153267, 0, 0.40271205, 0, 1, 0, -0.40271205, 0, 0.9153267, -117.11599, 61.82092, 234.3997)
 
-[node name="RampMedium4" parent="StageTerrain/Section5" unique_id=647862873 instance=ExtResource("22_4se7b")]
-transform = Transform3D(3.7482622, 0, 1.6491055, 0, 4.094999, 0, -1.6491055, 0, 3.7482622, -76.9863, 37.52568, 314.49658)
-
 [node name="WallSmall15" parent="StageTerrain/Section5" unique_id=1998561531 instance=ExtResource("23_x2kea")]
 transform = Transform3D(0.9153267, -0.40271205, -1.7603103e-08, 0, -4.371139e-08, 1, -0.40271205, -0.9153267, -4.0010203e-08, -160.45514, 88.54419, 92.13613)
 
@@ -604,6 +602,9 @@ transform = Transform3D(0.25717103, 0, -1.4414527, 0, 0.99999994, 0, 0.92638606,
 
 [node name="RampSmall12" parent="StageTerrain/Section5" unique_id=557004723 instance=ExtResource("13_wq3j4")]
 transform = Transform3D(0.25717103, 0, -1.4414527, 0, 0.99999994, 0, 0.92638606, 0, 0.40015706, -105.25576, 56.76658, 248.43976)
+
+[node name="RampBig1" parent="StageTerrain/Section5" unique_id=514621016 instance=ExtResource("25_ot1hr")]
+transform = Transform3D(0.9032832, 0, 0.4290462, 0, 1, 0, -0.4290462, 0, 0.9032832, -76.61282, 38.117702, 315.25967)
 
 [node name="OclusionArea3D1" type="Area3D" parent="." unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.67769, 42.78694, -30.333881)
