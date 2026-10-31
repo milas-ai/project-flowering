@@ -10,6 +10,7 @@ const STATES_TO_SLIDE = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerBlock
 
 var sliding_pressed: bool = false
 var running_pressed: bool = false
+var blocking_pressed: bool = false
 
 
 func _process(_delta: float) -> void:
@@ -17,6 +18,9 @@ func _process(_delta: float) -> void:
 		if _state.name in STATES_TO_SLIDE:
 			if body.is_on_floor() and body.get_floor_normal().y < 0.98:
 				transition_to("StatePlayerSlide")
+	if blocking_pressed:
+		if _state.name in STATES_TO_BLOCK:
+			transition_to("StatePlayerBlock")
 
 
 func _on_input_attack_pressed():
@@ -25,13 +29,13 @@ func _on_input_attack_pressed():
 
 
 func _on_input_block_pressed():
-	if _state.name in STATES_TO_BLOCK:
-		transition_to("StatePlayerBlock")
+	blocking_pressed = true
 
 
 func _on_input_block_released():
 	if _state.name == "StatePlayerBlock":
 		transition_to("StatePlayerIdle")
+	blocking_pressed = false
 
 
 func _on_input_stun_pressed():
