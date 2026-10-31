@@ -9,6 +9,7 @@
 
 [node name="Gym" type="Node3D" unique_id=1179329732]
 script = ExtResource("1_mtmyf")
+player_items_on_spawn = 3
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=37583053]
