@@ -65,7 +65,7 @@ size = Vector3(75.35571, 21.736084, 71.67749)
 size = Vector3(56.6604, 21.736084, 35.108093)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
-size = Vector3(22.061523, 10, 27.576172)
+size = Vector3(19.335693, 10, 14.760742)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
 size = Vector3(550, 1, 850)
@@ -826,6 +826,7 @@ metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -39.220345, 3.1890488, -12.808756)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=160617267]
+transform = Transform3D(0.98253876, 0, -0.18606102, 0, 1, 0, 0.18606102, 0, 0.98253876, -39.83661, 7.913986, -7.769846)
 shape = SubResource("BoxShape3D_gn4dx")
 
 [node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
@@ -883,7 +884,7 @@ metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 shape = SubResource("BoxShape3D_5wuxl")
 
 [node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.800705, 121.460205, -68.023056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.66148, 121.460205, -68.46031)
 script = ExtResource("28_k04n5")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
@@ -899,7 +900,6 @@ mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
 [node name="GodRays" type="Node3D" parent="." unique_id=1530139876]
-visible = false
 
 [node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=964688825]
 transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -81.231255, 145.62065, -71.14273)
