@@ -8,12 +8,17 @@ signal dead()
 var input_direction := Vector3.ZERO
 
 @onready var _character_model: Node3D = $CharacterModel
-
+@onready var _bottle_cap_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_002
+@onready var _scissors_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_001
 
 var health: int = BaseStat.PLAYER.HEALTH:
 	set(value):
 		health = value
 		emit_signal("update_health", health)
+var items: int = 0:
+	set(value):
+		items = value
+		_update_items_visuals()
 
 
 func _ready() -> void:
@@ -58,3 +63,14 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		emit_signal("dead")
+
+
+func _update_items_visuals() -> void:
+	_bottle_cap_node.show()
+	_scissors_node.show()
+
+	if items < BaseStat.PLAYER.ITEMS.BOTTLE_CAP:
+		_bottle_cap_node.hide()
+	
+	if items < BaseStat.PLAYER.ITEMS.SCISSORS:
+		_scissors_node.hide()

@@ -16,6 +16,12 @@ class PLAYER:
 	const TURNING_SPEED: float = 5.0
 	const PUSH_FORCE: float = 10.0
 	const SLIDE_COYOTE_TIME: float = 0.4
+	enum ITEMS {
+		NONE,
+		BOTTLE_CAP,
+		SCISSORS,
+		FIREFLY
+	}
 
 
 class ENEMY:
