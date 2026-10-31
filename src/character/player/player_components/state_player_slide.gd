@@ -24,7 +24,7 @@ func update(delta: float) -> void:
 	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
 	body.process_rotation(true)
 
-	var floor_normal: Vector3 = body.get_floor_normal()
+	var floor_normal: Vector3 = body.get_floor_normal().normalized()
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
 	_current_speed = move_toward(_current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
