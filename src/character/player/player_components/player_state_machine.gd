@@ -17,15 +17,18 @@ func _process(_delta: float) -> void:
 	if sliding_pressed:
 		if _state.name in STATES_TO_SLIDE:
 			if body.is_on_floor() and body.get_floor_normal().y < 0.98:
-				transition_to("StatePlayerSlide")
+				if body.items >= BaseStat.PLAYER.ITEMS.BOTTLE_CAP:
+					transition_to("StatePlayerSlide")
 	if blocking_pressed:
 		if _state.name in STATES_TO_BLOCK:
-			transition_to("StatePlayerBlock")
+			if body.items >= BaseStat.PLAYER.ITEMS.BOTTLE_CAP:
+				transition_to("StatePlayerBlock")
 
 
 func _on_input_attack_pressed():
 	if _state.name in STATES_TO_ATTACK:
-		transition_to("StatePlayerAttack")
+		if body.items >= BaseStat.PLAYER.ITEMS.SCISSORS:
+			transition_to("StatePlayerAttack")
 
 
 func _on_input_block_pressed():
@@ -40,12 +43,14 @@ func _on_input_block_released():
 
 func _on_input_stun_pressed():
 	if _state.name in STATES_TO_STUN:
-		transition_to("StatePlayerStun")
+		if body.items >= BaseStat.PLAYER.ITEMS.FIREFLY:
+			transition_to("StatePlayerStun")
 
 
 func _on_input_push_pressed():
 	if _state.name in STATES_TO_PUSH:
-		transition_to("StatePlayerPush")
+		if body.items >= BaseStat.PLAYER.ITEMS.SCISSORS:
+			transition_to("StatePlayerPush")
 
 
 func _on_input_jump_pressed():
