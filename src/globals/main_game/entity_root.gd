@@ -2,9 +2,9 @@ class_name EntityRoot
 extends Node3D
 
 
-@onready var _bettle_bullet_scene: PackedScene = preload(SceneUID.ENTITIES.BETTLE_BULLET)
+@onready var _beetle_bullet_scene: PackedScene = preload(SceneUID.ENTITIES.BEETLE_BULLET)
 @onready var _roly_poly_scene: PackedScene = preload(SceneUID.ENEMIES.ROLY_POLY)
-@onready var _bettle_scene: PackedScene = preload(SceneUID.ENEMIES.BETTLE)
+@onready var _beetle_scene: PackedScene = preload(SceneUID.ENEMIES.BEETLE)
 @onready var _ant_scene: PackedScene = preload(SceneUID.ENEMIES.ANT)
 
 
@@ -12,8 +12,8 @@ func spawn_enemies(spawn_points: Array) -> void:
 	for spawn_point in spawn_points:
 		var enemy: Enemy
 		if spawn_point is BeetleSpawnPoint:
-			enemy = _bettle_scene.instantiate() as Enemy
-			enemy.shoot.connect(_on_bettle_shoot)
+			enemy = _beetle_scene.instantiate() as Enemy
+			enemy.shoot.connect(_on_beetle_shoot)
 		elif spawn_point is RolyPolySpawnPoint:
 			enemy = _roly_poly_scene.instantiate() as Enemy
 		elif spawn_point is AntSpawnPoint:
@@ -25,8 +25,8 @@ func spawn_enemies(spawn_points: Array) -> void:
 		add_child(enemy)
 
 
-func _on_bettle_shoot(direction: Vector3, location: Vector3, speed: float) -> void:
-	var spawned_bullet: BettleBullet = _bettle_bullet_scene.instantiate()
+func _on_beetle_shoot(direction: Vector3, location: Vector3, speed: float) -> void:
+	var spawned_bullet: BeetleBullet = _beetle_bullet_scene.instantiate()
 	add_child(spawned_bullet)
 	spawned_bullet.rotation = direction
 	spawned_bullet.position = location

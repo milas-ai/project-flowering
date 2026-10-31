@@ -12,7 +12,7 @@ class STAGES:
 
 class ENEMIES:
 	const ANT: String = "uid://c88yr21yjr2wk"
-	const BETTLE: String = "uid://dfv7t0b64ff47"
+	const BEETLE: String = "uid://dfv7t0b64ff47"
 	const ROLY_POLY: String = "uid://bhd5vasd3pgwm"
 
 

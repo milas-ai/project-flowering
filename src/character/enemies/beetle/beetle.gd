@@ -7,7 +7,7 @@ signal shoot(direction, location, speed)
 static var SPEED: float = BaseStat.ENEMY.BEETLE.SPEED
 static var FRICTION: float = BaseStat.ENEMY.BEETLE.FRICTION
 
-var _bullet_speed: float = BaseStat.ENEMY.BETTLE.BULLET_SPEED
+var _bullet_speed: float = BaseStat.ENEMY.BEETLE.BULLET_SPEED
 
 @onready var _bullet_marker: Marker3D = $BulletMarker
 
