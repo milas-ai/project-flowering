@@ -25,10 +25,6 @@ func _ready() -> void:
 	$"CharacterModel/HurtboxComponent3D".damage = BaseStat.PLAYER.DAMAGE
 
 
-func _process(_delta: float) -> void:
-	RenderingServer.global_shader_parameter_set("player_position", global_position)
-
-
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	horizontal_velocity = velocity * Vector3(1,0,1)
