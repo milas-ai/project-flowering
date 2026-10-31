@@ -2,6 +2,13 @@ class_name MainGame
 extends Node
 
 
+@export_group("Debug")
+@export_enum(
+		"Gym:-1", 
+		"Menu",
+		"Mountain",
+) var debug_stage: int = 0
+
 var player: Player = null
 var options: Options
 var _current_stage: BaseStage = null
@@ -16,6 +23,8 @@ var _current_stage_uid: String
 
 func _ready() -> void:
 	_load_save_data()
+	if debug_stage:
+		_current_stage_uid = stage_id_to_uid(debug_stage)
 	_init_player()
 	reset_stage()
 
@@ -48,6 +57,17 @@ func transition_to_stage(stage_scene_uid: String) -> void:
 
 func reset_stage() -> void:
 	transition_to_stage(_current_stage_uid)
+
+
+func stage_id_to_uid(stage_id: int) -> String:
+	match stage_id:
+		-1:
+			return SceneUID.STAGES.GYM
+		1:
+			return SceneUID.STAGES.MOUNTAIN
+		_:
+			push_error("Invalid stage ID: %d" % stage_id)
+			return ""
 
 
 func _load_stage(stage_scene_uid: String) -> void:
