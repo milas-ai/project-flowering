@@ -6,6 +6,7 @@ extends Node3D
 
 @onready var enemy_spawn_points := get_tree().get_nodes_in_group("enemy_spawn_points")
 @onready var _player_spawn_point: Marker3D = $PlayerSpawnPoint
+@onready var _main_game: MainGame = $/root/MainGame
 
 
 func get_player_spawn_point() -> Vector3:

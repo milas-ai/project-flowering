@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnohyrkccqdd6"]
 
-[ext_resource type="Script" uid="uid://duu016e02tjwd" path="res://src/stages/base_stage.gd" id="1_4se7b"]
+[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/mountain/mountain.gd" id="1_jmp0g"]
 [ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/mountain/mountain_blockout.tscn" id="2_4se7b"]
 [ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_1.tscn" id="4_iwdui"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="5_y0856"]
@@ -61,6 +61,9 @@ size = Vector3(75.35571, 21.736084, 71.67749)
 [sub_resource type="BoxShape3D" id="BoxShape3D_grnlo"]
 size = Vector3(56.6604, 21.736084, 35.108093)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
+size = Vector3(550, 1, 850)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
 
@@ -105,7 +108,7 @@ radial_segments = 4
 rings = 0
 
 [node name="Mountain" type="Node3D" unique_id=138948264]
-script = ExtResource("1_4se7b")
+script = ExtResource("1_jmp0g")
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
@@ -113,7 +116,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -206.14326, 103.849686, 111.23531)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -206.143, 87.5, 111.235)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -793,6 +796,14 @@ script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
+[node name="RespawnArea3D" type="Area3D" parent="." unique_id=1764096592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea3D" unique_id=1366119165]
+shape = SubResource("BoxShape3D_nhhn2")
+
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
 mesh = SubResource("PlaneMesh_kgtat")
@@ -831,3 +842,5 @@ instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
 mesh = SubResource("CylinderMesh_ot1hr")
 surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[connection signal="body_entered" from="RespawnArea3D" to="." method="_on_respawn_area_3d_body_entered"]
