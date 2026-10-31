@@ -1,0 +1,127 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
+
+[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://assets/textures/terrain/grass/grass_blade.png" id="1_lqm7f"]
+
+[sub_resource type="Shader" id="Shader_5h1dc"]
+code = "shader_type spatial;
+render_mode cull_back, depth_draw_always, alpha_to_coverage;
+
+const float NOISE_SCALE = .01;
+//const float TOP_LIGHT_WEIGHT = 0.006;
+const vec3 LIGHT_SAMPLE_OFFSET = vec3(0,.7,0);
+
+group_uniforms Grass;
+uniform sampler2D alpha_texture;
+//uniform vec3 accent_grass_color: source_color;
+uniform float roughness: hint_range(0.0, 1.0) = 1.0;
+uniform float specular: hint_range(0.0, 1.0, 0.01) = 0.2;
+//uniform float transparency_mask_radius: hint_range(0.0, 30.0);
+//uniform float transparency_exponent: hint_range(0.0, 10.0);
+
+
+group_uniforms Lighting;
+uniform float light_strength: hint_range(0.0, 1.0) = .25;
+uniform float step_blur: hint_range(0.0, 0.1) = .015;
+uniform float cutoff_light: hint_range(0.0, 1.0) = .2;
+uniform float weight_light: hint_range(0.0, 1.0) = .3;
+uniform float cutoff_penumbra: hint_range(0.0, 1.0) = .1;
+uniform float weight_penumbra: hint_range(0.0, 1.0) = .15;
+
+group_uniforms Wind;
+uniform float wind_bend_ammount = 1.0;
+uniform float sway_back: hint_range(0.0, 1.0) = 1.0;
+
+//global uniform vec3 player_position;
+global uniform sampler2D grass_albedo_texture;
+global uniform sampler2D wind_noise_texture;
+global uniform vec3 wind_direction;
+global uniform float wind_scale;
+global uniform float wind_speed;
+global uniform float wind_strength;
+
+varying vec3 node_pos_view;
+//varying flat int instance_id;
+
+
+void vertex() {
+	// Billboard Mode: Enabled
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
+			MAIN_CAM_INV_VIEW_MATRIX[0],
+			MAIN_CAM_INV_VIEW_MATRIX[1],
+			MAIN_CAM_INV_VIEW_MATRIX[2],
+			MODEL_MATRIX[3]);
+
+	// Billboard Keep Scale: Enabled
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(
+			vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),
+			vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0),
+			vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
+			vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	
+	// Set pos_view for cell light calculation 
+	node_pos_view = NODE_POSITION_VIEW + LIGHT_SAMPLE_OFFSET;
+	
+	// Wind
+	vec3 vertex = (MODEL_MATRIX * vec4(VERTEX,1)).xyz; // use uv as vertex's global .xz
+	vertex = vertex * wind_scale - (wind_speed * TIME * wind_direction); // pan UV
+	vec3 displacement = texture(wind_noise_texture, vertex.xz).xyz;
+	displacement = displacement * (1.0 + sway_back) - sway_back;
+	displacement *= wind_bend_ammount * wind_strength;
+	float uv_mask = 1.0 - UV.y;
+	vec3 wind_direction_view = (VIEW_MATRIX * vec4(wind_direction,0)).xyz; //correct direction to follow world instead of view
+	VERTEX += displacement * uv_mask * wind_direction_view;
+	
+	//instance_id = INSTANCE_ID;
+}
+
+void fragment() {
+	// Color texture
+	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
+	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
+	//if (fract(float(instance_id)/1000.0) < .005) ALBEDO = accent_grass_color;
+	
+	SPECULAR = specular;
+	ROUGHNESS = roughness;
+	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
+	
+	// Transparency with player position
+	//vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
+	//ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
+	//ALPHA = pow(ALPHA, transparency_exponent);
+	
+	// Set alpha mask
+	ALPHA *= step(.9,texture(alpha_texture, UV).a);
+	
+	// Set vertex as node's position for cell light calculation 
+	LIGHT_VERTEX = node_pos_view;
+}
+
+void light() {
+	float diffuse = 1.0;
+	float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
+	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
+	
+	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+	// Make the top of the blade lighter
+	//diffuse += (1.0 - UV.y) * TOP_LIGHT_WEIGHT;
+	
+	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_5h1dc")
+shader_parameter/alpha_texture = ExtResource("1_lqm7f")
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/light_strength = 0.25
+shader_parameter/step_blur = 0.015
+shader_parameter/cutoff_light = 0.2
+shader_parameter/weight_light = 0.3
+shader_parameter/cutoff_penumbra = 0.1
+shader_parameter/weight_penumbra = 0.15
+shader_parameter/wind_bend_ammount = 1.0
+shader_parameter/sway_back = 1.0

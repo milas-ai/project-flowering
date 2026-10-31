@@ -3,20 +3,30 @@ extends Character
 
 
 signal update_health(health: int)
+signal dead()
 
 var input_direction := Vector3.ZERO
 
 @onready var _character_model: Node3D = $CharacterModel
+@onready var _bottle_cap_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_002
+@onready var _scissors_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_001
 
-
-var _health: int = BaseStat.PLAYER.HEALTH:
+var health: int = BaseStat.PLAYER.HEALTH:
 	set(value):
-		_health = value
-		emit_signal("update_health", _health)
+		health = value
+		emit_signal("update_health", health)
+var items: int = 0:
+	set(value):
+		items = value
+		_update_items_visuals()
 
 
 func _ready() -> void:
 	$"CharacterModel/HurtboxComponent3D".damage = BaseStat.PLAYER.DAMAGE
+
+
+func _process(_delta: float) -> void:
+	RenderingServer.global_shader_parameter_set("player_position", global_position)
 
 
 func _physics_process(delta: float) -> void:
@@ -50,6 +60,17 @@ func process_rotation(is_sliding: bool) -> void:
 
 
 func take_damage(amount: int) -> void:
-	_health -= amount
-	if _health <= 0:
-		get_tree().quit()
+	health -= amount
+	if health <= 0:
+		emit_signal("dead")
+
+
+func _update_items_visuals() -> void:
+	_bottle_cap_node.show()
+	_scissors_node.show()
+
+	if items < BaseStat.PLAYER.ITEMS.BOTTLE_CAP:
+		_bottle_cap_node.hide()
+	
+	if items < BaseStat.PLAYER.ITEMS.SCISSORS:
+		_scissors_node.hide()
