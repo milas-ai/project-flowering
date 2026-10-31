@@ -173,10 +173,6 @@ anti_aliasing/screen_space_roughness_limiter/enabled=false
 
 [shader_globals]
 
-player_position={
-"type": "vec3",
-"value": Vector3(0, 0, 0)
-}
 grass_albedo_texture={
 "type": "sampler2D",
 "value": "res://assets/textures/noise/grass_albedo_tex.tres"
