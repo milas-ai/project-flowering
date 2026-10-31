@@ -34,7 +34,10 @@ func process_horizontal_movement(delta: float, direction_vector: Vector3, speed:
 		else:
 			horizontal_velocity = direction_vector * speed
 	else:
-		horizontal_velocity = horizontal_velocity.lerp(Vector3.ZERO, BaseStat.PLAYER.FRICTION * delta)
+		if is_on_floor():
+			horizontal_velocity = horizontal_velocity.lerp(Vector3.ZERO, BaseStat.PLAYER.FRICTION * delta)
+		else:
+			horizontal_velocity = horizontal_velocity.lerp(Vector3.ZERO, delta)
 
 
 func process_rotation(is_sliding: bool) -> void:
