@@ -23,6 +23,8 @@ func update(delta: float) -> void:
 
 	if body.input_direction.length() < 0.1:
 		state_machine.transition_to("StatePlayerIdle")
+	if body.vertical_velocity.y < 0:
+		state_machine.transition_to("StatePlayerFall")
 
 
 func exit() -> void:
