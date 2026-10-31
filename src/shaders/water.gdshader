@@ -7,10 +7,6 @@ uniform float scale = .02;
 
 uniform sampler2D waves_noise;
 
-
-void vertex() {
-}
-
 vec2 wave_uv(vec2 uv , float time_x_add, float time_y_add, float x_amplitude, float y_amplitude, float _scale, float speed, float scroll_speed) {
 	float uv_x = TIME * scroll_speed + uv.x * _scale + (sin(TIME * speed + time_x_add) * x_amplitude);
 	float uv_y = TIME * scroll_speed + uv.y * _scale + (sin(TIME * speed + time_y_add) * y_amplitude);
@@ -52,8 +48,3 @@ void fragment() {
 	
 	ALBEDO = mix(color1, color2, noise);
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the material.
-//	// Uncomment to replace the default light processing function with this one.
-//}
