@@ -70,6 +70,10 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return ""
 
 
+func set_player_items(items: int) -> void:
+	player.items = items
+
+
 func _load_stage(stage_scene_uid: String) -> void:
 	if _current_stage:
 		_current_stage.queue_free()

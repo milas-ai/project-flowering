@@ -117,7 +117,6 @@ rings = 0
 
 [node name="Mountain" type="Node3D" unique_id=138948264]
 script = ExtResource("1_jmp0g")
-spawn_on_checkpoint = true
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
