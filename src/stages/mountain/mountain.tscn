@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnohyrkccqdd6"]
 
-[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/mountain/mountain.gd" id="1_jmp0g"]
+[ext_resource type="Script" uid="uid://duu016e02tjwd" path="res://src/stages/base_stage.gd" id="1_4se7b"]
 [ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/mountain/mountain_blockout.tscn" id="2_4se7b"]
 [ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_1.tscn" id="4_iwdui"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="5_y0856"]
@@ -22,14 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://ci8cn15ptya8y" path="res://src/terrain/mountain/pillar/mountain_pillar_1.tscn" id="21_2laby"]
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
-[ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area.gd" id="24_iwdui"]
+[ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
 [ext_resource type="PackedScene" uid="uid://bh5hchi14h3rp" path="res://src/terrain/mountain/ramp/big/mountain_ramp_big_1.tscn" id="25_ot1hr"]
-[ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/beetle_spawn_point.gd" id="25_y0856"]
+[ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/bettle_spawn_point.gd" id="25_y0856"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
-[ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="26_ot1hr"]
 [ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="27_jmp0g"]
-[ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_ym1el"]
-[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_k04n5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,18 +60,6 @@ size = Vector3(75.35571, 21.736084, 71.67749)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_grnlo"]
 size = Vector3(56.6604, 21.736084, 35.108093)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
-size = Vector3(19.335693, 10, 14.760742)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
-size = Vector3(550, 1, 850)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
-size = Vector3(10, 10, 10)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 2.3823428
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
@@ -120,8 +105,7 @@ radial_segments = 4
 rings = 0
 
 [node name="Mountain" type="Node3D" unique_id=138948264]
-script = ExtResource("1_jmp0g")
-spawn_on_checkpoint = true
+script = ExtResource("1_4se7b")
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
@@ -129,7 +113,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 156.053, 33.6, -14.828)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -206.14326, 103.849686, 111.23531)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -355,10 +339,10 @@ transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97
 transform = Transform3D(0.6868451, 0, 0.34626952, 0, 1, 0, -0.20370111, 0, 1.1675615, 38.624218, 74.882935, -31.459215)
 
 [node name="Pillar1" parent="StageTerrain/Section2" unique_id=1072483793 instance=ExtResource("21_2laby")]
-transform = Transform3D(0.8070143, 0, 0.17728367, 0, 1, 0, -0.17367238, 0, 0.8237948, 22.172396, 83.86447, -20.961685)
+transform = Transform3D(0.8070141, 0, 0.17728363, 0, 1, 0, -0.17367238, 0, 0.8237947, 22.407593, 83.86447, -18.913467)
 
 [node name="Pillar2" parent="StageTerrain/Section2" unique_id=291573791 instance=ExtResource("21_2laby")]
-transform = Transform3D(-0.39567, 0, -0.7168951, 0, 1, 0, 0.6744692, 0, -0.42055845, 22.007662, 86.40782, -10.375394)
+transform = Transform3D(-0.39566985, 0, -0.7168945, 0, 1, 0, 0.67446876, 0, -0.4205585, 23.202179, 86.40782, -6.9601173)
 
 [node name="PlatformSmall6" parent="StageTerrain/Section2" unique_id=1231644096 instance=ExtResource("19_kvbr1")]
 transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97761816, 10.989067, 96.44137, -7.304222)
@@ -516,8 +500,11 @@ transform = Transform3D(0.9617326, 0.028502366, -0.27250445, -0.088624895, 0.973
 [node name="RockMedium16" parent="StageTerrain/Section3" unique_id=1681801024 instance=ExtResource("7_jmp0g")]
 transform = Transform3D(0.014407299, 1.5507208, 0.22062163, -0.7564691, -0.18155974, 0.59244823, 0.55040646, -0.29012352, 0.80847496, -16.339653, 106.649765, -11.906857)
 
-[node name="RockSmall1" parent="StageTerrain/Section3" unique_id=900136619 instance=ExtResource("8_ot1hr")]
-transform = Transform3D(0.9934709, 0, 0.11408704, -7.450581e-09, 1.0000001, 0, -0.11408705, 0, 0.9934708, -39.64092, 114.6714, -56.248104)
+[node name="BettleSpawnPoint8" type="Marker3D" parent="StageTerrain/Section3" unique_id=1304754723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.080936, 103.64377, -11.518603)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="Section4" type="Node3D" parent="StageTerrain" unique_id=1373747546]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
@@ -699,200 +686,112 @@ size = Vector3(48.19336, 32.740234, 45.48633)
 shape = 0
 material = SubResource("FogMaterial_kgtat")
 
-[node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
+[node name="OclusionArea3D1" type="Area3D" parent="." unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.67769, 42.78694, -30.333881)
+script = ExtResource("24_iwdui")
+nodes_to_disable = [NodePath("../StageTerrain/Section2")]
+metadata/_custom_type_script = "uid://dplfslvwve5ba"
 
-[node name="BeetleSpawnPoint" type="Marker3D" parent="EnemySpawnPoints" unique_id=2073272143]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea3D1" unique_id=815578344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
+shape = SubResource("BoxShape3D_jmp0g")
+
+[node name="OclusionArea3D2" type="Area3D" parent="." unique_id=1098557353 node_paths=PackedStringArray("nodes_to_disable")]
+transform = Transform3D(0.8313465, 0, 0.55575436, 0, 1, 0, -0.55575436, 0, 0.8313465, 30.26683, 81.152405, -65.899864)
+script = ExtResource("24_iwdui")
+nodes_to_disable = [NodePath("../StageTerrain/Section3")]
+metadata/_custom_type_script = "uid://dplfslvwve5ba"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea3D2" unique_id=1238273058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
+shape = SubResource("BoxShape3D_grnlo")
+
+[node name="EnemiesSpawnPoints" type="Node3D" parent="." unique_id=1507018028]
+
+[node name="BettleSpawnPoint" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=2073272143]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 60, -42)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint2" type="Marker3D" parent="EnemySpawnPoints" unique_id=982456456]
+[node name="BettleSpawnPoint2" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=982456456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.246735, 69.04856, -85.806725)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint3" type="Marker3D" parent="EnemySpawnPoints" unique_id=1724893406]
+[node name="BettleSpawnPoint3" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1724893406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.80044, 69.04856, -89.72518)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint4" type="Marker3D" parent="EnemySpawnPoints" unique_id=858362169]
+[node name="BettleSpawnPoint4" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=858362169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.857098, 69.04856, -99.92495)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint5" type="Marker3D" parent="EnemySpawnPoints" unique_id=784607562]
+[node name="BettleSpawnPoint5" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=784607562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.249336, 88.4732, -41.84297)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint6" type="Marker3D" parent="EnemySpawnPoints" unique_id=1500412955]
+[node name="BettleSpawnPoint6" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1500412955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.593084, 97.71184, -38.846844)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint7" type="Marker3D" parent="EnemySpawnPoints" unique_id=111706718]
+[node name="BettleSpawnPoint7" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=111706718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.407047, 96.70658, -37.980595)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint8" type="Marker3D" parent="EnemySpawnPoints" unique_id=1304754723]
-transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -63.625393, 111.90462, -22.602026)
-script = ExtResource("25_y0856")
-steady = true
-metadata/_custom_type_script = "uid://dxqe716qb2txf"
-
-[node name="BeetleSpawnPoint9" type="Marker3D" parent="EnemySpawnPoints" unique_id=849865378]
+[node name="BettleSpawnPoint9" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=849865378]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -110.403336, 111.90462, -13.358101)
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint10" type="Marker3D" parent="EnemySpawnPoints" unique_id=926638678]
+[node name="BettleSpawnPoint10" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=926638678]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -196.76361, 107.23448, 54.115784)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint11" type="Marker3D" parent="EnemySpawnPoints" unique_id=1768653056]
+[node name="BettleSpawnPoint11" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1768653056]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -192.02069, 103.09346, 66.17665)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint12" type="Marker3D" parent="EnemySpawnPoints" unique_id=1154465673]
+[node name="BettleSpawnPoint12" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1154465673]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -189.45636, 97.50687, 79.01354)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint13" type="Marker3D" parent="EnemySpawnPoints" unique_id=1168237978]
+[node name="BettleSpawnPoint13" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1168237978]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -221.47124, 78.75083, 158.90889)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint14" type="Marker3D" parent="EnemySpawnPoints" unique_id=368820911]
+[node name="BettleSpawnPoint14" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=368820911]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -182.88919, 78.75083, 175.51079)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint15" type="Marker3D" parent="EnemySpawnPoints" unique_id=1033449185]
+[node name="BettleSpawnPoint15" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1033449185]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -199.83406, 78.75083, 190.59224)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint16" type="Marker3D" parent="EnemySpawnPoints" unique_id=847761548]
+[node name="BettleSpawnPoint16" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=847761548]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -158.15533, 69.63833, 224.968)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
-
-[node name="OclusionAreas" type="Node3D" parent="." unique_id=17240420]
-
-[node name="OclusionArea1" type="Area3D" parent="OclusionAreas" unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.67769, 42.78694, -30.333881)
-script = ExtResource("24_iwdui")
-nodes_to_disable = [NodePath("../../StageTerrain/Section2")]
-metadata/_custom_type_script = "uid://dplfslvwve5ba"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionAreas/OclusionArea1" unique_id=815578344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
-shape = SubResource("BoxShape3D_jmp0g")
-
-[node name="OclusionArea2" type="Area3D" parent="OclusionAreas" unique_id=1098557353 node_paths=PackedStringArray("nodes_to_disable")]
-transform = Transform3D(0.8313465, 0, 0.55575436, 0, 1, 0, -0.55575436, 0, 0.8313465, 30.26683, 81.152405, -65.899864)
-script = ExtResource("24_iwdui")
-nodes_to_disable = [NodePath("../../StageTerrain/Section3")]
-metadata/_custom_type_script = "uid://dplfslvwve5ba"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionAreas/OclusionArea2" unique_id=1238273058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
-shape = SubResource("BoxShape3D_grnlo")
-
-[node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
-
-[node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=600302583]
-transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, -53.372635, 118.693085, -30.397934)
-collision_layer = 0
-script = ExtResource("26_ot1hr")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=1597557446]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -39.220345, 3.1890488, -12.808756)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=160617267]
-transform = Transform3D(0.98253876, 0, -0.18606102, 0, 1, 0, 0.18606102, 0, 0.98253876, -39.83661, 7.913986, -7.769846)
-shape = SubResource("BoxShape3D_gn4dx")
-
-[node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
-transform = Transform3D(0.70961416, 0, -0.7045905, 0, 1, 0, 0.7045905, 0, 0.70961416, -201.50702, 108.9556, 22.38498)
-collision_layer = 0
-script = ExtResource("26_ot1hr")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea4" unique_id=178259512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.657593, -4.076271, 0.75209045)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=1838210428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
-shape = SubResource("BoxShape3D_gn4dx")
-
-[node name="CheckPointArea2" type="Area3D" parent="CheckPoints" unique_id=1635300360]
-transform = Transform3D(0.9983795, 0, 0.05690598, 0, 1, 0, -0.05690598, 0, 0.9983795, 35.07219, 96.82927, -39.125217)
-collision_layer = 0
-script = ExtResource("26_ot1hr")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea2" unique_id=1949701867]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1193619, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea2" unique_id=1680934628]
-shape = SubResource("BoxShape3D_gn4dx")
-
-[node name="CheckPointArea" type="Area3D" parent="CheckPoints" unique_id=744735331]
-transform = Transform3D(0.8988831, 0, -0.4381884, 0, 1, 0, 0.4381884, 0, 0.8988831, 93.19478, 59.2686, -41.62151)
-collision_layer = 0
-script = ExtResource("26_ot1hr")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=2470469]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.9299927, -1.4127579, 22.602379)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=1363466506]
-shape = SubResource("BoxShape3D_gn4dx")
-
-[node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
-collision_layer = 0
-collision_mask = 5
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea" unique_id=1366119165]
-shape = SubResource("BoxShape3D_nhhn2")
-
-[node name="TransitionArea" type="Area3D" parent="." unique_id=166739]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
-collision_layer = 0
-script = ExtResource("27_ym1el")
-metadata/_custom_type_script = "uid://cs52mrxk0n47s"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
-shape = SubResource("BoxShape3D_5wuxl")
-
-[node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.66148, 121.460205, -68.46031)
-script = ExtResource("28_k04n5")
-metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
-shape = SubResource("SphereShape3D_nhhn2")
-
-[node name="Item" parent="GetItemArea" unique_id=217793218 instance=ExtResource("8_ot1hr")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.06384277, 0.8980713, 0.1414032)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
@@ -932,6 +831,3 @@ instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
 mesh = SubResource("CylinderMesh_ot1hr")
 surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
-
-[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
-[connection signal="interacted" from="GetItemArea" to="." method="_on_get_item_area_interacted"]
