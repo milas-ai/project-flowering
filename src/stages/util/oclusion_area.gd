@@ -1,4 +1,4 @@
-class_name OclusionArea3D
+class_name OclusionArea
 extends Area3D
 
 

@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ci8cn15ptya8y" path="res://src/terrain/mountain/pillar/mountain_pillar_1.tscn" id="21_2laby"]
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
-[ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area_3D.gd" id="24_iwdui"]
+[ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area.gd" id="24_iwdui"]
 [ext_resource type="PackedScene" uid="uid://bh5hchi14h3rp" path="res://src/terrain/mountain/ramp/big/mountain_ramp_big_1.tscn" id="25_ot1hr"]
 [ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/beetle_spawn_point.gd" id="25_y0856"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
@@ -694,23 +694,23 @@ size = Vector3(48.19336, 32.740234, 45.48633)
 shape = 0
 material = SubResource("FogMaterial_kgtat")
 
-[node name="OclusionArea3D1" type="Area3D" parent="." unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
+[node name="OclusionArea1" type="Area3D" parent="." unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.67769, 42.78694, -30.333881)
 script = ExtResource("24_iwdui")
 nodes_to_disable = [NodePath("../StageTerrain/Section2")]
 metadata/_custom_type_script = "uid://dplfslvwve5ba"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea3D1" unique_id=815578344]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea1" unique_id=815578344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
 shape = SubResource("BoxShape3D_jmp0g")
 
-[node name="OclusionArea3D2" type="Area3D" parent="." unique_id=1098557353 node_paths=PackedStringArray("nodes_to_disable")]
+[node name="OclusionArea2" type="Area3D" parent="." unique_id=1098557353 node_paths=PackedStringArray("nodes_to_disable")]
 transform = Transform3D(0.8313465, 0, 0.55575436, 0, 1, 0, -0.55575436, 0, 0.8313465, 30.26683, 81.152405, -65.899864)
 script = ExtResource("24_iwdui")
 nodes_to_disable = [NodePath("../StageTerrain/Section3")]
 metadata/_custom_type_script = "uid://dplfslvwve5ba"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea3D2" unique_id=1238273058]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea2" unique_id=1238273058]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
 shape = SubResource("BoxShape3D_grnlo")
 
