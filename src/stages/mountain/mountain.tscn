@@ -51,9 +51,9 @@ volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
 
 [sub_resource type="FogMaterial" id="FogMaterial_kgtat"]
-density = 8.0
+density = 0.5107
 albedo = Color(0, 0, 0, 1)
-edge_fade = 0.38637444
+edge_fade = 1.4420017
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmp0g"]
 size = Vector3(75.35571, 21.736084, 71.67749)
@@ -113,7 +113,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -172.1, 123.036125, 91.29906)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -206.14326, 103.849686, 111.23531)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -765,6 +765,30 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BettleSpawnPoint12" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1154465673]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -189.45636, 97.50687, 79.01354)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint13" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1168237978]
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -221.47124, 78.75083, 158.90889)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint14" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=368820911]
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -182.88919, 78.75083, 175.51079)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint15" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=1033449185]
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -199.83406, 78.75083, 190.59224)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
+[node name="BettleSpawnPoint16" type="Marker3D" parent="EnemiesSpawnPoints" unique_id=847761548]
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -158.15533, 69.63833, 224.968)
 script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
