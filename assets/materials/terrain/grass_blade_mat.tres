@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
-[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://src/materials/grass_blade/grass_blade.png" id="1_o5tcc"]
+[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://assets/textures/terrain/grass/grass_blade.png" id="1_lqm7f"]
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;
@@ -114,7 +114,7 @@ void light() {
 [resource]
 render_priority = 0
 shader = SubResource("Shader_5h1dc")
-shader_parameter/alpha_texture = ExtResource("1_o5tcc")
+shader_parameter/alpha_texture = ExtResource("1_lqm7f")
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
 shader_parameter/light_strength = 0.25
