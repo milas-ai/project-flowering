@@ -142,11 +142,11 @@ player_position={
 }
 grass_albedo_texture={
 "type": "sampler2D",
-"value": "res://src/materials/grass_albedo_tex.tres"
+"value": "res://assets/textures/noise/grass_albedo_tex.tres"
 }
 wind_noise_texture={
 "type": "sampler2D",
-"value": "res://src/materials/wind_noise_tex.tres"
+"value": "res://assets/textures/noise/wind_noise_tex.tres"
 }
 wind_speed={
 "type": "float",
