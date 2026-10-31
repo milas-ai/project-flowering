@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dxaedtomrj6r5"
-path="res://.godot/imported/scissor.glb-c43e70bef161fb9cc89586101e4f0bd6.scn"
+uid="uid://lfgqcvef3cae"
+path="res://.godot/imported/cap.glb-82dcf61ef83f87fe7e048ead6f89fadb.scn"
 
 [deps]
 
-source_file="res://assets/models/player/scissor.glb"
-dest_files=["res://.godot/imported/scissor.glb-c43e70bef161fb9cc89586101e4f0bd6.scn"]
+source_file="res://assets/models/props/cap.glb"
+dest_files=["res://.godot/imported/cap.glb-82dcf61ef83f87fe7e048ead6f89fadb.scn"]
 
 [params]
 
