@@ -74,7 +74,7 @@ size = Vector3(550, 1, 850)
 size = Vector3(10, 10, 10)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 5.0
+radius = 2.3823428
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
@@ -121,6 +121,7 @@ rings = 0
 
 [node name="Mountain" type="Node3D" unique_id=138948264]
 script = ExtResource("1_jmp0g")
+spawn_on_checkpoint = true
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
@@ -515,11 +516,8 @@ transform = Transform3D(0.9617326, 0.028502366, -0.27250445, -0.088624895, 0.973
 [node name="RockMedium16" parent="StageTerrain/Section3" unique_id=1681801024 instance=ExtResource("7_jmp0g")]
 transform = Transform3D(0.014407299, 1.5507208, 0.22062163, -0.7564691, -0.18155974, 0.59244823, 0.55040646, -0.29012352, 0.80847496, -16.339653, 106.649765, -11.906857)
 
-[node name="BeetleSpawnPoint8" type="Marker3D" parent="StageTerrain/Section3" unique_id=1304754723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.080936, 103.64377, -11.518603)
-script = ExtResource("25_y0856")
-steady = true
-metadata/_custom_type_script = "uid://dxqe716qb2txf"
+[node name="RockSmall1" parent="StageTerrain/Section3" unique_id=900136619 instance=ExtResource("8_ot1hr")]
+transform = Transform3D(0.9934709, 0, 0.11408704, -7.450581e-09, 1.0000001, 0, -0.11408705, 0, 0.9934708, -39.64092, 114.6714, -56.248104)
 
 [node name="Section4" type="Node3D" parent="StageTerrain" unique_id=1373747546]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
@@ -741,6 +739,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.407047, 96.70658, -37.9805
 script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
+[node name="BeetleSpawnPoint8" type="Marker3D" parent="EnemySpawnPoints" unique_id=1304754723]
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -63.625393, 111.90462, -22.602026)
+script = ExtResource("25_y0856")
+steady = true
+metadata/_custom_type_script = "uid://dxqe716qb2txf"
+
 [node name="BeetleSpawnPoint9" type="Marker3D" parent="EnemySpawnPoints" unique_id=849865378]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -110.403336, 111.90462, -13.358101)
 script = ExtResource("25_y0856")
@@ -812,6 +816,18 @@ shape = SubResource("BoxShape3D_grnlo")
 
 [node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
 
+[node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=600302583]
+transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, -53.372635, 118.693085, -30.397934)
+collision_layer = 0
+script = ExtResource("26_ot1hr")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=1597557446]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -39.220345, 3.1890488, -12.808756)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=160617267]
+shape = SubResource("BoxShape3D_gn4dx")
+
 [node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
 transform = Transform3D(0.70961416, 0, -0.7045905, 0, 1, 0, 0.7045905, 0, 0.70961416, -201.50702, 108.9556, 22.38498)
 collision_layer = 0
@@ -823,18 +839,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.657593, -4.076271, 0.75209
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=1838210428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
-shape = SubResource("BoxShape3D_gn4dx")
-
-[node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=600302583]
-transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, -53.372635, 118.693085, -30.397934)
-collision_layer = 0
-script = ExtResource("26_ot1hr")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=1597557446]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -39.220345, 3.1890488, -12.808756)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=160617267]
 shape = SubResource("BoxShape3D_gn4dx")
 
 [node name="CheckPointArea2" type="Area3D" parent="CheckPoints" unique_id=1635300360]
@@ -879,12 +883,15 @@ metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 shape = SubResource("BoxShape3D_5wuxl")
 
 [node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.9233, 121.460205, -68.385345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.800705, 121.460205, -68.023056)
 script = ExtResource("28_k04n5")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
 shape = SubResource("SphereShape3D_nhhn2")
+
+[node name="Item" parent="GetItemArea" unique_id=217793218 instance=ExtResource("8_ot1hr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.06384277, 0.8980713, 0.1414032)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
@@ -892,6 +899,7 @@ mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
 [node name="GodRays" type="Node3D" parent="." unique_id=1530139876]
+visible = false
 
 [node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=964688825]
 transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -81.231255, 145.62065, -71.14273)
