@@ -694,26 +694,6 @@ size = Vector3(48.19336, 32.740234, 45.48633)
 shape = 0
 material = SubResource("FogMaterial_kgtat")
 
-[node name="OclusionArea1" type="Area3D" parent="." unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.67769, 42.78694, -30.333881)
-script = ExtResource("24_iwdui")
-nodes_to_disable = [NodePath("../StageTerrain/Section2")]
-metadata/_custom_type_script = "uid://dplfslvwve5ba"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea1" unique_id=815578344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
-shape = SubResource("BoxShape3D_jmp0g")
-
-[node name="OclusionArea2" type="Area3D" parent="." unique_id=1098557353 node_paths=PackedStringArray("nodes_to_disable")]
-transform = Transform3D(0.8313465, 0, 0.55575436, 0, 1, 0, -0.55575436, 0, 0.8313465, 30.26683, 81.152405, -65.899864)
-script = ExtResource("24_iwdui")
-nodes_to_disable = [NodePath("../StageTerrain/Section3")]
-metadata/_custom_type_script = "uid://dplfslvwve5ba"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionArea2" unique_id=1238273058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
-shape = SubResource("BoxShape3D_grnlo")
-
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
 [node name="BeetleSpawnPoint" type="Marker3D" parent="EnemySpawnPoints" unique_id=2073272143]
@@ -801,6 +781,28 @@ script = ExtResource("25_y0856")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
+[node name="OclusionAreas" type="Node3D" parent="." unique_id=17240420]
+
+[node name="OclusionArea1" type="Area3D" parent="OclusionAreas" unique_id=1565161130 node_paths=PackedStringArray("nodes_to_disable")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.67769, 42.78694, -30.333881)
+script = ExtResource("24_iwdui")
+nodes_to_disable = [NodePath("../../StageTerrain/Section2")]
+metadata/_custom_type_script = "uid://dplfslvwve5ba"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionAreas/OclusionArea1" unique_id=815578344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
+shape = SubResource("BoxShape3D_jmp0g")
+
+[node name="OclusionArea2" type="Area3D" parent="OclusionAreas" unique_id=1098557353 node_paths=PackedStringArray("nodes_to_disable")]
+transform = Transform3D(0.8313465, 0, 0.55575436, 0, 1, 0, -0.55575436, 0, 0.8313465, 30.26683, 81.152405, -65.899864)
+script = ExtResource("24_iwdui")
+nodes_to_disable = [NodePath("../../StageTerrain/Section3")]
+metadata/_custom_type_script = "uid://dplfslvwve5ba"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OclusionAreas/OclusionArea2" unique_id=1238273058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
+shape = SubResource("BoxShape3D_grnlo")
+
 [node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
 
 [node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
@@ -848,12 +850,12 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.9299927, -1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=1363466506]
 shape = SubResource("BoxShape3D_gn4dx")
 
-[node name="RespawnArea3D" type="Area3D" parent="." unique_id=1764096592]
+[node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
 collision_layer = 0
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea3D" unique_id=1366119165]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea" unique_id=1366119165]
 shape = SubResource("BoxShape3D_nhhn2")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
@@ -895,4 +897,4 @@ instance_shader_parameters/strength = 0.03
 mesh = SubResource("CylinderMesh_ot1hr")
 surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 
-[connection signal="body_entered" from="RespawnArea3D" to="." method="_on_respawn_area_3d_body_entered"]
+[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
