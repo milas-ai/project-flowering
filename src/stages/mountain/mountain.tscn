@@ -28,6 +28,7 @@
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
 [ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="26_ot1hr"]
 [ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="27_jmp0g"]
+[ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_ym1el"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -67,6 +68,9 @@ size = Vector3(22.061523, 10, 27.576172)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
 size = Vector3(550, 1, 850)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
+size = Vector3(10, 10, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
@@ -857,6 +861,14 @@ collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea" unique_id=1366119165]
 shape = SubResource("BoxShape3D_nhhn2")
+
+[node name="TransitionArea" type="Area3D" parent="." unique_id=166739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
+script = ExtResource("27_ym1el")
+metadata/_custom_type_script = "uid://cs52mrxk0n47s"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
+shape = SubResource("BoxShape3D_5wuxl")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
