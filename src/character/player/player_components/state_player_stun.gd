@@ -15,8 +15,8 @@ func enter() -> void:
 			func(): state_machine.transition_to("StatePlayerIdle")
 	)
 
-func update(_delta: float) -> void:
-	pass
+func update(delta: float) -> void:
+	body.process_horizontal_movement(delta, Vector3.ZERO, BaseStat.PLAYER.SPEED)
 
 
 func exit() -> void:
