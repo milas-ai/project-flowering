@@ -18,6 +18,7 @@ anti_aliasing = false
 
 [node name="MainGame" type="Node" unique_id=1025930605]
 script = ExtResource("1_tt0k7")
+debug_stage = 1
 
 [node name="GameViewport" type="SubViewportContainer" parent="." unique_id=422820909]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-keys,en,pt,es
+keys,en,pt,es,
 OPTIONS_MENU_TITLE,Options,Opções,Opciones,
 VOLUME_MASTER_LABEL,Master volume,Volume principal,Volumen principal,
 VOLUME_MUSIC_LABEL,Music volume,Volume da música,Volumen de música,
@@ -7,6 +7,6 @@ FULLSCREEN_LABEL,Fullscreen,Tela cheia,Pantalla completa,
 ASPECT_RATIO_LABEL,Retro aspect ratio,Razão de aspecto retrô,Relación de aspecto retro,
 LANGUAGE_LABEL,Language,Idioma,Idioma,
 PIXELIZATION_LABEL,Pixelization level,Nível de pixelização,Nivel de pixelización,
-MOUSE_SENSITIVITY_LABEL,Mouse sensitivity,Sensibilidade do mouse,Sensibilidad del ratón,
+CAMERA_SENSITIVITY_LABEL,Camera sensitivity,Sensibilidade da câmera,Sensibilidad de la cámara,
 SAVE_SETTINGS_LABEL,Save settings,Salvar configurações,Guardar configuración,
 EXIT_GAME_LABEL,Exit game,Sair do jogo,Sair del juego,

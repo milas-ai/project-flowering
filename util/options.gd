@@ -7,7 +7,7 @@ signal aspect_ratio_change(retro_aspect_ratio: bool)
 signal fullscreen_change(fullscreen: bool)
 signal language_change(language: StringName)
 signal pixelization_level_change(pixelization_level: int)
-signal mouse_sensitivity_change(mouse_sensitivity: int)
+signal camera_sensitivity_change(camera_sensitivity: int)
 
 const LANGUAGE_OPTIONS: Array[StringName] = ["pt", "en", "es"]
 
@@ -31,10 +31,10 @@ var pixelization_level: int:
 	set(value):
 		pixelization_level = value
 		emit_signal("pixelization_level_change", pixelization_level)
-var mouse_sensitivity: int:
+var camera_sensitivity: int:
 	set(value):
-		mouse_sensitivity = value
-		emit_signal("mouse_sensitivity_change", mouse_sensitivity)
+		camera_sensitivity = value
+		emit_signal("camera_sensitivity_change", camera_sensitivity)
 
 
 static func language_index_to_string(index: int) -> StringName:
@@ -58,7 +58,7 @@ func _init(data: Dictionary = {}):
 	fullscreen = data.get("fullscreen", true)
 	language = data.get("language", "pt")
 	pixelization_level = data.get("pixelization_level", 5)
-	mouse_sensitivity = data.get("mouse_sensitivity", 5)
+	camera_sensitivity = data.get("camera_sensitivity", 5)
 
 
 func to_dict() -> Dictionary:
@@ -68,5 +68,5 @@ func to_dict() -> Dictionary:
 		"fullscreen": fullscreen,
 		"language": language,
 		"pixelization_level": pixelization_level,
-		"mouse_sensitivity": mouse_sensitivity
+		"camera_sensitivity": camera_sensitivity
 	}

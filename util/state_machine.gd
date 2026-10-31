@@ -29,3 +29,10 @@ func transition_to(state_name: StringName) -> void:
 			_previous_state.exit()
 		if _state != null:
 			_state.enter()
+
+
+func get_current_state() -> StringName:
+	if _state != null:
+		return _state.name
+	else:
+		return ""
