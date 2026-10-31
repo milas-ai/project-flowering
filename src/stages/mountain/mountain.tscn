@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="26_ot1hr"]
 [ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="27_jmp0g"]
 [ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_ym1el"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_k04n5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -71,6 +72,9 @@ size = Vector3(550, 1, 850)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
 size = Vector3(10, 10, 10)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 5.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
@@ -810,6 +814,7 @@ shape = SubResource("BoxShape3D_grnlo")
 
 [node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
 transform = Transform3D(0.70961416, 0, -0.7045905, 0, 1, 0, 0.7045905, 0, 0.70961416, -201.50702, 108.9556, 22.38498)
+collision_layer = 0
 script = ExtResource("26_ot1hr")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
@@ -822,6 +827,7 @@ shape = SubResource("BoxShape3D_gn4dx")
 
 [node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=600302583]
 transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, -53.372635, 118.693085, -30.397934)
+collision_layer = 0
 script = ExtResource("26_ot1hr")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
@@ -833,6 +839,7 @@ shape = SubResource("BoxShape3D_gn4dx")
 
 [node name="CheckPointArea2" type="Area3D" parent="CheckPoints" unique_id=1635300360]
 transform = Transform3D(0.9983795, 0, 0.05690598, 0, 1, 0, -0.05690598, 0, 0.9983795, 35.07219, 96.82927, -39.125217)
+collision_layer = 0
 script = ExtResource("26_ot1hr")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
@@ -844,6 +851,7 @@ shape = SubResource("BoxShape3D_gn4dx")
 
 [node name="CheckPointArea" type="Area3D" parent="CheckPoints" unique_id=744735331]
 transform = Transform3D(0.8988831, 0, -0.4381884, 0, 1, 0, 0.4381884, 0, 0.8988831, 93.19478, 59.2686, -41.62151)
+collision_layer = 0
 script = ExtResource("26_ot1hr")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
@@ -863,11 +871,20 @@ shape = SubResource("BoxShape3D_nhhn2")
 
 [node name="TransitionArea" type="Area3D" parent="." unique_id=166739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
+collision_layer = 0
 script = ExtResource("27_ym1el")
 metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
 shape = SubResource("BoxShape3D_5wuxl")
+
+[node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.9233, 121.460205, -68.385345)
+script = ExtResource("28_k04n5")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
+shape = SubResource("SphereShape3D_nhhn2")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
@@ -909,3 +926,4 @@ mesh = SubResource("CylinderMesh_ot1hr")
 surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
+[connection signal="interacted" from="GetItemArea" to="." method="_on_get_item_area_interacted"]
