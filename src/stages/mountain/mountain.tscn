@@ -30,6 +30,7 @@
 [ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="27_jmp0g"]
 [ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_ym1el"]
 [ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_k04n5"]
+[ext_resource type="PackedScene" uid="uid://brs1606rxdfse" path="res://src/terrain/mountain/cap.tscn" id="29_oixdd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -367,16 +368,16 @@ transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97
 transform = Transform3D(-0.50436807, 0, 0.6959916, 0, 0.99999994, 0, -1.0141784, 0, -0.3461284, 18.977749, 93.741264, -49.013695)
 
 [node name="RockSmall17" parent="StageTerrain/Section2" unique_id=746628142 instance=ExtResource("9_ym1el")]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 56.580257, 88.90878, -44.772545)
+transform = Transform3D(-1, -8.7422784e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 56.580265, 88.21782, -44.77255)
 
 [node name="RockSmall18" parent="StageTerrain/Section2" unique_id=1620302917 instance=ExtResource("9_ym1el")]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 57.670273, 86.59553, -37.74728)
 
 [node name="Pillar5" parent="StageTerrain/Section2" unique_id=1049707963 instance=ExtResource("21_2laby")]
-transform = Transform3D(0.5094776, 0.0752167, 0, -0.0752167, 0.5094776, 0, 0, 0, 0.515, 47.582615, 86.82862, -42.86329)
+transform = Transform3D(0.5094776, 0.0752167, 0, -0.0752167, 0.5094776, 0, -3.7252903e-09, 0, 0.515, 47.58262, 85.574524, -42.86329)
 
 [node name="Pillar6" parent="StageTerrain/Section2" unique_id=1896674846 instance=ExtResource("21_2laby")]
-transform = Transform3D(0.22079673, 0.032597315, -0.4641241, -0.0752167, 0.5094776, 0, 0.4591473, 0.06778619, 0.22319001, 42.277504, 85.77551, -36.059376)
+transform = Transform3D(0.22079675, 0.03259732, -0.46412414, -0.0752167, 0.5094776, 0, 0.45914733, 0.06778619, 0.22319001, 42.277508, 85.17403, -36.05938)
 
 [node name="WallSmall29" parent="StageTerrain/Section2" unique_id=931958679 instance=ExtResource("23_x2kea")]
 transform = Transform3D(0.9336097, 0.0882733, -0.25294927, -0.13437292, 0.976715, -0.022803577, 0.5051716, 0.09666276, 0.4614109, 9.685097, 63.947853, -65.526634)
@@ -517,7 +518,10 @@ transform = Transform3D(0.9617326, 0.028502366, -0.27250445, -0.088624895, 0.973
 transform = Transform3D(0.014407299, 1.5507208, 0.22062163, -0.7564691, -0.18155974, 0.59244823, 0.55040646, -0.29012352, 0.80847496, -16.339653, 106.649765, -11.906857)
 
 [node name="RockSmall1" parent="StageTerrain/Section3" unique_id=900136619 instance=ExtResource("8_ot1hr")]
-transform = Transform3D(0.9934709, 0, 0.11408704, -7.450581e-09, 1.0000001, 0, -0.11408705, 0, 0.9934708, -39.64092, 114.6714, -56.248104)
+transform = Transform3D(0.9934709, 0, 0.11408704, -7.450581e-09, 0.6591663, 0, -0.11408705, 0, 0.9934708, -39.64092, 113.49359, -56.248104)
+
+[node name="RockSmall2" parent="StageTerrain/Section3" unique_id=160135911 instance=ExtResource("9_ym1el")]
+transform = Transform3D(0.7997442, 0, 0.09184005, 0, 0.805, 0, -0.09184005, 0, 0.7997442, -41.101467, 112.88768, -56.893238)
 
 [node name="Section4" type="Node3D" parent="StageTerrain" unique_id=1373747546]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
@@ -884,15 +888,15 @@ metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 shape = SubResource("BoxShape3D_5wuxl")
 
 [node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.66148, 121.460205, -68.46031)
+transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -74.06555, 122.94965, -68.81762)
 script = ExtResource("28_k04n5")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
 shape = SubResource("SphereShape3D_nhhn2")
 
-[node name="Item" parent="GetItemArea" unique_id=217793218 instance=ExtResource("8_ot1hr")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.06384277, 0.8980713, 0.1414032)
+[node name="Cap" parent="GetItemArea" unique_id=2052954029 instance=ExtResource("29_oixdd")]
+transform = Transform3D(-0.052114204, 0.74589205, -0.66402495, -0.44707572, 0.5771478, 0.6833913, 0.8929767, 0.33248386, 0.30339262, 0, 0, 0)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
