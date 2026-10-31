@@ -15,6 +15,7 @@ class PLAYER:
 	const STEER_INFLUENCE: float = 2.0
 	const TURNING_SPEED: float = 5.0
 	const PUSH_FORCE: float = 10.0
+	const SLIDE_COYOTE_TIME: float = 0.4
 
 
 class ENEMY:

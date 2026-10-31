@@ -2,29 +2,29 @@ class_name StatePlayerSlide
 extends State
 
 
-var _current_speed: float = 0.0
+var _current_speed: float
+var _exit_slide: bool
 
 
 func enter() -> void:
 	body.animation_player.play("Slide")
-	var floor_normal: Vector3 = body.get_floor_normal()
-	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
-	var starting_speed: float = max(body.horizontal_velocity.length(), BaseStat.PLAYER.SLIDE_SPEED)
-	_current_speed = starting_speed
-	
-	body.horizontal_velocity = downhill_dir * starting_speed * Vector3(1,0,1)
-	body.vertical_velocity = downhill_dir * starting_speed * Vector3(0,1,0)
-
+	_current_speed = max(BaseStat.PLAYER.SLIDE_SPEED, body.horizontal_velocity.length())
+	_exit_slide = false
 
 func update(delta: float) -> void:
 	if not body.is_on_floor() or not (body.is_on_floor() and body.get_floor_normal().y < 0.98):
-		state_machine.transition_to("StatePlayerIdle")
+		if not _exit_slide:
+			get_tree().create_timer(BaseStat.PLAYER.SLIDE_COYOTE_TIME).timeout.connect(
+				func(): state_machine.transition_to("StatePlayerFall")
+			)
+			_exit_slide = true
+		return
 
 	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)
 	body.process_rotation(true)
-
-	var floor_normal: Vector3 = body.get_floor_normal().normalized()
+	
+	var floor_normal: Vector3 = body.get_floor_normal()
 	var downhill_dir := Vector3.DOWN.slide(floor_normal).normalized()
 	
 	_current_speed = move_toward(_current_speed, BaseStat.PLAYER.MAX_SLIDE_SPEED, BaseStat.PLAYER.SLOPE_ACCELERATION * delta)
