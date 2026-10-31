@@ -11,7 +11,6 @@ var player_on_near_sight: bool = false
 var _health: int
 
 @onready var player: Player = $/root/MainGame.player
-@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 @onready var _state_machine: StateMachine = $StateMachine
 
 
@@ -25,7 +24,7 @@ func take_damage(amount: int) -> void:
 
 
 func apply_stun() -> void:
-	_state_machine.transition_to("StateStunned")
+	_state_machine.transition_to("StateEnemyStunned")
 
 
 func _on_far_sight_body_entered(_body: Node3D) -> void:

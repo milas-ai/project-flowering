@@ -8,7 +8,9 @@ var _tween: Tween = null
 func _ready() -> void:
 	offset_transform_enabled = true
 	mouse_entered.connect(_on_button_mouse_entered)
+	focus_entered.connect(_on_button_mouse_entered)
 	mouse_exited.connect(_on_button_mouse_exited)
+	focus_exited.connect(_on_button_mouse_exited)
 	button_down.connect(_on_button_pressed)
 
 
