@@ -6,9 +6,7 @@ const GRASS_COUNT_FACTOR: float = 1
 
 @export_range(0, 100) var grass_ammount: float = 100
 @export var target_mesh: MeshInstance3D
-@export var scatter: bool: # re-scatter grass on runtime
-	set(_val):
-		scatter_grass()
+@export_tool_button("Scatter Grass") var scatter = scatter_grass
 
 var multimesh_instance: MultiMeshInstance3D
 
