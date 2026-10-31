@@ -2,15 +2,19 @@ class_name PlayerInput
 extends Node
 
 
-const DEGREES_PER_UNIT: float = 0.0002
+const MOUSE_DEGREES_PER_UNIT: float = 0.0002
+const JOYSTICK_DEGREES_PER_UNIT: float = 0.001
 
 signal jump_pressed
 signal push_pressed
 signal stun_pressed
-
-var h_input_dir := Vector2.ZERO
-var running: bool = false
-var sliding: bool = false
+signal attack_pressed
+signal block_pressed
+signal block_released
+signal run_pressed
+signal run_released
+signal slide_pressed
+signal slide_released
 
 @onready var _camera_pivot: Node3D = $"../CameraPivot"
 @onready var _main_game: MainGame = $/root/MainGame
@@ -25,25 +29,33 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			_mouse_rotate(event)
 
+	if Input.is_action_just_pressed("jump"):
+		jump_pressed.emit()
+	if Input.is_action_just_pressed("push"):
+		push_pressed.emit()
+	if Input.is_action_just_pressed("stun"):
+		stun_pressed.emit()
+	if Input.is_action_just_pressed("attack"):
+		attack_pressed.emit()
+	if Input.is_action_just_pressed("block"):
+		block_pressed.emit()
+	if Input.is_action_just_released("block"):
+		block_released.emit()
+	if Input.is_action_just_pressed("run"):
+		run_pressed.emit()
+	if Input.is_action_just_released("run"):
+		run_released.emit()
+	if Input.is_action_just_pressed("slide"):
+		slide_pressed.emit()
+	if Input.is_action_just_released("slide"):
+		slide_released.emit()
 
-func _process(_delta: float) -> void:
-	h_input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	h_input_dir = h_input_dir.rotated(-_camera_pivot.rotation.y)
-	
-	running = Input.is_action_pressed("run")
-	sliding = Input.is_action_pressed("slide")
 
+func _process(delta: float) -> void:
+	_calculate_input_direction(delta)
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("jump"):
-			jump_pressed.emit()
-	if event is InputEventMouseButton:
-		if Input.is_action_just_pressed("push"):
-			push_pressed.emit()
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("stun"):
-			stun_pressed.emit()
+	if Input.get_connected_joypads().size() > 0:
+		_joystick_rotate(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X))
 
 
 func _mouse_rotate(event: InputEventMouseMotion) -> void:
@@ -52,7 +64,32 @@ func _mouse_rotate(event: InputEventMouseMotion) -> void:
 	
 	_camera_pivot.rotate_y(
 			-mouse_motion.x *
-			_main_game.options.mouse_sensitivity *
+			_main_game.options.camera_sensitivity *
 			_main_game.options.pixelization_level *
-			DEGREES_PER_UNIT
+			MOUSE_DEGREES_PER_UNIT
 	)
+
+
+func _joystick_rotate(axis_value: float) -> void:
+	_camera_pivot.rotate_y(
+		-axis_value *
+		_main_game.options.camera_sensitivity *
+		_main_game.options.pixelization_level *
+		JOYSTICK_DEGREES_PER_UNIT
+	)
+
+
+func _calculate_input_direction(delta: float) -> void:
+	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_vector = input_vector.rotated(-_camera_pivot.rotation.y)
+
+	var direction : Vector3 = (
+			Vector3(input_vector.x,0,input_vector.y) * _main_game.player.transform.basis
+	).normalized()
+
+	_main_game.player.input_direction = Math.lerpfd(
+			_main_game.player.input_direction,
+			direction,
+			BaseStat.PLAYER.TURNING_SPEED,
+			delta
+	) * Vector3(1,0,1)

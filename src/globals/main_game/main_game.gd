@@ -24,10 +24,9 @@ func _input(event: InputEvent) -> void:
 	if get_tree().paused:
 		return
 		
-	if event is InputEventKey:
-		if event.is_action_pressed("pause"):
-			get_viewport().set_input_as_handled()
-			_pause_game()
+	if event.is_action_pressed("pause"):
+		get_viewport().set_input_as_handled()
+		pause_root.pause_game(event is InputEventJoypadButton)
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
@@ -123,24 +122,12 @@ func _change_pixelization_level(delta: int) -> void:
 	_game_container.stretch_shrink = options.pixelization_level
 
 
-func _set_mouse_sensitivity(mouse_sensitivity: int) -> void:
-	options.mouse_sensitivity = max(1, mouse_sensitivity)
-
-
-func _pause_game() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().paused = true
-	pause_root.show()
-
-
-func _resume_game() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pause_root.hide()
-	get_tree().paused = false
+func _set_camera_sensitivity(camera_sensitivity: int) -> void:
+	options.camera_sensitivity = max(1, camera_sensitivity)
 
 
 func _save_game() -> void:
-	var save_data := SaveManager.SaveData.new()
+	var save_data : SaveManager.SaveData = SaveManager.SaveData.new()
 	save_data.options = options
 	save_data.stage_uid = _current_stage_uid
 	SaveManager.save(save_data)

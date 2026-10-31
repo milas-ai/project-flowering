@@ -11,7 +11,7 @@ extends Node3D
 func spawn_enemies(spawn_points: Array) -> void:
 	for spawn_point in spawn_points:
 		var enemy: Enemy
-		if spawn_point is BettleSpawnPoint:
+		if spawn_point is BeetleSpawnPoint:
 			enemy = _bettle_scene.instantiate() as Enemy
 			enemy.shoot.connect(_on_bettle_shoot)
 		elif spawn_point is RolyPolySpawnPoint:
