@@ -75,7 +75,7 @@ size = Vector3(550, 1, 850)
 size = Vector3(10, 10, 10)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 2.3823428
+radius = 1.6627167
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
@@ -122,7 +122,6 @@ rings = 0
 
 [node name="Mountain" type="Node3D" unique_id=138948264]
 script = ExtResource("1_jmp0g")
-spawn_on_checkpoint = true
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
@@ -820,19 +819,6 @@ shape = SubResource("BoxShape3D_grnlo")
 
 [node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
 
-[node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=600302583]
-transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, -53.372635, 118.693085, -30.397934)
-collision_layer = 0
-script = ExtResource("26_ot1hr")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=1597557446]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -39.220345, 3.1890488, -12.808756)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=160617267]
-transform = Transform3D(0.98253876, 0, -0.18606102, 0, 1, 0, 0.18606102, 0, 0.98253876, -39.83661, 7.913986, -7.769846)
-shape = SubResource("BoxShape3D_gn4dx")
-
 [node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
 transform = Transform3D(0.70961416, 0, -0.7045905, 0, 1, 0, 0.7045905, 0, 0.70961416, -201.50702, 108.9556, 22.38498)
 collision_layer = 0
@@ -844,6 +830,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.657593, -4.076271, 0.75209
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=1838210428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=600302583]
+transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, -53.37262, 118.693085, -30.397942)
+collision_layer = 0
+script = ExtResource("26_ot1hr")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=1597557446]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -39.220345, 3.1890488, -12.808756)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=160617267]
+transform = Transform3D(0.98253876, 0, -0.18606102, 0, 1, 0, 0.18606102, 0, 0.98253876, -39.83661, 7.913986, -7.769846)
 shape = SubResource("BoxShape3D_gn4dx")
 
 [node name="CheckPointArea2" type="Area3D" parent="CheckPoints" unique_id=1635300360]
@@ -895,7 +894,7 @@ metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
 shape = SubResource("SphereShape3D_nhhn2")
 
-[node name="Cap" parent="GetItemArea" unique_id=2052954029 instance=ExtResource("29_oixdd")]
+[node name="Item" parent="GetItemArea" unique_id=2052954029 instance=ExtResource("29_oixdd")]
 transform = Transform3D(-0.052114204, 0.74589205, -0.66402495, -0.44707572, 0.5771478, 0.6833913, 0.8929767, 0.33248386, 0.30339262, 0, 0, 0)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
