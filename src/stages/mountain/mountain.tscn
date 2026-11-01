@@ -30,7 +30,7 @@
 [ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="27_jmp0g"]
 [ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_ym1el"]
 [ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_k04n5"]
-[ext_resource type="PackedScene" uid="uid://brs1606rxdfse" path="res://src/terrain/mountain/cap.tscn" id="29_oixdd"]
+[ext_resource type="PackedScene" uid="uid://brs1606rxdfse" path="res://src/terrain/props/cap.tscn" id="29_oixdd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

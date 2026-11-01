@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brs1606rxdfse"]
 
-[ext_resource type="PackedScene" uid="uid://lfgqcvef3cae" path="res://assets/models/props/cap.glb" id="1_ryek4"]
+[ext_resource type="PackedScene" uid="uid://lfgqcvef3cae" path="res://assets/models/terrain/props/cap.glb" id="1_ryek4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_abukt"]
 height = 0.14068604

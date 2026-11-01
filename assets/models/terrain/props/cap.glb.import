@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://lfgqcvef3cae"
-path="res://.godot/imported/cap.glb-82dcf61ef83f87fe7e048ead6f89fadb.scn"
+path="res://.godot/imported/cap.glb-1602d6557127140830ae48290deb459d.scn"
 
 [deps]
 
-source_file="res://assets/models/props/cap.glb"
-dest_files=["res://.godot/imported/cap.glb-82dcf61ef83f87fe7e048ead6f89fadb.scn"]
+source_file="res://assets/models/terrain/props/cap.glb"
+dest_files=["res://.godot/imported/cap.glb-1602d6557127140830ae48290deb459d.scn"]
 
 [params]
 
