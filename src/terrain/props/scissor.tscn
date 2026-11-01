@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dpqj21pufpw7o"]
+
+[ext_resource type="PackedScene" uid="uid://dxaedtomrj6r5" path="res://assets/models/terrain/props/scissor.glb" id="1_g3n5j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgtat"]
+size = Vector3(2.6424866, 0.056289673, 0.303833)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5e7im"]
+size = Vector3(1.6220474, 0.056289673, 0.08898926)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kgtat"]
+height = 0.05545044
+radius = 0.4140625
+
+[node name="Scissor" type="Node3D" unique_id=577724676]
+
+[node name="Model" parent="." unique_id=1173483545 instance=ExtResource("1_g3n5j")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=171520915]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Blade" type="CollisionShape3D" parent="StaticBody3D" unique_id=794575058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4089203, 0.00089263916, 0.10626221)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="Shaft" type="CollisionShape3D" parent="StaticBody3D" unique_id=1013802916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48949003, 0.00089263916, -0.001159668)
+shape = SubResource("BoxShape3D_5e7im")
+
+[node name="Hole" type="CollisionShape3D" parent="StaticBody3D" unique_id=1295499159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4737176, 0.0007247925, 0.14942957)
+shape = SubResource("CylinderShape3D_kgtat")

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dkt3megsvtcbp"
+path="res://.godot/imported/mountain_platform_medium_3_top.obj-5a8cc1ac9c0286f0ec19b41cdc9cdffe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mountain_platform_medium_3_top.obj-5a8cc1ac9c0286f0ec19b41cdc9cdffe.mesh"]
+
+source_file="res://assets/models/terrain/mountain/platform/medium/mountain_platform_medium_3_top.obj"
+dest_files=["res://.godot/imported/mountain_platform_medium_3_top.obj-5a8cc1ac9c0286f0ec19b41cdc9cdffe.mesh", "res://.godot/imported/mountain_platform_medium_3_top.obj-5a8cc1ac9c0286f0ec19b41cdc9cdffe.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -10,6 +10,12 @@ class STAGES:
 	const MOUNTAIN: String = "uid://cnohyrkccqdd6"
 
 
+class ENEMIES:
+	const ANT: String = "uid://c88yr21yjr2wk"
+	const BEETLE: String = "uid://dfv7t0b64ff47"
+	const ROLY_POLY: String = "uid://bhd5vasd3pgwm"
+
+
 class ENTITIES:
 	const BEETLE_BULLET: String = "uid://dvfpc7xbno2al"
 
