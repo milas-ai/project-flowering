@@ -22,7 +22,6 @@ class TEXTURE:
 			const TEXT: String = "uid://clyaq3obx1cl7"
 
 
-
 class MATERIAL:
 	class TERRAIN:
 		const GRASS: String = "uid://wra6rbgyy2tv"
