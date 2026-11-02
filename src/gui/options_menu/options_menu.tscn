@@ -167,8 +167,9 @@ alignment = 1
 
 [node name="VolumeContainerMaster" type="HSplitContainer" parent="MiddleTopContainer" unique_id=340332769]
 layout_mode = 2
-split_offsets = PackedInt32Array(400)
-split_offset = 400
+split_offsets = PackedInt32Array(440)
+dragging_enabled = false
+split_offset = 440
 
 [node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMaster" unique_id=503954255]
 layout_mode = 2
@@ -228,8 +229,9 @@ metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeContainerMusic" type="HSplitContainer" parent="MiddleTopContainer" unique_id=913381340]
 layout_mode = 2
-split_offsets = PackedInt32Array(400)
-split_offset = 400
+split_offsets = PackedInt32Array(440)
+dragging_enabled = false
+split_offset = 440
 
 [node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerMusic" unique_id=1784492435]
 layout_mode = 2
@@ -289,8 +291,9 @@ metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
 [node name="VolumeContainerSFX" type="HSplitContainer" parent="MiddleTopContainer" unique_id=12513577]
 layout_mode = 2
-split_offsets = PackedInt32Array(400)
-split_offset = 400
+split_offsets = PackedInt32Array(440)
+dragging_enabled = false
+split_offset = 440
 
 [node name="Label" type="Label" parent="MiddleTopContainer/VolumeContainerSFX" unique_id=249581524]
 layout_mode = 2
@@ -366,6 +369,7 @@ alignment = 1
 [node name="FullscreenContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=2019234738]
 layout_mode = 2
 split_offsets = PackedInt32Array(400)
+dragging_enabled = false
 split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleBottomContainer/FullscreenContainer" unique_id=411521269]
@@ -389,6 +393,7 @@ script = ExtResource("10_6iqqx")
 [node name="AspectRatioContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1019993388]
 layout_mode = 2
 split_offsets = PackedInt32Array(400)
+dragging_enabled = false
 split_offset = 400
 
 [node name="Label" type="Label" parent="MiddleBottomContainer/AspectRatioContainer" unique_id=13994623]
@@ -409,8 +414,9 @@ script = ExtResource("10_6iqqx")
 
 [node name="PixelizationContainer" type="HSplitContainer" parent="MiddleBottomContainer" unique_id=1254990897]
 layout_mode = 2
-split_offsets = PackedInt32Array(400)
-split_offset = 400
+split_offsets = PackedInt32Array(440)
+dragging_enabled = false
+split_offset = 440
 
 [node name="Label" type="Label" parent="MiddleBottomContainer/PixelizationContainer" unique_id=492589098]
 layout_mode = 2
