@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bylhtxg58dhou"]
+
+[ext_resource type="Script" uid="uid://coiebjk0s1bjk" path="res://src/stages/cave/cave.gd" id="1_2sot5"]
+[ext_resource type="PackedScene" uid="uid://dlvaf3nmsfnct" path="res://src/terrain/cave/platform/big/cave_platform_big_1.tscn" id="2_2sot5"]
+[ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_k34y4"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_a7pq4"]
+[ext_resource type="PackedScene" uid="uid://brs1606rxdfse" path="res://src/terrain/props/cap.tscn" id="29_7md18"]
+[ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="30_1jr8q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h57rq"]
+sky_material = SubResource("ProceduralSkyMaterial_h3jej")
+
+[sub_resource type="Environment" id="Environment_rcjq6"]
+background_mode = 2
+sky = SubResource("Sky_h57rq")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.37459713, 0.2535927, 0.3562635, 1)
+fog_density = 0.4979
+fog_aerial_perspective = 1.0
+fog_depth_curve = 17.148346
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 120.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
+size = Vector3(550, 1, 850)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 1.6627167
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28y55"]
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o5tcc"]
+noise = SubResource("FastNoiseLite_28y55")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a20jj"]
+render_priority = 0
+shader = ExtResource("30_1jr8q")
+shader_parameter/color1 = Color(0.41201207, 0.6315851, 0.47365338, 1)
+shader_parameter/color2 = Color(0.11094313, 0.13287151, 0.19309926, 1)
+shader_parameter/scale = 0.02
+shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
+
+[node name="Cave" type="Node3D" unique_id=138948264]
+script = ExtResource("1_2sot5")
+metadata/_custom_type_script = "uid://duu016e02tjwd"
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 103.27257, 8.005094, 255.28595)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
+environment = SubResource("Environment_rcjq6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.40784314, 0.3137255, 0.4392157, 1)
+shadow_enabled = true
+
+[node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
+
+[node name="Section1" type="Node3D" parent="StageTerrain" unique_id=2085539860]
+
+[node name="PlatformBig1" parent="StageTerrain/Section1" unique_id=2071298694 instance=ExtResource("2_2sot5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.97121, -4.5044985, 245.53804)
+
+[node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
+
+[node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
+
+[node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.630539, 0)
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea" unique_id=1366119165]
+shape = SubResource("BoxShape3D_nhhn2")
+
+[node name="TransitionArea" type="Area3D" parent="." unique_id=166739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
+visible = false
+collision_layer = 0
+script = ExtResource("27_k34y4")
+metadata/_custom_type_script = "uid://cs52mrxk0n47s"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
+shape = SubResource("BoxShape3D_5wuxl")
+
+[node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
+transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -74.06555, 122.94965, -68.81762)
+visible = false
+script = ExtResource("28_a7pq4")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
+shape = SubResource("SphereShape3D_nhhn2")
+
+[node name="Item" parent="GetItemArea" unique_id=2052954029 instance=ExtResource("29_7md18")]
+transform = Transform3D(-0.052114204, 0.74589205, -0.66402495, -0.44707572, 0.5771478, 0.6833913, 0.8929767, 0.33248386, 0.30339262, 0, 0, 0)
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 0.76968, -20.927673)
+mesh = SubResource("PlaneMesh_kgtat")
+surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+
+[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
+[connection signal="interacted" from="GetItemArea" to="." method="_on_get_item_area_interacted"]

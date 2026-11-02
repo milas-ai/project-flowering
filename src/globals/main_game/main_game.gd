@@ -7,6 +7,7 @@ extends Node
 		"Gym:-1", 
 		"Menu",
 		"Mountain",
+		"Cave",
 ) var debug_stage: int = 0
 
 var player: Player = null
@@ -65,6 +66,8 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return SceneUID.STAGES.GYM
 		1:
 			return SceneUID.STAGES.MOUNTAIN
+		2: 
+			return SceneUID.STAGES.CAVE
 		_:
 			push_error("Invalid stage ID: %d" % stage_id)
 			return ""
