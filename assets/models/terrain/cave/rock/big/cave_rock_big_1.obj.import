@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqd2xhg5c6enk"
+path="res://.godot/imported/cave_rock_big_1.obj-ca30a1c1c595a4386a9de9c54b911d4d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cave_rock_big_1.obj-ca30a1c1c595a4386a9de9c54b911d4d.mesh"]
+
+source_file="res://assets/models/terrain/cave/rock/big/cave_rock_big_1.obj"
+dest_files=["res://.godot/imported/cave_rock_big_1.obj-ca30a1c1c595a4386a9de9c54b911d4d.mesh", "res://.godot/imported/cave_rock_big_1.obj-ca30a1c1c595a4386a9de9c54b911d4d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
