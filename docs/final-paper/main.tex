@@ -1,64 +1,119 @@
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[brazilian]{babel}
-\usepackage{sbc-template}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{float}
-\usepackage{url}
+% Arquivo LaTeX de exemplo de dissertação/tese a ser apresentada à CPG do IME-USP
+%
+% Criação: Jesús P. Mena-Chalco
+% Revisão: Fabio Kon e Paulo Feofiloff
+% Adaptação para UTF8, biblatex e outras melhorias: Nelson Lago
+%
+% Except where otherwise indicated, these files are distributed under
+% the MIT Licence. The example text, which includes the tutorial and
+% examples as well as the explanatory comments in the source, are
+% available under the Creative Commons Attribution International
+% Licence, v4.0 (CC-BY 4.0) - https://creativecommons.org/licenses/by/4.0/
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    filecolor=blue,      
-    urlcolor=blue,
-    pdfpagemode=FullScreen,
-}
 
-\lstset{basicstyle=\footnotesize\ttfamily\color{gray},breaklines=true,frame=single,mathescape=true,literate={é}{{\'e }}1{ç}{{\c{c}}}1{ã}{{\~a}}1{í}{{\'i}}1{á}{{\'a }}1{Ã}{{\~A}}1{Í}{{\'I }}1}
-\sloppy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREÂMBULO LaTeX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt,twoside,english,brazilian]{book}
+
+\usepackage{imegoodies}
+\usepackage[thesis]{imelooks}
+\graphicspath{{figures/},{logos/},{images/}}
+\babeltags{br = brazilian, en = english}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% METADADOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{main.bib}
+\nocite{*}
+
+\babelhyphenation{documentclass latexmk soft-ware clsguide}
 
 \title{Aplicações de Computação Gráfica na construção de visuais estilizados, level design e jogabilidade para um jogo 3D}
+\translatedtitle{Applications of Computer Graphics in the creation of stylized visuals, level design, and gameplay for a 3D game}
 
-\author{Diogo Ribeiro de Faria, Adriano Elias Andrade,\\ Guilherme Henrique Vasconcelos da Cunha}
+\author{Diogo Ribeiro de Faria, Adriano Elias Andrade, Guilherme Henrique Vasconcelos da Cunha}
 
-\address{Departamento de Ciência da Computação -- Instituto de Matemática e Estatística\\
-Universidade de São Paulo (USP) -- São Paulo, SP -- Brasil}
+\orientador{Dr. Wilson Kazuo Mizutani}
 
+\tipotese{
+  tcc,
+  programa={Ciência da Computação},
+}
+
+\defesa{
+  local={São Paulo},
+  data={2026-11-30},
+}
+
+\direitos{CC-BY}
+
+\fichacatalografica{
+% \noindent Para gerar a ficha catalográfica, acesse \url{https://fc.ime.usp.br},
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTEÚDO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% CAPA E PÁGINAS INICIAIS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+\pagestyle{plain}
+
+\onehalfspacing % Espaçamento 1,5 na capa e páginas iniciais
 
 \maketitle
 
-\begin{abstract}
-    Proin vitae pulvinar enim, scelerisque ultricies turpis. Donec risus libero, blandit sed eros bibendum, lacinia dictum arcu. Nam nec quam facilisis, mattis ex
-    maximus, finibus nisi. Curabitur dignissim condimentum lectus, non ullamcorper nisl. Mauris blandit purus tincidunt, vulputate dui ut, hendrerit ipsum. Nullam
-    vitae sapien condimentum, iaculis nulla id, pharetra diam. Vivamus ac dapibus orci, volutpat euismod augue.
-\end{abstract}
+%%%%%%%%%%%%%%%% DEDICATÓRIA, AGRADECIMENTOS, RESUMO/ABSTRACT %%%%%%%%%%%%%%%%%%
+\begin{dedicatoria}
 
-\begin{resumo}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis, mauris a tempor laoreet, felis elit condimentum diam, vitae cursus enim eros ac dolor.
-    Praesent viverra sapien nulla, quis maximus odio gravida sit amet. Duis non quam imperdiet, condimentum ipsum ac, pretium sapien. Maecenas leo sapien, molestie
-    eget ullamcorper eu, efficitur non sem. Nulla nibh nisi, congue a fermentum sit amet, pretium in enim. Etiam at lacus dapibus nunc interdum finibus. Vivamus
-    rhoncus dapibus felis eget laoreet. Fusce turpis sem, tincidunt et nibh a, tempus convallis ante. Mauris vulputate nunc et lorem congue tempus. Sed non cursus 
-    ipsum. Curabitur ullamcorper vestibulum molestie. Donec ultrices vehicula metus in sagittis.
-\end{resumo}
+\end{dedicatoria}
 
-\section{Introdução}
-Donec mollis eros urna, in tempus arcu pharetra ut. Praesent at facilisis odio. Donec mollis eleifend metus. Cras laoreet non velit sit amet eleifend. Praesent
-rhoncus turpis neque, at iaculis libero porttitor eu. Ut non maximus quam. Sed dolor nibh, malesuada at consequat vel, imperdiet eget turpis. Vestibulum eget
-vulputate dolor.
+\pagenumbering{roman}
 
+\chapter*{Agradecimentos}
+\epigrafe{Do. Or do not. There is no try.}{Mestre Yoda}
 
-Nunc sagittis, eros quis congue rutrum, mi neque dapibus libero, quis egestas est magna sit amet massa. Integer vel porta odio. Proin massa felis, dictum et urna
-ut, pharetra sagittis purus. Pellentesque et lectus nec tortor pharetra aliquet. In egestas ornare eros, eget tempus ante facilisis quis. Donec porttitor et tortor
-sollicitudin efficitur. Ut ornare lacus dapibus turpis efficitur feugiat. Aenean eget efficitur nibh. Suspendisse a nunc id dui dapibus facilisis. Vestibulum
-consectetur blandit dui, vel dictum libero vulputate eu. In consectetur ligula ullamcorper tempus consequat. Donec sit amet quam eu augue placerat consectetur
-id eget nibh. Duis viverra velit at risus dapibus tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Texto texto texto texto texto texto texto texto texto texto texto texto texto
+texto texto texto texto texto texto texto texto texto texto texto texto texto
+texto texto texto texto texto texto texto texto texto texto texto texto texto
+texto texto texto texto. Texto opcional.
 
-% \bibliographystyle{sbc}
-% \bibliography{main}
+\input{content/abstract}
+
+\tableofcontents
+
+% Referências indiretas para o índice remissivo
+% \index{Inglês|see{Língua estrangeira}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CAPÍTULOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+\pagestyle{mainmatter}
+
+\singlespacing
+
+\pagestyle{unnumberedchapter}
+\input{content/00-introduction}
+\pagestyle{mainmatter}
+
+%%%%%%%%%%%%%%% SEÇÕES FINAIS (BIBLIOGRAFIA E ÍNDICE REMISSIVO) %%%%%%%%%%%%%%%%
+\backmatter
+
+\pagestyle{backmatter}
+
+% Espaço adicional no sumário antes das referências / índice remissivo
+\addtocontents{toc}{\vspace{2\baselineskip plus .5\baselineskip minus .5\baselineskip}}
+
+\printbibliography[
+  title=\refname\label{sec:bib},
+  heading=bibintoc,
+]
+
+\printindex
 
 \end{document}
