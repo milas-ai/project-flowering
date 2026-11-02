@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dfv7t0b64ff47"]
 
-[ext_resource type="Script" uid="uid://b2pxyfofy27o" path="res://src/character/enemies/beetle/beetle.gd" id="1_en1k1"]
+[ext_resource type="Script" uid="uid://b2pxyfofy27o" path="res://src/entities/character/enemies/beetle/beetle.gd" id="1_en1k1"]
 [ext_resource type="PackedScene" uid="uid://cpqvecpvnton7" path="res://assets/models/enemies/beetle_model.glb" id="2_xiojd"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="5_tlsr3"]
-[ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/character/enemies/enemy_components/state_enemy_attack.gd" id="6_en1k1"]
-[ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/character/enemies/enemy_components/state_enemy_idle.gd" id="6_y1e6u"]
-[ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/character/enemies/enemy_components/state_enemy_chase.gd" id="7_85pfm"]
-[ext_resource type="Script" uid="uid://cte7ggrq7jija" path="res://src/character/enemies/enemy_components/state_enemy_stunned.gd" id="7_cmt60"]
+[ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/entities/character/enemies/enemy_components/state_enemy_attack.gd" id="6_en1k1"]
+[ext_resource type="Script" uid="uid://ddapfr8huqr7e" path="res://src/entities/character/enemies/enemy_components/state_enemy_idle.gd" id="6_y1e6u"]
+[ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/entities/character/enemies/enemy_components/state_enemy_chase.gd" id="7_85pfm"]
+[ext_resource type="Script" uid="uid://cte7ggrq7jija" path="res://src/entities/character/enemies/enemy_components/state_enemy_stunned.gd" id="7_cmt60"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
 radius = 0.5209961
