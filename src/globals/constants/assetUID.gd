@@ -19,7 +19,7 @@ class TEXTURE:
 				const DOWN_LEFT: String = "uid://b6wlkhqy6mj71"
 				const DOWN_RIGHT: String = "uid://dtnml565p63h"
 			const SKULL: String = "uid://dnwstybxecfs0"
-			const TEXT: String = "uid://ddmwqg24o0ic7"
+			const TEXT: String = "uid://clyaq3obx1cl7"
 
 
 
