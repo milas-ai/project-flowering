@@ -1,0 +1,1 @@
+$pdflatex = 'pdflatex %O --include-directory=templates %S';
