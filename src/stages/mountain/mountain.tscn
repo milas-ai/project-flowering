@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
 [ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area.gd" id="24_iwdui"]
+[ext_resource type="PackedScene" uid="uid://cmmjljlplwkwv" path="res://src/terrain/props/sign.tscn" id="24_nmvee"]
 [ext_resource type="PackedScene" uid="uid://bh5hchi14h3rp" path="res://src/terrain/mountain/ramp/big/mountain_ramp_big_1.tscn" id="25_ot1hr"]
 [ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/beetle_spawn_point.gd" id="25_y0856"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="26_grnlo"]
@@ -324,6 +325,10 @@ transform = Transform3D(0.9336097, 0.0882733, -0.25294927, -0.13437292, 0.976715
 [node name="WallSmall30" parent="StageTerrain/Section1" unique_id=1655636326 instance=ExtResource("11_oixdd")]
 transform = Transform3D(0.31961897, 0.104593575, -1.3191589, 0.9482394, 0.000924699, 0.4481974, 0.028991591, -1.183341, -0.11624804, 102.10097, 25.151264, -61.369503)
 
+[node name="Sign" parent="StageTerrain/Section1" unique_id=1537760339 instance=ExtResource("24_nmvee")]
+transform = Transform3D(0.24571869, -2.2744022e-09, -0.9693411, 7.450582e-09, 0.9999999, -4.5768683e-10, 0.9693411, -7.109694e-09, 0.24571869, 112.406906, 35.87421, -22.056545)
+paint = 4
+
 [node name="Section2" type="Node3D" parent="StageTerrain" unique_id=1363331021]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
 
@@ -522,6 +527,9 @@ transform = Transform3D(0.9934709, 0, 0.11408704, -7.450581e-09, 0.6591663, 0, -
 [node name="RockSmall2" parent="StageTerrain/Section3" unique_id=160135911 instance=ExtResource("9_ym1el")]
 transform = Transform3D(0.7997442, 0, 0.09184005, 0, 0.805, 0, -0.09184005, 0, 0.7997442, -41.101467, 112.88768, -56.893238)
 
+[node name="Sign" parent="StageTerrain/Section3" unique_id=1186139056 instance=ExtResource("24_nmvee")]
+transform = Transform3D(0.72919524, 0, -0.6843057, 0, 1, 0, 0.6843057, 0, 0.72919524, -11.930035, 106.140884, -6.450034)
+
 [node name="Section4" type="Node3D" parent="StageTerrain" unique_id=1373747546]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
 
@@ -608,6 +616,17 @@ transform = Transform3D(-0.057569712, -0.25721115, -0.66363347, -0.067330495, -1
 
 [node name="PlatformBig7" parent="StageTerrain/Section4" unique_id=1497276106 instance=ExtResource("18_4mxpr")]
 transform = Transform3D(0.70328003, 0, 1.2250197, 0, 1, 0, -1.0034716, 0, 0.85855114, -165.4223, 81.11174, 37.7508)
+
+[node name="Sign" parent="StageTerrain/Section4" unique_id=915941742 instance=ExtResource("24_nmvee")]
+transform = Transform3D(0.3011495, 0, -0.953577, 0, 1, 0, 0.953577, 0, 0.3011495, -162.33496, 99.83351, 22.72768)
+paint = 3
+
+[node name="Sign2" parent="StageTerrain/Section4" unique_id=1192483986 instance=ExtResource("24_nmvee")]
+transform = Transform3D(0.42866886, 0, 0.90346175, 0, 1, 0, -0.90346175, 0, 0.42866886, -127.78981, 96.147385, 66.5981)
+
+[node name="Sign3" parent="StageTerrain/Section4" unique_id=399401168 instance=ExtResource("24_nmvee")]
+transform = Transform3D(0.9320972, 0, -0.36220872, 0, 1, 0, 0.36220872, 0, 0.9320972, -117.12285, 79.91788, 143.0569)
+paint = 4
 
 [node name="Section5" type="Node3D" parent="StageTerrain" unique_id=821955701]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
@@ -701,6 +720,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.639896, 27.512238, 391.66
 size = Vector3(48.19336, 32.740234, 45.48633)
 shape = 0
 material = SubResource("FogMaterial_kgtat")
+
+[node name="Sign" parent="StageTerrain/Section5" unique_id=193638102 instance=ExtResource("24_nmvee")]
+transform = Transform3D(0.9723375, 0, -0.2335811, 0, 1, 0, 0.2335811, 0, 0.9723375, -89.213425, 27.53009, 356.7604)
+paint = 9
 
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
