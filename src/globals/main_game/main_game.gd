@@ -35,7 +35,8 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("pause"):
 		get_viewport().set_input_as_handled()
-		pause_root.pause_game(event is InputEventJoypadButton)
+		get_tree().paused = true
+		pause_root.show_pause_menu(event is InputEventJoypadButton)
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:

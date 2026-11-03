@@ -70,4 +70,5 @@ func _on_pixelization_level_change(pixelization_level: int) -> void:
 
 func _on_save_settings_pressed() -> void:
 	_main_game._save_game()
-	_main_game.pause_root.resume_game()
+	_main_game.pause_root.hide_pause_menu()
+	get_tree().paused = false
