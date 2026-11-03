@@ -52,16 +52,8 @@ unique_name_in_owner = true
 script = ExtResource("3_77o2r")
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]
-process_mode = 1
+process_mode = 3
 layer = 10
-
-[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1616494610]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_twwxd")
 
 [node name="UnscaledViewport" type="SubViewportContainer" parent="HudLayer" unique_id=1498961529]
 anchors_preset = 15
@@ -86,6 +78,14 @@ unique_name_in_owner = true
 cull_mask = 524288
 projection = 1
 size = 15.0
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1616494610]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_twwxd")
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=531358870]
 process_mode = 2
