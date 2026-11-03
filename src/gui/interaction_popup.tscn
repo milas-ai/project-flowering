@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://bfxpktu2apofu"]
 
-[ext_resource type="Texture2D" uid="uid://b45icowieixqj" path="res://assets/gui/heart/full_heart.png" id="1_ys2mp"]
-
-[node name="Node3D" type="Sprite3D" unique_id=520547247]
+[node name="InteractionPopup" type="Sprite3D" unique_id=520547247]
 transform = Transform3D(5, -1.1641532e-09, 0, 1.1641532e-09, 5, 0, 0, 0, 5, 0, 0, 0)
+layers = 524288
 gi_mode = 0
 billboard = 1
 texture_filter = 0
 render_priority = 1
-texture = ExtResource("1_ys2mp")
