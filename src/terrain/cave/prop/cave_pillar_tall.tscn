@@ -7,7 +7,7 @@
 size = Vector3(1.3962402, 4.7441406, 1.4040527)
 
 [node name="PillarTall" type="RigidBody3D" unique_id=408814573]
-collision_layer = 8
+collision_layer = 10
 collision_mask = 2
 axis_lock_angular_x = true
 axis_lock_angular_y = true
