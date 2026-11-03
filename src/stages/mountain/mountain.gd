@@ -16,3 +16,11 @@ func _on_get_item_area_interacted() -> void:
 	_main_game.set_player_items(BaseStat.PLAYER.ITEMS.BOTTLE_CAP)
 	$InteractionAreas/GetItemArea.disable()
 	$InteractionAreas/GetItemArea/Item.queue_free()
+
+
+func _on_display_block_tutorial_area_interacted() -> void:
+	pass # Replace with function body.
+
+
+func _on_display_slide_tutorial_area_interacted() -> void:
+	pass # Replace with function body.
