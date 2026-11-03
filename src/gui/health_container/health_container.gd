@@ -2,9 +2,9 @@ extends HBoxContainer
 
 
 @onready var _hearts: Array[Node]
-@onready var _empty_heart_texture: Texture2D = load(AssetUID.TEXTURE.UI.EMPTY_HEART)
-@onready var _half_heart_texture: Texture2D = load(AssetUID.TEXTURE.UI.HALF_HEART)
-@onready var _full_heart_texture: Texture2D = load(AssetUID.TEXTURE.UI.FULL_HEART)
+@onready var _empty_heart_texture: Texture2D = load(AssetUID.TEXTURE.UI.HEART.EMPTY)
+@onready var _half_heart_texture: Texture2D = load(AssetUID.TEXTURE.UI.HEART.HALF)
+@onready var _full_heart_texture: Texture2D = load(AssetUID.TEXTURE.UI.HEART.FULL)
 
 
 func _ready() -> void:
