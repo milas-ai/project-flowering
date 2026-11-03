@@ -4,9 +4,28 @@ extends RefCounted
 
 class TEXTURE:
 	class UI:
-		const EMPTY_HEART: String = "uid://drda1wghq5dsa"
-		const HALF_HEART: String = "uid://c5ii0rju1wf1k"
-		const FULL_HEART: String = "uid://b45icowieixqj"
+		class HEART:
+			const EMPTY: String = "uid://drda1wghq5dsa"
+			const HALF: String = "uid://c5ii0rju1wf1k"
+			const FULL: String = "uid://b45icowieixqj"
+		class PROMPT:
+			class XBOX:
+				const A: String = "uid://cl24a8ghpxun4"
+				const B: String = "uid://dx2hswiguwrg1"
+				const X: String = "uid://cgsycdgpa6ukm"
+				const Y: String = "uid://buwtclxa0ikub"
+			class PLAYSTATION:
+				const CROSS: String = "uid://bnt86naojbx5g"
+				const CIRCLE: String = "uid://c0kb435neksqt"
+				const SQUARE: String = "uid://bfhx5qogd501v"
+				const TRIANGLE: String = "uid://cnq0bya5855h"
+			class SWITCH:
+				const A: String = "uid://b3wnjx1vf014j"
+				const B: String = "uid://c7e84go38qydm"
+				const X: String = "uid://ghtlueclqmhj"
+				const Y: String = "uid://btm0kcbw568gw"
+			class KEYBOARD:
+				const E: String = "uid://c1jr4fu2x7fpw"
 	class TERRAIN:
 		class SIGN:
 			class ARROW:
