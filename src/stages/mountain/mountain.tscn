@@ -66,6 +66,9 @@ size = Vector3(75.35571, 21.736084, 71.67749)
 [sub_resource type="BoxShape3D" id="BoxShape3D_grnlo"]
 size = Vector3(56.6604, 21.736084, 35.108093)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 1.6627167
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
 size = Vector3(19.335693, 10, 14.760742)
 
@@ -74,9 +77,6 @@ size = Vector3(550, 1, 850)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
 size = Vector3(10, 10, 10)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 1.6627167
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
@@ -840,6 +840,19 @@ metadata/_custom_type_script = "uid://dplfslvwve5ba"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8449707, 0, -11.63327)
 shape = SubResource("BoxShape3D_grnlo")
 
+[node name="InteractableAreas" type="Node3D" parent="." unique_id=881535712]
+
+[node name="GetItemArea" type="Area3D" parent="InteractableAreas" unique_id=1116399652]
+transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -74.06555, 122.94965, -68.81762)
+script = ExtResource("28_k04n5")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreas/GetItemArea" unique_id=175636019]
+shape = SubResource("SphereShape3D_nhhn2")
+
+[node name="Item" parent="InteractableAreas/GetItemArea" unique_id=2052954029 instance=ExtResource("29_oixdd")]
+transform = Transform3D(-0.052114204, 0.74589205, -0.66402495, -0.44707572, 0.5771478, 0.6833913, 0.8929767, 0.33248386, 0.30339262, 0, 0, 0)
+
 [node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
 
 [node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1377913522]
@@ -909,17 +922,6 @@ metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
 shape = SubResource("BoxShape3D_5wuxl")
 
-[node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
-transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -74.06555, 122.94965, -68.81762)
-script = ExtResource("28_k04n5")
-metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GetItemArea" unique_id=175636019]
-shape = SubResource("SphereShape3D_nhhn2")
-
-[node name="Item" parent="GetItemArea" unique_id=2052954029 instance=ExtResource("29_oixdd")]
-transform = Transform3D(-0.052114204, 0.74589205, -0.66402495, -0.44707572, 0.5771478, 0.6833913, 0.8929767, 0.33248386, 0.30339262, 0, 0, 0)
-
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, 30.1446, -20.927673)
 mesh = SubResource("PlaneMesh_kgtat")
@@ -959,5 +961,5 @@ instance_shader_parameters/strength = 0.03
 mesh = SubResource("CylinderMesh_ot1hr")
 surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 
+[connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
-[connection signal="interacted" from="GetItemArea" to="." method="_on_get_item_area_interacted"]
