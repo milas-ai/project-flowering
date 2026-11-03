@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 		controller_layout = _keyboard_controller_layout
 
 
-func _update_joypad_type() -> void:
+func _update_joypad_type(_device = 0, _connected = false) -> void:
 	var joypads := Input.get_connected_joypads()
 	if joypads.size() > 0:
 		var joypad_name := Input.get_joy_name(joypads[0]).to_lower()
