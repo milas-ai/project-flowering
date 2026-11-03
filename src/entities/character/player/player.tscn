@@ -88,12 +88,14 @@ shape = SubResource("BoxShape3D_wpuif")
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=442019790]
+[node name="MainCamera" type="Camera3D" parent="CameraPivot" unique_id=442019790]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 50, 50)
+cull_mask = 524287
 projection = 1
 size = 15.0
 
-[node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=2084889239]
+[node name="Shading" type="MeshInstance3D" parent="CameraPivot/MainCamera" unique_id=2084889239]
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_efbnw")
