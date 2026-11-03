@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://b1mod37qlhc5" path="res://assets/gui/options_menu/options_menu_background.png" id="2_l5aju"]
 [ext_resource type="Shader" uid="uid://d3tk3nkfb7iy0" path="res://src/shaders/texture_displacement.gdshader" id="3_hxtx7"]
 [ext_resource type="Texture2D" uid="uid://d1g0kycx3qn1h" path="res://assets/gui/options_menu/options_menu_leaves.png" id="3_o4mbq"]
-[ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_button.gd" id="4_np2dk"]
-[ext_resource type="Script" uid="uid://cymd4blfr7sii" path="res://src/gui/animated_option_button.gd" id="4_ud21e"]
+[ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_controls/animated_button.gd" id="4_np2dk"]
+[ext_resource type="Script" uid="uid://cymd4blfr7sii" path="res://src/gui/animated_controls/animated_option_button.gd" id="4_ud21e"]
 [ext_resource type="Texture2D" uid="uid://6or3yb8cy7xv" path="res://assets/gui/options_menu/leaf_bar.png" id="4_xk5be"]
 [ext_resource type="Texture2D" uid="uid://cmfvqjmkopb20" path="res://assets/gui/options_menu/button_plus.png" id="7_gvqwv"]
 [ext_resource type="Texture2D" uid="uid://ceof4qjtf5qa0" path="res://assets/gui/options_menu/button_minus.png" id="8_1uldi"]
-[ext_resource type="Script" uid="uid://ly0ct8tkdxbi" path="res://src/gui/animated_checkbox.gd" id="10_6iqqx"]
-[ext_resource type="Script" uid="uid://bwgr5pgmpjj8m" path="res://src/gui/animated_h_slider.gd" id="11_6iqqx"]
+[ext_resource type="Script" uid="uid://ly0ct8tkdxbi" path="res://src/gui/animated_controls/animated_checkbox.gd" id="10_6iqqx"]
+[ext_resource type="Script" uid="uid://bwgr5pgmpjj8m" path="res://src/gui/animated_controls/animated_h_slider.gd" id="11_6iqqx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r42jx"]
 texture = ExtResource("8_1uldi")
