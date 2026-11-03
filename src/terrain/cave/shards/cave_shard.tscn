@@ -9,3 +9,8 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 material = ExtResource("1_lndgq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGBox3D" unique_id=671274240]
+light_color = Color(0.99999994, 0.46200997, 0.9057077, 1)
+light_energy = 1.5
+omni_range = 7.3743067
