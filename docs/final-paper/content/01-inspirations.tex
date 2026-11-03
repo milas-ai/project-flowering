@@ -55,6 +55,32 @@ e \textit{Knight Lore} (1984):
 
 \end{description}
 
+No desenvolvimento moderno, a câmera isométrica é geralmente construída configurando-se
+uma câmera 3D com projeção ortográfica alinhada a um ângulo fixo. Do ponto de vista de \textit{game design},
+a adoção da câmera isométrica proporciona vantagens diretas para a jogabilidade e percepção do espaço, como:
+
+\begin{description}
+	\item[Clareza Espacial e Legibilidade:] Por não apresentar encurtamento perspectivo
+	(\textit{foreshortening}), os objetos mantêm a mesma escala visual independentemente da sua
+	distância em relação à câmera. Isso facilita a leitura imediata de distâncias, trajetórias e
+	posições no cenário.
+	\item[Ampla Visão do Cenário:] Permite que o jogador visualize simultaneamente o
+	personagem principal, múltiplos inimigos ao redor e perigos do ambiente, favorecendo a
+	antecipação de ações e o planejamento de reações.
+	\item[Desempenho Visual Uniforme:] A ausência de cálculo de deformação de perspectiva
+	simplifica o \textit{culling} de oclusão e otimiza a renderização de elementos estáticos e
+	dinâmicos.
+
+\end{description}
+
+No entanto, o uso da isometria introduz desafios específicos que demandam soluções
+intencionais de design, como a oclusão de elementos (quando objetos altos do cenário
+escondem o personagem ou inimigos atrás deles) e a percepção de altura em saltos. Essas
+particularidades exigem um planejamento de \textit{level design} e o uso de \textit{shaders} ou transparências
+dinâmicas para preservar a orientação do jogador durante sua navegação pelo mapa.
+
+
+
 \section{\textit{Low Poly}}
 \label{sec:low_poly}
 
