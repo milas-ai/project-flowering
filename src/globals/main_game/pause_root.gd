@@ -8,7 +8,7 @@ var _options_menu: Control
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		get_viewport().set_input_as_handled()
-		_resume_game()
+		resume_game()
 
 
 func init_options_menu() -> void:
@@ -33,7 +33,7 @@ func pause_game(with_controller: bool = false) -> void:
 	show()
 
 
-func _resume_game() -> void:
+func resume_game() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
 	get_tree().paused = false
