@@ -63,6 +63,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_twwxd")
 
+[node name="UnscaledViewport" type="SubViewportContainer" parent="HudLayer" unique_id=1498961529]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="HudLayer/UnscaledViewport" unique_id=617909259]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1600, 1200)
+render_target_update_mode = 4
+
+[node name="UnscaledCamera" type="Camera3D" parent="HudLayer/UnscaledViewport/SubViewport" unique_id=1134560782]
+unique_name_in_owner = true
+cull_mask = 524288
+projection = 1
+size = 15.0
+
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=531358870]
 process_mode = 2
 layer = 20
