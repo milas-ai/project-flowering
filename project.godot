@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://cskcjpx3rk7rb"
 
 ParticleSystem="*uid://cawl0y3nndj04"
 SaveManager="*uid://sspf7kblwerb"
+ControllerManager="*uid://geomyhsyknfl"
 
 [display]
 
