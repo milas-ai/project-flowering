@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bfxpktu2apofu"]
+
+[node name="InteractionPopup" type="Sprite3D" unique_id=520547247]
+transform = Transform3D(5, -1.1641532e-09, 0, 1.1641532e-09, 5, 0, 0, 0, 5, 0, 0, 0)
+layers = 524288
+gi_mode = 0
+billboard = 1
+texture_filter = 0
+render_priority = 1
