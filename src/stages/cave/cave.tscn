@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b6c5vtwrix7sm" path="res://src/terrain/cave/shards/cave_shard.tscn" id="21_mttvs"]
 [ext_resource type="PackedScene" uid="uid://cd0hm0nfc45ih" path="res://src/terrain/cave/wall/cave_wall_medium_1.tscn" id="22_fpjvn"]
 [ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="23_3y2sl"]
+[ext_resource type="PackedScene" uid="uid://b8o47pv73gn8u" path="res://src/terrain/cave/prop/cave_pillar_extra_tall.tscn" id="24_xjyc6"]
 [ext_resource type="Material" uid="uid://c8jx6ujjd25nh" path="res://assets/materials/terrain/cave_wall_mat.tres" id="25_6s4nj"]
 [ext_resource type="PackedScene" uid="uid://buicfars5lqhq" path="res://src/terrain/cave/platform/small/cave_platform_small_2.tscn" id="25_8svx8"]
 [ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_k34y4"]
@@ -671,9 +672,6 @@ transform = Transform3D(-0.007424604, 0, 0.35263312, 0, 1.6746101, 0, -0.4660109
 [node name="WallThin2" parent="StageTerrain/Section3" unique_id=2010627191 instance=ExtResource("20_5bcjj")]
 transform = Transform3D(-0.03607166, 0, 0.46989864, 0, 1.2982255, 0, -2.2640655, 0, -0.0074865436, -4.9142046, 13.758434, 99.49089)
 
-[node name="PillarTall2" parent="StageTerrain/Section3" unique_id=1182543486 instance=ExtResource("7_h23eg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.707309, 13.712569, 105.649155)
-
 [node name="RockBig2" parent="StageTerrain/Section3" unique_id=1600010207 instance=ExtResource("3_e3d7y")]
 transform = Transform3D(1.8312292, -0.15589271, 0.07137096, 0.13787761, 2.152611, -0.036412545, -0.12608145, 0.08979691, 0.996785, 1.0425386, 0.5214472, 116.0341)
 
@@ -725,6 +723,9 @@ transform = Transform3D(0.98047197, 0.19216777, 0.041788746, -0.18996008, 0.9804
 
 [node name="RockMeduim6" parent="StageTerrain/Section3" unique_id=1473999152 instance=ExtResource("9_e3d7y")]
 transform = Transform3D(1.3572899, 0.630983, -0.76290524, -0.5097198, 1.5551928, 0.37942165, 0.8487342, -0.07506981, 1.4478999, -14.723083, 2.9308496, 108.12051)
+
+[node name="PillarExtraTall" parent="StageTerrain/Section3" unique_id=273957416 instance=ExtResource("24_xjyc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1292624, 14.225931, 105.379395)
 
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
