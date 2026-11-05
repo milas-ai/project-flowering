@@ -8,6 +8,7 @@ const LETTER_DISPLAY_DELAY: float = 0.06
 const SPACE_DISPLAY_DELAY: float = 0.08
 const PUNCTUATION_DISPLAY_DELAY: float = 0.25
 const OFF_SCREEN_OFFSET := Vector2(0, 500)
+const MAX_CHARACTERS_PER_LINE: int = 74
 
 var _text: String
 var _lines: Array
