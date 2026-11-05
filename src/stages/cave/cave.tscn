@@ -831,6 +831,14 @@ script = ExtResource("19_jmaqm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.152184, 10.024592, 65.75671)
 script = ExtResource("19_jmaqm")
 
+[node name="Ant8" type="Marker3D" parent="EnemySpawnPoints" unique_id=1241615851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.732784, 13.33807, 178.32397)
+script = ExtResource("19_jmaqm")
+
+[node name="Ant9" type="Marker3D" parent="EnemySpawnPoints" unique_id=599330022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.12499, 13.33807, 172.1461)
+script = ExtResource("19_jmaqm")
+
 [node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
 
 [node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
