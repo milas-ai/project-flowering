@@ -7,6 +7,7 @@ signal dialog_finished
 const LETTER_DISPLAY_DELAY: float = 0.06
 const SPACE_DISPLAY_DELAY: float = 0.08
 const PUNCTUATION_DISPLAY_DELAY: float = 0.25
+const OFF_SCREEN_OFFSET := Vector2(0, 500)
 
 var _text: String
 var _lines: Array
@@ -16,6 +17,10 @@ var _line_finished: bool
 
 @onready var _dialog_label: Label = %DialogLabel
 @onready var _letter_timer: Timer = $LetterDisplayTimer
+
+
+func _ready() -> void:
+	offset_transform_position = OFF_SCREEN_OFFSET
 
 
 func _input(event: InputEvent) -> void:
@@ -31,18 +36,20 @@ func _input(event: InputEvent) -> void:
 
 
 func display_dialog(dialog_text: String) -> void:
-	_show()
 	_line_index = 0
 	_lines = dialog_text.split("\n")
-	_display_line()
 
-
-func _show() -> void:
 	show()
+	var tween := create_tween()
+	tween.tween_property(self, "offset_transform_position", Vector2.ZERO, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_callback(_display_line)
 
 
 func _hide() -> void:
-	hide()
+	var tween := create_tween()
+	tween.tween_property(self, "offset_transform_position", OFF_SCREEN_OFFSET, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_callback(_finish_dialog)
 
 
 func _display_line() -> void:
@@ -53,11 +60,12 @@ func _display_line() -> void:
 		_text = _lines[_line_index]
 		_letter_timer.start(LETTER_DISPLAY_DELAY)
 	else:
-		_finish_dialog()
+		_hide()
 
 
 func _finish_dialog() -> void:
-	_hide()
+	hide()
+	_dialog_label.text = ""
 	dialog_finished.emit()
 
 

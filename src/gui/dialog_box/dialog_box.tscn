@@ -16,6 +16,7 @@ offset_top = -267.0
 offset_right = 785.0
 grow_horizontal = 2
 grow_vertical = 0
+offset_transform_enabled = true
 mouse_filter = 2
 theme = ExtResource("1_jupcf")
 script = ExtResource("1_1m5hn")
