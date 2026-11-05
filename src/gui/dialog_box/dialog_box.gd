@@ -2,6 +2,8 @@ class_name DialogBox
 extends MarginContainer
 
 
+signal dialog_finished
+
 const LETTER_DISPLAY_DELAY: float = 0.06
 const SPACE_DISPLAY_DELAY: float = 0.08
 const PUNCTUATION_DISPLAY_DELAY: float = 0.25
@@ -11,14 +13,13 @@ var _lines: Array
 var _letter_index: int
 var _line_index: int
 var _line_finished: bool
-var _dialog_finished: bool = true
 
 @onready var _dialog_label: Label = %DialogLabel
 @onready var _letter_timer: Timer = $LetterDisplayTimer
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and not _dialog_finished:
+	if event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
 		if _line_finished:
 			_line_index += 1
@@ -31,19 +32,16 @@ func _input(event: InputEvent) -> void:
 
 func display_dialog(dialog_text: String) -> void:
 	_show()
-	_dialog_finished = false
 	_line_index = 0
 	_lines = dialog_text.split("\n")
 	_display_line()
 
 
 func _show() -> void:
-	get_tree().paused = true
 	show()
 
 
 func _hide() -> void:
-	get_tree().paused = false
 	hide()
 
 
@@ -53,14 +51,14 @@ func _display_line() -> void:
 		_line_finished = false
 		_dialog_label.text = ""
 		_text = _lines[_line_index]
-		_print_letter()
+		_letter_timer.start(LETTER_DISPLAY_DELAY)
 	else:
 		_finish_dialog()
 
 
 func _finish_dialog() -> void:
-	_dialog_finished = true
 	_hide()
+	dialog_finished.emit()
 
 
 func _print_letter() -> void:

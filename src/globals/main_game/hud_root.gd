@@ -14,4 +14,11 @@ func load_main_stage_hud() -> void:
 
 
 func display_dialog(dialog_text: String) -> void:
+	get_tree().paused = true
+	_dialog_box.process_mode = PROCESS_MODE_INHERIT
 	_dialog_box.display_dialog(dialog_text)
+
+
+func _on_dialog_box_dialog_finished() -> void:
+	_dialog_box.process_mode = PROCESS_MODE_DISABLED
+	get_tree().paused = false
