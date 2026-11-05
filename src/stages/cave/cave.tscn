@@ -122,7 +122,7 @@ player_items_on_spawn = 2
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 26.418003, 9.023393, 151.445)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 28.979578, 10.889688, 257.68823)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -802,7 +802,7 @@ transform = Transform3D(0.70117956, 0, 0.7129848, 0, 1, 0, -0.7129848, 0, 0.7011
 transform = Transform3D(0.83971167, 0, 0.5430325, 0, 1, 0, -0.5430325, 0, 0.83971167, 4.2343454, 16.99692, 184.05363)
 
 [node name="PlatformMedium17" parent="StageTerrain/Section5" unique_id=894420790 instance=ExtResource("12_f4mln")]
-transform = Transform3D(-0.3981613, 0, 2.0183303, 0, 0.9999999, 0, -0.63127005, 0, -1.2730222, 24.054903, 3.2472777, 191.84787)
+transform = Transform3D(-0.3981613, 0, 2.0183303, 0, 0.9999999, 0, -0.63127005, 0, -1.2730222, 21.798841, 3.2472777, 193.27084)
 
 [node name="PlatformMedium19" parent="StageTerrain/Section5" unique_id=658550850 instance=ExtResource("12_f4mln")]
 transform = Transform3D(-0.3981613, 0, 2.0183303, 0, 0.9999999, 0, -0.63127005, 0, -1.2730222, 4.0480137, 3.2472777, 160.12769)
@@ -820,7 +820,7 @@ transform = Transform3D(1, 0, 0, 0, -3.9867082, 0.10584574, 0, -0.4243599, -0.99
 transform = Transform3D(0.82338893, -2.2280524, -0.11486519, 0.15391219, 0.09570676, 0.98779607, -0.5462068, -3.3317487, 0.10518935, 31.54179, 17.257364, 163.6126)
 
 [node name="RockBig1" parent="StageTerrain/Section5" unique_id=331770269 instance=ExtResource("8_h1eh8")]
-transform = Transform3D(2.435652, -0.24522927, 0.52757597, -0.39541388, 1.4834024, 0.45754033, -1.5425076, -0.767485, 0.7157658, 27.652779, 13.6416, 201.97218)
+transform = Transform3D(2.3330455, -0.23183782, 0.3347095, -0.3199069, 1.557689, 0.21254763, -1.7095736, -0.6078732, 0.41700286, 21.862303, 12.045098, 200.3013)
 
 [node name="RockBig2" parent="StageTerrain/Section5" unique_id=623440342 instance=ExtResource("8_h1eh8")]
 transform = Transform3D(2.0541866, 0.69197583, -0.5776373, -0.39541376, 1.4834024, 0.45754024, 2.022881, -0.41272274, 0.67601204, -3.98907, 13.6416, 203.60303)
@@ -835,7 +835,102 @@ transform = Transform3D(-2.556748, 0.17981488, -0.46551085, -0.3954139, 1.483402
 transform = Transform3D(1.1272928, -0.6714613, -1.0104551, -0.23588066, 3.453684, -0.39924756, 1.5312176, 1.0263668, 0.68240076, 21.753698, 15.309786, 154.97054)
 
 [node name="RockMeduim6" parent="StageTerrain/Section5" unique_id=2032978029 instance=ExtResource("15_ac4f2")]
-transform = Transform3D(0.298284, -1.0677862, -1.2109783, -0.23588066, 3.453684, -0.3992476, 1.8778822, 0.60342485, 0.1422031, 39.081, 15.309787, 179.26044)
+transform = Transform3D(0.298284, -1.0677862, -1.2109783, -0.23588066, 3.453684, -0.3992476, 1.8778822, 0.60342485, 0.1422031, 40.110924, 11.978574, 178.6784)
+
+[node name="WallThin" parent="StageTerrain/Section5" unique_id=418798487 instance=ExtResource("20_5bcjj")]
+transform = Transform3D(0.64462805, 0, -0.39471886, 0, 1, 0, 0.7644963, 0, 0.3328294, 40.30168, 8.144129, 169.96683)
+
+[node name="Shard" parent="StageTerrain/Section5" unique_id=1785071098 instance=ExtResource("21_mttvs")]
+transform = Transform3D(0.94410336, -0.021382093, -0.32895547, 0.17121246, 0.88455105, 0.43388456, 0.28170055, -0.4659531, 0.8387684, 6.4680433, 13.170551, 182.83163)
+
+[node name="Shard2" parent="StageTerrain/Section5" unique_id=1476656469 instance=ExtResource("21_mttvs")]
+transform = Transform3D(0.66111535, -0.47757003, 0.5038329, 0.23792674, 0.41719714, 0.6737497, -1.6245016, -0.13325098, 0.30372056, 5.9025474, 14.088308, 182.34454)
+
+[node name="Section6" type="Node3D" parent="StageTerrain" unique_id=177435672]
+
+[node name="PlatformMedium18" parent="StageTerrain/Section6" unique_id=1626567277 instance=ExtResource("12_f4mln")]
+transform = Transform3D(0.7123516, 0, 0.9516832, 0, 0.95132124, 0, -0.69151163, 0, 0.98036426, 48.794434, 0.6286497, 203.06041)
+
+[node name="PlatformMedium21" parent="StageTerrain/Section6" unique_id=1424335536 instance=ExtResource("12_f4mln")]
+transform = Transform3D(0.4697382, 0, 0.84491044, 0, 0.95132124, 0, -0.87463087, 0, 0.45377642, 41.940025, 2.4989214, 216.87894)
+
+[node name="PlatformMedium20" parent="StageTerrain/Section6" unique_id=1262824804 instance=ExtResource("12_f4mln")]
+transform = Transform3D(0.8195954, 0.16394366, 0.51537347, 0.04294366, 0.8848315, -0.34979632, -0.5586164, 0.30855757, 0.7292595, 59.1267, -1.0250125, 213.77809)
+
+[node name="PlatformMedium19" parent="StageTerrain/Section6" unique_id=202405527 instance=ExtResource("12_f4mln")]
+transform = Transform3D(-0.5833111, 0, 0.776058, 0, 0.95132124, 0, -0.8033564, 0, -0.5634897, 35.21173, 1.6788855, 194.98317)
+
+[node name="PlatformSmall1" parent="StageTerrain/Section6" unique_id=790959186 instance=ExtResource("17_r3nht")]
+transform = Transform3D(1.572908, 0, 0.19926757, 0, 1, 0, -0.26779896, 0, 1.1703908, 66.1735, -1.591536, 224.20453)
+
+[node name="PlatformSmall2" parent="StageTerrain/Section6" unique_id=70395504 instance=ExtResource("17_r3nht")]
+transform = Transform3D(1.1684072, -0.13676074, 0.15840483, 0.13013646, 0.97473025, 0.23127723, -0.18651772, -0.17662798, 1.1536644, 73.51782, -1.3106141, 244.55945)
+
+[node name="WallMedium2" parent="StageTerrain/Section6" unique_id=730279357 instance=ExtResource("28_uj1yi")]
+transform = Transform3D(0.68000793, 0, -0.47383323, 0, 1, 0, 0.36589262, 0, 0.8806146, 47.617855, 8.18582, 219.87016)
+
+[node name="WallMedium3" parent="StageTerrain/Section6" unique_id=1127218034 instance=ExtResource("28_uj1yi")]
+transform = Transform3D(0.68000793, 0, -0.47383323, 0, 1, 0, 0.36589262, 0, 0.8806146, 38.171886, 8.18582, 220.20146)
+
+[node name="WallThin8" parent="StageTerrain/Section6" unique_id=1919189262 instance=ExtResource("20_5bcjj")]
+transform = Transform3D(0.77497965, 0, 0.37319276, 0, 1.5278853, 0, -0.7003767, 0, 0.4129447, 57.890377, 4.3452873, 200.76132)
+
+[node name="PillarExtraTall" parent="StageTerrain/Section6" unique_id=973100463 instance=ExtResource("24_xjyc6")]
+transform = Transform3D(0.91540366, 0, -0.40253717, 0, 1, 0, 0.40253717, 0, 0.91540366, 45.52292, 13.739416, 215.31383)
+
+[node name="PlatformTiny1" parent="StageTerrain/Section6" unique_id=56438872 instance=ExtResource("19_7ffxo")]
+transform = Transform3D(1.4455813, 0, 0.8879839, 0, 1, 0, -2.7913105, 0, 0.4598746, 41.097702, 9.525949, 222.81001)
+
+[node name="PillarExtraTall2" parent="StageTerrain/Section6" unique_id=394717733 instance=ExtResource("24_xjyc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.34252, 2.9225888, 253.65982)
+
+[node name="WallMedium5" parent="StageTerrain/Section6" unique_id=316807630 instance=ExtResource("28_uj1yi")]
+transform = Transform3D(0.21490048, -8.268891e-08, 0.81173223, 0, -0.9999999, -7.502649e-08, 0.62619597, 2.8377519e-08, -0.27857363, 47.96531, -6.158436, 249.62762)
+
+[node name="WallMedium6" parent="StageTerrain/Section6" unique_id=1166648444 instance=ExtResource("28_uj1yi")]
+transform = Transform3D(-0.5799106, 0.028985435, -0.5577262, -0.043604687, 0.99359, 0.08019596, 0.5503633, 0.10926263, -0.58131486, 60.119972, -6.796504, 250.5564)
+
+[node name="PlatformSmall3" parent="StageTerrain/Section6" unique_id=1395843880 instance=ExtResource("25_8svx8")]
+transform = Transform3D(2.032029, 0.045259476, 0.27568513, -0.09964384, 0.99889094, -4.656613e-10, -0.58278424, -0.012980381, 0.96124804, 44.808537, -5.0766964, 254.94041)
+
+[node name="PlatformSmall4" parent="StageTerrain/Section6" unique_id=1876198397 instance=ExtResource("25_8svx8")]
+transform = Transform3D(0.037525143, 0, 0.64790595, 0, 1.5143023, 0, -0.9992957, 0, 0.024329899, 32.332558, 0, 257.31482)
+
+[node name="PlatformSmall5" parent="StageTerrain/Section6" unique_id=722160771 instance=ExtResource("25_8svx8")]
+transform = Transform3D(0.029042952, 0.00017719761, 0.64428365, -2.4938322e-07, 1.5143023, -8.065341e-05, -0.105822325, 4.5063287e-05, 0.17682374, 27.153204, 0.00021362305, 254.28087)
+
+[node name="PlatformSmall6" parent="StageTerrain/Section6" unique_id=680843737 instance=ExtResource("25_8svx8")]
+transform = Transform3D(0.09913218, 0.00017719762, -0.28651947, -1.3000494e-05, 1.5143023, 1.5566697e-05, 0.04706026, 4.506331e-05, 0.60355175, 25.564737, 0.0005092621, 250.58553)
+
+[node name="PlatformSmall7" parent="StageTerrain/Section6" unique_id=873655784 instance=ExtResource("25_8svx8")]
+transform = Transform3D(0.20384893, 0.00017719757, -0.08772298, -2.6733363e-05, 1.5143017, 4.7660187e-06, 0.096771635, 4.5063294e-05, 0.184788, 23.293863, 0.0005912781, 256.73206)
+
+[node name="PlatformTiny2" parent="StageTerrain/Section6" unique_id=465298207 instance=ExtResource("19_7ffxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.08732, 2.6998687, 262.9515)
+
+[node name="PlatformTiny5" parent="StageTerrain/Section6" unique_id=1485341510 instance=ExtResource("19_7ffxo")]
+transform = Transform3D(5.0031466, 0, 0.23861887, 0, 1, 0, -1.2293575, 0, 0.9711131, 50.27751, 0.22048807, 260.3229)
+
+[node name="PlatformTiny3" parent="StageTerrain/Section6" unique_id=272878433 instance=ExtResource("19_7ffxo")]
+transform = Transform3D(1.6604453, 0, 0, 0, 1.8947242, 0, 0, 0, 1.2598987, 37.58252, 3.5285578, 251.56702)
+
+[node name="PlatformSmall8" parent="StageTerrain/Section6" unique_id=947812892 instance=ExtResource("25_8svx8")]
+transform = Transform3D(0.6448337, 0, -0.29856226, 0, 1, 0, 0.30628008, 0, 0.62858474, 29.074692, -1.2770166, 239.99956)
+
+[node name="PlatformSmall9" parent="StageTerrain/Section6" unique_id=1175235815 instance=ExtResource("25_8svx8")]
+transform = Transform3D(0.6961531, 0.057052046, 0.14889275, -0.030715186, 0.9966431, -0.04846935, -0.15506566, 0.05871619, 0.6780413, 34.313583, 4.1430607, 233.36324)
+
+[node name="PlatformTiny4" parent="StageTerrain/Section6" unique_id=1213000312 instance=ExtResource("20_m24al")]
+transform = Transform3D(0.8481481, -0.05092851, -0.80187756, -0.26379257, 1.6894848, -0.7025257, 0.45941085, 1.0641204, 1.0770097, 37.21348, 3.416109, 235.88992)
+
+[node name="PillarTall" parent="StageTerrain/Section6" unique_id=650546896 instance=ExtResource("7_h23eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.838097, 10.982034, 254.26595)
+
+[node name="RockMeduim2" parent="StageTerrain/Section6" unique_id=2055492949 instance=ExtResource("15_ac4f2")]
+transform = Transform3D(1.7771556, 0.6282382, 0.33802193, -0.35148862, 1.5606549, -1.0526332, -0.6208042, 0.914821, 1.5636269, 40.50428, 2.7531745, 229.86461)
+
+[node name="RockSmall1" parent="StageTerrain/Section6" unique_id=2109050400 instance=ExtResource("13_phw55")]
+transform = Transform3D(1.7466457, 0.24538617, -0.045782994, -0.35496658, 1.1655484, -0.44742683, -0.04691844, 0.31697425, 1.6806797, 38.37155, 7.361985, 230.07306)
 
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
@@ -875,10 +970,18 @@ script = ExtResource("19_jmaqm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.12499, 13.33807, 199.8678)
 script = ExtResource("19_jmaqm")
 
+[node name="Ant10" type="Marker3D" parent="EnemySpawnPoints" unique_id=875027584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.160126, 3.6937056, 260.8495)
+script = ExtResource("19_jmaqm")
+
+[node name="Ant11" type="Marker3D" parent="EnemySpawnPoints" unique_id=1365321242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.695892, 5.7982187, 242.73921)
+script = ExtResource("19_jmaqm")
+
 [node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
 
 [node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.630539, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264, 0)
 collision_layer = 0
 collision_mask = 5
 
@@ -897,6 +1000,7 @@ shape = SubResource("BoxShape3D_5wuxl")
 
 [node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
 transform = Transform3D(0.75127053, 0.0030532675, -0.65998745, -0.024869217, 0.9994101, -0.023685372, 0.65952575, 0.034207493, 0.7509033, 132.20302, 7.5499816, -26.067911)
+visible = false
 script = ExtResource("28_a7pq4")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
