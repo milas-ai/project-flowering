@@ -18,8 +18,7 @@ var _dialog_finished: bool = true
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and not _dialog_finished and not get_tree().paused:
-		print("DialogBox: Interact button pressed.")
+	if event.is_action_pressed("interact") and not _dialog_finished:
 		get_viewport().set_input_as_handled()
 		if _line_finished:
 			_line_index += 1
@@ -39,10 +38,12 @@ func display_dialog(dialog_text: String) -> void:
 
 
 func _show() -> void:
+	get_tree().paused = true
 	show()
 
 
 func _hide() -> void:
+	get_tree().paused = false
 	hide()
 
 
