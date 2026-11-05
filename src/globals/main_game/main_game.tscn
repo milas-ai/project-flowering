@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://chviwd6q60duv" path="res://src/shaders/posterization.gdshader" id="2_w4awf"]
 [ext_resource type="Script" uid="uid://rtlicepdw5sr" path="res://src/globals/main_game/entity_root.gd" id="3_77o2r"]
 [ext_resource type="Script" uid="uid://bi17bhvu7eoa" path="res://src/globals/main_game/pause_root.gd" id="4_77o2r"]
+[ext_resource type="PackedScene" uid="uid://bflec4vjqdtrs" path="res://src/gui/dialog_box/dialog_box.tscn" id="5_eimqg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkujh"]
 shader = ExtResource("2_w4awf")
@@ -52,16 +53,8 @@ unique_name_in_owner = true
 script = ExtResource("3_77o2r")
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]
-process_mode = 1
+process_mode = 3
 layer = 10
-
-[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1616494610]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_twwxd")
 
 [node name="UnscaledViewport" type="SubViewportContainer" parent="HudLayer" unique_id=1498961529]
 anchors_preset = 15
@@ -87,6 +80,21 @@ cull_mask = 524288
 projection = 1
 size = 15.0
 
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1616494610]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_twwxd")
+
+[node name="DialogBox" parent="HudLayer/HudRoot" unique_id=4022915 instance=ExtResource("5_eimqg")]
+visible = false
+layout_mode = 1
+
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=531358870]
 process_mode = 2
 layer = 20
@@ -111,3 +119,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_77o2r")
+
+[connection signal="dialog_finished" from="HudLayer/HudRoot/DialogBox" to="HudLayer/HudRoot" method="_on_dialog_box_dialog_finished"]
