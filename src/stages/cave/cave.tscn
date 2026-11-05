@@ -71,8 +71,8 @@ seamless = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a20jj"]
 render_priority = 0
 shader = ExtResource("30_1jr8q")
-shader_parameter/color1 = Color(0.41201207, 0.6315851, 0.47365338, 1)
-shader_parameter/color2 = Color(0.11094313, 0.13287151, 0.19309926, 1)
+shader_parameter/color1 = Color(0.6684694, 0.5487927, 0.3996416, 1)
+shader_parameter/color2 = Color(0.36814705, 8.5937456e-05, 0.36449203, 1)
 shader_parameter/scale = 0.02
 shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
@@ -122,7 +122,7 @@ player_items_on_spawn = 2
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 62.698757, 9.023393, 81.40871)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 26.418003, 9.023393, 151.445)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -575,7 +575,10 @@ transform = Transform3D(1.0312488, 0, -0.9317634, 0, 3.5319867, 0, 2.1840408, 0,
 transform = Transform3D(0.7978355, 0, -0.95612687, 0, 3.5319867, 0, 1.9858075, 0, 0.38414198, 24.09625, 6.915967, 110.734825)
 
 [node name="PlatformTiny14" parent="StageTerrain/Section3" unique_id=1990522803 instance=ExtResource("20_m24al")]
-transform = Transform3D(0.610896, 0, -2.560251, 0, 3.5319867, 0, 2.4017062, 0, 0.6512234, 18.187244, 6.915967, 112.66703)
+transform = Transform3D(0.610896, 0, -2.560251, 0, 3.5319867, 0, 2.4017062, 0, 0.6512234, 18.187244, 6.7955084, 112.66703)
+
+[node name="PlatformTiny15" parent="StageTerrain/Section3" unique_id=11795176 instance=ExtResource("20_m24al")]
+transform = Transform3D(0.8295126, 0, -3.4884675, 0, 3.5319867, 0, 2.048988, 0, 1.412272, 18.515156, 16.697517, 112.59521)
 
 [node name="PillarTall5" parent="StageTerrain/Section3" unique_id=1907662289 instance=ExtResource("7_h23eg")]
 transform = Transform3D(0.9676671, 0, 0.2522309, 0, 1, 0, -0.2522309, 0, 0.9676671, 28.244034, 7.744891, 111.29999)
