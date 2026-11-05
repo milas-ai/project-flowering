@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bflec4vjqdtrs"]
+
+[ext_resource type="Script" uid="uid://cqrf8tdvxr1ck" path="res://src/gui/dialog_box/dialog_box.gd" id="1_1m5hn"]
+[ext_resource type="Theme" uid="uid://chwg4ghnq04ed" path="res://assets/gui/base_theme.tres" id="1_jupcf"]
+[ext_resource type="Texture2D" uid="uid://4fli28e44mxk" path="res://assets/gui/dialog_box.png" id="3_v5coh"]
+
+[node name="DialogBox" type="MarginContainer" unique_id=4022915]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -785.0
+offset_top = -267.0
+offset_right = 785.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("1_jupcf")
+script = ExtResource("1_1m5hn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1542426973]
+layout_mode = 2
+texture = ExtResource("3_v5coh")
+region_rect = Rect2(0, 0, 336, 336)
+patch_margin_left = 112
+patch_margin_top = 112
+patch_margin_right = 112
+patch_margin_bottom = 112
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1106696413]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 25
+
+[node name="DialogLabel" type="Label" parent="MarginContainer" unique_id=2119545482]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1500, 300)
+custom_maximum_size = Vector2(-1, 300)
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 80
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LetterDisplayTimer" type="Timer" parent="." unique_id=2014772089]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
