@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://cqrf8tdvxr1ck" path="res://src/gui/dialog_box/dialog_box.gd" id="1_1m5hn"]
 [ext_resource type="Theme" uid="uid://chwg4ghnq04ed" path="res://assets/gui/base_theme.tres" id="1_jupcf"]
 [ext_resource type="Texture2D" uid="uid://4fli28e44mxk" path="res://assets/gui/dialog_box.png" id="3_v5coh"]
+[ext_resource type="FontFile" uid="uid://c0sh07kw3bow7" path="res://assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="4_r33xk"]
+
+[sub_resource type="FontVariation" id="FontVariation_lhkw5"]
+base_font = ExtResource("4_r33xk")
+baseline_offset = -0.06
 
 [node name="DialogBox" type="MarginContainer" unique_id=4022915]
 process_mode = 4
@@ -37,15 +42,16 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 35
 theme_override_constants/margin_bottom = 25
 
-[node name="DialogLabel" type="Label" parent="MarginContainer" unique_id=2119545482]
+[node name="DialogLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1182073712]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1500, 300)
 custom_maximum_size = Vector2(-1, 300)
 layout_mode = 2
-theme_type_variation = &"TooltipLabel"
-theme_override_font_sizes/font_size = 80
-vertical_alignment = 1
+theme_override_fonts/normal_font = SubResource("FontVariation_lhkw5")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
 autowrap_mode = 2
+vertical_alignment = 1
 
 [node name="LetterDisplayTimer" type="Timer" parent="." unique_id=2014772089]
 one_shot = true

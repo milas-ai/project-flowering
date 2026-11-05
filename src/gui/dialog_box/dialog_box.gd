@@ -16,7 +16,7 @@ var _letter_index: int
 var _line_index: int
 var _line_finished: bool
 
-@onready var _dialog_label: Label = %DialogLabel
+@onready var _dialog_label: RichTextLabel = %DialogLabel
 @onready var _letter_timer: Timer = $LetterDisplayTimer
 
 
@@ -71,8 +71,12 @@ func _finish_dialog() -> void:
 
 
 func _print_letter() -> void:
-	_dialog_label.text += _text[_letter_index]
-	_letter_index += 1
+	if _text[_letter_index] == "[":
+		_print_tag(_text.substr(_letter_index))
+	else:
+		_dialog_label.text += _text[_letter_index]
+		_letter_index += 1
+
 	if _letter_index < _text.length():
 		match _text[_letter_index]:
 			" ":
@@ -83,6 +87,13 @@ func _print_letter() -> void:
 				_letter_timer.start(LETTER_DISPLAY_DELAY)
 	else:
 		_line_finished = true
+
+
+func _print_tag(text: String) -> void:
+	var tag_open_end_index: int = text.find("]")
+	var tag_close_end_index: int = text.find("]", tag_open_end_index + 1)
+	_dialog_label.text += text.left(tag_close_end_index + 1)
+	_letter_index += tag_close_end_index + 1
 
 
 func _on_letter_display_timer_timeout() -> void:
