@@ -121,7 +121,7 @@ player_items_on_spawn = 2
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -13.450184, 25.332378, 163.36797)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 137.96706, 14.581024, -17.291395)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -284,7 +284,7 @@ transform = Transform3D(-0.8536497, 0.13996266, -0.9247905, 0.08227883, -1.18967
 transform = Transform3D(-0.9563121, 0.335566, 0.2274815, -0.23598346, -1.2072126, 0.36832434, 0.1725649, 0.2087535, 1.7643323, 154.07248, 8.50366, -17.602806)
 
 [node name="RockBig18" parent="StageTerrain/Section1" unique_id=158609953 instance=ExtResource("8_h1eh8")]
-transform = Transform3D(0.21784797, -1.2397412, 0.004726738, -0.08948979, -0.02200115, 1.8091041, -0.97187114, -0.27586603, -0.16552281, 137.30713, 1.6341248, -36.316334)
+transform = Transform3D(0.46745145, -1.8253388, 0.033360228, -0.087487325, -0.052831586, 1.8091044, -0.8796789, -0.9647102, -0.16219507, 145.70909, 1.886528, -46.12733)
 
 [node name="PlatformMedium7" parent="StageTerrain/Section1" unique_id=1709804277 instance=ExtResource("10_f4mln")]
 transform = Transform3D(0.9875978, 0, -0.157005, 0, 1, 0, 0.157005, 0, 0.9875978, 123.40018, -4.55204, 35.234764)
@@ -347,10 +347,10 @@ transform = Transform3D(0.87591285, 0, -0.48246938, 0, 1, 0, 0.48246938, 0, 0.87
 transform = Transform3D(1.2746722, -0.21388176, 0.11361056, 0.325551, 0.8795983, -0.086571805, -0.12623939, 0.108721234, 0.9239011, 140.68764, 5.3645325, -12.3775425)
 
 [node name="WallMedium1" parent="StageTerrain/Section1" unique_id=494700713 instance=ExtResource("22_fpjvn")]
-transform = Transform3D(0.36335167, 0, -0.075525515, 0, 0.67922026, 0, 0.04621557, 0, 0.5937896, 133.94037, 8.270154, -16.845922)
+transform = Transform3D(0.36335167, 0, -0.13218032, 0, 0.67922026, 0, 0.04621557, 0, 1.0392156, 134.51237, 8.270154, -21.343128)
 
 [node name="PlatformSmall5" parent="StageTerrain/Section1" unique_id=1291303830 instance=ExtResource("17_r3nht")]
-transform = Transform3D(1.9721711, 0, -0.33093253, 0, 1, 0, 0.60845745, 0, 1.0726396, 137.32414, 1.754015, -22.472912)
+transform = Transform3D(1.9721711, 0, -0.74285656, 0, 1, 0, 0.60845745, 0, 2.407794, 139.6943, 1.754015, -30.39089)
 
 [node name="RockMeduim6" parent="StageTerrain/Section1" unique_id=312006863 instance=ExtResource("15_ac4f2")]
 transform = Transform3D(1.3329037, 0, -0.2025227, 0, 2.864892, 0, 0.30183983, 0, 0.8943262, 126.39708, 4.904641, -21.528402)
@@ -359,7 +359,7 @@ transform = Transform3D(1.3329037, 0, -0.2025227, 0, 2.864892, 0, 0.30183983, 0,
 transform = Transform3D(0.9573283, 0, -0.28900266, 0, 1, 0, 0.28900266, 0, 0.9573283, 131.63828, 9.850516, -19.49832)
 
 [node name="RockSmall2" parent="StageTerrain/Section1" unique_id=1368761601 instance=ExtResource("13_phw55")]
-transform = Transform3D(0.98578286, 0.036337912, 0.1640478, 0.14362518, 0.32446072, -0.9349317, -0.08720052, 0.945201, 0.31462872, 130.76965, 7.454797, -27.679243)
+transform = Transform3D(0.98578286, 0.036337912, 0.1640478, 0.14362518, 0.32446072, -0.9349317, -0.08720052, 0.945201, 0.31462872, 135.06218, 7.454797, -41.36084)
 
 [node name="RockBig19" parent="StageTerrain/Section1" unique_id=2116134164 instance=ExtResource("3_e3d7y")]
 transform = Transform3D(0.9753972, 0.008818565, -0.22027819, 0.053900488, 0.9593343, 0.27707845, 0.21376385, -0.28213465, 0.93525666, 150.03325, 14.577686, -2.455946)
@@ -377,7 +377,7 @@ transform = Transform3D(1.4340676, -0.1182207, 0.13228369, 0.14003778, 1.4157983
 transform = Transform3D(0.85363394, 0.105233654, 0.5518554, 0.51847494, 0.74822056, -0.6250875, -0.4140526, 1.1538742, 0.35500363, 133.8607, 6.6077285, -5.57972)
 
 [node name="Shard17" parent="StageTerrain/Section1" unique_id=1495659305 instance=ExtResource("21_mttvs")]
-transform = Transform3D(0.86909944, 0.4624521, 0.17551146, -0.47258514, 0.88108903, 0.018585641, -0.14604627, -0.099096864, 0.9843019, 134.17674, 10.377918, -10.9204)
+transform = Transform3D(0.86909944, 0.4624521, 0.17551146, -0.47258514, 0.88108903, 0.018585641, -0.14604627, -0.099096864, 0.9843019, 134.12854, 10.372813, -11.190764)
 
 [node name="Shard18" parent="StageTerrain/Section1" unique_id=1302333498 instance=ExtResource("21_mttvs")]
 transform = Transform3D(0.2447649, 0.2052279, 1.2206113, -0.5007468, 0.27272302, 0.4545142, -0.12809192, -0.6739895, 0.5555872, 134.83214, 11.390503, -11.533295)
@@ -845,13 +845,13 @@ transform = Transform3D(0.66111535, -0.47757003, 0.5038329, 0.23792674, 0.417197
 [node name="Section6" type="Node3D" parent="StageTerrain" unique_id=177435672]
 
 [node name="PlatformMedium18" parent="StageTerrain/Section6" unique_id=1626567277 instance=ExtResource("12_f4mln")]
-transform = Transform3D(0.7123516, 0, 0.9516832, 0, 0.95132124, 0, -0.69151163, 0, 0.98036426, 48.794434, 0.6286497, 203.06041)
+transform = Transform3D(0.8151711, 0, 0.74892575, 0, 0.95132035, 0, -0.7057353, 0, 0.8650592, 48.794434, 0.6286497, 203.06041)
 
 [node name="PlatformMedium21" parent="StageTerrain/Section6" unique_id=1424335536 instance=ExtResource("12_f4mln")]
 transform = Transform3D(0.4697382, 0, 0.84491044, 0, 0.95132124, 0, -0.87463087, 0, 0.45377642, 41.940025, 2.4989214, 216.87894)
 
 [node name="PlatformMedium20" parent="StageTerrain/Section6" unique_id=1262824804 instance=ExtResource("12_f4mln")]
-transform = Transform3D(0.8195954, 0.16394366, 0.51537347, 0.04294366, 0.8848315, -0.34979632, -0.5586164, 0.30855757, 0.7292595, 59.1267, -1.0250125, 213.77809)
+transform = Transform3D(0.8195954, 0.16394366, 0.51537347, 0.04294366, 0.8848315, -0.34979632, -0.5586164, 0.30855757, 0.7292595, 59.13329, -0.98944587, 213.7905)
 
 [node name="PlatformMedium19" parent="StageTerrain/Section6" unique_id=202405527 instance=ExtResource("12_f4mln")]
 transform = Transform3D(-0.5833111, 0, 0.776058, 0, 0.95132124, 0, -0.8033564, 0, -0.5634897, 35.21173, 1.6788855, 194.98317)
@@ -993,6 +993,21 @@ size = Vector3(48.19336, 32.740234, 45.48633)
 shape = 0
 material = SubResource("FogMaterial_kgtat")
 
+[node name="Shard" parent="StageTerrain/Section7" unique_id=524096985 instance=ExtResource("21_mttvs")]
+transform = Transform3D(1.6798372, 0.48791188, -0.2701635, -0.45353317, 1.6940678, 0.2394615, 0.32458276, -0.15803857, 1.7327924, 16.791498, 17.165407, 159.15105)
+
+[node name="Shard5" parent="StageTerrain/Section7" unique_id=937476686 instance=ExtResource("21_mttvs")]
+transform = Transform3D(0.8212414, -0.20062812, 0.37541443, 0.2963278, 0.85512704, -0.19123968, -0.30557725, 0.2900537, 0.8234783, 16.808872, 19.967487, 159.91986)
+
+[node name="Shard3" parent="StageTerrain/Section7" unique_id=681907875 instance=ExtResource("21_mttvs")]
+transform = Transform3D(1.3550262, 1.3086126, -0.7012365, -1.0773313, 1.9881959, -0.3374836, 0.3689991, 0.99930227, 1.5897394, -3.99265, 18.119728, 156.19107)
+
+[node name="Shard4" parent="StageTerrain/Section7" unique_id=1119294534 instance=ExtResource("21_mttvs")]
+transform = Transform3D(0.79372036, -0.62572354, -0.6344275, -0.05539296, 2.2827706, -0.52784914, 0.60480165, 1.030254, 0.7842553, -5.481698, 18.209303, 156.86934)
+
+[node name="Shard2" parent="StageTerrain/Section7" unique_id=1802248418 instance=ExtResource("21_mttvs")]
+transform = Transform3D(0.47930843, 0.011120498, 1.605297, 0.66259384, 0.665694, -0.93917, -0.32886818, 1.3574282, 0.44742566, 15.119225, 17.165407, 160.19542)
+
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
 [node name="Ant" type="Marker3D" parent="EnemySpawnPoints" unique_id=1336312909]
@@ -1060,8 +1075,7 @@ metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 shape = SubResource("BoxShape3D_5wuxl")
 
 [node name="GetItemArea" type="Area3D" parent="." unique_id=1116399652]
-transform = Transform3D(0.75127053, 0.0030532675, -0.65998745, -0.024869217, 0.9994101, -0.023685372, 0.65952575, 0.034207493, 0.7509033, 132.20302, 7.5499816, -26.067911)
-visible = false
+transform = Transform3D(0.75127053, 0.0030532675, -0.65998745, -0.024869217, 0.9994101, -0.023685372, 0.65952575, 0.034207493, 0.7509033, 136.49554, 7.5499816, -39.749508)
 script = ExtResource("28_a7pq4")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
@@ -1082,13 +1096,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.744774, -1.2776031, 135.31
 use_collision = true
 collision_layer = 2
 collision_mask = 0
-size = Vector3(124.12988, 1, 411.2561)
+size = Vector3(282.2705, 1, 445.83203)
 material = ExtResource("25_6s4nj")
 
 [node name="GodRays" type="Node3D" parent="." unique_id=1513709516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.46043, 0, -34.397205)
 
 [node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=596248113]
-transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, 130.86046, 11.571939, -27.039022)
+transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, -0.42012882, -0.1050539, -3.4802246)
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.05
@@ -1096,7 +1111,7 @@ mesh = SubResource("CylinderMesh_jmaqm")
 surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
 
 [node name="GodRay2" type="MeshInstance3D" parent="GodRays" unique_id=100161693]
-transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, 127.67781, 11.571939, -25.820032)
+transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, -3.6027765, -0.1050539, -2.2612343)
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.01
@@ -1104,7 +1119,7 @@ mesh = SubResource("CylinderMesh_6s4nj")
 surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
 
 [node name="GodRay3" type="MeshInstance3D" parent="GodRays" unique_id=1251528731]
-transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, 133.04839, 11.571939, -23.206675)
+transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, 1.7677984, -0.1050539, 0.35212326)
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
@@ -1112,7 +1127,7 @@ mesh = SubResource("CylinderMesh_6s4nj")
 surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
 
 [node name="GodRay4" type="MeshInstance3D" parent="GodRays" unique_id=1637670834]
-transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, 134.81958, 11.571939, -26.665613)
+transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, 3.538993, -0.1050539, -3.1068153)
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
