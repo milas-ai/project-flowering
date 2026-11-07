@@ -19,6 +19,42 @@ Para manter o código-fonte organizado, e legível para todos os integrantes, fo
 adotada a convenção de estilo oficial do GDScript, que pode ser encontrada em sua
 documentação.
 
+Para gerenciar as versões do projeto, foi criado um repositório no Github,
+onde foram adotadas e adaptadas as convenções semânticas estabelecidas em
+\textbf{padroes-de-commit} (\url{https://github.com/iuricode/padroes-de-commits}), um repositório
+brasileiro com quase 10 mil estrelas. O padrão descrito por esse grupo descreve um
+\textit{commit} como:
+\begin{verbatim}
+	:emoji: tipo(escopo opcional): descrição
+\end{verbatim}
+
+\begin{description}
+	\item[emoji:] Representa o \textit{commit} visualmente de acordo com a tabela de emojis
+	estabelecida. É recomendado, porém não é obrigatório.
+	\item[tipo:] Representa o tipo do \textit{commit}, como \textit{feat} ou \textit{fix}.
+	\item[escopo:] Representa o escopo do \textit{commit}, como \textit{ui} ou \textit{gameplay}. 
+	\item[!:]  Opcional. Indica que o \textit{commit} é uma mudança que quebra a compatibilidade
+	com versões anteriores. Como em \textit{feat(ui)!: change button style}.
+	\item[descrição:] Resumo curto do que foi alterado no \textit{commit}. Deve ser escrito no
+	imperativo.
+\end{description}
+
+Para este projeto não foram utilizados os fatores opcionais, portanto os \textit{commits}
+seguiram os seguintes exemplos de formatação:
+
+\begin{verbatim}
+	fix: update fallback paths for player animations 
+	feat: add navmeshes to stage platforms 
+	refactor: move animation_player initialization to Character class 
+\end{verbatim}
+
+Mantendo desta forma os \textit{commits} concisos, sem necessidade de descrições detalhadas para cada um.
+
+A \textit{branch main} foi estabelecida como uma \textit{branch} privada, então não é possível realizar \textit{commits}
+ou \textit{merge} nela sem permissão do dono do repositório. Desta forma, a \textit{branch} principal do projeto
+recebe apenas códigos completos e funcionais.
+
+
 
 
 \section{Desenvolvimento}
