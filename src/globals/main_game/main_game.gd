@@ -97,6 +97,7 @@ func _load_stage(stage_scene_uid: String) -> void:
 	# Wait for the new stage to be added to the scene tree before adding the player
 	await get_tree().process_frame
 	player.health = BaseStat.PLAYER.HEALTH
+	player.state_machine.reset_pressed_inputs()
 	_place_player_at_spawn_point()
 
 	_current_stage_uid = stage_scene_uid
@@ -200,6 +201,15 @@ func _load_save_data() -> void:
 
 
 func _on_player_dead() -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+
 	ControllerManager.input_lock = true
-	transition_to_stage(_current_stage_uid)
+	player.state_machine.transition_to("StatePlayerDead")
+	await hud_root.animate_vignette(0.12, player.animation_player.current_animation_length/2)
+	await player.animation_player.animation_finished
+	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
+	await transition_to_stage(_current_stage_uid)
+	player.state_machine.transition_to("StatePlayerIdle")
+	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 	ControllerManager.input_lock = false
