@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://ca1cde4u1cruj" path="res://src/entities/character/player/player_components/state_player_push.gd" id="13_kx8rx"]
 [ext_resource type="Script" uid="uid://bpu5le4qxh478" path="res://src/entities/character/player/player_components/state_player_slide.gd" id="14_v0ds0"]
 [ext_resource type="Script" uid="uid://ubfr242no8cv" path="res://src/entities/character/player/player_components/state_player_stun.gd" id="15_pv8hx"]
+[ext_resource type="Script" uid="uid://7uodp5aka683" path="res://src/entities/character/player/player_components/state_player_dead.gd" id="16_htu8c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -151,6 +152,9 @@ metadata/_custom_type_script = "uid://bpu5le4qxh478"
 [node name="StatePlayerStun" type="Node" parent="StateMachine" unique_id=427534442]
 script = ExtResource("15_pv8hx")
 metadata/_custom_type_script = "uid://ubfr242no8cv"
+
+[node name="StatePlayerDead" type="Node" parent="StateMachine" unique_id=841114690]
+script = ExtResource("16_htu8c")
 
 [connection signal="attack_pressed" from="Input" to="StateMachine" method="_on_input_attack_pressed"]
 [connection signal="block_pressed" from="Input" to="StateMachine" method="_on_input_block_pressed"]
