@@ -84,6 +84,10 @@ func _joystick_rotate(axis_value: float) -> void:
 
 func _calculate_input_direction(delta: float) -> void:
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if ControllerManager.input_lock:
+		input_vector = Vector2.ZERO
+	
 	input_vector = input_vector.rotated(-_camera_pivot.rotation.y)
 
 	var direction: Vector3 = (
