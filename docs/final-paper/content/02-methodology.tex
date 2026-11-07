@@ -67,7 +67,7 @@ segunda opinião e só depois de ser aceita na branch main que era removida da
 lista de tarefas. As tarefas eram definidas em reuniões online esporádicas,
 troca de mensagens ou encontros presenciais onde os integrantes do grupo se
 ajudavam em alguma área complexa ou que estavam tendo dificuldades, por meio
-de pair programming ou brainstorm. 
+de \textit{pair programming} ou \textit{brainstorm}. 
 
 Para manter esse controle foi utilizado o \textit{software} Obsidian, uma ferramenta de
 organização e anotação de projetos. Foram criados dois templates neste \textit{software}:
@@ -81,6 +81,38 @@ tarefa. Cada tarefa pode ser atribuída a uma ou mais pessoas.
 
 \section{Arquitetura}
 \label{sec:arquitetura}
+
+O código-fonte, os recursos artísticos e a documentação do projeto foram estruturados
+de forma modular, visando a separação de responsabilidades e a manutenibilidade do
+\textit{software}. A arquitetura de diretórios do repositório está dividida em quatro pastas
+principais: \textbf{docs}, \textbf{assets}, \textbf{src} e \textbf{util}, conforme descrito a seguir:
+
+\begin{description}
+	\item[docs/:] Concentra toda a documentação gerada ao longo do projeto, incluindo o
+	\textit{site}, a monografia acadêmica e os arquivos de apresentação.
+	\item[assets/:] Agrega todos os arquivos de recursos estáticos consumidos pela
+	\textit{engine} e pelos \textit{scripts}. É subdividido em elementos como modelos tridimensionais,
+	malhas poligonais, texturas, animações, fontes tipográficas, partículas, diálogos
+	estruturados, arquivos de imagem e componentes gráficos de HUD.
+	\item[util/:] Contém funções auxiliares de propósito geral e ferramentas de suporte
+	reutilizáveis por diferentes módulos do sistema, promovendo a reutilização de código
+	e a redução de acoplamento.
+	\item[src/:] Representa o núcleo lógico do sistema, contendo o código-fonte responsável
+	pelo comportamento do jogo. A estrutura interna divide-se em subdomínios como:
+
+	\begin{itemize}
+		\item \textbf{Áudio}: Implementação e reprodução de efeitos sonoros e música.
+		\item \textbf{Entidades}: Dividido em \textit{scripts} de lógica de controle do jogador,
+		interações físicas, implementação de objetos instanciáveis e máquina de
+		estados dos inimigos e do jogador.
+		\item \textbf{GUI}: Gerenciamento de recursos de interface.
+		\item \textbf{Globais}: \textit{Scripts} de gerenciamento do jogo, estado global e constantes do sistema.
+		\item \textbf{Shaders}: Programas executados na GPU para efeitos visuais e pós-processamento.
+		\item \textbf{Estágios}: Cenas, \textit{scripts} de \textit{level design} e lógica de carregamento dos mapas.
+		\item \textbf{Terrenos}: Cenas que compõem as cenas dos estágios.
+	\end{itemize}
+
+\end{description}
 
 
 \section{Modelagem}
