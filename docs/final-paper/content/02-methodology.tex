@@ -147,6 +147,18 @@ silhuetas e o dinamismo \textit{fast-paced}, as animações foram projetadas com
 quadros de antecipação e recuperação curtos, assegurando que o \textit{feedback}
 visual acompanhasse a resposta imediata dos comandos do jogador.
 
+Para integrar os modelos e animações gerados no Blender e no Blockbench à engine de
+desenvolvimento, utilizou-se o formato aberto glTF (\textit{GL Transmission Format}) em sua extensão
+binária, o arquivo .glb.
+
+O formato .glb foi escolhido por sua eficiência como um contêiner autocontido. Diferente de
+formatos antigos que exigem múltiplos arquivos separados para malhas, materiais, texturas e
+esqueletos de animação, o arquivo binário .glb compacta toda essa estrutura em um único pacote
+otimizado. Isso garantiu que, no momento da importação para o motor do jogo, as malhas
+tridimensionais, os dados de esqueleto, as curvas de animação e as informações de mapeamento
+estivessem unificados e prontos para renderização, preservando a integridade visual e reduzindo
+o tempo de carregamento dos recursos do jogo.
+
 
 \section{\textit{Shaders}}
 \label{sec:shaders}
