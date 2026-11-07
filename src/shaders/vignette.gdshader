@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform float screen_width = 320.0;
 uniform float screen_height = 240.0;
-uniform float vignette_radius : hint_range(0.0, 1.0) = 1.0;
+uniform float vignette_radius = 1.0;
 
 void fragment() {
 	// Slightly offset the center to account for the player's position in the scene

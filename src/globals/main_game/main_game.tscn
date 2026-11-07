@@ -18,7 +18,7 @@ shader_parameter/post_effect_gamma = 1.067
 shader = ExtResource("6_2ep51")
 shader_parameter/screen_width = 320.0
 shader_parameter/screen_height = 240.0
-shader_parameter/vignette_radius = 0.4350000206625
+shader_parameter/vignette_radius = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77o2r"]
 bg_color = Color(0, 0, 0, 0.56600004)
