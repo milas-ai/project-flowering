@@ -133,6 +133,20 @@ com a estética estilizada de baixa poligonia e alinhamento de \textit{pixel art
 facilitando o mapeamento de texturas por pixel (\textit{texture
 mapping}).
 
+As animações dos personagens e entidades foram desenvolvidas diretamente
+no ambiente de animação do Blockbench. Para transformá-los em corpos articulados,
+foi utilizado um sistema de hierarquia óssea (\textit{rigging e skeletal
+animation}). Nesse sistema, as malhas poligonais são vinculadas a nós de articulação
+(\textit{bones}), que podem então ser controlados durante a animação para fazer
+os personagens se moverem.
+
+O fluxo de animação consistiu na definição de sequências baseadas em
+\textit{keyframes} (quadros-chave) para transições de estados, tais como locomoção,
+deslize (\textit{slide}), ataque e morte. Como o estilo visual prioriza a legibilidade de
+silhuetas e o dinamismo \textit{fast-paced}, as animações foram projetadas com
+quadros de antecipação e recuperação curtos, assegurando que o \textit{feedback}
+visual acompanhasse a resposta imediata dos comandos do jogador.
+
 
 \section{\textit{Shaders}}
 \label{sec:shaders}
