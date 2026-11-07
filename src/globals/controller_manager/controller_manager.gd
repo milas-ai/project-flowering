@@ -23,6 +23,7 @@ var _switch_controller_layout := ControllerLayout.new(TYPE.SWITCH)
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.joy_connection_changed.connect(_update_joypad_type)
 	_update_joypad_type()
 

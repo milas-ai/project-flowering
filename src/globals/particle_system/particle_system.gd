@@ -7,6 +7,7 @@ var _particle_dictionary: Dictionary = {}
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	for preset in database.particles:
 		_particle_dictionary[ preset.get_state().get_node_property_value(0,1) ] = preset
 
