@@ -7,6 +7,9 @@ extends Control
 
 
 func load_main_stage_hud() -> void:
+	if get_node_or_null("HealthContainer"):
+		return
+
 	var health_container_scene: PackedScene = ResourceLoader.load(SceneUID.GUI.HEALTH_CONTAINER)
 	var health_container: HBoxContainer = health_container_scene.instantiate()
 	add_child(health_container)
