@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bp741y1okvn2v" path="res://src/terrain/cave/wall/cave_wall_medium_2.tscn" id="28_uj1yi"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="30_1jr8q"]
 [ext_resource type="PackedScene" uid="uid://c1a7vksgyhein" path="res://src/terrain/cave/rock/small/cave_rock_small_3.tscn" id="30_ss2kd"]
+[ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="31_ss2kd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -115,13 +116,16 @@ height = 54.268364
 radial_segments = 4
 rings = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
+size = Vector3(19.335693, 14.542847, 17.674316)
+
 [node name="Cave" type="Node3D" unique_id=138948264]
 script = ExtResource("1_2sot5")
 player_items_on_spawn = 2
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 137.96706, 14.581024, -17.291395)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 112.26383, 14.581024, 69.66593)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -406,7 +410,7 @@ transform = Transform3D(0.78534496, 0, 0.34394076, 0, 1, 0, -0.32945344, 0, 0.81
 transform = Transform3D(0.60511976, 0, 0.7255382, 0, 1, 0, -0.90000165, 0, 0.48781857, 65.93712, 1.9073486e-06, 65.319)
 
 [node name="PlatformSmall2" parent="StageTerrain/Section2" unique_id=523470014 instance=ExtResource("25_8svx8")]
-transform = Transform3D(0.9831711, -0.06245946, 0.1716784, 0.11125181, 0.95009166, -0.2914598, -0.14490578, 0.30565438, 0.94105136, 62.891663, 1.4335537, 74.43658)
+transform = Transform3D(0.9831711, -0.06245946, 0.1716784, 0.11125181, 0.95009166, -0.2914598, -0.14490578, 0.30565438, 0.94105136, 62.891663, 0.84193945, 74.43658)
 
 [node name="PlatformSmall3" parent="StageTerrain/Section2" unique_id=1124992724 instance=ExtResource("25_8svx8")]
 transform = Transform3D(0.68473893, 0, 0.27915224, 0, 1, 0, -0.19905967, 0, 0.96024686, 64.062706, -2.1858578, 109.68029)
@@ -1054,8 +1058,6 @@ script = ExtResource("19_jmaqm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.695892, 5.7982187, 242.73921)
 script = ExtResource("19_jmaqm")
 
-[node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
-
 [node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264, 0)
 collision_layer = 0
@@ -1133,6 +1135,58 @@ instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
 mesh = SubResource("CylinderMesh_5bcjj")
 surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
+
+[node name="CheckPoints" type="Node3D" parent="." unique_id=1515432366]
+
+[node name="CheckPointArea4" type="Area3D" parent="CheckPoints" unique_id=1070171793]
+transform = Transform3D(0.70961416, 0, -0.7045905, 0, 1, 0, 0.7045905, 0, 0.70961416, 40.62216, 11.386848, 144.262)
+collision_layer = 0
+script = ExtResource("31_ss2kd")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea4" unique_id=536654400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3848572, -4.1581306, 15.361275)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=907700123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="CheckPointArea3" type="Area3D" parent="CheckPoints" unique_id=351654065]
+transform = Transform3D(0.61598176, 0, -0.7877603, 0, 1, 0, 0.7877603, 0, 0.61598176, 62.53583, -4.163969, 94.77955)
+collision_layer = 0
+script = ExtResource("31_ss2kd")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=2047346420]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -14.023636, 11.210193, -8.549042)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=336517329]
+transform = Transform3D(0.9260993, 0, 0.3772821, 0, 1, 0, -0.3772821, 0, 0.9260993, -15.158966, 10.18541, -10.396286)
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="CheckPointArea2" type="Area3D" parent="CheckPoints" unique_id=589489800]
+transform = Transform3D(0.9983795, 0, 0.05690598, 0, 1, 0, -0.05690598, 0, 0.9983795, 144.9125, 8.580825, -29.487606)
+collision_layer = 0
+script = ExtResource("31_ss2kd")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea2" unique_id=1456491089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.296982, 0.052666664, -3.593647)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea2" unique_id=1916518272]
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="CheckPointArea" type="Area3D" parent="CheckPoints" unique_id=14421741]
+transform = Transform3D(0.8988831, 0, -0.4381884, 0, 1, 0, 0.4381884, 0, 0.8988831, 113.64164, 10.072836, 69.61526)
+collision_layer = 0
+script = ExtResource("31_ss2kd")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=960270256]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.7289581, -2.3198957, 0.2572937)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=359619648]
+shape = SubResource("BoxShape3D_gn4dx")
 
 [connection signal="body_entered" from="StageTerrain/Section3/Water3/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
 [connection signal="body_entered" from="StageTerrain/Section4/Water2/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
