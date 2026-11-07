@@ -26,11 +26,11 @@ func _ready() -> void:
 	if debug_stage:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
 	_init_player()
-	reset_stage()
+	transition_to_stage(_current_stage_uid)
 
 
 func _input(event: InputEvent) -> void:
-	if get_tree().paused:
+	if get_tree().paused or ControllerManager.input_lock:
 		return
 		
 	if event.is_action_pressed("pause"):
@@ -54,10 +54,6 @@ func transition_to_stage(stage_scene_uid: String) -> void:
 
 	if _current_stage.has_life_hud:
 		hud_root.load_main_stage_hud()
-
-
-func reset_stage() -> void:
-	transition_to_stage(_current_stage_uid)
 
 
 func stage_id_to_uid(stage_id: int) -> String:
@@ -152,7 +148,7 @@ func _set_camera_sensitivity(camera_sensitivity: int) -> void:
 
 
 func _save_game() -> void:
-	var save_data : SaveManager.SaveData = SaveManager.SaveData.new()
+	var save_data: SaveManager.SaveData = SaveManager.SaveData.new()
 	save_data.options = options
 	save_data.stage_uid = _current_stage_uid
 	SaveManager.save(save_data)
@@ -174,7 +170,7 @@ func _init_player() -> void:
 		push_error("Failed to instantiate player scene.")
 		return
 
-	player.dead.connect(reset_stage)
+	player.dead.connect(_on_player_dead)
 	entity_root.add_child(player)
 
 
@@ -201,3 +197,9 @@ func _load_save_data() -> void:
 	_set_fullscreen(options.fullscreen)
 	_set_language(Options.language_string_to_index(options.language))
 	_change_pixelization_level(0)
+
+
+func _on_player_dead() -> void:
+	ControllerManager.input_lock = true
+	transition_to_stage(_current_stage_uid)
+	ControllerManager.input_lock = false
