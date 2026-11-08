@@ -145,17 +145,61 @@ problemas de isometria de maneiras distintas criativamente e tecnologicamente.
 	de uma árvore, parede ou ruína, o jogo utiliza um \textit{shader} de recorte ou transparência que
 	desenha uma silhueta do personagem ``atrás'' do obstáculo. Assim, o jogador continua enxergando
 	exatamente onde seu personagem está, mesmo com a geometria física bloqueando a visão direta.
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{deaths_door_ghost}
+			\caption{Death's Door (2021). Fonte: \cite{deaths-door-game}}\label{fig:ghost_effect_examples:deaths-door}
+		\end{subfigure}
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{tunic_ghost}
+			\caption{Tunic (2022). Fonte: \cite{tunic-game}}\label{fig:ghost_effect_examples:tunic}
+		\end{subfigure}
+		\caption{É possível ver a silhueta dos personagens através dos obstáculos.}\label{fig:ghost_effect_examples}
+	\end{figure}
 
 	\item[Transparência Dinâmica] Na presença de muitas paredes altas e masmorras como em Diablo IV (2023),
 	quando o personagem se posiciona atrás de uma parede vertical em relação à câmera, um \textit{shader}
 	de transparência acionado por \textit{raycasting}/linha de visão faz a parede desvanecer ou se dissolver
 	completamente, revelando o espaço oculto.
 
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{diablo_inside}
+			\caption{Visão interna da casa.}\label{fig:fade_out_example:a}
+		\end{subfigure}
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{diablo_outside}
+			\caption{Visão externa da casa.}\label{fig:fade_out_example:b}
+		\end{subfigure}
+		\caption{Transparência de obstáculos em Diablo IV (2023). Fonte: \cite{diablo-game}}\label{fig:fade_out_example}
+	\end{figure}
+
 	\item[Sombras de Queda] Os jogos isométricos utilizam da verticalidade para criar profundidade e
 	complexidade espacial. Em jogos como Super Mario RPG (1996), a sombra do personagem não segue
 	rigorosamente o ângulo da luz do sol do cenário. Em vez disso, há uma sombra projetada diretamente
 	no plano do chão abaixo dele. Conforme o personagem pula, a sombra permanece estática no solo, e a
 	distância entre o personagem e sua sombra indica visualmente a sua altura atual.
+
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{mario_distant}
+			\caption{Personagem em posição elevada.}\label{fig:drop_shadow_example:a}
+		\end{subfigure}
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{mario}
+			\caption{Personagem em posição baixa.}\label{fig:drop_shadow_example:b}
+		\end{subfigure}
+		\caption{Sombra de queda em Super Mario RPG (1996). Fonte: \cite{mario-game}}\label{fig:drop_shadow_example}
+	\end{figure}
 \end{description}
 
 \section{\textit{Low Poly}}
