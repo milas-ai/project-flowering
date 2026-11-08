@@ -43,6 +43,8 @@ disable_specular_occlusion = true
 albedo_texture = ExtResource("2_20bin")
 emission_enabled = true
 emission = Color(1, 0.84313726, 0, 1)
+stencil_mode = 3
+stencil_flags = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_j5k5y"]
 material = SubResource("StandardMaterial3D_vx5p1")
@@ -69,6 +71,8 @@ albedo_color = Color(1, 0.8784314, 0.26666668, 1)
 albedo_texture = SubResource("GradientTexture2D_vx5p1")
 emission_enabled = true
 emission = Color(1, 1, 0, 1)
+stencil_mode = 3
+stencil_flags = 2
 
 [sub_resource type="TorusMesh" id="TorusMesh_2ou3o"]
 material = SubResource("StandardMaterial3D_sgflu")
