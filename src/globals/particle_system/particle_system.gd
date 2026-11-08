@@ -15,13 +15,13 @@ func _ready() -> void:
 		_particle_dictionary[ preset.get_state().get_node_property_value(0,1) ] = preset
 
 
-func play(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO, time: float = 2.0) -> void:
+func play(particle_id: String, position: Vector3, rotation := Vector3.ZERO, time: float = 2.0) -> void:
 	var particle: ParticlePreset = _spawn_particle(particle_id, position, rotation)
 	if particle:
 		particle.run_once(time)
 
 
-func instantiate_emitter(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO) -> int:
+func instantiate_emitter(particle_id: String, position: Vector3, rotation := Vector3.ZERO) -> int:
 	var particle: ParticlePreset = _spawn_particle(particle_id, position, rotation)
 	if particle:
 		var index: int = _emitter_dictionary.size()
@@ -30,8 +30,12 @@ func instantiate_emitter(particle_id: String, position: Vector3, rotation: Vecto
 	return -1
 
 
-func start_emitter(index: int) -> void:
+func start_emitter(index: int, position := Vector3.INF, rotation := Vector3.INF) -> void:
 	var particle: ParticlePreset = _emitter_dictionary.get(index)
+	if position != Vector3.INF:
+		particle.global_transform.origin = position
+	if rotation != Vector3.INF:
+		particle.global_rotation = rotation
 	particle.emit()
 
 
@@ -46,7 +50,7 @@ func remove_emitter(index: int) -> void:
 	_emitter_dictionary.erase(index)
 
 
-func _spawn_particle(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO) -> ParticlePreset:
+func _spawn_particle(particle_id: String, position: Vector3, rotation := Vector3.ZERO) -> ParticlePreset:
 	var particle_scene: PackedScene = _particle_dictionary.get(particle_id)
 	if particle_scene:
 		var particle_instance: ParticlePreset = particle_scene.instantiate()
