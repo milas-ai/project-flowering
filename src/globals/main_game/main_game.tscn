@@ -60,6 +60,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("3_77o2r")
 
+[node name="EffectRoot" type="Node3D" parent="GameViewport/SubViewport/World" unique_id=1154125435]
+unique_name_in_owner = true
+
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]
 process_mode = 3
 layer = 10
