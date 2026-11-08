@@ -4,6 +4,10 @@ extends Node
 const SAVE_FILE_PATH: String = "user://save.dat"
 
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
 func save(data: SaveData) -> void:
 	var file := FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	if file:

@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
 
 
