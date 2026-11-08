@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://8m6xub0kgma8" path="res://src/terrain/mountain/platform/big/mountain_platform_donut.tscn" id="20_4dak5"]
 [ext_resource type="PackedScene" uid="uid://ci8cn15ptya8y" path="res://src/terrain/mountain/pillar/mountain_pillar_1.tscn" id="21_2laby"]
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="22_4se7b"]
+[ext_resource type="PackedScene" uid="uid://cbg6krkyx1sfm" path="res://src/terrain/props/boat.tscn" id="22_wq3j4"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="23_x2kea"]
 [ext_resource type="Script" uid="uid://dplfslvwve5ba" path="res://src/stages/util/oclusion_area.gd" id="24_iwdui"]
 [ext_resource type="PackedScene" uid="uid://cmmjljlplwkwv" path="res://src/terrain/props/sign.tscn" id="24_nmvee"]
@@ -133,7 +134,7 @@ process_mode = 4
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 156.053, 33.6, -14.828)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 171.11237, 30.347073, -19.690332)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -179,10 +180,10 @@ transform = Transform3D(-0.91297454, 0, 0.4080165, 0, 1, 0, -0.4080165, 0, -0.91
 transform = Transform3D(-0.9805768, -0.09500411, -0.17159049, -0.07586144, 0.9904789, -0.11487602, 0.1808703, -0.09962765, -0.9784477, 137.91188, 33.15453, -55.21656)
 
 [node name="RockSmall1" parent="StageTerrain/Section1" unique_id=124098740 instance=ExtResource("8_ot1hr")]
-transform = Transform3D(0.7462812, 0, 0.66563076, 0, 1, 0, -0.66563076, 0, 0.7462812, 162.9334, 34.39735, -24.035475)
+transform = Transform3D(0.7462812, 0, 0.66563076, 0, 1, 0, -0.66563076, 0, 0.7462812, 162.9334, 33.052933, -24.035475)
 
 [node name="RockSmall2" parent="StageTerrain/Section1" unique_id=524747551 instance=ExtResource("9_ym1el")]
-transform = Transform3D(0.7462812, 0, 0.66563076, 0, 1, 0, -0.66563076, 0, 0.7462812, 163.29655, 34.37438, -20.90708)
+transform = Transform3D(0.7462812, 0, 0.66563076, 0, 1, 0, -0.66563076, 0, 0.7462812, 163.29655, 33.02996, -20.90708)
 
 [node name="RockSmall4" parent="StageTerrain/Section1" unique_id=1531923121 instance=ExtResource("9_ym1el")]
 transform = Transform3D(0.07408159, 1.6075795, 0, -2.1614668, 0.05509779, 0, 0, 0, 3.8854065, 103.07779, 52.969162, -45.11248)
@@ -296,7 +297,7 @@ transform = Transform3D(0.5105947, 0, -0.3054801, 0, 0.595, 0, 0.3054801, 0, 0.5
 transform = Transform3D(1.3268169, 0, 0, 0, 1, 0, 0, 0, 1.3268169, 124.58328, 21.061983, -33.8088)
 
 [node name="PlatformBig17" parent="StageTerrain/Section1" unique_id=2009360971 instance=ExtResource("18_4mxpr")]
-transform = Transform3D(0.749341, 0, 0.6621843, 0, 0.824, 0, -0.6621843, 0, 0.749341, 149.32683, 21.032633, -23.63211)
+transform = Transform3D(0.7494619, 0.06838044, 0.65682584, -0.06000242, 0.8211523, -0.057442427, -0.65932286, 0.0029991695, 0.75185114, 149.32683, 20.232553, -23.63211)
 
 [node name="PlatformDonut2" parent="StageTerrain/Section1" unique_id=465511231 instance=ExtResource("20_4dak5")]
 transform = Transform3D(0.83139503, 0, 0.17298615, 0, 0.745, 0, -0.15652008, 0, 0.9188585, 149.9757, 31.712605, -46.64409)
@@ -331,6 +332,9 @@ transform = Transform3D(0.31961897, 0.104593575, -1.3191589, 0.9482394, 0.000924
 [node name="Sign" parent="StageTerrain/Section1" unique_id=1537760339 instance=ExtResource("24_nmvee")]
 transform = Transform3D(0.24571869, -2.2744022e-09, -0.9693411, 7.450582e-09, 0.9999999, -4.5768683e-10, 0.9693411, -7.109694e-09, 0.24571869, 112.406906, 35.87421, -22.056545)
 paint = 4
+
+[node name="Boat" parent="StageTerrain/Section1" unique_id=1041110379 instance=ExtResource("22_wq3j4")]
+transform = Transform3D(0.0021227896, 0, -0.7999972, 0, 0.8, 0, 0.7999972, 0, 0.0021227896, 171.37825, 30.072021, -19.7266)
 
 [node name="Section2" type="Node3D" parent="StageTerrain" unique_id=1363331021]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
