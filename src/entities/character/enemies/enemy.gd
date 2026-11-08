@@ -19,8 +19,9 @@ var _health: int
 
 func take_damage(amount: int) -> void:
 	_health -= amount
+	_state_machine.transition_to("StateEnemyHurt")
 	if _health <= 0:
-		queue_free()
+		_state_machine.transition_to("StateEnemyDead")
 
 
 func apply_stun() -> void:

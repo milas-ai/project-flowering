@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bqqx1nkj1145a" path="res://src/entities/character/enemies/enemy_components/state_enemy_chase.gd" id="4_4req0"]
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/entities/character/enemies/enemy_components/state_enemy_attack.gd" id="5_6fqvn"]
 [ext_resource type="Script" uid="uid://cte7ggrq7jija" path="res://src/entities/character/enemies/enemy_components/state_enemy_stunned.gd" id="7_tbead"]
+[ext_resource type="Script" uid="uid://c34847w1pv5fd" path="res://src/entities/character/enemies/enemy_components/state_enemy_hurt.gd" id="8_id7qc"]
+[ext_resource type="Script" uid="uid://brw1jfe5clsvm" path="res://src/entities/character/enemies/enemy_components/state_enemy_dead.gd" id="9_meg4s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0wksd"]
 radius = 0.45
@@ -76,6 +78,14 @@ metadata/_custom_type_script = "uid://bq43g2jkss01y"
 [node name="StateEnemyStunned" type="Node" parent="StateMachine" unique_id=294171175]
 script = ExtResource("7_tbead")
 metadata/_custom_type_script = "uid://cte7ggrq7jija"
+
+[node name="StateEnemyHurt" type="Node" parent="StateMachine" unique_id=1405769482]
+script = ExtResource("8_id7qc")
+metadata/_custom_type_script = "uid://c34847w1pv5fd"
+
+[node name="StateEnemyDead" type="Node" parent="StateMachine" unique_id=648767524]
+script = ExtResource("9_meg4s")
+metadata/_custom_type_script = "uid://brw1jfe5clsvm"
 
 [connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]
 [connection signal="body_exited" from="NearSight" to="." method="_on_near_sight_body_exited"]
