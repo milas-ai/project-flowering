@@ -11,6 +11,7 @@ var player_on_near_sight: bool = false
 var _health: int
 
 @onready var player: Player = $/root/MainGame.player
+@onready var material: Material = $CharacterModel/controller/Skeleton3D/controller.get_active_material(0)
 @onready var _state_machine: StateMachine = $StateMachine
 
 
