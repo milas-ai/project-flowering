@@ -17,7 +17,7 @@ func _ready() -> void:
 func play(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO, time: float = 2.0) -> void:
 	var particle: ParticlePreset = _spawn_particle(particle_id, position, rotation)
 	if particle:
-		particle.run_effect(time)
+		particle.run_once(time)
 
 
 func _spawn_particle(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO) -> ParticlePreset:
