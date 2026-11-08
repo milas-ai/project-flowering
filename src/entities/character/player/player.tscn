@@ -90,7 +90,6 @@ shape = SubResource("BoxShape3D_wpuif")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.5, 0)
 size = Vector3(1, 10, 1)
 texture_albedo = ExtResource("4_htu8c")
-emission_energy = 0.0
 normal_fade = 0.2
 upper_fade = 0.01
 lower_fade = 0.01
