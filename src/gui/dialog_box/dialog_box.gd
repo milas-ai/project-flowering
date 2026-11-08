@@ -25,6 +25,9 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if ControllerManager.input_lock:
+		return
+
 	if event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
 		if _line_finished:

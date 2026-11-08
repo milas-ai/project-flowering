@@ -6,6 +6,9 @@ var _options_menu: Control
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if ControllerManager.input_lock:
+		return
+
 	if event.is_action_pressed("pause"):
 		if visible:
 			get_viewport().set_input_as_handled()

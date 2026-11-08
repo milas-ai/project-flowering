@@ -4,7 +4,7 @@ extends Control
 
 @onready var _main_game: MainGame = $/root/MainGame
 @onready var _dialog_box: DialogBox = $DialogBox
-
+@onready var _vignette: ColorRect = $Vignette
 
 func load_main_stage_hud() -> void:
 	if get_node_or_null("HealthContainer"):
@@ -20,6 +20,22 @@ func display_dialog(dialog_text: String) -> void:
 	get_tree().paused = true
 	_dialog_box.process_mode = PROCESS_MODE_INHERIT
 	_dialog_box.display_dialog(_trim_dialog_text(dialog_text))
+
+
+func animate_vignette(target_radius: float, duration: float) -> void:
+	_vignette.visible = true
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	_vignette.material.set_shader_parameter("screen_width", window_size.x)
+	_vignette.material.set_shader_parameter("screen_height", window_size.y)
+	_vignette.material.set_shader_parameter("vignette_softness", 0.035)
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(_vignette.material, "shader_parameter/vignette_radius", target_radius, duration)
+	await tween.finished
+	if target_radius == 0.0:
+		_vignette.material.set_shader_parameter("vignette_softness", 0.0)
+	if target_radius >= (window_size.x / window_size.y) / (4.0/3.0):
+		_vignette.visible = false
 
 
 func _on_dialog_box_dialog_finished() -> void:
