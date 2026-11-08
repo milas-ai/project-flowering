@@ -24,10 +24,13 @@ func animate_vignette(target_radius: float, duration: float) -> void:
 	var window_size: Vector2 = get_viewport().get_visible_rect().size
 	_vignette.material.set_shader_parameter("screen_width", window_size.x)
 	_vignette.material.set_shader_parameter("screen_height", window_size.y)
+	_vignette.material.set_shader_parameter("vignette_softness", 0.035)
 	
 	var tween: Tween = create_tween()
 	tween.tween_property(_vignette.material, "shader_parameter/vignette_radius", target_radius, duration)
 	await tween.finished
+	if target_radius == 0.0:
+		_vignette.material.set_shader_parameter("vignette_softness", 0.0)
 	if target_radius >= (window_size.x / window_size.y) / (4.0/3.0):
 		_vignette.visible = false
 
