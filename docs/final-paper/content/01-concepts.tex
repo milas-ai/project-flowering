@@ -29,6 +29,30 @@ isométrico, popularizando a clássica proporção de inclinação de 2:1 em \te
 permitia criar uma ilusão de profundidade e volume sem o custo computacional de cálculos de
 perspectiva.
 
+Todavia, esta proporção 2:1 não é uma projeção isométrica verdadeira. A projeção isométrica é um
+tipo de projeção axonométrica, que é uma categoria mais ampla de projeções ortogonais (paralelas).
+Nessas projeções, os ângulos entre os eixos podem variar, mas por serem projeções paralelas,
+elas eliminam os pontos de fuga característicos da perspectiva cônica. A projeção axonométrica
+é subdividida em três tipos:
+
+\begin{description}
+	\item[Isométrica] Caracteriza-se pela igualdade perfeita entre os ângulos formados pelos três eixos,
+	cada um medindo exatamente $120^\circ$ entre si (com uma inclinação de $30^\circ$ em relação à linha
+	horizontal de referência). Essa propriedade garante que a escala espacial e o fator de proporção sejam
+	idênticos ao longo de todas as dimensões;
+	\item[Dimétrica] Apresenta dois ângulos iguais entre a projeção dos eixos e um ângulo distinto,
+	resultando em duas escalas de medição idênticas e uma terceira diferente.
+	\item[Trimétrica] Todos os três ângulos entre os eixos são diferentes entre si.
+\end{description}
+
+Ou seja, em uma perspectiva isométrica perfeita ($120^\circ$), a linha diagonal sobe a um ângulo exato
+de $30^\circ$ ($\tan(30^\circ) \approx 0{,}577$). Na era da \textit{pixel art}, traçar uma linha com inclinação de $30^\circ$ era
+impossível sem gerar \textit{aliasing} (serrilhamento irregular) pesado na tela. Para resolver isso, os desenvolvedores
+criaram a regra prática de ``andar'' 2 \textit{pixels} na horizontal para 1 \textit{pixel} na vertical, resultando em uma inclinação de $26{,}565^\circ$
+($\arctan(0{,}5) = 26{,}565^\circ$), que é a proporção 2:1. Como essa inclinação não é exatamente $30^\circ$, os ângulos entre os
+eixos tornam-se aproximadamente $116{,}565^\circ$, $116{,}565^\circ$ e $126{,}87^\circ$, o que caracteriza uma projeção dimétrica, 
+mas que ainda é comumente referida como isométrica na indústria de jogos eletrônicos pois a simula muito bem visualmente.
+
 Os principais marcos durante o pioneirismo desta técnica foram os jogos \textit{Zaxxon} (1982), \textit{Ant Attack} (1983)
 e \textit{Knight Lore} (1984):
 
@@ -37,7 +61,7 @@ e \textit{Knight Lore} (1984):
 	base inimiga com movimento baseado em rolagem diagonal, sendo também um dos primeiros jogos a
 	exibir sombras na tela, para indicar a posição da nave em relação à superfície. Desenvolvido pela
 	SEGA em 1982, é amplamente reconhecido como o primeiro jogo eletrônico a empregar a projeção
-	axonométrica --- um tipo de projeção isométrica ---, que inclusive dá nome ao jogo (\textit{AXXON} vem de \textit{AXONométrica}).
+	axonométrica, que inclusive dá nome ao jogo (\textit{AXXON} vem de \textit{AXONométrica}).
 	\begin{figure}[H]
 		\centering
 		\begin{subfigure}{0.4\textwidth}
@@ -91,7 +115,7 @@ a adoção da câmera isométrica proporciona vantagens diretas para a jogabilid
 
 \begin{description}
 	\item[Clareza Espacial e Legibilidade:] Por não apresentar encurtamento perspectivo
-	(\textit{foreshortening}), os objetos mantêm a mesma escala visual independentemente da sua
+	\mbox{(\textit{foreshortening})}, os objetos mantêm a mesma escala visual independentemente da sua
 	distância em relação à câmera. Isso facilita a leitura imediata de distâncias, trajetórias e
 	posições no cenário.
 	\item[Ampla Visão do Cenário:] Permite que o jogador visualize simultaneamente o
