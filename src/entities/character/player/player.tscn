@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ctvgrtbvslypc" path="res://src/entities/character/player/player.gd" id="1_kgdbm"]
 [ext_resource type="PackedScene" uid="uid://dvdj30kmiprtu" path="res://assets/models/player/player_model.glb" id="2_wpuif"]
 [ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/entities/character/character_components/hurtbox_component_3D.gd" id="3_spjpb"]
+[ext_resource type="Texture2D" uid="uid://b38t3a1fd0oqc" path="res://assets/textures/player/blob_shadow_texture.png" id="4_htu8c"]
 [ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="4_txbn4"]
 [ext_resource type="Script" uid="uid://st6j131vol6n" path="res://src/entities/character/player/player_components/player_input.gd" id="5_gygko"]
 [ext_resource type="Script" uid="uid://ccat8kv0r7klk" path="res://src/entities/character/player/player_components/player_state_machine.gd" id="6_833u0"]
@@ -85,6 +86,13 @@ metadata/_custom_type_script = "uid://y66w2o3cq0xj"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
 shape = SubResource("BoxShape3D_wpuif")
 
+[node name="BlobShadow" type="Decal" parent="." unique_id=275628105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.4172606, 0)
+size = Vector3(1, 15, 1)
+texture_albedo = ExtResource("4_htu8c")
+emission_energy = 0.0
+upper_fade = 0.0
+
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
@@ -101,15 +109,15 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_efbnw")
 surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
 
-[node name="Input" type="Node" parent="." unique_id=1950561987]
-script = ExtResource("5_gygko")
-
 [node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
 shape = SubResource("SphereShape3D_j5k5y")
+
+[node name="Input" type="Node" parent="." unique_id=1950561987]
+script = ExtResource("5_gygko")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1172272797 node_paths=PackedStringArray("body")]
 script = ExtResource("6_833u0")
