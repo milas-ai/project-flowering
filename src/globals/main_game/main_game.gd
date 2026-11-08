@@ -206,7 +206,7 @@ func _on_player_dead() -> void:
 
 	ControllerManager.input_lock = true
 	player.state_machine.transition_to("StatePlayerDead")
-	await hud_root.animate_vignette(0.12, player.animation_player.current_animation_length/2)
+	await hud_root.animate_vignette(0.15, player.animation_player.current_animation_length/2)
 	await player.animation_player.animation_finished
 	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
 	await transition_to_stage(_current_stage_uid)
