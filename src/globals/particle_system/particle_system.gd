@@ -15,10 +15,17 @@ func _ready() -> void:
 
 
 func play(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO, time: float = 2.0) -> void:
+	var particle: ParticlePreset = _spawn_particle(particle_id, position, rotation)
+	if particle:
+		particle.run_effect(time)
+
+
+func _spawn_particle(particle_id: String, position: Vector3, rotation: Vector3 = Vector3.ZERO) -> ParticlePreset:
 	var particle_scene: PackedScene = _particle_dictionary.get(particle_id)
 	if particle_scene:
 		var particle_instance: ParticlePreset = particle_scene.instantiate()
 		_effect_root.add_child(particle_instance)
 		particle_instance.global_transform.origin = position
 		particle_instance.global_rotation = rotation
-		particle_instance.run_effect(time)
+		return particle_instance
+	return null
