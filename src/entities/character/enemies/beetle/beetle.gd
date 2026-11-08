@@ -13,6 +13,7 @@ var _bullet_speed: float = BaseStat.ENEMY.BEETLE.BULLET_SPEED
 
 
 func _ready() -> void:
+	super._ready()
 	_health = BaseStat.ENEMY.BEETLE.HEALTH
 
 

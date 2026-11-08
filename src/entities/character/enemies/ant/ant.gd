@@ -9,6 +9,7 @@ static var FRICTION: float = BaseStat.ENEMY.ANT.FRICTION
 
 
 func _ready() -> void:
+	super._ready()
 	_health = BaseStat.ENEMY.ANT.HEALTH
 	_hurtbox.damage = BaseStat.ENEMY.ANT.DAMAGE
 

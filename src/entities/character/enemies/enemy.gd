@@ -18,6 +18,11 @@ var _health: int
 @abstract func attack_player() -> void
 
 
+func _ready() -> void:
+	material = material.duplicate()
+	$CharacterModel/controller/Skeleton3D/controller.set_surface_override_material(0, material)
+
+
 func take_damage(amount: int) -> void:
 	_health -= amount
 	_state_machine.transition_to("StateEnemyHurt")

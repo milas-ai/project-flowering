@@ -9,6 +9,7 @@ static var FRICTION: float = BaseStat.ENEMY.ROLY_POLY.FRICTION
 
 
 func _ready() -> void:
+	super._ready()
 	_health = BaseStat.ENEMY.ROLY_POLY.HEALTH
 	
 
