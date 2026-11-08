@@ -137,9 +137,26 @@ No entanto, o uso da isometria introduz desafios específicos que demandam solu�
 intencionais de design, como a oclusão de elementos (quando objetos altos do cenário
 escondem o personagem ou inimigos atrás deles) e a percepção de altura em saltos. Essas
 particularidades exigem um planejamento de \textit{level design} e o uso de \textit{shaders} ou transparências
-dinâmicas para preservar a orientação do jogador durante sua navegação pelo mapa.
+dinâmicas para preservar a orientação do jogador durante sua navegação pelo mapa. Diferentes jogos resolvem
+problemas de isometria de maneiras distintas criativamente e tecnologicamente.
 
+\begin{description}
+	\item[Efeito Fantasma] Em jogos como Death's Door (2021) e Tunic (2022), quando o personagem passa atrás
+	de uma árvore, parede ou ruína, o jogo utiliza um \textit{shader} de recorte ou transparência que
+	desenha uma silhueta do personagem ``atrás'' do obstáculo. Assim, o jogador continua enxergando
+	exatamente onde seu personagem está, mesmo com a geometria física bloqueando a visão direta.
 
+	\item[Transparência Dinâmica] Na presença de muitas paredes altas e masmorras como em Diablo IV (2023),
+	quando o personagem se posiciona atrás de uma parede vertical em relação à câmera, um \textit{shader}
+	de transparência acionado por \textit{raycasting}/linha de visão faz a parede desvanecer ou se dissolver
+	completamente, revelando o espaço oculto.
+
+	\item[Sombras de Queda] Os jogos isométricos utilizam da verticalidade para criar profundidade e
+	complexidade espacial. Em jogos como Super Mario RPG (1996), a sombra do personagem não segue
+	rigorosamente o ângulo da luz do sol do cenário. Em vez disso, há uma sombra projetada diretamente
+	no plano do chão abaixo dele. Conforme o personagem pula, a sombra permanece estática no solo, e a
+	distância entre o personagem e sua sombra indica visualmente a sua altura atual.
+\end{description}
 
 \section{\textit{Low Poly}}
 \label{sec:low_poly}
