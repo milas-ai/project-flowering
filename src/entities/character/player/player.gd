@@ -6,6 +6,7 @@ signal update_health(health: int)
 signal dead()
 
 var input_direction := Vector3.ZERO
+var forward_direction := Vector3.ZERO
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var _character_model: Node3D = $CharacterModel
@@ -50,10 +51,12 @@ func process_horizontal_movement(delta: float, direction_vector: Vector3, speed:
 func process_rotation(is_sliding: bool) -> void:
 	if input_direction.length() > 0.1:
 		_character_model.look_at(_character_model.global_position + input_direction, Vector3.UP, true)
+		forward_direction = _character_model.global_transform.basis.z
 	
 	if is_sliding:
 		if get_floor_normal().length() > 0.1:
 			_character_model.look_at(_character_model.global_position + horizontal_velocity, get_floor_normal(), true)
+			forward_direction = _character_model.global_transform.basis.z
 
 
 func take_damage(amount: int) -> void:
