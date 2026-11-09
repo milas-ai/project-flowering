@@ -9,6 +9,7 @@ var input_direction := Vector3.ZERO
 var forward_direction := Vector3.ZERO
 
 @onready var state_machine: StateMachine = $StateMachine
+@onready var run_particle_emmitter: int = ParticleSystem.instantiate_emitter(ParticleID.WALK_DUST, global_transform.origin)
 @onready var _character_model: Node3D = $CharacterModel
 @onready var _bottle_cap_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_002
 @onready var _scissors_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_001
