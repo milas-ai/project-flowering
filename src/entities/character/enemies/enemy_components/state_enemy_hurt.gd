@@ -4,9 +4,10 @@ extends State
 
 func enter() -> void:
 	body.animation_player.clear_queue()
-	# body.animation_player.play("hurt")
-	# await body.animation_player.animation_finished
+	body.look_at(body.player.global_transform.origin, Vector3.UP)
+	body.animation_player.play("hurt")
 	_flash_material()
+	await body.animation_player.animation_finished
 	state_machine.transition_to("StateEnemyIdle")
 
 
