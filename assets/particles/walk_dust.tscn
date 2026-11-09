@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bmpkxppe2a8nb"]
+
+[ext_resource type="Script" uid="uid://nfplxlsobkrt" path="res://src/globals/particle_system/particle_preset.gd" id="1_yht1b"]
+
+[sub_resource type="Curve" id="Curve_d5ns4"]
+_data = [Vector2(0, 0.19587636), 0.0, 0.0, 0, 0, Vector2(0.6539924, 0.46391755), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yht1b"]
+curve = SubResource("Curve_d5ns4")
+
+[sub_resource type="Curve" id="Curve_etg22"]
+_data = [Vector2(0, 0.51546395), 0.0, 0.0, 0, 0, Vector2(0.30405408, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d5ns4"]
+curve = SubResource("Curve_etg22")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ajdap"]
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_box_extents = Vector3(0.25, 0.25, 0.25)
+direction = Vector3(0, -1, -1)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0.5, 0)
+scale_min = 0.39999998
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_d5ns4")
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+alpha_curve = SubResource("CurveTexture_yht1b")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etg22"]
+transparency = 1
+vertex_color_use_as_albedo = true
+stencil_mode = 3
+
+[sub_resource type="SphereMesh" id="SphereMesh_i8a6p"]
+material = SubResource("StandardMaterial3D_etg22")
+radial_segments = 8
+rings = 4
+
+[node name="WalkDust" type="Node3D" unique_id=630191161]
+script = ExtResource("1_yht1b")
+id = &"walk_dust"
+metadata/_custom_type_script = "uid://nfplxlsobkrt"
+
+[node name="Dust" type="GPUParticles3D" parent="." unique_id=720054714]
+emitting = false
+amount = 45
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ajdap")
+draw_pass_1 = SubResource("SphereMesh_i8a6p")

@@ -29,6 +29,9 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if ControllerManager.input_lock:
+		return
+
 	if _is_player_inside and event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()
 		interacted.emit()

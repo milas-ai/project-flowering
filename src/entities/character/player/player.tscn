@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://ca1cde4u1cruj" path="res://src/entities/character/player/player_components/state_player_push.gd" id="13_kx8rx"]
 [ext_resource type="Script" uid="uid://bpu5le4qxh478" path="res://src/entities/character/player/player_components/state_player_slide.gd" id="14_v0ds0"]
 [ext_resource type="Script" uid="uid://ubfr242no8cv" path="res://src/entities/character/player/player_components/state_player_stun.gd" id="15_pv8hx"]
+[ext_resource type="Script" uid="uid://7uodp5aka683" path="res://src/entities/character/player/player_components/state_player_dead.gd" id="16_htu8c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8e4qx"]
 radius = 0.46020508
@@ -65,6 +66,7 @@ omni_range = 7.5
 [node name="ShieldRigidBody3D" type="RigidBody3D" parent="CharacterModel" unique_id=212339813]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44177362, 0)
+collision_layer = 2
 collision_mask = 15
 lock_rotation = true
 freeze = true
@@ -105,7 +107,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
 script = ExtResource("5_gygko")
 
 [node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
@@ -151,6 +153,9 @@ metadata/_custom_type_script = "uid://bpu5le4qxh478"
 [node name="StatePlayerStun" type="Node" parent="StateMachine" unique_id=427534442]
 script = ExtResource("15_pv8hx")
 metadata/_custom_type_script = "uid://ubfr242no8cv"
+
+[node name="StatePlayerDead" type="Node" parent="StateMachine" unique_id=841114690]
+script = ExtResource("16_htu8c")
 
 [connection signal="attack_pressed" from="Input" to="StateMachine" method="_on_input_attack_pressed"]
 [connection signal="block_pressed" from="Input" to="StateMachine" method="_on_input_block_pressed"]

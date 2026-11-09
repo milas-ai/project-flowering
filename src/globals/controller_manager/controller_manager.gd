@@ -10,7 +10,8 @@ enum TYPE {
 	SWITCH,
 }
 
-var controller_layout : ControllerLayout = ControllerLayout.new(TYPE.KEYBOARD):
+var input_lock: bool = false
+var controller_layout: ControllerLayout = ControllerLayout.new(TYPE.KEYBOARD):
 	set(value):
 		if value.type != controller_layout.type:
 			controller_layout = value

@@ -27,7 +27,7 @@ func attack_player() -> void:
 	get_tree().create_timer(0.72).timeout.connect(
 			func():
 				look_at(player.global_transform.origin, Vector3.UP)
-				rotation.x = 0
 				shoot.emit(rotation, _bullet_marker.global_transform.origin, _bullet_speed)
+				rotation.x = 0
 	)
 	animation_player.queue("idle")

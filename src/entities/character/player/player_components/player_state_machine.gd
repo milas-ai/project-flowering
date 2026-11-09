@@ -25,6 +25,12 @@ func _process(_delta: float) -> void:
 				transition_to("StatePlayerBlock")
 
 
+func reset_pressed_inputs() -> void:
+	sliding_pressed = false
+	running_pressed = false
+	blocking_pressed = false
+
+
 func _on_input_attack_pressed():
 	if _state.name in STATES_TO_ATTACK:
 		if body.items >= BaseStat.PLAYER.ITEMS.SCISSORS:
@@ -74,3 +80,4 @@ func _on_input_run_pressed():
 
 func _on_input_run_released():
 	running_pressed = false
+	ParticleSystem.stop_emitter(body.run_particle_emmitter)

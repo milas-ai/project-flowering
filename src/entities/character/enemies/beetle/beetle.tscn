@@ -12,13 +12,13 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
 radius = 0.5209961
-height = 1.9931641
+height = 2.876709
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 13.0
+radius = 9.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gn4dx"]
-radius = 15.0
+radius = 20.0
 
 [node name="Beetle" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
@@ -26,7 +26,7 @@ collision_mask = 15
 script = ExtResource("1_en1k1")
 
 [node name="CollisionBox" type="CollisionShape3D" parent="." unique_id=93842891]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, -0.44177246)
 shape = SubResource("CapsuleShape3D_nhhn2")
 
 [node name="CharacterModel" parent="." unique_id=1878260547 instance=ExtResource("2_xiojd")]
@@ -46,7 +46,7 @@ collision_layer = 0
 shape = SubResource("SphereShape3D_gn4dx")
 
 [node name="BulletMarker" type="Marker3D" parent="." unique_id=628252464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34016204, -1.5099341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1.456392)
 
 [node name="StunMarker" type="Marker3D" parent="." unique_id=1698260492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.7)
