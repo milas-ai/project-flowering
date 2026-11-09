@@ -80,3 +80,4 @@ func _on_input_run_pressed():
 
 func _on_input_run_released():
 	running_pressed = false
+	ParticleSystem.stop_emitter(body.run_particle_emmitter)
