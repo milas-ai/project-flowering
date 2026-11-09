@@ -88,11 +88,11 @@ shape = SubResource("BoxShape3D_wpuif")
 
 [node name="BlobShadow" type="Decal" parent="." unique_id=275628105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.5, 0)
+layers = 2
 size = Vector3(1, 10, 1)
 texture_albedo = ExtResource("4_htu8c")
-normal_fade = 0.2
-upper_fade = 0.01
-lower_fade = 0.01
+normal_fade = 0.4
+cull_mask = 1048063
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=983446540]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)

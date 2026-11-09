@@ -950,6 +950,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
 [node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=964688825]
 transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -81.231255, 145.62065, -71.14273)
+layers = 512
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.05
@@ -958,6 +959,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 
 [node name="GodRay2" type="MeshInstance3D" parent="GodRays" unique_id=772694437]
 transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -82.89656, 145.62065, -66.17275)
+layers = 512
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.01
@@ -966,6 +968,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 
 [node name="GodRay3" type="MeshInstance3D" parent="GodRays" unique_id=1020407702]
 transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -75.102745, 145.62065, -66.9392)
+layers = 512
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
@@ -974,6 +977,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 
 [node name="GodRay4" type="MeshInstance3D" parent="GodRays" unique_id=415136525]
 transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -78.29015, 145.62065, -73.81929)
+layers = 512
 instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
 instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
