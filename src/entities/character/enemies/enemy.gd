@@ -31,10 +31,11 @@ func _ready() -> void:
 
 
 func take_damage(amount: int) -> void:
-	_health -= amount
-	_state_machine.transition_to("StateEnemyHurt")
-	if _health <= 0:
-		_state_machine.transition_to("StateEnemyDead")
+	if _health > 0:
+		_health -= amount
+		_state_machine.transition_to("StateEnemyHurt")
+		if _health <= 0:
+			_state_machine.transition_to("StateEnemyDead")
 
 
 func apply_stun() -> void:
