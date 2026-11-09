@@ -126,7 +126,6 @@ rings = 0
 
 [node name="Mountain" type="Node3D" unique_id=138948264]
 script = ExtResource("1_jmp0g")
-player_items_on_spawn = 1
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_4se7b")]
@@ -733,19 +732,25 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 [node name="BeetleSpawnPoint2" type="Marker3D" parent="EnemySpawnPoints" unique_id=982456456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.246735, 69.04856, -85.806725)
 script = ExtResource("25_y0856")
+attack_cooldown = 1.8
 steady = true
+attack_range_increase = 1.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint3" type="Marker3D" parent="EnemySpawnPoints" unique_id=1724893406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.364914, 69.04856, -90.19405)
 script = ExtResource("25_y0856")
+attack_cooldown = 1.8
 steady = true
+attack_range_increase = 1.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint4" type="Marker3D" parent="EnemySpawnPoints" unique_id=858362169]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.338898, 69.04856, -99.366684)
 script = ExtResource("25_y0856")
+attack_cooldown = 1.8
 steady = true
+attack_range_increase = 1.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint6" type="Marker3D" parent="EnemySpawnPoints" unique_id=1500412955]
@@ -761,7 +766,10 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 [node name="BeetleSpawnPoint8" type="Marker3D" parent="EnemySpawnPoints" unique_id=1304754723]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -63.625393, 111.90462, -22.602026)
 script = ExtResource("25_y0856")
+bullet_speed = 45.0
+attack_cooldown = 1.8
 steady = true
+attack_range_increase = 1.5
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint9" type="Marker3D" parent="EnemySpawnPoints" unique_id=849865378]
@@ -772,43 +780,52 @@ metadata/_custom_type_script = "uid://dxqe716qb2txf"
 [node name="BeetleSpawnPoint10" type="Marker3D" parent="EnemySpawnPoints" unique_id=926638678]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -196.76361, 107.23448, 54.115784)
 script = ExtResource("25_y0856")
+bullet_speed = 200.0
 steady = true
+attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint11" type="Marker3D" parent="EnemySpawnPoints" unique_id=1768653056]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -192.02069, 103.09346, 66.17665)
 script = ExtResource("25_y0856")
+bullet_speed = 200.0
 steady = true
+attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint12" type="Marker3D" parent="EnemySpawnPoints" unique_id=1154465673]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -189.45636, 97.50687, 79.01354)
 script = ExtResource("25_y0856")
+bullet_speed = 200.0
+attack_cooldown = 1.8
 steady = true
+attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint13" type="Marker3D" parent="EnemySpawnPoints" unique_id=1168237978]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -221.47124, 78.75083, 158.90889)
 script = ExtResource("25_y0856")
+bullet_speed = 80.0
 steady = true
+attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint14" type="Marker3D" parent="EnemySpawnPoints" unique_id=368820911]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -182.88919, 78.75083, 175.51079)
 script = ExtResource("25_y0856")
-steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint15" type="Marker3D" parent="EnemySpawnPoints" unique_id=1033449185]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -199.83406, 78.75083, 190.59224)
 script = ExtResource("25_y0856")
-steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint16" type="Marker3D" parent="EnemySpawnPoints" unique_id=847761548]
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -158.15533, 69.63833, 224.968)
 script = ExtResource("25_y0856")
+bullet_speed = 80.0
 steady = true
+attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="OclusionAreas" type="Node3D" parent="." unique_id=17240420]
@@ -871,7 +888,7 @@ script = ExtResource("26_ot1hr")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea4" unique_id=178259512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.657593, -4.076271, 0.75209045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.657593, -4.4418564, 0.75209045)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=1838210428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
