@@ -52,7 +52,7 @@ func take_damage(amount: int) -> void:
 	if _state_machine.get_current_state() != "StateEnemyAttack":
 		_health -= amount
 		if _health <= 0:
-			queue_free()
+			_state_machine.transition_to("StateEnemyDead")
 
 
 func _explode() -> void:
