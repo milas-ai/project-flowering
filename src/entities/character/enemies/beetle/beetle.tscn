@@ -13,10 +13,10 @@ radius = 0.5209961
 height = 2.876709
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 15.0
+radius = 9.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gn4dx"]
-radius = 25.0
+radius = 20.0
 
 [node name="Beetle" type="CharacterBody3D" unique_id=386571338]
 collision_layer = 4
