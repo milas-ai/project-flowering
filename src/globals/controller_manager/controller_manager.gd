@@ -10,7 +10,8 @@ enum TYPE {
 	SWITCH,
 }
 
-var controller_layout : ControllerLayout = ControllerLayout.new(TYPE.KEYBOARD):
+var input_lock: bool = false
+var controller_layout: ControllerLayout = ControllerLayout.new(TYPE.KEYBOARD):
 	set(value):
 		if value.type != controller_layout.type:
 			controller_layout = value
@@ -20,9 +21,11 @@ var _keyboard_controller_layout := ControllerLayout.new(TYPE.KEYBOARD)
 var _xbox_controller_layout := ControllerLayout.new(TYPE.XBOX)
 var _playstation_controller_layout := ControllerLayout.new(TYPE.PLAYSTATION)
 var _switch_controller_layout := ControllerLayout.new(TYPE.SWITCH)
+var _current_mouse_mode: int = Input.get_mouse_mode()
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	Input.joy_connection_changed.connect(_update_joypad_type)
 	_update_joypad_type()
 
@@ -35,6 +38,13 @@ func _input(event: InputEvent) -> void:
 	
 	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:
 		controller_layout = _keyboard_controller_layout
+		Input.set_mouse_mode(_current_mouse_mode)
+
+
+func set_mouse_mode(mode: int) -> void:
+	_current_mouse_mode = mode
+	if controller_layout.type == TYPE.KEYBOARD:
+		Input.set_mouse_mode(mode)
 
 
 func _update_joypad_type(_device = 0, _connected = false) -> void:
@@ -50,8 +60,10 @@ func _update_joypad_type(_device = 0, _connected = false) -> void:
 			controller_layout = _switch_controller_layout
 		else:
 			controller_layout = _xbox_controller_layout
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else:
 		controller_layout = _keyboard_controller_layout
+		Input.set_mouse_mode(_current_mouse_mode)
 
 
 class ControllerLayout:

@@ -26,11 +26,11 @@ func _ready() -> void:
 	if debug_stage:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
 	_init_player()
-	reset_stage()
+	transition_to_stage(_current_stage_uid)
 
 
 func _input(event: InputEvent) -> void:
-	if get_tree().paused:
+	if get_tree().paused or ControllerManager.input_lock:
 		return
 		
 	if event.is_action_pressed("pause"):
@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
 
 
@@ -54,10 +54,6 @@ func transition_to_stage(stage_scene_uid: String) -> void:
 
 	if _current_stage.has_life_hud:
 		hud_root.load_main_stage_hud()
-
-
-func reset_stage() -> void:
-	transition_to_stage(_current_stage_uid)
 
 
 func stage_id_to_uid(stage_id: int) -> String:
@@ -101,6 +97,7 @@ func _load_stage(stage_scene_uid: String) -> void:
 	# Wait for the new stage to be added to the scene tree before adding the player
 	await get_tree().process_frame
 	player.health = BaseStat.PLAYER.HEALTH
+	player.state_machine.reset_pressed_inputs()
 	_place_player_at_spawn_point()
 
 	_current_stage_uid = stage_scene_uid
@@ -152,7 +149,7 @@ func _set_camera_sensitivity(camera_sensitivity: int) -> void:
 
 
 func _save_game() -> void:
-	var save_data : SaveManager.SaveData = SaveManager.SaveData.new()
+	var save_data: SaveManager.SaveData = SaveManager.SaveData.new()
 	save_data.options = options
 	save_data.stage_uid = _current_stage_uid
 	SaveManager.save(save_data)
@@ -174,7 +171,7 @@ func _init_player() -> void:
 		push_error("Failed to instantiate player scene.")
 		return
 
-	player.dead.connect(reset_stage)
+	player.dead.connect(_on_player_dead)
 	entity_root.add_child(player)
 
 
@@ -201,3 +198,18 @@ func _load_save_data() -> void:
 	_set_fullscreen(options.fullscreen)
 	_set_language(Options.language_string_to_index(options.language))
 	_change_pixelization_level(0)
+
+
+func _on_player_dead() -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+
+	ControllerManager.input_lock = true
+	player.state_machine.transition_to("StatePlayerDead")
+	await hud_root.animate_vignette(0.15, player.animation_player.current_animation_length/2)
+	await player.animation_player.animation_finished
+	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
+	await transition_to_stage(_current_stage_uid)
+	player.state_machine.transition_to("StatePlayerIdle")
+	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
+	ControllerManager.input_lock = false

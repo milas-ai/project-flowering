@@ -25,6 +25,9 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if ControllerManager.input_lock:
+		return
+
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			_mouse_rotate(event)
@@ -81,9 +84,13 @@ func _joystick_rotate(axis_value: float) -> void:
 
 func _calculate_input_direction(delta: float) -> void:
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if ControllerManager.input_lock:
+		input_vector = Vector2.ZERO
+	
 	input_vector = input_vector.rotated(-_camera_pivot.rotation.y)
 
-	var direction : Vector3 = (
+	var direction: Vector3 = (
 			Vector3(input_vector.x,0,input_vector.y) * _main_game.player.transform.basis
 	).normalized()
 

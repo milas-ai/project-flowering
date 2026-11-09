@@ -6,6 +6,9 @@ var _options_menu: Control
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if ControllerManager.input_lock:
+		return
+
 	if event.is_action_pressed("pause"):
 		if visible:
 			get_viewport().set_input_as_handled()
@@ -28,12 +31,12 @@ func init_options_menu() -> void:
 
 
 func show_pause_menu(with_controller: bool = false) -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if with_controller:
 		_options_menu.focus_first_control()
 	show()
 
 
 func hide_pause_menu() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
