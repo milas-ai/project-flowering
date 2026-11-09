@@ -8,6 +8,7 @@ transparency = 1
 no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+grow_amount = 0.557
 stencil_mode = 3
 stencil_flags = 1
 stencil_compare = 5
