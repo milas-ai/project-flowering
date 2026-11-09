@@ -66,6 +66,7 @@ omni_range = 7.5
 [node name="ShieldRigidBody3D" type="RigidBody3D" parent="CharacterModel" unique_id=212339813]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44177362, 0)
+collision_layer = 2
 collision_mask = 15
 lock_rotation = true
 freeze = true
@@ -106,7 +107,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_xw1uj")
 script = ExtResource("5_gygko")
 
 [node name="StunArea" type="Area3D" parent="." unique_id=2012237941]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StunArea" unique_id=159372762]
