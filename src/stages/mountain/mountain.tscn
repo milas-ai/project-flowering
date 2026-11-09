@@ -370,10 +370,10 @@ transform = Transform3D(0.6868451, 0, 0.34626952, 0, 1, 0, -0.20370111, 0, 1.167
 transform = Transform3D(0.8070143, 0, 0.17728367, 0, 1, 0, -0.17367238, 0, 0.8237948, 22.172396, 83.86447, -20.961685)
 
 [node name="Pillar2" parent="StageTerrain/Section2" unique_id=291573791 instance=ExtResource("21_2laby")]
-transform = Transform3D(-0.39567, 0, -0.7168951, 0, 1, 0, 0.6744692, 0, -0.42055845, 22.007662, 86.40782, -10.375394)
+transform = Transform3D(-0.39567003, 0, -0.7168951, 0, 1, 0, 0.67446923, 0, -0.4205584, 22.00767, 86.054184, -10.375394)
 
 [node name="PlatformSmall6" parent="StageTerrain/Section2" unique_id=1231644096 instance=ExtResource("19_kvbr1")]
-transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97761816, 10.989067, 96.44137, -7.304222)
+transform = Transform3D(0.9776183, 0, 0.210387, 0, 1, 0, -0.210387, 0, 0.9776183, 10.989069, 96.08772, -7.304222)
 
 [node name="WallSmall24" parent="StageTerrain/Section2" unique_id=393148383 instance=ExtResource("23_x2kea")]
 transform = Transform3D(-0.50436807, 0, 0.6959916, 0, 0.99999994, 0, -1.0141784, 0, -0.3461284, 18.977749, 93.741264, -49.013695)
@@ -445,7 +445,7 @@ transform = Transform3D(0.17239349, 0, -0.84184694, 0, 1, 0, 0.34932846, 0, 0.41
 transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -41.015816, 8.260845, -8.411308)
 
 [node name="PlatformMedium14" parent="StageTerrain/Section3" unique_id=1706363061 instance=ExtResource("5_y0856")]
-transform = Transform3D(0.7463692, 0.13352337, 0.040873095, -0.09183381, 0.97555006, -0.14016327, -0.05768148, 0.17456634, 0.7520282, 5.0360794, 94.58031, -13.909866)
+transform = Transform3D(0.7463692, 0.13352337, 0.0408731, -0.09183381, 0.97555006, -0.14016327, -0.05768148, 0.17456634, 0.7520282, 5.036083, 94.22667, -13.909867)
 
 [node name="PlatformBig12" parent="StageTerrain/Section3" unique_id=40337597 instance=ExtResource("15_y1tnk")]
 transform = Transform3D(0.5685041, 0, 0.7410693, 0, 1.7885349, 0, -0.4359513, 0, 0.96639454, -5.054222, 98.43599, -70.97477)
@@ -493,7 +493,7 @@ transform = Transform3D(0.97034, 0.19157541, 0.14744247, -0.09384384, 0.8605878,
 transform = Transform3D(0.82337815, 0, 0.5674931, 0, 1, 0, -0.5674931, 0, 0.82337815, -44.074627, 97.578766, -47.850395)
 
 [node name="Pillar4" parent="StageTerrain/Section3" unique_id=1197952103 instance=ExtResource("21_2laby")]
-transform = Transform3D(0.97761816, 0, 0.21038699, 0, 1, 0, -0.21038699, 0, 0.97761816, -20.684181, 96.50388, -54.043648)
+transform = Transform3D(0.79494077, 0.010142228, 0.60660267, 0.0018784403, 0.9998143, -0.019178277, -0.60668457, 0.016385065, 0.79477406, -21.162365, 96.503876, -53.768356)
 
 [node name="WallSmall19" parent="StageTerrain/Section3" unique_id=2142150853 instance=ExtResource("23_x2kea")]
 transform = Transform3D(0.10277137, -0.012193901, 0.9946302, 0.117824316, 0.9930345, -3.9093377e-09, -0.98770225, 0.117191635, 0.103492334, -22.81725, 99.56908, -88.35501)
