@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c8wrr1wvmwxhc"]
+
+[ext_resource type="Script" uid="uid://nfplxlsobkrt" path="res://src/globals/particle_system/particle_preset.gd" id="1_vvum7"]
+
+[sub_resource type="Curve" id="Curve_oi2t8"]
+_data = [Vector2(0, 0), 0.0, 1.6164144, 0, 0, Vector2(0.85039365, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_on7ra"]
+curve = SubResource("Curve_oi2t8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hm78w"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, -5, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 0.99999774
+scale_min = 0.39999998
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_on7ra")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x81xu"]
+albedo_color = Color(0.7075647, 0.6911163, 0.39678094, 1)
+metallic_specular = 0.0
+stencil_mode = 3
+stencil_flags = 2
+stencil_color = Color(0.388355, 0.69, 0.26909998, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8o4nt"]
+material = SubResource("StandardMaterial3D_x81xu")
+top_radius = 0.1
+bottom_radius = 0.0
+height = 1.0
+
+[node name="HemolymphSplash" type="Node3D" unique_id=1082764783]
+script = ExtResource("1_vvum7")
+id = &"hemolymph_splash"
+metadata/_custom_type_script = "uid://nfplxlsobkrt"
+
+[node name="Splash" type="GPUParticles3D" parent="." unique_id=14121412]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.56
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_hm78w")
+draw_pass_1 = SubResource("CylinderMesh_8o4nt")

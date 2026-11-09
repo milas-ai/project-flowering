@@ -12,6 +12,7 @@ var player_on_near_sight: bool = false
 var _health: int
 
 @onready var player: Player = $/root/MainGame.player
+@onready var material: Material = $CharacterModel/controller/Skeleton3D/controller.get_active_material(0)
 @onready var _state_machine: StateMachine = $StateMachine
 
 
@@ -19,6 +20,9 @@ var _health: int
 
 
 func _ready() -> void:
+	material = material.duplicate()
+	$CharacterModel/controller/Skeleton3D/controller.set_surface_override_material(0, material)
+
 	if attack_range_increase != 0.0:
 		var near_sight_collision_shape: CollisionShape3D = $NearSight/CollisionShape3D
 		var near_sight_shape: SphereShape3D = near_sight_collision_shape.shape.duplicate()
@@ -27,9 +31,11 @@ func _ready() -> void:
 
 
 func take_damage(amount: int) -> void:
-	_health -= amount
-	if _health <= 0:
-		queue_free()
+	if _health > 0:
+		_health -= amount
+		_state_machine.transition_to("StateEnemyHurt")
+		if _health <= 0:
+			_state_machine.transition_to("StateEnemyDead")
 
 
 func apply_stun() -> void:

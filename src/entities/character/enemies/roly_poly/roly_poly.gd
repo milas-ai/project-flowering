@@ -6,7 +6,6 @@ static var SPEED: float = BaseStat.ENEMY.ROLY_POLY.SPEED
 static var FRICTION: float = BaseStat.ENEMY.ROLY_POLY.FRICTION
 
 @onready var _explosion_area: Area3D = $ExplosionArea
-@onready var _material: Material = $CharacterModel/controller/Skeleton3D/controller.get_active_material(0)
 
 
 func _ready() -> void:
@@ -43,17 +42,17 @@ func apply_stun() -> void:
 	var acceleration: float = 0.75
 
 	while flash_duration > min_duration:
-		tween.tween_property(_material, "emission_energy_multiplier", 1.0, flash_duration)
-		tween.tween_property(_material, "emission_energy_multiplier", 0.0, flash_duration)
+		tween.tween_property(material, "emission_energy_multiplier", 1.0, flash_duration)
+		tween.tween_property(material, "emission_energy_multiplier", 0.0, flash_duration)
 		flash_duration *= acceleration
 	tween.tween_callback(_explode)
 
 
 func take_damage(amount: int) -> void:
-	if _state_machine.get_current_state() != "StateEnemyAttack":
+	if _health > 0 and _state_machine.get_current_state() != "StateEnemyAttack":
 		_health -= amount
 		if _health <= 0:
-			queue_free()
+			_state_machine.transition_to("StateEnemyDead")
 
 
 func _explode() -> void:

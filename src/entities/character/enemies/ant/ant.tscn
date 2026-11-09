@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bq43g2jkss01y" path="res://src/entities/character/enemies/enemy_components/state_enemy_attack.gd" id="5_ql16m"]
 [ext_resource type="Script" uid="uid://cte7ggrq7jija" path="res://src/entities/character/enemies/enemy_components/state_enemy_stunned.gd" id="7_pljm0"]
 [ext_resource type="Script" uid="uid://y66w2o3cq0xj" path="res://src/entities/character/character_components/hurtbox_component_3D.gd" id="8_bcgaa"]
+[ext_resource type="Script" uid="uid://c34847w1pv5fd" path="res://src/entities/character/enemies/enemy_components/state_enemy_hurt.gd" id="9_7pgu2"]
+[ext_resource type="Script" uid="uid://brw1jfe5clsvm" path="res://src/entities/character/enemies/enemy_components/state_enemy_dead.gd" id="10_acf8w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mtr0v"]
 radius = 0.5209961
@@ -49,6 +51,16 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FarSight" unique_id=1959011326]
 shape = SubResource("SphereShape3D_ay5lc")
 
+[node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=206582523]
+process_mode = 4
+collision_layer = 0
+script = ExtResource("8_bcgaa")
+metadata/_custom_type_script = "uid://y66w2o3cq0xj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=385048945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -1.7020782)
+shape = SubResource("CylinderShape3D_bcgaa")
+
 [node name="StunMarker" type="Marker3D" parent="." unique_id=1942331234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.8)
 
@@ -73,15 +85,13 @@ metadata/_custom_type_script = "uid://bq43g2jkss01y"
 script = ExtResource("7_pljm0")
 metadata/_custom_type_script = "uid://cte7ggrq7jija"
 
-[node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=206582523]
-process_mode = 4
-collision_layer = 0
-script = ExtResource("8_bcgaa")
-metadata/_custom_type_script = "uid://y66w2o3cq0xj"
+[node name="StateEnemyHurt" type="Node" parent="StateMachine" unique_id=1077515148]
+script = ExtResource("9_7pgu2")
+metadata/_custom_type_script = "uid://c34847w1pv5fd"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=385048945]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -1.7020782)
-shape = SubResource("CylinderShape3D_bcgaa")
+[node name="StateEnemyDead" type="Node" parent="StateMachine" unique_id=1017218202]
+script = ExtResource("10_acf8w")
+metadata/_custom_type_script = "uid://brw1jfe5clsvm"
 
 [connection signal="body_entered" from="NearSight" to="." method="_on_near_sight_body_entered"]
 [connection signal="body_exited" from="NearSight" to="." method="_on_near_sight_body_exited"]
