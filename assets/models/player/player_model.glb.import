@@ -24717,17 +24717,17 @@ _subresources={
 "materials": {
 "character_texture": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/player/player_mat.tres",
+"use_external/fallback_path": "res://assets/materials/entities/character/player/player_mat.tres",
 "use_external/path": "uid://dhqenkq8kqfll"
 },
 "firefly": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/player/firefly_mat.tres",
+"use_external/fallback_path": "res://assets/materials/entities/character/player/firefly_mat.tres",
 "use_external/path": "uid://c26o1vdkosp71"
 },
 "firefly_body": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/player/firefly_body_mat.tres",
+"use_external/fallback_path": "res://assets/materials/entities/character/player/firefly_body_mat.tres",
 "use_external/path": "uid://d1c1ys3jf2rby"
 }
 }
