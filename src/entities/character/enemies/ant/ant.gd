@@ -21,6 +21,7 @@ func attack_player() -> void:
 	animation_player.stop()
 	animation_player.clear_queue()
 	animation_player.play("attack")
+	get_tree().create_timer(0.45).timeout.connect(_play_attack_animation)
 	get_tree().create_timer(0.67).timeout.connect(_activate_hurtbox)
 	animation_player.queue("idle")
 
@@ -31,3 +32,10 @@ func _activate_hurtbox() -> void:
 			func():
 				_hurtbox.process_mode = Node.PROCESS_MODE_DISABLED
 	)
+
+
+func _play_attack_animation() -> void:
+	var position: Vector3 = _hurtbox.global_transform.origin
+	var forward: Vector3 = -transform.basis.z.normalized()
+	position += forward * 1.3
+	ParticleSystem.play(ParticleID.ANT_SLASH, position, rotation)
