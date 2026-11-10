@@ -162,3 +162,24 @@ o tempo de carregamento dos recursos do jogo.
 
 \section{\textit{Shaders}}
 \label{sec:shaders}
+
+Os efeitos de renderização gráfica, estilização visual e tratamento de
+materiais do projeto foram implementados utilizando o subsistema de
+\textit{shaders} do motor gráfico Godot. Os \textit{shaders} são programas executados em
+paralelo na Unidade de Processamento Gráfico (GPU), dividindo-se
+fundamentalmente em duas categorias no pipeline de renderização: 
+
+\begin{description}
+	\item[\textit{Vertex Shaders} (\textit{Shaders} de Vértice)] Executados para cada
+	vértice da malha tridimensional, são responsáveis por transformar as coordenadas
+	espaciais dos objetos (do espaço local para o espaço de projeção) e permitir
+	manipulações geométricas diretas.
+	\item[\textit{Fragment}/\textit{Pixel} \textit{Shaders} (\textit{Shaders} de Fragmento)]
+	São executados na etapa de rasterização, que é o processo de conversão de uma imagem
+	vetorial (composta de vetores e outros dados geométricos) em uma imagem raster (formato
+	de imagem que contêm a descrição de cada pixel ou pontos). São encarregados de calcular
+	a cor, o sombreamento, as propriedades de textura e a opacidade de cada pixel renderizado
+	na tela.
+\end{description}
+
+% TODO: Diferenciar Visual Shaders de Godot Shading Language
