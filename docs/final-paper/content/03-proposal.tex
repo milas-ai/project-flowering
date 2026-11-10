@@ -7,6 +7,30 @@
 \section{Câmera}
 \label{sec:camera}
 
+A visualização do ambiente de jogo adota uma perspectiva tridimensional com
+projeção ortográfica, configurada sob uma inclinação espacial de estilo
+isométrico, focando na legibilidade espacial dos cenários.
+
+Para auxiliar nesta legibilidade, diferente de abordagens tradicionais com ângulos estáticos de visualização,
+o sistema de câmera do projeto implementa um grau de liberdade de rotação
+horizontal contínua em $360^\circ$ ao redor do personagem principal. Essa rotação
+permite ao jogador girar o ponto de vista livremente para examinar cantos
+ocultos do mapa, antecipar ameaças e navegar por rotas complexas sem
+alterar a inclinação vertical fixa da projeção. Esta técnica é comumente
+encontrada em CRPGs (\textit{Computer Role-Playing Games}) isométricos modernos, como \textit{Divinity: Original Sin 2} (\cite{original-sin}).
+
+Para assegurar o ritmo acelerado (\textit{fast-paced}) da jogabilidade, o
+acompanhamento da câmera em relação ao movimento do jogador é projetado
+para ocorrer de forma suave (\textit{smooth follow}). Esse amortecimento visual
+evita saltos bruscos resultantes de mudanças de direção repentinas do
+personagem, mantendo a cena estável.
+
+Por fim, o comportamento da câmera foi especificado para lidar com os
+desafios de oclusão inerentes à perspectiva isométrica. Ao posicionar o
+jogador atrás de estruturas altas ou elementos volumosos do cenário, a
+câmera e os sistemas visuais integrados devem garantir a manutenção do
+feedback de localização do personagem, preservando a orientação espacial e
+a fluidez dos comandos em qualquer direção do mapa.
 
 \section{Movimentação}
 \label{sec:movimentacao}
