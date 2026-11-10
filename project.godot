@@ -60,6 +60,10 @@ folder_colors={
 "res://src/terrain/": "purple"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ui_accept={
