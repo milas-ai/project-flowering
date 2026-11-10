@@ -2,11 +2,11 @@
 
 [sub_resource type="Gradient" id="Gradient_ji41h"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0.23672566, 0.30752212, 0.46238938)
-colors = PackedColorArray(4.813075e-08, 0.27306473, 0.22108719, 1, 0.0893, 0.47, 0.159095, 1, 0.19946663, 0.88, 0.17599998, 1)
+offsets = PackedFloat32Array(0.14186852, 0.25951558, 0.55709344)
+colors = PackedColorArray(0.0324, 0.27, 0.07199997, 1, 0.18333337, 0.5, 0.120000005, 1, 0.42239997, 0.88, 0.19360003, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8fwnj"]
-frequency = 0.0159
+frequency = 0.015
 fractal_octaves = 4
 fractal_lacunarity = 2.19
 
