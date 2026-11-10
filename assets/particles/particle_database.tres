@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bmpkxppe2a8nb" path="res://assets/particles/walk_dust.tscn" id="4_tcwha"]
 [ext_resource type="PackedScene" uid="uid://c0xktgl735bec" path="res://assets/particles/raise_dust.tscn" id="5_htknv"]
 [ext_resource type="PackedScene" uid="uid://c8wrr1wvmwxhc" path="res://assets/particles/hemolymph_splash.tscn" id="6_htknv"]
+[ext_resource type="PackedScene" uid="uid://b4i3v15dye0hp" path="res://assets/particles/ant_slash.tscn" id="7_6piqd"]
 
 [resource]
 script = ExtResource("2_wehjd")
-particles = Array[PackedScene]([ExtResource("1_swssu"), ExtResource("2_4ejht"), ExtResource("3_4ejht"), ExtResource("4_tcwha"), ExtResource("5_htknv"), ExtResource("6_htknv")])
+particles = Array[PackedScene]([ExtResource("1_swssu"), ExtResource("2_4ejht"), ExtResource("3_4ejht"), ExtResource("4_tcwha"), ExtResource("5_htknv"), ExtResource("6_htknv"), ExtResource("7_6piqd")])
 metadata/_custom_type_script = "uid://b738we186qgo1"
