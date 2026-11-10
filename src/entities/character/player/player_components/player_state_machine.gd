@@ -76,8 +76,12 @@ func _on_input_slide_released():
 
 func _on_input_run_pressed():
 	running_pressed = true
+	if _state.name == "StatePlayerMove":
+		body.animation_player.play("Run")
 
 
 func _on_input_run_released():
 	running_pressed = false
 	ParticleSystem.stop_emitter(body.run_particle_emmitter)
+	if _state.name == "StatePlayerMove":
+		body.animation_player.play("Walk")
