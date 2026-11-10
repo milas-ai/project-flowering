@@ -29,11 +29,38 @@ Por fim, o comportamento da câmera foi especificado para lidar com os
 desafios de oclusão inerentes à perspectiva isométrica. Ao posicionar o
 jogador atrás de estruturas altas ou elementos volumosos do cenário, a
 câmera e os sistemas visuais integrados devem garantir a manutenção do
-feedback de localização do personagem, preservando a orientação espacial e
+\textit{feedback} de localização do personagem, preservando a orientação espacial e
 a fluidez dos comandos em qualquer direção do mapa.
 
 \section{Movimentação}
 \label{sec:movimentacao}
+
+O sistema de locomoção do personagem principal foi estruturado para
+atender aos requisitos de alta velocidade e resposta imediata inerentes do
+gênero \textit{fast-paced}. O controle de deslocamento ocorre de maneira
+omnidirecional no plano horizontal do cenário, permitindo ao jogador mover-se
+fluidamente em qualquer direção independentemente da rotação atual da
+câmera.
+
+Para garantir o dinamismo exigido pelo projeto, o conjunto de ações
+fundamentais de movimento é composto em:
+
+\begin{description}
+	\item[Deslocamento:] O personagem responde de forma
+	contínua aos comandos direcionais.
+	\item[Corrida:] O jogador dispõe de um estado de corrida
+	que aumenta a sua velocidade de locomoção pelo mapa.
+	\item[Pulo:] Mecânica de salto para permitir a navegação vertical
+	sobre as plataformas sem quebrar o fluxo contínuo de movimento.
+\end{description}
+
+Do ponto de vista de \textit{game design}, as transições entre estados de movimento
+(como a entrada e saída da corrida ou a execução de saltos) foram desenvolvidas
+com foco na conservação de momento. Em vez de travamentos ou freadas abruptas,
+o sistema de movimento preserva a energia cinética acumulada pelo jogador. Isto
+permite, por exemplo, que a velocidade obtida durante uma corrida ou um deslize
+seja transferida para o pulo. Essa continuidade física assegura que o jogador
+mantenha total controle e fluidez ao se locomover pelo ambiente.
 
 
 \section{Progressão e Mecânicas de Jogo}
