@@ -5,7 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_fqo1v")
-shader_parameter/base_color = Color(0.47245646, 0.58242404, 0.75172883, 1)
+shader_parameter/base_color = Color(0.23369999, 0.30421996, 0.41, 1)
 shader_parameter/diffuse_strength = 0.25
 shader_parameter/diffuse_blur = 0.015
 shader_parameter/light_cutoff = 0.2
