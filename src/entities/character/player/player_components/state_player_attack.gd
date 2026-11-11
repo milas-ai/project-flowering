@@ -12,7 +12,9 @@ func enter() -> void:
 	get_tree().create_timer(
 			body.animation_player.current_animation_length
 	).timeout.connect(
-			func(): state_machine.transition_to("StatePlayerIdle")
+			func():
+				if state_machine.get_current_state() == self.name:
+					state_machine.transition_to("StatePlayerIdle")
 	)
 
 

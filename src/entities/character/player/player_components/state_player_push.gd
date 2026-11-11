@@ -18,7 +18,9 @@ func enter() -> void:
 			hit_object.apply_impulse(push_direction * BaseStat.PLAYER.PUSH_FORCE, hit_point)
 	
 	get_tree().create_timer(0.46).timeout.connect(
-			func(): state_machine.transition_to("StatePlayerIdle")
+			func():
+				if state_machine.get_current_state() == self.name:
+					state_machine.transition_to("StatePlayerIdle")
 	)
 
 
