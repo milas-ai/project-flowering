@@ -82,6 +82,9 @@ func _load_stage(stage_scene_uid: String) -> void:
 			if not child is Player:
 				child.queue_free()
 
+	# Avoid collision issues during stage transition
+	player.global_position.y = 1000.0
+
 	# Wait for the last stage to be freed before loading the new one
 	await get_tree().process_frame
 

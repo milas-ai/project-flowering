@@ -130,7 +130,7 @@ player_items_on_spawn = 1
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9829576, 0, -0.18383232, 0, 1, 0, 0.18383232, 0, 0.9829576, 139.48285, 7.9320545, 269.51013)
+transform = Transform3D(0.9829576, 0, -0.18383232, 0, 1, 0, 0.18383232, 0, 0.9829576, 139.48285, 6.9045906, 269.51013)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -1082,7 +1082,7 @@ shape = SubResource("SphereShape3D_nhhn2")
 transform = Transform3D(0.3415097, 0.29211152, 0.8933332, 0.91762656, 0.10197363, -0.38414246, -0.2033093, 0.9509342, -0.23322389, -0.06845093, 0.6426382, -0.20095062)
 
 [node name="DisplayScissorsTutorialArea" type="Area3D" parent="InteractableAreas" unique_id=1171341648]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.79807, 7.3771973, -23.951782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.79807, 8.400391, -23.951782)
 script = ExtResource("28_a7pq4")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
