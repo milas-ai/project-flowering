@@ -25,19 +25,20 @@ func _animate_heart(index: int) -> void:
 	tween.tween_property(_hearts[index], "offset_transform_rotation", deg_to_rad(-30), 0.1).as_relative()
 	tween.tween_property(_hearts[index], "offset_transform_rotation", deg_to_rad(15), 0.1).as_relative()
 	tween.parallel().tween_property(_hearts[index], "offset_transform_scale", Vector2(1, 1), 0.1)
+	await tween.finished
 
 
 func _on_player_update_health(health: int) -> void:
 	for i in range(int(float(BaseStat.PLAYER.HEALTH) / 2) + BaseStat.PLAYER.HEALTH%2):
 		if health >= (i*2+1)+1:
 			if _hearts[i].texture != _full_heart_texture:
-				_animate_heart(i)
+				await _animate_heart(i)
 				_hearts[i].texture = _full_heart_texture
 		elif health >= i*2+1:
 			if _hearts[i].texture != _half_heart_texture:
-				_animate_heart(i)
+				await _animate_heart(i)
 				_hearts[i].texture = _half_heart_texture
 		else:
 			if _hearts[i].texture != _empty_heart_texture:
-				_animate_heart(i)
+				await _animate_heart(i)
 				_hearts[i].texture = _empty_heart_texture
