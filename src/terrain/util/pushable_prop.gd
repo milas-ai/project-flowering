@@ -1,0 +1,2 @@
+class_name PushableProp
+extends RigidBody3D
