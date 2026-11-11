@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhpgr7r0jqhjf"]
 
 [ext_resource type="ArrayMesh" uid="uid://dbqv4xnuek2vv" path="res://assets/models/terrain/cave/prop/cave_pillar_short.obj" id="1_e6nei"]
-[ext_resource type="Material" uid="uid://dyqdg1cxvp1ch" path="res://assets/materials/terrain/crystal.tres" id="2_e6nei"]
+[ext_resource type="Material" uid="uid://dyqdg1cxvp1ch" path="res://assets/materials/terrain/crystal_mat.tres" id="2_e6nei"]
 [ext_resource type="Script" uid="uid://tdpavxrko20i" path="res://src/shaders/set_shader_random.gd" id="3_o6140"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e6nei"]

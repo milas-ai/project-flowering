@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6c5vtwrix7sm"]
 
-[ext_resource type="Material" uid="uid://dyqdg1cxvp1ch" path="res://assets/materials/terrain/crystal.tres" id="1_lndgq"]
+[ext_resource type="Material" uid="uid://dyqdg1cxvp1ch" path="res://assets/materials/terrain/crystal_mat.tres" id="1_lndgq"]
 
 [node name="Shard" type="Node3D" unique_id=2071298694]
 
