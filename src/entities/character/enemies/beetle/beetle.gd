@@ -28,6 +28,5 @@ func attack_player() -> void:
 			func():
 				look_at(player.global_transform.origin, Vector3.UP)
 				shoot.emit(rotation, _bullet_marker.global_transform.origin, _bullet_speed)
-				rotation.x = 0
-	)
+				rotation.x = 0)
 	animation_player.queue("idle")

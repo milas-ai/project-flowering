@@ -14,8 +14,7 @@ func enter() -> void:
 	).timeout.connect(
 			func():
 				if state_machine.get_current_state() == self.name:
-					state_machine.transition_to("StatePlayerIdle")
-	)
+					state_machine.transition_to("StatePlayerIdle"))
 
 
 func update(delta: float) -> void:
