@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c0xktgl735bec" path="res://assets/particles/raise_dust.tscn" id="5_htknv"]
 [ext_resource type="PackedScene" uid="uid://c8wrr1wvmwxhc" path="res://assets/particles/hemolymph_splash.tscn" id="6_htknv"]
 [ext_resource type="PackedScene" uid="uid://b4i3v15dye0hp" path="res://assets/particles/ant_slash.tscn" id="7_6piqd"]
+[ext_resource type="PackedScene" uid="uid://b8lkcur27lwuf" path="res://assets/particles/rain.tscn" id="8_wuy1o"]
 
 [resource]
 script = ExtResource("2_wehjd")
-particles = Array[PackedScene]([ExtResource("1_swssu"), ExtResource("2_4ejht"), ExtResource("3_4ejht"), ExtResource("4_tcwha"), ExtResource("5_htknv"), ExtResource("6_htknv"), ExtResource("7_6piqd")])
+particles = Array[PackedScene]([ExtResource("1_swssu"), ExtResource("2_4ejht"), ExtResource("3_4ejht"), ExtResource("4_tcwha"), ExtResource("5_htknv"), ExtResource("6_htknv"), ExtResource("7_6piqd"), ExtResource("8_wuy1o")])
 metadata/_custom_type_script = "uid://b738we186qgo1"
