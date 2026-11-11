@@ -19,4 +19,3 @@ func _ready() -> void:
 
 func _on_body_entered(_body: Node3D) -> void:
 	_main_game.transition_to_stage(_main_game.stage_id_to_uid(target_stage))
-	

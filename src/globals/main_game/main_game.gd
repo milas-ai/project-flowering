@@ -46,7 +46,12 @@ func _input(event: InputEvent) -> void:
 
 
 func transition_to_stage(stage_scene_uid: String) -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+
+	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
 	_init_stage(stage_scene_uid)
+	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 
 
 func stage_id_to_uid(stage_id: int) -> String:
