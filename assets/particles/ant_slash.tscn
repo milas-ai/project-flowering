@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b4i3v15dye0hp"]
 
 [ext_resource type="Script" uid="uid://nfplxlsobkrt" path="res://src/globals/particle_system/particle_preset.gd" id="1_4v7gh"]
-[ext_resource type="Shader" uid="uid://bgpv4ly37j4pr" path="res://assets/materials/particles/slash_particle_mat.tres" id="2_hajul"]
+[ext_resource type="Shader" uid="uid://bgpv4ly37j4pr" path="res://assets/materials/particles/slash_shader_mat.tres" id="2_hajul"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t7reu"]
 gravity = Vector3(0, 0, 0)

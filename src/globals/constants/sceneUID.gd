@@ -8,6 +8,7 @@ const PLAYER: String = "uid://cn4xgyysgu8vt"
 class STAGES:
 	const GYM: String = "uid://dayem3vrpenok"
 	const MOUNTAIN: String = "uid://cnohyrkccqdd6"
+	const CAVE: String = "uid://bylhtxg58dhou"
 
 
 class ENEMIES:

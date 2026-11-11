@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://m5bgbwlnfin3"]
 
-[ext_resource type="Shader" uid="uid://tyfinw2yncub" path="res://src/shaders/mountain_wall.gdshader" id="1_fqo1v"]
+[ext_resource type="Shader" uid="uid://tyfinw2yncub" path="res://src/shaders/toon_phong.gdshader" id="1_tyvg3"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_fqo1v")
+shader = ExtResource("1_tyvg3")
 shader_parameter/base_color = Color(0.23369999, 0.30421996, 0.41, 1)
 shader_parameter/diffuse_strength = 0.25
 shader_parameter/diffuse_blur = 0.015
