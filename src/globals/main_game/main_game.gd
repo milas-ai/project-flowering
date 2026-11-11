@@ -27,7 +27,7 @@ func _ready() -> void:
 	if debug_stage:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
 	_init_player()
-	transition_to_stage(_current_stage_uid)
+	_init_stage(_current_stage_uid)
 
 
 func _input(event: InputEvent) -> void:
@@ -46,15 +46,12 @@ func _input(event: InputEvent) -> void:
 
 
 func transition_to_stage(stage_scene_uid: String) -> void:
-	_load_stage(stage_scene_uid)
-	pause_root.init_options_menu()
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
 
-	await get_tree().process_frame
-
-	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
-
-	if _current_stage.has_life_hud:
-		hud_root.load_main_stage_hud()
+	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
+	_init_stage(stage_scene_uid)
+	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 
 
 func stage_id_to_uid(stage_id: int) -> String:
@@ -108,6 +105,18 @@ func _load_stage(stage_scene_uid: String) -> void:
 
 	_current_stage_uid = stage_scene_uid
 	_save_game()
+
+
+func _init_stage(stage_scene_uid: String) -> void:
+	_load_stage(stage_scene_uid)
+	pause_root.init_options_menu()
+
+	await get_tree().process_frame
+
+	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
+
+	if _current_stage.has_life_hud:
+		hud_root.load_main_stage_hud()
 
 
 func _change_volume(volume_type: String, delta: int) -> void:
@@ -215,7 +224,7 @@ func _on_player_dead() -> void:
 	await hud_root.animate_vignette(0.15, player.animation_player.current_animation_length/2)
 	await player.animation_player.animation_finished
 	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
-	await transition_to_stage(_current_stage_uid)
+	await _init_stage(_current_stage_uid)
 	player.state_machine.transition_to("StatePlayerIdle")
 	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 	ControllerManager.input_lock = false
