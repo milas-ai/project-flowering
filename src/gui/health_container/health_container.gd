@@ -22,6 +22,7 @@ func _ready() -> void:
 func _animate_heart(index: int) -> void:
 	if _tween and _tween.is_valid():
 		_tween.kill()
+		_reset_hearts_animations()
 
 	_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	_tween.tween_property(_hearts[index], "offset_transform_rotation", deg_to_rad(15), 0.1).as_relative()
@@ -29,6 +30,12 @@ func _animate_heart(index: int) -> void:
 	_tween.tween_property(_hearts[index], "offset_transform_rotation", deg_to_rad(-30), 0.1).as_relative()
 	_tween.tween_property(_hearts[index], "offset_transform_rotation", deg_to_rad(15), 0.1).as_relative()
 	_tween.parallel().tween_property(_hearts[index], "offset_transform_scale", Vector2(1, 1), 0.1)
+
+
+func _reset_hearts_animations() -> void:
+	for heart in _hearts:
+		heart.offset_transform_rotation = 0
+		heart.offset_transform_scale = Vector2(1, 1)
 
 
 func _on_player_update_health(health: int) -> void:
