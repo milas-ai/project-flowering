@@ -1098,7 +1098,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea4" unique_id=536654400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3848572, -4.1581306, 15.361275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3848572, -6.0134773, 15.361275)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=907700123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
@@ -1111,7 +1111,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=2047346420]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -14.023636, 11.210193, -8.549042)
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -14.023636, 9.529781, -8.549042)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=336517329]
 transform = Transform3D(0.9260993, 0, 0.3772821, 0, 1, 0, -0.3772821, 0, 0.9260993, -15.158966, 10.18541, -10.396286)
@@ -1124,7 +1124,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea2" unique_id=1456491089]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.296982, 0.052666664, -3.593647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.296982, -1.1450996, -3.593647)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea2" unique_id=1916518272]
 shape = SubResource("BoxShape3D_gn4dx")
@@ -1136,7 +1136,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=960270256]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.7289581, -2.3198957, 0.2572937)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.7289581, -3.4594193, 0.2572937)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=359619648]
 shape = SubResource("BoxShape3D_gn4dx")
