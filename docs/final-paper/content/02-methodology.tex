@@ -182,4 +182,19 @@ fundamentalmente em duas categorias no pipeline de renderização:
 	na tela.
 \end{description}
 
-% TODO: Diferenciar Visual Shaders de Godot Shading Language
+O Godot conta com duas formas de manipulação de shaders. Para garantir os requisitos de
+desempenho e flexibilidade do \textit{design visual}, o projeto adotou uma abordagem híbrida,
+fazendo uso tanto da \textit{Godot Shading Language} quanto do \textit{Visual Shaders}:
+
+\begin{description}
+	\item[Código:] A Godot possui sua própria linguagem de \textit{shader} baseada em \textit{GLSL}
+	(\textit{OpenGL Shading Language}) --- uma linguagem de alto-nível utilizada para escrever
+	programas de \textit{shaders} que interagem diretamente com a GPU do computador. Foram empregados
+	em rotinas que demandam alto desempenho computacional e controle matemático preciso a nível de
+	vértices e fragmentos.
+	\item[\textit{Visual Shaders:}] Construídos através de uma interface baseada em grafos de nós,
+	foram utilizados para a prototipagem e composição modular de materiais, além de tarefas
+	que demandam menos esforço computacional.
+\end{description}
+
+% TODO: Descrever todos os usos dos shaders no projeto
