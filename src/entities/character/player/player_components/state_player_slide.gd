@@ -26,7 +26,9 @@ func update(delta: float) -> void:
 			_exit_slide = true
 		if _sudden_stop: # Prevent the player from glitching between a ramp and a flat surface
 			get_tree().create_timer(0.05).timeout.connect(
-				func(): state_machine.transition_to("StatePlayerIdle")
+					func():
+						if state_machine.current_state == self:
+							state_machine.transition_to("StatePlayerIdle")
 			)
 		return
 
