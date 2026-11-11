@@ -1,0 +1,87 @@
+extends StateMachine
+
+
+const STATES_TO_ATTACK = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerJump", "StatePlayerFall", "StatePlayerBlock", "StatePlayerSlide"]
+const STATES_TO_BLOCK = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerJump", "StatePlayerFall"]
+const STATES_TO_STUN = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerJump", "StatePlayerFall", "StatePlayerBlock"]
+const STATES_TO_PUSH = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerJump", "StatePlayerFall", "StatePlayerBlock"]
+const STATES_TO_JUMP = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerBlock", "StatePlayerSlide"]
+const STATES_TO_SLIDE = ["StatePlayerIdle", "StatePlayerMove", "StatePlayerBlock", "StatePlayerFall"]
+
+var sliding_pressed: bool = false
+var running_pressed: bool = false
+var blocking_pressed: bool = false
+
+
+func _process(_delta: float) -> void:
+	if sliding_pressed:
+		if _state.name in STATES_TO_SLIDE:
+			if body.is_on_floor() and body.get_floor_normal().y < 0.98:
+				if body.items >= BaseStat.PLAYER.ITEMS.BOTTLE_CAP:
+					transition_to("StatePlayerSlide")
+	if blocking_pressed:
+		if _state.name in STATES_TO_BLOCK:
+			if body.items >= BaseStat.PLAYER.ITEMS.BOTTLE_CAP:
+				transition_to("StatePlayerBlock")
+
+
+func reset_pressed_inputs() -> void:
+	sliding_pressed = false
+	running_pressed = false
+	blocking_pressed = false
+
+
+func _on_input_attack_pressed():
+	if _state.name in STATES_TO_ATTACK:
+		if body.items >= BaseStat.PLAYER.ITEMS.SCISSORS:
+			transition_to("StatePlayerAttack")
+
+
+func _on_input_block_pressed():
+	blocking_pressed = true
+
+
+func _on_input_block_released():
+	if _state.name == "StatePlayerBlock":
+		transition_to("StatePlayerIdle")
+	blocking_pressed = false
+
+
+func _on_input_stun_pressed():
+	if _state.name in STATES_TO_STUN:
+		if body.items >= BaseStat.PLAYER.ITEMS.FIREFLY:
+			transition_to("StatePlayerStun")
+
+
+func _on_input_push_pressed():
+	if _state.name in STATES_TO_PUSH:
+		if body.items >= BaseStat.PLAYER.ITEMS.SCISSORS:
+			transition_to("StatePlayerPush")
+
+
+func _on_input_jump_pressed():
+	if _state.name == "StatePlayerSlide" or (body.is_on_floor() and _state.name in STATES_TO_JUMP):
+		transition_to("StatePlayerJump")
+
+
+func _on_input_slide_pressed():
+	sliding_pressed = true
+
+
+func _on_input_slide_released():
+	if _state.name == "StatePlayerSlide":
+		transition_to("StatePlayerIdle")
+	sliding_pressed = false
+
+
+func _on_input_run_pressed():
+	running_pressed = true
+	if _state.name == "StatePlayerMove":
+		body.animation_player.play("Run")
+
+
+func _on_input_run_released():
+	running_pressed = false
+	ParticleSystem.stop_emitter(body.run_particle_emmitter)
+	if _state.name == "StatePlayerMove":
+		body.animation_player.play("Walk")

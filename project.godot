@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://cskcjpx3rk7rb"
 
 ParticleSystem="*uid://cawl0y3nndj04"
 SaveManager="*uid://sspf7kblwerb"
+ControllerManager="*uid://geomyhsyknfl"
 
 [display]
 
@@ -51,14 +52,17 @@ folder_colors={
 "res://assets/textures/": "pink",
 "res://assets/translations/": "gray",
 "res://src/audio/": "yellow",
-"res://src/character/": "red",
-"res://src/entities/": "orange",
+"res://src/entities/": "red",
 "res://src/globals/": "teal",
 "res://src/gui/": "green",
 "res://src/shaders/": "blue",
 "res://src/stages/": "pink",
 "res://src/terrain/": "purple"
 }
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

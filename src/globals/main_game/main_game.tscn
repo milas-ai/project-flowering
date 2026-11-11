@@ -5,12 +5,21 @@
 [ext_resource type="Shader" uid="uid://chviwd6q60duv" path="res://src/shaders/posterization.gdshader" id="2_w4awf"]
 [ext_resource type="Script" uid="uid://rtlicepdw5sr" path="res://src/globals/main_game/entity_root.gd" id="3_77o2r"]
 [ext_resource type="Script" uid="uid://bi17bhvu7eoa" path="res://src/globals/main_game/pause_root.gd" id="4_77o2r"]
+[ext_resource type="PackedScene" uid="uid://bflec4vjqdtrs" path="res://src/gui/dialog_box/dialog_box.tscn" id="5_eimqg"]
+[ext_resource type="Shader" uid="uid://dgi21d1i4ys8a" path="res://src/shaders/vignette.gdshader" id="6_2ep51"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkujh"]
 shader = ExtResource("2_w4awf")
 shader_parameter/posterization_level = 10.0
 shader_parameter/pre_effect_gamma = 1.167
 shader_parameter/post_effect_gamma = 1.067
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eimqg"]
+shader = ExtResource("6_2ep51")
+shader_parameter/screen_width = 320.0
+shader_parameter/screen_height = 240.0
+shader_parameter/vignette_radius = 1.0
+shader_parameter/vignette_softness = 0.035
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77o2r"]
 bg_color = Color(0, 0, 0, 0.56600004)
@@ -51,17 +60,63 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("3_77o2r")
 
+[node name="EffectRoot" type="Node3D" parent="GameViewport/SubViewport/World" unique_id=1154125435]
+unique_name_in_owner = true
+
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=1771548298]
-process_mode = 1
+process_mode = 3
 layer = 10
+
+[node name="UnscaledViewport" type="SubViewportContainer" parent="HudLayer" unique_id=1498961529]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="HudLayer/UnscaledViewport" unique_id=617909259]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1600, 1200)
+render_target_update_mode = 4
+
+[node name="UnscaledCamera" type="Camera3D" parent="HudLayer/UnscaledViewport/SubViewport" unique_id=1134560782]
+unique_name_in_owner = true
+cull_mask = 524288
+projection = 1
+size = 15.0
 
 [node name="HudRoot" type="Control" parent="HudLayer" unique_id=1616494610]
 unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_twwxd")
+
+[node name="DialogBox" parent="HudLayer/HudRoot" unique_id=4022915 instance=ExtResource("5_eimqg")]
+visible = false
+layout_mode = 1
+
+[node name="Vignette" type="ColorRect" parent="HudLayer/HudRoot" unique_id=1893398753]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_eimqg")
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=531358870]
 process_mode = 2
@@ -87,3 +142,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_77o2r")
+
+[connection signal="dialog_finished" from="HudLayer/HudRoot/DialogBox" to="HudLayer/HudRoot" method="_on_dialog_box_dialog_finished"]

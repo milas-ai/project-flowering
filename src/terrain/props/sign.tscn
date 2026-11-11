@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cmmjljlplwkwv"]
+
+[ext_resource type="Script" uid="uid://byurpg4lvtojr" path="res://src/terrain/props/sign.gd" id="1_28ug0"]
+[ext_resource type="ArrayMesh" uid="uid://bt7g87spth4yg" path="res://assets/models/terrain/props/sign.obj" id="1_532kk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_28ug0"]
+points = PackedVector3Array(-0.5, 0.40620103, -0.25, -0.5, 0.40620103, -0.12501223, -0.5, 1.2811887, -0.25, 0.5, 0.40620103, -0.25, -0.125, 0, -0.12501223, -0.125, 0, 0.125, -0.5, 1.2811887, -0.12501223, -0.125, 1.3749999, -0.12501223, 0.5, 1.2811887, -0.25, 0.5, 0.40620103, -0.12501223, 0.125, 0, -0.12501223, 0.125, 0, 0.125, -0.125, 1.3749999, 0.125, 0.125, 1.3749999, -0.12501223, 0.5, 1.2811887, -0.12501223, 0.125, 1.3749999, 0.125)
+
+[node name="Sign" type="Node3D" unique_id=1537760339]
+script = ExtResource("1_28ug0")
+
+[node name="Sign" type="MeshInstance3D" parent="." unique_id=1433159934]
+mesh = ExtResource("1_532kk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sign" unique_id=419474801]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/StaticBody3D" unique_id=1432484667]
+shape = SubResource("ConvexPolygonShape3D_28ug0")
