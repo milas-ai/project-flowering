@@ -951,6 +951,7 @@ shape = SubResource("BoxShape3D_nhhn2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
 collision_layer = 0
 script = ExtResource("27_ym1el")
+target_stage = 2
 metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
