@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 
 func _exit_tree() -> void:
 	ParticleSystem.remove_emitter(run_particle_emmitter)
-	print("Hi")
 
 
 func process_horizontal_movement(delta: float, direction_vector: Vector3, speed: float) -> void:
