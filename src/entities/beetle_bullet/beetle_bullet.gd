@@ -12,8 +12,7 @@ func _process(delta: float) -> void:
 	var collision: KinematicCollision3D = move_and_collide(velocity * speed * delta)
 	
 	get_tree().create_timer(TIME_TO_LIVE).connect(
-			"timeout", Callable(self, "queue_free")
-	)
+			"timeout", Callable(self, "queue_free"))
 
 	if collision:
 		if collision.get_collider().has_method("take_damage"):

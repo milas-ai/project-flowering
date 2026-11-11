@@ -15,8 +15,7 @@ func enter() -> void:
 	get_tree().create_timer(stun_duration).timeout.connect(
 			func():
 				if state_machine.get_current_state() == "StateEnemyStunned":
-					state_machine.transition_to("StateEnemyIdle")
-	)
+					state_machine.transition_to("StateEnemyIdle"))
 
 
 func update(_delta: float) -> void:

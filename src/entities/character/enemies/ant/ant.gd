@@ -30,8 +30,7 @@ func _activate_hurtbox() -> void:
 	_hurtbox.process_mode = Node.PROCESS_MODE_INHERIT
 	get_tree().create_timer(0.25).timeout.connect(
 			func():
-				_hurtbox.process_mode = Node.PROCESS_MODE_DISABLED
-	)
+				_hurtbox.process_mode = Node.PROCESS_MODE_DISABLED)
 
 
 func _play_attack_animation() -> void:

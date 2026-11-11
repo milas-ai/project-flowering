@@ -14,22 +14,19 @@ func enter() -> void:
 	_exit_slide = false
 	_sudden_stop = true
 	get_tree().create_timer(0.1).timeout.connect(
-		func(): _sudden_stop = false
-	)
+			func(): _sudden_stop = false)
 
 func update(delta: float) -> void:
 	if not body.is_on_floor() or not (body.is_on_floor() and body.get_floor_normal().y < 0.98):
 		if not _exit_slide:
 			get_tree().create_timer(BaseStat.PLAYER.SLIDE_COYOTE_TIME).timeout.connect(
-				func(): state_machine.transition_to("StatePlayerFall")
-			)
+					func(): state_machine.transition_to("StatePlayerFall"))
 			_exit_slide = true
 		if _sudden_stop: # Prevent the player from glitching between a ramp and a flat surface
 			get_tree().create_timer(0.05).timeout.connect(
 					func():
 						if state_machine.get_current_state() == self.name:
-							state_machine.transition_to("StatePlayerIdle")
-			)
+							state_machine.transition_to("StatePlayerIdle"))
 		return
 
 	body.process_horizontal_movement(delta, body.input_direction, BaseStat.PLAYER.SPEED)

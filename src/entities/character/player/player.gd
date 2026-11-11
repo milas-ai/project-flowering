@@ -42,8 +42,7 @@ func process_horizontal_movement(delta: float, direction_vector: Vector3, speed:
 	if direction_vector.length() > 0.1:
 		if horizontal_velocity.length() > 2 * speed:
 			horizontal_velocity = horizontal_velocity.lerp(
-					direction_vector * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta
-			)
+					direction_vector * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta)
 		else:
 			horizontal_velocity = direction_vector * speed
 	else:

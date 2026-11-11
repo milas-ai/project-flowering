@@ -20,8 +20,7 @@ func enter() -> void:
 	get_tree().create_timer(0.46).timeout.connect(
 			func():
 				if state_machine.get_current_state() == self.name:
-					state_machine.transition_to("StatePlayerIdle")
-	)
+					state_machine.transition_to("StatePlayerIdle"))
 
 
 func update(delta: float) -> void:
