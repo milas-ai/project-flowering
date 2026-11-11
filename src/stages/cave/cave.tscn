@@ -1173,7 +1173,6 @@ material = ExtResource("25_6s4nj")
 
 [node name="GodRays" type="Node3D" parent="." unique_id=1513709516]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.46043, 0, -33.3297)
-visible = false
 
 [node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=596248113]
 transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, -0.42012882, -0.1050539, -3.4802246)
@@ -1210,4 +1209,5 @@ surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
 [connection signal="body_entered" from="StageTerrain/Section3/Water3/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
 [connection signal="body_entered" from="StageTerrain/Section4/Water2/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
 [connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
+[connection signal="interacted" from="InteractableAreas/DisplayScissorsTutorialArea" to="." method="_on_display_scissors_tutorial_area_interacted"]
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
