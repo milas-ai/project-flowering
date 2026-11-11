@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b8o47pv73gn8u" path="res://src/terrain/cave/pillar/cave_pillar_extra_tall.tscn" id="24_xjyc6"]
 [ext_resource type="Material" uid="uid://c8jx6ujjd25nh" path="res://assets/materials/terrain/cave_wall_mat.tres" id="25_6s4nj"]
 [ext_resource type="PackedScene" uid="uid://buicfars5lqhq" path="res://src/terrain/cave/platform/small/cave_platform_small_2.tscn" id="25_8svx8"]
+[ext_resource type="Script" uid="uid://dxqe716qb2txf" path="res://src/stages/util/enemy_spawn_point/beetle_spawn_point.gd" id="26_043m5"]
 [ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="27_k34y4"]
 [ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_a7pq4"]
 [ext_resource type="PackedScene" uid="uid://bp741y1okvn2v" path="res://src/terrain/cave/wall/cave_wall_medium_2.tscn" id="28_uj1yi"]
@@ -1054,6 +1055,10 @@ script = ExtResource("19_jmaqm")
 [node name="Ant11" type="Marker3D" parent="EnemySpawnPoints" unique_id=1365321242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.695892, 5.7982187, 242.73921)
 script = ExtResource("19_jmaqm")
+
+[node name="Beetle" type="Marker3D" parent="EnemySpawnPoints" unique_id=994247523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.36035, 8.376396, 149.92247)
+script = ExtResource("26_043m5")
 
 [node name="InteractableAreas" type="Node3D" parent="." unique_id=2087895003]
 
