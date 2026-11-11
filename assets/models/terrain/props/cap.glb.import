@@ -43,8 +43,8 @@ _subresources={
 "materials": {
 "character_texture": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://assets/materials/player/player_mat.tres",
-"use_external/path": "uid://dhqenkq8kqfll"
+"use_external/fallback_path": "res://assets/materials/entities/character/player/items_mat.tres",
+"use_external/path": "uid://dl3ob7y7bwjgw"
 }
 }
 }

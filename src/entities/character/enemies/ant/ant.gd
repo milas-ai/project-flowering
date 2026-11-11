@@ -35,7 +35,7 @@ func _activate_hurtbox() -> void:
 
 
 func _play_attack_animation() -> void:
-	var position: Vector3 = _hurtbox.global_transform.origin
-	var forward: Vector3 = -transform.basis.z.normalized()
-	position += forward * 1.3
-	ParticleSystem.play(ParticleID.ANT_SLASH, position, rotation)
+	var spawn_position: Vector3 = _hurtbox.global_transform.origin
+	var forward_vector: Vector3 = -transform.basis.z.normalized()
+	spawn_position += forward_vector * 1.3
+	ParticleSystem.play(ParticleID.ANT_SLASH, spawn_position, rotation)

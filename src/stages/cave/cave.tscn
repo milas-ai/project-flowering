@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dpqj21pufpw7o" path="res://src/terrain/props/scissor.tscn" id="18_fpjvn"]
 [ext_resource type="PackedScene" uid="uid://cmlgjcrtw5qqg" path="res://src/terrain/cave/platform/tiny/cave_platform_tiny_1.tscn" id="19_7ffxo"]
 [ext_resource type="Script" uid="uid://dwwo23g8b7s35" path="res://src/stages/util/enemy_spawn_point/ant_spawn_point.gd" id="19_jmaqm"]
+[ext_resource type="PackedScene" uid="uid://cmmjljlplwkwv" path="res://src/terrain/props/sign.tscn" id="19_wyifx"]
 [ext_resource type="PackedScene" uid="uid://bscubpu14acbi" path="res://src/terrain/cave/wall/cave_wall_thin.tscn" id="20_5bcjj"]
 [ext_resource type="PackedScene" uid="uid://cnp8bgj07ffg1" path="res://src/terrain/cave/platform/tiny/cave_platform_tiny_2.tscn" id="20_m24al"]
 [ext_resource type="PackedScene" uid="uid://b6c5vtwrix7sm" path="res://src/terrain/cave/shards/cave_shard.tscn" id="21_mttvs"]
@@ -81,7 +82,10 @@ shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 size = Vector3(22.973633, 1, 37.631836)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 2.8036902
+radius = 2.0132937
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xp4wt"]
+radius = 2.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
 size = Vector3(19.335693, 14.542847, 17.674316)
@@ -126,7 +130,7 @@ player_items_on_spawn = 1
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9829576, 0, -0.18383232, 0, 1, 0, 0.18383232, 0, 0.9829576, 139.48285, 7.9320545, 269.51013)
+transform = Transform3D(0.9829576, 0, -0.18383232, 0, 1, 0, 0.18383232, 0, 0.9829576, 139.48285, 6.9045906, 269.51013)
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -367,7 +371,7 @@ transform = Transform3D(1.3329037, 0, -0.2025227, 0, 2.864892, 0, 0.30183983, 0,
 transform = Transform3D(0.9573283, 0, -0.28900266, 0, 1, 0, 0.28900266, 0, 0.9573283, 131.63828, 9.850516, -19.49832)
 
 [node name="RockSmall2" parent="StageTerrain/Section1" unique_id=1368761601 instance=ExtResource("13_phw55")]
-transform = Transform3D(0.98578286, 0.036337912, 0.1640478, 0.14362518, 0.32446072, -0.9349317, -0.08720052, 0.945201, 0.31462872, 135.06218, 7.454797, -41.36084)
+transform = Transform3D(-0.96245897, 0.2656589, -0.05565916, 0.14362518, 0.3244607, -0.9349317, -0.23031372, -0.9078275, -0.35043535, 135.5236, 7.454797, -40.4198)
 
 [node name="RockBig19" parent="StageTerrain/Section1" unique_id=2116134164 instance=ExtResource("3_e3d7y")]
 transform = Transform3D(0.9753972, 0.008818565, -0.22027819, 0.053900488, 0.9593343, 0.27707845, 0.21376385, -0.28213465, 0.93525666, 150.03325, 14.577686, -2.455946)
@@ -389,6 +393,9 @@ transform = Transform3D(0.86909944, 0.4624521, 0.17551146, -0.47258514, 0.881089
 
 [node name="Shard18" parent="StageTerrain/Section1" unique_id=1302333498 instance=ExtResource("21_mttvs")]
 transform = Transform3D(0.2447649, 0.2052279, 1.2206113, -0.5007468, 0.27272302, 0.4545142, -0.12809192, -0.6739895, 0.5555872, 134.83214, 11.390503, -11.533295)
+
+[node name="Sign" parent="StageTerrain/Section1" unique_id=1537760339 instance=ExtResource("19_wyifx")]
+transform = Transform3D(0.91621745, 0, -0.40068138, 0, 1, 0, 0.40068138, 0, 0.91621745, 129.79807, 7.3771973, -23.951782)
 
 [node name="Section2" type="Node3D" parent="StageTerrain" unique_id=52340329]
 
@@ -1063,7 +1070,7 @@ script = ExtResource("26_043m5")
 [node name="InteractableAreas" type="Node3D" parent="." unique_id=2087895003]
 
 [node name="GetItemArea" type="Area3D" parent="InteractableAreas" unique_id=1116399652]
-transform = Transform3D(0.75127053, 0.0030532675, -0.65998745, -0.024869217, 0.9994101, -0.023685372, 0.65952575, 0.034207493, 0.7509033, 136.49554, 7.5499816, -39.749508)
+transform = Transform3D(0.75127053, 0.0030532675, -0.65998745, -0.024869217, 0.9994101, -0.023685372, 0.65952575, 0.034207493, 0.7509033, 135.77898, 9.7586, -40.234283)
 script = ExtResource("28_a7pq4")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
@@ -1072,7 +1079,15 @@ transform = Transform3D(1, 0, 2.3841858e-07, -5.5879354e-09, 1, 0, -2.9802322e-0
 shape = SubResource("SphereShape3D_nhhn2")
 
 [node name="Item" parent="InteractableAreas/GetItemArea" unique_id=577724676 instance=ExtResource("18_fpjvn")]
-transform = Transform3D(0.88702357, 0.44183183, -0.13406652, -0.45168865, 0.8905691, -0.05353065, 0.09574422, 0.10803948, 0.9895262, 0.32133484, 0.7323241, -0.30456543)
+transform = Transform3D(0.3415097, 0.29211152, 0.8933332, 0.91762656, 0.10197363, -0.38414246, -0.2033093, 0.9509342, -0.23322389, -0.06845093, 0.6426382, -0.20095062)
+
+[node name="DisplayScissorsTutorialArea" type="Area3D" parent="InteractableAreas" unique_id=1171341648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.79807, 8.400391, -23.951782)
+script = ExtResource("28_a7pq4")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreas/DisplayScissorsTutorialArea" unique_id=725074515]
+shape = SubResource("SphereShape3D_xp4wt")
 
 [node name="CheckPoints" type="Node3D" parent="." unique_id=1515432366]
 
@@ -1083,7 +1098,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea4" unique_id=536654400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3848572, -4.1581306, 15.361275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3848572, -6.0134773, 15.361275)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea4" unique_id=907700123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282135, 0, 1.3082733)
@@ -1096,7 +1111,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea3" unique_id=2047346420]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -14.023636, 11.210193, -8.549042)
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -14.023636, 9.529781, -8.549042)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea3" unique_id=336517329]
 transform = Transform3D(0.9260993, 0, 0.3772821, 0, 1, 0, -0.3772821, 0, 0.9260993, -15.158966, 10.18541, -10.396286)
@@ -1109,7 +1124,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea2" unique_id=1456491089]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.296982, 0.052666664, -3.593647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.296982, -1.1450996, -3.593647)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea2" unique_id=1916518272]
 shape = SubResource("BoxShape3D_gn4dx")
@@ -1121,7 +1136,7 @@ script = ExtResource("31_ss2kd")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=960270256]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.7289581, -2.3198957, 0.2572937)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.7289581, -3.4594193, 0.2572937)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=359619648]
 shape = SubResource("BoxShape3D_gn4dx")
@@ -1157,7 +1172,7 @@ size = Vector3(282.2705, 1, 445.83203)
 material = ExtResource("25_6s4nj")
 
 [node name="GodRays" type="Node3D" parent="." unique_id=1513709516]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.46043, 0, -34.397205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.46043, 0, -33.3297)
 
 [node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=596248113]
 transform = Transform3D(0.9840356, -0.15570402, -0.08619806, 0.17475478, 0.93702245, 0.3024069, 0.033683598, -0.31264278, 0.9492736, -0.42012882, -0.1050539, -3.4802246)
@@ -1194,4 +1209,5 @@ surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
 [connection signal="body_entered" from="StageTerrain/Section3/Water3/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
 [connection signal="body_entered" from="StageTerrain/Section4/Water2/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
 [connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
+[connection signal="interacted" from="InteractableAreas/DisplayScissorsTutorialArea" to="." method="_on_display_scissors_tutorial_area_interacted"]
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
