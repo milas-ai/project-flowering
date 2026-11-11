@@ -3,9 +3,11 @@ extends Area3D
 
 
 @export_enum(
-		"Gym:-1", 
+		"Gym:-1",
+		"PrologueVillage",
 		"Mountain",
 		"Cave",
+		"Forest",
 ) var target_stage: int = -1
 
 @onready var _main_game: MainGame = $/root/MainGame
