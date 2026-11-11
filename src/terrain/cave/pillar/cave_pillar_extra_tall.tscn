@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://b8o47pv73gn8u"]
 
 [ext_resource type="ArrayMesh" uid="uid://c63c7j11k22hi" path="res://assets/models/terrain/cave/prop/cave_pillar_tall.obj" id="1_errjw"]
+[ext_resource type="Script" uid="uid://bg10skxa20e3f" path="res://src/terrain/util/pushable_prop.gd" id="1_k0yqh"]
 [ext_resource type="Material" uid="uid://dyqdg1cxvp1ch" path="res://assets/materials/terrain/crystal_mat.tres" id="2_a8awo"]
-[ext_resource type="Script" uid="uid://tdpavxrko20i" path="res://src/shaders/randomize_shader_seed.gd" id="3_a8awo"]
+[ext_resource type="Script" uid="uid://tdpavxrko20i" path="res://src/shaders/shader_seed_randomizer.gd" id="3_a8awo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vjd6x"]
 size = Vector3(1.3962402, 5.756073, 1.4040527)
 
-[node name="PillarExtraTall" type="RigidBody3D" unique_id=408814573]
+[node name="PillarExtraTall" type="RigidBody3D" unique_id=861262862]
 collision_layer = 10
 collision_mask = 2
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+script = ExtResource("1_k0yqh")
+metadata/_custom_type_script = "uid://bg10skxa20e3f"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1998221899]
 transform = Transform3D(0.997452, 0, 0.07134022, 0, 1, 0, -0.07134022, 0, 0.997452, 0, -0.0544281, 0.032226563)
