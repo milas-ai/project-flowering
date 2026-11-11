@@ -13,7 +13,7 @@ func enter() -> void:
 			body.animation_player.current_animation_length
 	).timeout.connect(
 			func():
-				if state_machine.current_state == self:
+				if state_machine.get_current_state() == self.name:
 					state_machine.transition_to("StatePlayerIdle")
 	)
 
