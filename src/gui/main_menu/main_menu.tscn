@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://usdod4e6vyyh" path="res://assets/logo/banner/banner.png" id="2_drdd6"]
 [ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_controls/animated_button.gd" id="4_7askq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7askq"]
+bg_color = Color(0, 0, 0, 0.56600004)
+anti_aliasing = false
+
 [node name="MainMenu" type="Control" unique_id=1058331389]
 layout_mode = 3
 anchors_preset = 15
@@ -17,7 +21,7 @@ size_flags_vertical = 6
 theme = ExtResource("1_yulm1")
 script = ExtResource("2_7askq")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=405055063]
+[node name="BannerMarginContainer" type="MarginContainer" parent="." unique_id=405055063]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -28,7 +32,7 @@ grow_horizontal = 0
 theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 
-[node name="Banner" type="TextureRect" parent="MarginContainer" unique_id=1535359106]
+[node name="Banner" type="TextureRect" parent="BannerMarginContainer" unique_id=1535359106]
 texture_filter = 2
 texture_repeat = 1
 layout_mode = 2
@@ -36,7 +40,7 @@ texture = ExtResource("2_drdd6")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1588773928]
+[node name="ButtonsMarginContainer" type="MarginContainer" parent="." unique_id=1588773928]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -47,12 +51,12 @@ grow_vertical = 0
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=982379202]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsMarginContainer" unique_id=982379202]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="NewGameButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=1216527557]
+[node name="NewGameButton" type="Button" parent="ButtonsMarginContainer/VBoxContainer" unique_id=1216527557]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -64,7 +68,7 @@ text = "NEW_GAME_LABEL"
 script = ExtResource("4_7askq")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
-[node name="LoadGameButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=369484069]
+[node name="LoadGameButton" type="Button" parent="ButtonsMarginContainer/VBoxContainer" unique_id=369484069]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -76,7 +80,7 @@ text = "LOAD_GAME_LABEL"
 script = ExtResource("4_7askq")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=986065046]
+[node name="OptionsButton" type="Button" parent="ButtonsMarginContainer/VBoxContainer" unique_id=986065046]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -88,7 +92,7 @@ text = "OPTIONS_LABEL"
 script = ExtResource("4_7askq")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
-[node name="ExitGameButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=12808993]
+[node name="ExitGameButton" type="Button" parent="ButtonsMarginContainer/VBoxContainer" unique_id=12808993]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
@@ -100,7 +104,7 @@ text = "EXIT_GAME_LABEL"
 script = ExtResource("4_7askq")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
-[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1035161076]
+[node name="VersionMarginContainer" type="MarginContainer" parent="." unique_id=1035161076]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -114,7 +118,69 @@ grow_vertical = 0
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="VersionLabel" type="Label" parent="MarginContainer3" unique_id=218167093]
+[node name="VersionLabel" type="Label" parent="VersionMarginContainer" unique_id=218167093]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 2
+
+[node name="ConfirmationPrompt" type="Control" parent="." unique_id=1166368087]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="ConfirmationPrompt" unique_id=268326784]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7askq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPrompt" unique_id=241463900]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.5
+offset_top = -46.0
+offset_right = 278.5
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="ConfirmationPrompt/VBoxContainer" unique_id=722370893]
+layout_mode = 2
+text = "CONFIRMATION_LABEL"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationPrompt/VBoxContainer" unique_id=1590201685]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="AcceptButton" type="Button" parent="ConfirmationPrompt/VBoxContainer/HBoxContainer" unique_id=160218905]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DeclineButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../DeclineButton")
+focus_neighbor_bottom = NodePath(".")
+text = "ACCEPT_LABEL"
+script = ExtResource("4_7askq")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="DeclineButton" type="Button" parent="ConfirmationPrompt/VBoxContainer/HBoxContainer" unique_id=388352520]
+layout_mode = 2
+focus_neighbor_left = NodePath("../AcceptButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../AcceptButton")
+focus_neighbor_bottom = NodePath(".")
+text = "DECLINE_LABEL"
+script = ExtResource("4_7askq")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
