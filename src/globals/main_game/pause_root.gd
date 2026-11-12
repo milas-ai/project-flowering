@@ -30,13 +30,10 @@ func init_options_menu() -> void:
 	add_child(_options_menu)
 
 
-func show_pause_menu(with_controller: bool = false) -> void:
-	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	if with_controller:
-		_options_menu.focus_first_control()
+func show_pause_menu() -> void:
 	show()
 
 
 func hide_pause_menu() -> void:
-	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
+	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
