@@ -18,7 +18,7 @@ func focus_first_control() -> void:
 func _connect_ui_signals() -> void:
 	%NewGameButton.pressed.connect(_on_new_game_pressed)
 	%LoadGameButton.pressed.connect(_on_load_game_pressed)
-	_options_button.pressed.connect(_on_options_pressed)
+	_options_button.pressed.connect(_parent_control._show_options_menu)
 	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
 
 
@@ -28,10 +28,6 @@ func _on_new_game_pressed() -> void:
 
 func _on_load_game_pressed() -> void:
 	print("Load Game button pressed")
-
-
-func _on_options_pressed() -> void:
-	print("Options button pressed")
 
 
 func _on_exit_game_pressed() -> void:
