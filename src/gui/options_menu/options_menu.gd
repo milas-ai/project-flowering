@@ -1,7 +1,6 @@
-extends Control
+extends BaseMenu
 
 
-@onready var _main_game: MainGame = $/root/MainGame
 @onready var _aspect_ratio_check_box: CheckBox = %AspectRatioCheckBox
 @onready var _fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var _language_drop_button: OptionButton = %LanguageDropButton
@@ -13,6 +12,7 @@ extends Control
 
 
 func _ready() -> void:
+	super._ready()
 	_connect_options_change_signals()
 	_connect_ui_signals()
 
@@ -52,7 +52,7 @@ func _connect_ui_signals() -> void:
 	_camera_sensitivity_slider.value_changed.connect(_main_game._set_camera_sensitivity)
 	%SaveSettingsButton.pressed.connect(_on_save_settings_pressed)
 	%ExitGameButton.pressed.connect(_main_game._exit_game)
-	
+
 
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
 	_volume_master_bar.texture.region.position.y = 9 * volume["master"] / 10.0
