@@ -36,7 +36,7 @@ a fluidez dos comandos em qualquer direção do mapa.
 \label{sec:movimentacao}
 
 O sistema de locomoção do personagem principal foi estruturado para
-atender aos requisitos de alta velocidade e resposta imediata inerentes do
+atender aos requisitos de alta velocidade e resposta imediata inerentes ao
 gênero \textit{fast-paced}. O controle de deslocamento ocorre de maneira
 omnidirecional no plano horizontal do cenário, permitindo ao jogador mover-se
 fluidamente em qualquer direção independentemente da rotação atual da
@@ -116,7 +116,37 @@ agora também as duas últimas mecânicas:
 \section{Estética e Efeitos Visuais}
 \label{sec:estetica_e_efeitos}
 
-%TODO: Shaders visuais, partículas de feedback, shaders de game design, efeitos de pós.
+O jogo possui uma identidade visual que replica a estética retrô
+baseada em \textit{pixel art} com a tridimensionalidade em estrutura \textit{low-poly},
+priorizando a limpeza geométrica, a legibilidade espacial e facilitando a
+dinâmica \textit{fast-paced}. Para alcançar esse objetivo, o projeto emprega um
+conjunto integrado de tratamentos estéticos, efeitos de superfície e pós-processamento,
+incluindo:
+
+\begin{itemize}
+	\item \textbf{Estilização de Superfícies e Materiais:} As estruturas das fases
+	(como as paredes de montanhas e cavernas) utilizam sombreamento estilizado --- como uma versão
+	cartunesca do modelo de iluminação \textit{Phong}, e posterização --- para simplificar a paleta
+	de cores e acentuar o contraste visual. Elementos de interface e ambientação contam com deslocamentos
+	de textura (\textit{texture displacement}) para prover um dinamismo gráfico na cena.
+
+	\item \textbf{Feedback Visual:} Para mitigar os desafios de visibilidade
+	inerentes à projeção isométrica, o jogo emprega \textit{shaders} dinâmicos de transparência e
+	silhueta nas paredes, garantindo que o personagem nunca fique oculto do campo de visão do jogador.
+	Além disso, sistemas de partículas integrados atuam como indicadores visuais em tempo real, fornecendo
+	\textit{feedback} claro sobre os resultados da ação do jogador ou dos inimigos (como rastros de poeira
+	enquanto corre e efeitos de atordoamento ao paralizar).
+
+	\item \textbf{Iluminação Ambiental:} Recursos de iluminação volumétrica e efeitos
+	atmosféricos direcionais como o \textit{spatial fog} são aplicados em pontos específicos dos cenários
+	para guiar a exploração e sinalizar a localização de itens ou objetivos de forma intuitiva.
+
+	\item \textbf{Transições:} O uso de efeitos de pós-processamento --- como
+	a aplicação de vinhetas --- permite manipular o foco visual do jogador e induzir recursos narrativos que
+	corroborem com a imersão durante a aventura do personagem. Sendo utilizados, por exemplo, para indicar
+	passagem de tempo ou uma transição de fase sem quebra de fluxo do jogo, além de forcener uma linguagem visual
+	característica (como telas de morte inspiradas em encerramentos de desenhos animados antigos).
+\end{itemize}
 
 \section{Sistema de Áudio}
 \label{sec:audio}
