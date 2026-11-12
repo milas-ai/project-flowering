@@ -116,3 +116,22 @@ func _find_tag_part_size(line: String, base_size: int = 0) -> int:
 	var tag_part_size: int = tag_end_close_index - tag_start_open_index
 	var remaining_text: String = line.substr(tag_end_close_index + 1, line.length() - tag_end_close_index - 1)
 	return tag_part_size + _find_tag_part_size(remaining_text, base_size + tag_part_size)
+
+
+func _show_main_menu() -> void:
+	_options_menu.hide()
+	_main_menu.show()
+
+
+func _show_options_menu() -> void:
+	_main_menu.hide()
+	_options_menu.show()
+
+
+func _on_options_save_settings_pressed() -> void:
+	_main_game._save_game()
+	_show_main_menu()
+
+
+func _on_options_exit_game_pressed() -> void:
+	_show_main_menu()

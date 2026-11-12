@@ -4,6 +4,8 @@ extends Control
 
 var _options_menu: Control
 
+@onready var _main_game: MainGame = $/root/MainGame
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if ControllerManager.input_lock:
@@ -37,3 +39,13 @@ func show_pause_menu() -> void:
 func hide_pause_menu() -> void:
 	hide()
 	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _on_options_save_settings_pressed() -> void:
+	_main_game._save_game()
+	hide_pause_menu()
+	get_tree().paused = false
+
+
+func _on_options_exit_game_pressed() -> void:
+	_main_game._exit_game()
