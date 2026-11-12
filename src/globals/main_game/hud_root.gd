@@ -2,9 +2,13 @@ class_name HudRoot
 extends Control
 
 
+var _main_menu: Control
+var _options_menu: Control
+
 @onready var _main_game: MainGame = $/root/MainGame
 @onready var _dialog_box: DialogBox = $DialogBox
 @onready var _vignette: ColorRect = $Vignette
+
 
 func load_main_stage_hud() -> void:
 	if get_node_or_null("HealthContainer"):
@@ -36,6 +40,33 @@ func animate_vignette(target_radius: float, duration: float) -> void:
 		_vignette.material.set_shader_parameter("vignette_softness", 0.0)
 	if target_radius >= (window_size.x / window_size.y) / (4.0/3.0):
 		_vignette.visible = false
+
+
+func init_main_menu() -> void:
+	var main_menu_scene: PackedScene = ResourceLoader.load(SceneUID.GUI.MAIN_MENU)
+	if not main_menu_scene:
+		push_error("Failed to load main menu scene.")
+		return
+	
+	_main_menu = main_menu_scene.instantiate() as Control
+	if not _main_menu:
+		push_error("Failed to instantiate main menu scene.")
+		return
+
+	add_child(_main_menu)
+
+	var options_menu_scene: PackedScene = ResourceLoader.load(SceneUID.GUI.OPTIONS_MENU)
+	if not options_menu_scene:
+		push_error("Failed to load options menu scene.")
+		return
+	
+	_options_menu = options_menu_scene.instantiate() as Control
+	if not _options_menu:
+		push_error("Failed to instantiate options menu scene.")
+		return
+
+	_options_menu.hide()
+	add_child(_options_menu)
 
 
 func _on_dialog_box_dialog_finished() -> void:
