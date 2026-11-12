@@ -37,6 +37,8 @@ func _input(event: InputEvent) -> void:
 		_update_joypad_type()
 	
 	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:
+		if event is InputEventMouseMotion and event.relative.length() < 1.0:
+			return
 		controller_layout = _keyboard_controller_layout
 		Input.set_mouse_mode(_current_mouse_mode)
 
