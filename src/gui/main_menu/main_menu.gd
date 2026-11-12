@@ -25,10 +25,10 @@ func focus_first_control() -> void:
 
 func _connect_ui_signals() -> void:
 	_new_game_button.pressed.connect(_on_new_game_pressed)
-	%LoadGameButton.pressed.connect(_on_load_game_pressed)
+	%LoadGameButton.pressed.connect(_parent_control._on_main_menu_load_game_pressed)
 	%OptionsButton.pressed.connect(_parent_control._show_options_menu)
 	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
-	%AcceptButton.pressed.connect(_on_accept_button_pressed)
+	%AcceptButton.pressed.connect(_parent_control._on_main_menu_new_game_confirmed)
 	_cancel_button.pressed.connect(_on_cancel_button_pressed)
 
 
@@ -36,16 +36,8 @@ func _on_new_game_pressed() -> void:
 	_show_confirmation_prompt()
 
 
-func _on_load_game_pressed() -> void:
-	print("Load Game button pressed")
-
-
 func _on_exit_game_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_accept_button_pressed() -> void:
-	print("Accept button pressed")
 
 
 func _on_cancel_button_pressed() -> void:

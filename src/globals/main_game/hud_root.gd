@@ -132,3 +132,30 @@ func _show_options_menu() -> void:
 func _on_options_save_settings_pressed() -> void:
 	_main_game._save_game()
 	_show_main_menu()
+
+
+func _on_main_menu_load_game_pressed() -> void:
+	await _transition_to_game()
+	_main_game.init_game()
+	await _open_transition()
+
+
+func _on_main_menu_new_game_confirmed() -> void:
+	await _transition_to_game()
+	_main_game.init_new_game()
+	await _open_transition()
+
+
+func _transition_to_game() -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+	await animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
+
+	_options_menu.queue_free()
+	_main_menu.queue_free()
+
+
+func _open_transition() -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+	await animate_vignette(aspect_ratio / (4.0/3.0), 1.25)

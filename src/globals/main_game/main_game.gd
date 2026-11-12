@@ -26,8 +26,7 @@ func _ready() -> void:
 	_load_save_data()
 	if debug_stage:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
-		_init_player()
-		_init_stage(_current_stage_uid)
+		init_game()
 	else:
 		hud_root.init_main_menu()
 
@@ -72,6 +71,17 @@ func stage_id_to_uid(stage_id: int) -> String:
 
 func set_player_items(items: int) -> void:
 	player.items = items
+
+
+func init_new_game() -> void:
+	SaveManager.delete_save()
+	_current_stage_uid = SceneUID.STAGES.MOUNTAIN
+	init_game()
+
+
+func init_game() -> void:
+	_init_player()
+	await _init_stage(_current_stage_uid)
 
 
 func _load_stage(stage_scene_uid: String) -> void:
