@@ -3,24 +3,34 @@ extends BaseMenu
 
 var _first_control: Control
 
-@onready var _new_game_button = %NewGameButton
-@onready var _banner_margin_container = $BannerMarginContainer
-@onready var _version_margin_container = $VersionMarginContainer
-@onready var _buttons_margin_container = $ButtonsMarginContainer
-@onready var _confirmation_prompt = $ConfirmationPrompt
-@onready var _cancel_button = %CancelButton
+@onready var _new_game_button: Button = %NewGameButton
+@onready var _banner_margin_container: MarginContainer = $BannerMarginContainer
+@onready var _version_margin_container: MarginContainer = $VersionMarginContainer
+@onready var _buttons_margin_container: MarginContainer = $ButtonsMarginContainer
+@onready var _confirmation_prompt: Control = $ConfirmationPrompt
+@onready var _cancel_button: Button = %CancelButton
 
 
 func _ready():
 	super._ready()
-	_first_control = _new_game_button
-	%VersionLabel.text = "Version: " + ProjectSettings.get_setting("application/config/version")
 	_connect_ui_signals()
+	_update_version_label_text()
 	_on_controller_layout_changed()
+	_first_control = _new_game_button
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED:
+		_update_version_label_text()
 
 
 func focus_first_control() -> void:
 	_first_control.grab_focus.call_deferred()
+
+
+func _update_version_label_text() -> void:
+	%VersionLabel.text = tr("VERSION_LABEL").format({
+			"version" : ProjectSettings.get_setting("application/config/version")})
 
 
 func _connect_ui_signals() -> void:
