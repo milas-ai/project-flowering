@@ -67,6 +67,7 @@ func init_main_menu() -> void:
 
 	_options_menu.hide()
 	add_child(_options_menu)
+	_options_menu.exit_game_button.hide()
 
 
 func _on_dialog_box_dialog_finished() -> void:
@@ -130,8 +131,4 @@ func _show_options_menu() -> void:
 
 func _on_options_save_settings_pressed() -> void:
 	_main_game._save_game()
-	_show_main_menu()
-
-
-func _on_options_exit_game_pressed() -> void:
 	_show_main_menu()

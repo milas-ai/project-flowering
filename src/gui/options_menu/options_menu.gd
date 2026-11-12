@@ -1,6 +1,7 @@
 extends BaseMenu
 
 
+@onready var exit_game_button: Button = %ExitGameButton
 @onready var _aspect_ratio_check_box: CheckBox = %AspectRatioCheckBox
 @onready var _fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var _language_drop_button: OptionButton = %LanguageDropButton
@@ -9,7 +10,6 @@ extends BaseMenu
 @onready var _volume_music_bar: TextureRect = %VolumeMusicBar
 @onready var _volume_sfx_bar: TextureRect = %VolumeSFXBar
 @onready var _pixelization_level_bar: TextureRect = %PixelizationLevelBar
-@onready var _exit_game_button: Button = %ExitGameButton
 
 
 func _ready() -> void:
@@ -26,11 +26,6 @@ func _ready() -> void:
 	_camera_sensitivity_slider.value = _main_game.options.camera_sensitivity
 	_on_volume_change(_main_game.options.volume)
 	_on_pixelization_level_change(_main_game.options.pixelization_level)
-
-	if _parent_control is PauseRoot:
-		_exit_game_button.text = "EXIT_GAME_LABEL"
-	else:
-		_exit_game_button.text = "BACK_TO_MAIN_MENU_LABEL"
 
 
 func focus_first_control() -> void:
@@ -57,7 +52,7 @@ func _connect_ui_signals() -> void:
 	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
 	_camera_sensitivity_slider.value_changed.connect(_main_game._set_camera_sensitivity)
 	%SaveSettingsButton.pressed.connect(_parent_control._on_options_save_settings_pressed)
-	_exit_game_button.pressed.connect(_parent_control._on_options_exit_game_pressed)
+	exit_game_button.pressed.connect(_main_game._exit_game)
 
 
 func _on_volume_change(volume: Dictionary[String, int]) -> void:

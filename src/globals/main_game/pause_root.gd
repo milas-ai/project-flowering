@@ -45,7 +45,3 @@ func _on_options_save_settings_pressed() -> void:
 	_main_game._save_game()
 	hide_pause_menu()
 	get_tree().paused = false
-
-
-func _on_options_exit_game_pressed() -> void:
-	_main_game._exit_game()
