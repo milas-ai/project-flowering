@@ -83,19 +83,19 @@ func _trim_dialog_text(dialog_text: String) -> String:
 
 
 func _trim_line_to_max_characters(line: String) -> String:
-		var tag_size: int = _find_tag_part_size(line)
-		if line.length() <= DialogBox.MAX_CHARACTERS_PER_LINE + tag_size:
-			return line
+	var tag_size: int = _find_tag_part_size(line)
+	if line.length() <= DialogBox.MAX_CHARACTERS_PER_LINE + tag_size:
+		return line
+	else:
+		var first_line_part: String
+		if tag_size > 0:
+			first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE + tag_size)
 		else:
-			var first_line_part: String
-			if tag_size > 0:
-				first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE + tag_size)
-			else:
-				first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE)
-			var last_space_index: int = first_line_part.rfind(" ")
-			first_line_part = first_line_part.substr(0, last_space_index) + "..."
-			var remaining_text: String = line.substr(last_space_index + 1, line.length() - last_space_index - 1)
-			return first_line_part + "\n" + _trim_line_to_max_characters(remaining_text)
+			first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE)
+		var last_space_index: int = first_line_part.rfind(" ")
+		first_line_part = first_line_part.substr(0, last_space_index) + "..."
+		var remaining_text: String = line.substr(last_space_index + 1, line.length() - last_space_index - 1)
+		return first_line_part + "\n" + _trim_line_to_max_characters(remaining_text)
 
 
 func _find_tag_part_size(line: String, base_size: int = 0) -> int:
