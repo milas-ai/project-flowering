@@ -121,6 +121,7 @@ theme_override_constants/margin_bottom = 60
 [node name="VersionLabel" type="Label" parent="VersionMarginContainer" unique_id=218167093]
 unique_name_in_owner = true
 layout_mode = 2
+text = "VERSION_LABEL"
 horizontal_alignment = 2
 
 [node name="ConfirmationPrompt" type="Control" parent="." unique_id=1166368087]
@@ -158,12 +159,15 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="ConfirmationPrompt/VBoxContainer" unique_id=722370893]
 layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+theme_override_font_sizes/font_size = 39
 text = "CONFIRMATION_LABEL"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationPrompt/VBoxContainer" unique_id=1590201685]
 layout_mode = 2
 theme_override_constants/separation = 40
+alignment = 1
 
 [node name="AcceptButton" type="Button" parent="ConfirmationPrompt/VBoxContainer/HBoxContainer" unique_id=160218905]
 unique_name_in_owner = true
