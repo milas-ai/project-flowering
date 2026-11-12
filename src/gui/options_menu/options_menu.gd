@@ -56,8 +56,8 @@ func _connect_ui_signals() -> void:
 	%PixelizationUpButton.pressed.connect(_main_game._change_pixelization_level.bind(+1))
 	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
 	_camera_sensitivity_slider.value_changed.connect(_main_game._set_camera_sensitivity)
-	%SaveSettingsButton.pressed.connect(_parent_control._on_save_settings_pressed)
-	_exit_game_button.pressed.connect(_parent_control._main_game._exit_game)
+	%SaveSettingsButton.pressed.connect(_parent_control._on_options_save_settings_pressed)
+	_exit_game_button.pressed.connect(_parent_control._on_options_exit_game_pressed)
 
 
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
