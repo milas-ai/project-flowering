@@ -166,21 +166,23 @@ layout_mode = 2
 theme_override_constants/separation = 40
 
 [node name="AcceptButton" type="Button" parent="ConfirmationPrompt/VBoxContainer/HBoxContainer" unique_id=160218905]
+unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_left = NodePath("../DeclineButton")
+focus_neighbor_left = NodePath("../CancelButton")
 focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../DeclineButton")
+focus_neighbor_right = NodePath("../CancelButton")
 focus_neighbor_bottom = NodePath(".")
 text = "ACCEPT_LABEL"
 script = ExtResource("4_7askq")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
 
-[node name="DeclineButton" type="Button" parent="ConfirmationPrompt/VBoxContainer/HBoxContainer" unique_id=388352520]
+[node name="CancelButton" type="Button" parent="ConfirmationPrompt/VBoxContainer/HBoxContainer" unique_id=388352520]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath("../AcceptButton")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../AcceptButton")
 focus_neighbor_bottom = NodePath(".")
-text = "DECLINE_LABEL"
+text = "CANCEL_LABEL"
 script = ExtResource("4_7askq")
 metadata/_custom_type_script = "uid://ymr7r4jcknby"
