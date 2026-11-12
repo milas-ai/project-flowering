@@ -4,10 +4,12 @@ extends Control
 
 
 @onready var _main_game: MainGame
+@onready var _parent_control: Node
 
 
 func _ready() -> void:
 	_main_game = $/root/MainGame as MainGame
+	_parent_control = get_parent()
 	ControllerManager.controller_layout_changed.connect(_on_controller_layout_changed)
 	visibility_changed.connect(_on_visibility_changed)
 
