@@ -31,7 +31,6 @@ group_uniforms Wind;
 uniform float wind_bend_ammount = 1.0;
 uniform float sway_back: hint_range(0.0, 1.0) = 1.0;
 
-//global uniform vec3 player_position;
 global uniform sampler2D grass_albedo_texture;
 global uniform sampler2D wind_noise_texture;
 global uniform vec3 wind_direction;
@@ -40,7 +39,6 @@ global uniform float wind_speed;
 global uniform float wind_strength;
 
 varying vec3 node_pos_view;
-//varying flat int instance_id;
 
 
 void vertex() {
@@ -79,16 +77,10 @@ void fragment() {
 	// Color texture
 	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
 	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
-	//if (fract(float(instance_id)/1000.0) < .005) ALBEDO = accent_grass_color;
 	
 	SPECULAR = specular;
 	ROUGHNESS = roughness;
 	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
-	
-	// Transparency with player position
-	//vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
-	//ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
-	//ALPHA = pow(ALPHA, transparency_exponent);
 	
 	// Set alpha mask
 	ALPHA *= step(.9,texture(alpha_texture, UV).a);
@@ -103,8 +95,6 @@ void light() {
 	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
 	
 	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
-	// Make the top of the blade lighter
-	//diffuse += (1.0 - UV.y) * TOP_LIGHT_WEIGHT;
 	
 	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
 	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
