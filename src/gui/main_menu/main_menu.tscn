@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://t6i6f4s287ft"]
+
+[ext_resource type="Theme" uid="uid://chwg4ghnq04ed" path="res://assets/gui/base_theme.tres" id="1_yulm1"]
+[ext_resource type="Script" uid="uid://de0jyk7eruns7" path="res://src/gui/main_menu/main_menu.gd" id="2_7askq"]
+[ext_resource type="Texture2D" uid="uid://usdod4e6vyyh" path="res://assets/logo/banner/banner.png" id="2_drdd6"]
+[ext_resource type="Script" uid="uid://ymr7r4jcknby" path="res://src/gui/animated_controls/animated_button.gd" id="4_7askq"]
+
+[node name="MainMenu" type="Control" unique_id=1058331389]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("1_yulm1")
+script = ExtResource("2_7askq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=405055063]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1165.0
+offset_bottom = 350.7755
+grow_horizontal = 0
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+
+[node name="Banner" type="TextureRect" parent="MarginContainer" unique_id=1535359106]
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 2
+texture = ExtResource("2_drdd6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1588773928]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -366.0
+offset_right = 584.0
+grow_vertical = 0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" unique_id=982379202]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="NewGameButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=1216527557]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "NEW_GAME_LABEL"
+script = ExtResource("4_7askq")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="LoadGameButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=369484069]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "LOAD_GAME_LABEL"
+script = ExtResource("4_7askq")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=986065046]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "OPTIONS_LABEL"
+script = ExtResource("4_7askq")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer2/VBoxContainer" unique_id=12808993]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "EXIT_GAME_LABEL"
+script = ExtResource("4_7askq")
+metadata/_custom_type_script = "uid://ymr7r4jcknby"
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1035161076]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VersionLabel" type="Label" parent="MarginContainer3" unique_id=218167093]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
