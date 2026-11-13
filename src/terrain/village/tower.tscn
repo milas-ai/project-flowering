@@ -13,7 +13,9 @@ radius = 3.4604492
 [sub_resource type="BoxShape3D" id="BoxShape3D_wneoy"]
 size = Vector3(3.6013184, 3.9448242, 1.0614929)
 
-[node name="Tower" type="MeshInstance3D" unique_id=1273519191]
+[node name="Tower" type="Node3D" unique_id=1539119607]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1273519191]
 mesh = ExtResource("1_m2lnr")
 surface_material_override/0 = ExtResource("1_wneoy")
 surface_material_override/1 = ExtResource("1_wneoy")
@@ -58,14 +60,14 @@ surface_material_override/39 = ExtResource("1_wneoy")
 surface_material_override/40 = SubResource("StandardMaterial3D_ykr46")
 surface_material_override/41 = ExtResource("1_wneoy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=161977740]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh" unique_id=161977740]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1866671017]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D" unique_id=1866671017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51904535, 2.7926102, -0.05776918)
 shape = SubResource("CylinderShape3D_kgtat")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1327841094]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/StaticBody3D" unique_id=1327841094]
 transform = Transform3D(1, 0, 0, 0, 0.99934554, 0.036172964, 0, -0.036172964, 0.99934554, 0.5052266, 1.408007, 2.7839997)
 shape = SubResource("BoxShape3D_wneoy")

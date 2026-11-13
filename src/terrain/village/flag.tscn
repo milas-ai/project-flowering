@@ -20,15 +20,17 @@ shader_parameter/wind_mask = ExtResource("4_klxf5")
 height = 4.3955107
 radius = 0.24560547
 
-[node name="Flag" type="MeshInstance3D" unique_id=1387009679]
+[node name="Flag" type="Node3D" unique_id=860267005]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1387009679]
 mesh = ExtResource("1_5tbw7")
 surface_material_override/0 = SubResource("StandardMaterial3D_j1ha4")
 surface_material_override/1 = SubResource("ShaderMaterial_y27x2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=439693833]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh" unique_id=439693833]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=83792060]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D" unique_id=83792060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022431135, 2.1733296, -0.004486203)
 shape = SubResource("CylinderShape3D_abukt")
