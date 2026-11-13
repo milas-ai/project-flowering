@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7drkh425kr3o"
+path="res://.godot/imported/tower.obj-288bf9baea0467048a2542e8083c94e1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tower.obj-288bf9baea0467048a2542e8083c94e1.mesh"]
+
+source_file="res://assets/models/terrain/village/props/tower.obj"
+dest_files=["res://.godot/imported/tower.obj-288bf9baea0467048a2542e8083c94e1.mesh", "res://.godot/imported/tower.obj-288bf9baea0467048a2542e8083c94e1.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
