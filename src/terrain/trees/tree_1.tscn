@@ -2,5 +2,15 @@
 
 [ext_resource type="ArrayMesh" uid="uid://bf3xnbq35swup" path="res://assets/models/terrain/trees/tree_1.obj" id="1_3wk6a"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkra1"]
+albedo_color = Color(0.76921386, 0.41489613, 0.3954029, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wk6a"]
+albedo_color = Color(0.3431648, 0.33853793, 0.18958926, 1)
+
 [node name="Tree1" type="MeshInstance3D" unique_id=1419019840]
 mesh = ExtResource("1_3wk6a")
+surface_material_override/0 = SubResource("StandardMaterial3D_jkra1")
+surface_material_override/1 = SubResource("StandardMaterial3D_3wk6a")
+surface_material_override/2 = SubResource("StandardMaterial3D_3wk6a")
+surface_material_override/3 = SubResource("StandardMaterial3D_3wk6a")
