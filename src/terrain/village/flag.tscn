@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bdex5k5ykp1o0"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4br4iymh60nx" path="res://assets/models/terrain/village/props/flag.obj" id="1_5tbw7"]
+[ext_resource type="Texture2D" uid="uid://cn3byuq27v3w3" path="res://assets/textures/terrain/props/flag_texture.png" id="2_j2cxv"]
+[ext_resource type="Shader" uid="uid://duu0f7p41nk1u" path="res://src/shaders/wind_wiggle.gdshader" id="3_8euer"]
+[ext_resource type="Texture2D" uid="uid://dhfqkorl3iea" path="res://assets/textures/terrain/props/flag_wind_mask.png" id="4_klxf5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1ha4"]
+albedo_texture = ExtResource("2_j2cxv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y27x2"]
+render_priority = 0
+shader = ExtResource("3_8euer")
+shader_parameter/wind_bend_ammount = 3.325
+shader_parameter/sway_back = 0.50400002394
+shader_parameter/texture_albedo = ExtResource("2_j2cxv")
+shader_parameter/wind_mask = ExtResource("4_klxf5")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_abukt"]
+height = 4.3955107
+radius = 0.24560547
+
+[node name="Flag" type="MeshInstance3D" unique_id=1387009679]
+mesh = ExtResource("1_5tbw7")
+surface_material_override/0 = SubResource("StandardMaterial3D_j1ha4")
+surface_material_override/1 = SubResource("ShaderMaterial_y27x2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=439693833]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=83792060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022431135, 2.1733296, -0.004486203)
+shape = SubResource("CylinderShape3D_abukt")
