@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dw0j504cm0llu"]
 
+[ext_resource type="Script" uid="uid://cx6pjxxju3cjy" path="res://src/stages/util/stage_turntable/stage_turntable.gd" id="1_asbii"]
 [ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="1_p6yw7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_asbii"]
@@ -49,12 +50,12 @@ _data = {
 }
 
 [node name="StageTurntable" type="Node3D" unique_id=293822143]
+script = ExtResource("1_asbii")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1316099577]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=103248090]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 50, 50)
 cull_mask = 524287
 projection = 1
