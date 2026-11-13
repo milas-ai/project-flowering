@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cawgug5pc6il8"]
+
+[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/mountain/mountain.gd" id="1_f0kpt"]
+[ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/mountain/mountain_blockout.tscn" id="2_svsx3"]
+[ext_resource type="PackedScene" uid="uid://b0pcksmwrjs7p" path="res://src/terrain/village/huts/hut_1.tscn" id="4_jkra1"]
+[ext_resource type="PackedScene" uid="uid://bqblpynjgshjm" path="res://src/terrain/village/farmland.tscn" id="5_oh8wm"]
+[ext_resource type="PackedScene" uid="uid://bixk1a1wx0akg" path="res://src/terrain/village/huts/hut_3.tscn" id="7_invk0"]
+[ext_resource type="PackedScene" uid="uid://bdex5k5ykp1o0" path="res://src/terrain/village/flag.tscn" id="8_hg0jh"]
+[ext_resource type="PackedScene" uid="uid://8ujh8a3oeb6n" path="res://src/terrain/village/tower.tscn" id="9_4r4mc"]
+[ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://src/terrain/mountain/platform/big/mountain_platform_big_1.tscn" id="14_2w8i5"]
+[ext_resource type="PackedScene" uid="uid://b7g6fb68u2pcl" path="res://src/terrain/mountain/platform/big/mountain_platform_big_2.tscn" id="19_1nc6q"]
+[ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="31_iud8m"]
+[ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="32_v6gdv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h57rq"]
+sky_material = SubResource("ProceduralSkyMaterial_h3jej")
+
+[sub_resource type="Environment" id="Environment_rcjq6"]
+background_mode = 2
+background_energy_multiplier = 0.55
+sky = SubResource("Sky_h57rq")
+tonemap_mode = 2
+ssao_radius = 1.91
+ssao_intensity = 16.0
+ssao_power = 63.3364
+ssao_horizon = 0.0
+ssao_sharpness = 1.0
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.5560472, 0.5569659, 0.47610718, 1)
+fog_density = 0.1431
+fog_aerial_perspective = 0.536
+fog_depth_curve = 0.2773919
+volumetric_fog_density = 0.0
+volumetric_fog_length = 120.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28y55"]
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o5tcc"]
+noise = SubResource("FastNoiseLite_28y55")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a20jj"]
+render_priority = 0
+shader = ExtResource("32_v6gdv")
+shader_parameter/color1 = Color(0.26101992, 0.78963846, 0.7258296, 1)
+shader_parameter/color2 = Color(0, 0.27225816, 0.5365715, 1)
+shader_parameter/scale = 0.02
+shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
+
+[node name="Mountain" type="Node3D" unique_id=138948264]
+script = ExtResource("1_f0kpt")
+metadata/_custom_type_script = "uid://duu016e02tjwd"
+
+[node name="Blockout" parent="." unique_id=425937710 instance=ExtResource("2_svsx3")]
+process_mode = 4
+visible = false
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 115.81042, 8.172262, 11.834709)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
+environment = SubResource("Environment_rcjq6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
+transform = Transform3D(-0.86161226, 0.5035572, 0.063674755, -0.3719274, -0.7117386, 0.5959012, 0.3453901, 0.4897534, 0.8005294, 0, 0, 0)
+light_color = Color(0.8249552, 0.57426554, 0.40928346, 1)
+shadow_enabled = true
+
+[node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
+
+[node name="PlatformBig1" parent="StageTerrain" unique_id=2071298694 instance=ExtResource("14_2w8i5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116, -7.6308956, 18)
+
+[node name="Hut1" parent="StageTerrain" unique_id=1768241949 instance=ExtResource("4_jkra1")]
+transform = Transform3D(-0.47816133, 0.019487705, 0.8780559, 0.05614978, 0.9983868, 0.008419036, -0.87647533, 0.053328328, -0.4784843, 115.54346, 7.1159563, 22.243301)
+
+[node name="Farmland" parent="StageTerrain" unique_id=1126384961 instance=ExtResource("5_oh8wm")]
+transform = Transform3D(0.102365464, 0, 0.994747, 0, 1.0000002, 0, -0.9947468, 0, 0.10236549, 139.89024, 10.451074, 22.984653)
+
+[node name="PlatformBig2" parent="StageTerrain" unique_id=1727879142 instance=ExtResource("19_1nc6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.6461, -5.4628887, 20.752817)
+
+[node name="Hut3" parent="StageTerrain" unique_id=1692098307 instance=ExtResource("7_invk0")]
+transform = Transform3D(0.40474594, 0.040164813, 0.50043446, 0.04652321, 0.75653106, -0.11576598, -0.38772815, 0.1327033, 0.50850827, 116.216515, 7.3675523, 26.578636)
+
+[node name="TransitionArea" type="Area3D" parent="." unique_id=166739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
+collision_layer = 0
+script = ExtResource("31_iud8m")
+metadata/_custom_type_script = "uid://cs52mrxk0n47s"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
+shape = SubResource("BoxShape3D_5wuxl")
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.915512, -0.15866852, -20.927673)
+mesh = SubResource("PlaneMesh_kgtat")
+surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+
+[node name="Tower" parent="." unique_id=1273519191 instance=ExtResource("9_4r4mc")]
+transform = Transform3D(0.9426491, -0.106517576, -0.31633306, 0.10723797, 0.99411744, -0.015183994, 0.31608957, -0.01960974, 0.9485267, 109.317345, 7.5984125, 25.97577)
+
+[node name="Flag" parent="." unique_id=1387009679 instance=ExtResource("8_hg0jh")]
+transform = Transform3D(-0.46867007, -0.23540588, -0.85142964, -0.23157802, 0.9628714, -0.1387454, 0.8524786, 0.13214652, -0.50578386, 110.854095, 13.562231, 24.966103)
