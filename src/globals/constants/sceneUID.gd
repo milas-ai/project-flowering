@@ -3,6 +3,7 @@ extends RefCounted
 
 
 const PLAYER: String = "uid://cn4xgyysgu8vt"
+const STAGE_TURNTABLE: String = "uid://dw0j504cm0llu"
 
 
 class STAGES:
