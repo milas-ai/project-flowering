@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bw4lt07esacv8"]
+
+[ext_resource type="ArrayMesh" uid="uid://8b4us1wuude1" path="res://assets/models/terrain/trees/tree_2.obj" id="1_ivsmk"]
+
+[node name="Tree2" type="MeshInstance3D" unique_id=2106683452]
+mesh = ExtResource("1_ivsmk")
