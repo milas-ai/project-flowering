@@ -4,7 +4,7 @@ extends Node
 
 @export_group("Debug")
 @export_enum(
-		"Gym:-1", 
+		"Gym:-1",
 		"Menu",
 		"Mountain",
 		"Cave",
@@ -24,25 +24,23 @@ var _current_stage_uid: String
 
 func _ready() -> void:
 	_load_save_data()
+	_init_player()
 	if debug_stage:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
-	_init_player()
-	_init_stage(_current_stage_uid)
+		init_game()
+	else:
+		await _load_stage(get_last_stage_uid())
+		hud_root.init_main_menu()
 
 
 func _input(event: InputEvent) -> void:
 	if get_tree().paused or ControllerManager.input_lock:
 		return
-		
+	
 	if event.is_action_pressed("pause"):
 		get_viewport().set_input_as_handled()
 		get_tree().paused = true
-		pause_root.show_pause_menu(event is InputEventJoypadButton)
-			
-	if event is InputEventMouseButton:
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		return
+		pause_root.show_pause_menu()
 
 
 func transition_to_stage(stage_scene_uid: String) -> void:
@@ -67,8 +65,31 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return ""
 
 
-func set_player_items(items: int) -> void:
-	player.items = items
+func init_game(new_game: bool = false) -> void:
+	if new_game:
+		SaveManager.delete_save()
+		_current_stage_uid = SceneUID.STAGES.MOUNTAIN
+	await _init_stage(_current_stage_uid)
+	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func position_camera_to_stage(camera_node: Node3D) -> void:
+	camera_node.global_position = _current_stage.get_camera_position()
+
+
+func get_last_stage_uid() -> String:
+	var stage_uids: Array = [
+		SceneUID.STAGES.GYM,
+		SceneUID.STAGES.MOUNTAIN,
+		SceneUID.STAGES.CAVE
+	]
+
+	var current_index: int = stage_uids.find(_current_stage_uid)
+
+	if current_index == stage_uids.size() - 1:
+		return stage_uids[current_index]
+	else:
+		return stage_uids[max(0, current_index - 1)]
 
 
 func _load_stage(stage_scene_uid: String) -> void:
@@ -78,9 +99,6 @@ func _load_stage(stage_scene_uid: String) -> void:
 		for child in entity_root.get_children():
 			if not child is Player:
 				child.queue_free()
-
-	# Avoid collision issues during stage transition
-	player.global_position.y = 1000.0
 
 	# Wait for the last stage to be freed before loading the new one
 	await get_tree().process_frame
@@ -97,26 +115,33 @@ func _load_stage(stage_scene_uid: String) -> void:
 
 	stage_root.add_child(_current_stage)
 
-	# Wait for the new stage to be added to the scene tree before adding the player
-	await get_tree().process_frame
-	player.health = BaseStat.PLAYER.HEALTH
-	player.state_machine.reset_pressed_inputs()
-	_place_player_at_spawn_point()
 
+func _init_stage(stage_scene_uid: String) -> void:
+	# Avoid collision issues during stage transition
+	player.global_position.y = 1000.0
+	
+	_load_stage(stage_scene_uid)
 	_current_stage_uid = stage_scene_uid
 	_save_game()
 
-
-func _init_stage(stage_scene_uid: String) -> void:
-	_load_stage(stage_scene_uid)
-	pause_root.init_options_menu()
-
+	# Wait for the new stage to be added to the scene tree before adding the player
 	await get_tree().process_frame
+	_setup_player()
 
+	pause_root.init_options_menu()
 	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
 
 	if _current_stage.has_life_hud:
 		hud_root.load_main_stage_hud()
+
+
+func _setup_player() -> void:
+	player.health = BaseStat.PLAYER.HEALTH
+	player.state_machine.reset_pressed_inputs()
+	_place_player_at_spawn_point()
+	player.items = _current_stage.player_items_on_spawn
+	player.get_node("%MainCamera").current = true
+	player.show()
 
 
 func _change_volume(volume_type: String, delta: int) -> void:
@@ -186,6 +211,7 @@ func _init_player() -> void:
 		return
 
 	player.dead.connect(_on_player_dead)
+	player.hide()
 	entity_root.add_child(player)
 
 

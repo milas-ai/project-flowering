@@ -137,10 +137,6 @@ metadata/_custom_type_script = "uid://duu016e02tjwd"
 process_mode = 4
 visible = false
 
-[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 171.11237, 30.347073, -19.690332)
-visible = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
 
@@ -938,6 +934,16 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.9299927, -1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=1363466506]
 shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="Markers" type="Node3D" parent="." unique_id=520459582]
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 171.11237, 30.347073, -19.690332)
+visible = false
+
+[node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=1480987147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.084717, 103.63956, 24.33274)
+visible = false
 
 [node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)

@@ -3,6 +3,7 @@ extends RefCounted
 
 
 const PLAYER: String = "uid://cn4xgyysgu8vt"
+const STAGE_TURNTABLE: String = "uid://dw0j504cm0llu"
 
 
 class STAGES:
@@ -25,3 +26,4 @@ class GUI:
 	const HEALTH_CONTAINER: String = "uid://c4dpb7unnm5hj"
 	const OPTIONS_MENU: String = "uid://d67rn6nj7tho"
 	const INTERACTION_POPUP: String = "uid://bfxpktu2apofu"
+	const MAIN_MENU: String = "uid://t6i6f4s287ft"

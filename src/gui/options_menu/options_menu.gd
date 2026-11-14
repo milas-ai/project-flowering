@@ -1,7 +1,7 @@
-extends Control
+extends BaseMenu
 
 
-@onready var _main_game: MainGame = $/root/MainGame
+@onready var exit_game_button: Button = %ExitGameButton
 @onready var _aspect_ratio_check_box: CheckBox = %AspectRatioCheckBox
 @onready var _fullscreen_check_box: CheckBox = %FullscreenCheckBox
 @onready var _language_drop_button: OptionButton = %LanguageDropButton
@@ -13,6 +13,7 @@ extends Control
 
 
 func _ready() -> void:
+	super._ready()
 	_connect_options_change_signals()
 	_connect_ui_signals()
 
@@ -50,9 +51,9 @@ func _connect_ui_signals() -> void:
 	%PixelizationUpButton.pressed.connect(_main_game._change_pixelization_level.bind(+1))
 	%PixelizationDownButton.pressed.connect(_main_game._change_pixelization_level.bind(-1))
 	_camera_sensitivity_slider.value_changed.connect(_main_game._set_camera_sensitivity)
-	%SaveSettingsButton.pressed.connect(_on_save_settings_pressed)
-	%ExitGameButton.pressed.connect(_main_game._exit_game)
-	
+	%SaveSettingsButton.pressed.connect(_parent_control._on_options_save_settings_pressed)
+	exit_game_button.pressed.connect(_main_game._exit_game)
+
 
 func _on_volume_change(volume: Dictionary[String, int]) -> void:
 	_volume_master_bar.texture.region.position.y = 9 * volume["master"] / 10.0
@@ -66,9 +67,3 @@ func _on_language_change(language: StringName) -> void:
 
 func _on_pixelization_level_change(pixelization_level: int) -> void:
 	_pixelization_level_bar.texture.region.position.y = 9 * (pixelization_level-1)
-
-
-func _on_save_settings_pressed() -> void:
-	_main_game._save_game()
-	_main_game.pause_root.hide_pause_menu()
-	get_tree().paused = false

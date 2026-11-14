@@ -129,10 +129,6 @@ script = ExtResource("1_2sot5")
 player_items_on_spawn = 1
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
-[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9829576, 0, -0.18383232, 0, 1, 0, 0.18383232, 0, 0.9829576, 139.48285, 6.9045906, 269.51013)
-visible = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
 
@@ -1140,6 +1136,15 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 1.7289581, -3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=359619648]
 shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="Markers" type="Node3D" parent="." unique_id=1423293650]
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
+transform = Transform3D(0.9829576, 0, -0.18383232, 0, 1, 0, 0.18383232, 0, 0.9829576, 139.48285, 6.9045906, 269.51013)
+visible = false
+
+[node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=919192605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.90149, 49.99697, 154.67818)
 
 [node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.264, 0)
