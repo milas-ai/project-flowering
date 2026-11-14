@@ -8,6 +8,7 @@ class TEXTURE:
 			const EMPTY: String = "uid://drda1wghq5dsa"
 			const HALF: String = "uid://c5ii0rju1wf1k"
 			const FULL: String = "uid://b45icowieixqj"
+
 		class PROMPT:
 			class XBOX:
 				const A: String = "uid://cl24a8ghpxun4"
@@ -42,6 +43,7 @@ class TEXTURE:
 			class MOUSE:
 				const LEFT: String = "uid://cpfmy5ipa81sc"
 				const RIGHT: String = "uid://c4jcad03kniba"
+
 	class TERRAIN:
 		class SIGN:
 			class ARROW:
@@ -55,6 +57,11 @@ class TEXTURE:
 				const DOWN_RIGHT: String = "uid://dtnml565p63h"
 			const SKULL: String = "uid://dnwstybxecfs0"
 			const TEXT: String = "uid://clyaq3obx1cl7"
+
+	class BANNER:
+		const GREEN: String = "uid://gcwtmluq7s8g"
+		const YELLOW: String = "uid://3dky878usn88"
+		const PINK: String = "uid://bc68utxllc2vr"
 
 
 class MATERIAL:
