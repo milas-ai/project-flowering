@@ -69,10 +69,6 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return ""
 
 
-func set_player_items(items: int) -> void:
-	player.items = items
-
-
 func init_new_game() -> void:
 	SaveManager.delete_save()
 	_current_stage_uid = SceneUID.STAGES.MOUNTAIN
@@ -132,6 +128,8 @@ func _setup_player() -> void:
 	player.health = BaseStat.PLAYER.HEALTH
 	player.state_machine.reset_pressed_inputs()
 	_place_player_at_spawn_point()
+	player.items = _current_stage.player_items_on_spawn
+	player.get_node("%MainCamera").current = true
 
 
 func _change_volume(volume_type: String, delta: int) -> void:

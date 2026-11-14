@@ -24,8 +24,6 @@ func _ready() -> void:
 	_player_spawn_point = $PlayerSpawnPoint
 	current_checkpoint = _player_spawn_point
 
-	_main_game.set_player_items(player_items_on_spawn)
-
 
 func get_player_spawn_point() -> Vector3:
 	if spawn_on_checkpoint:
