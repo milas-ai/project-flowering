@@ -4,6 +4,7 @@ extends Control
 
 var _main_menu: Control
 var _options_menu: Control
+var _turntable_background: Node3D
 
 @onready var _main_game: MainGame = $/root/MainGame
 @onready var _dialog_box: DialogBox = $DialogBox
@@ -43,6 +44,7 @@ func animate_vignette(target_radius: float, duration: float) -> void:
 
 
 func init_main_menu() -> void:
+	ControllerManager.input_lock = true
 	var main_menu_scene: PackedScene = ResourceLoader.load(SceneUID.GUI.MAIN_MENU)
 	if not main_menu_scene:
 		push_error("Failed to load main menu scene.")
@@ -68,6 +70,19 @@ func init_main_menu() -> void:
 	_options_menu.hide()
 	add_child(_options_menu)
 	_options_menu.exit_game_button.hide()
+
+	var turntable_scene: PackedScene = ResourceLoader.load(SceneUID.STAGE_TURNTABLE)
+	if not turntable_scene:
+		push_error("Failed to load turntable background scene.")
+		return
+	
+	_turntable_background = turntable_scene.instantiate()
+	if not _turntable_background:
+		push_error("Failed to instantiate turntable background scene.")
+		return
+
+	_main_game.stage_root.add_child(_turntable_background)
+	_main_game.position_camera_to_stage(_turntable_background)
 
 
 func _on_dialog_box_dialog_finished() -> void:
@@ -134,15 +149,9 @@ func _on_options_save_settings_pressed() -> void:
 	_show_main_menu()
 
 
-func _on_main_menu_load_game_pressed() -> void:
+func _on_main_menu_load_game_pressed(new_game: bool = false) -> void:
 	await _transition_to_game()
-	_main_game.init_game()
-	await _open_transition()
-
-
-func _on_main_menu_new_game_confirmed() -> void:
-	await _transition_to_game()
-	_main_game.init_new_game()
+	_main_game.init_game(new_game)
 	await _open_transition()
 
 
@@ -153,6 +162,9 @@ func _transition_to_game() -> void:
 
 	_options_menu.queue_free()
 	_main_menu.queue_free()
+	_turntable_background.queue_free()
+	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	ControllerManager.input_lock = false
 
 
 func _open_transition() -> void:
