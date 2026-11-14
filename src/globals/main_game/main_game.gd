@@ -99,15 +99,14 @@ func _load_stage(stage_scene_uid: String) -> void:
 
 	stage_root.add_child(_current_stage)
 
-	_current_stage_uid = stage_scene_uid
-	_save_game()
-
 
 func _init_stage(stage_scene_uid: String) -> void:
 	# Avoid collision issues during stage transition
 	player.global_position.y = 1000.0
 	
 	_load_stage(stage_scene_uid)
+	_current_stage_uid = stage_scene_uid
+	_save_game()
 
 	# Wait for the new stage to be added to the scene tree before adding the player
 	await get_tree().process_frame
