@@ -24,10 +24,12 @@ var _current_stage_uid: String
 
 func _ready() -> void:
 	_load_save_data()
+	_init_player()
 	if debug_stage:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
 		init_game()
 	else:
+		await _load_stage(_get_last_stage_uid(_current_stage_uid))
 		hud_root.init_main_menu()
 
 
@@ -35,16 +37,10 @@ func _input(event: InputEvent) -> void:
 	if get_tree().paused or ControllerManager.input_lock:
 		return
 	
-	if _current_stage:
-		if event.is_action_pressed("pause"):
-			get_viewport().set_input_as_handled()
-			get_tree().paused = true
-			pause_root.show_pause_menu()
-		
-		if event is InputEventMouseButton:
-			if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-				ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			return
+	if event.is_action_pressed("pause"):
+		get_viewport().set_input_as_handled()
+		get_tree().paused = true
+		pause_root.show_pause_menu()
 
 
 func transition_to_stage(stage_scene_uid: String) -> void:
@@ -69,15 +65,15 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return ""
 
 
-func init_new_game() -> void:
-	SaveManager.delete_save()
-	_current_stage_uid = SceneUID.STAGES.MOUNTAIN
-	init_game()
-
-
-func init_game() -> void:
-	_init_player()
+func init_game(new_game: bool = false) -> void:
+	if new_game:
+		SaveManager.delete_save()
+		_current_stage_uid = SceneUID.STAGES.MOUNTAIN
 	await _init_stage(_current_stage_uid)
+
+
+func position_camera_to_stage(camera_node: Node3D) -> void:
+	camera_node.global_position = _current_stage.get_camera_position()
 
 
 func _load_stage(stage_scene_uid: String) -> void:
@@ -130,6 +126,7 @@ func _setup_player() -> void:
 	_place_player_at_spawn_point()
 	player.items = _current_stage.player_items_on_spawn
 	player.get_node("%MainCamera").current = true
+	player.show()
 
 
 func _change_volume(volume_type: String, delta: int) -> void:
@@ -199,6 +196,7 @@ func _init_player() -> void:
 		return
 
 	player.dead.connect(_on_player_dead)
+	player.hide()
 	entity_root.add_child(player)
 
 
@@ -240,3 +238,21 @@ func _on_player_dead() -> void:
 	player.state_machine.transition_to("StatePlayerIdle")
 	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 	ControllerManager.input_lock = false
+
+
+func _get_last_stage_uid(current_stage_uid: String) -> String:
+	var stage_uids: Array = [
+		SceneUID.STAGES.GYM,
+		SceneUID.STAGES.MOUNTAIN,
+		SceneUID.STAGES.CAVE
+	]
+
+	var current_index: int = stage_uids.find(current_stage_uid)
+	if current_index == -1:
+		push_error("Current stage UID not found in the list of stages.")
+		return ""
+
+	if current_index == stage_uids.size() - 1:
+		return stage_uids[current_index]
+	else:
+		return stage_uids[max(0, current_index - 1)]
