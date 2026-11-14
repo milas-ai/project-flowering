@@ -18,9 +18,6 @@ script = ExtResource("1_mtmyf")
 player_items_on_spawn = 3
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
-[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=37583053]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.579)
-
 [node name="Pillar" type="RigidBody3D" parent="." unique_id=1385210967]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.5, 20)
 collision_layer = 8
@@ -37,28 +34,33 @@ shape = SubResource("BoxShape3D_i8wnn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar" unique_id=624329296]
 mesh = SubResource("BoxMesh_n88ra")
 
-[node name="Enemies" type="Node3D" parent="." unique_id=996803994]
+[node name="StageTerrain" parent="." unique_id=77169490 instance=ExtResource("2_p0m3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11140442, -0.07516813, 0.02130127)
 
-[node name="BeetleSpawnPoint" type="Marker3D" parent="Enemies" unique_id=503225368]
+[node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=996803994]
+
+[node name="BeetleSpawnPoint" type="Marker3D" parent="EnemySpawnPoints" unique_id=503225368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.925217, 9.388536, -20.732008)
 script = ExtResource("7_o7ooc")
 steady = true
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="BeetleSpawnPoint2" type="Marker3D" parent="Enemies" unique_id=1171721654]
+[node name="BeetleSpawnPoint2" type="Marker3D" parent="EnemySpawnPoints" unique_id=1171721654]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.62669, 1.8035364, 2.1875763)
 script = ExtResource("7_o7ooc")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
-[node name="AntSpawnPoint" type="Marker3D" parent="Enemies" unique_id=1901107817]
+[node name="AntSpawnPoint" type="Marker3D" parent="EnemySpawnPoints" unique_id=1901107817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.1168, 0.58448124, -1.6193924)
 script = ExtResource("5_mtmyf")
 metadata/_custom_type_script = "uid://dwwo23g8b7s35"
 
-[node name="RolyPolySpawnPoint" type="Marker3D" parent="Enemies" unique_id=642826314]
+[node name="RolyPolySpawnPoint" type="Marker3D" parent="EnemySpawnPoints" unique_id=642826314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7273464, 0.8158884, 43.12167)
 script = ExtResource("6_o7ooc")
 metadata/_custom_type_script = "uid://cqwomb66m6lke"
 
-[node name="StageTerrain" parent="." unique_id=77169490 instance=ExtResource("2_p0m3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11140442, -0.07516813, 0.02130127)
+[node name="Markers" type="Node3D" parent="." unique_id=1984540994]
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=37583053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.579)
