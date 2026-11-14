@@ -1,0 +1,115 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cuhn56uxytc7q"]
+
+[ext_resource type="Texture2D" uid="uid://b3dujsb2ujg35" path="res://assets/textures/terrain/leave/leave_mask.png" id="1_lvra6"]
+
+[sub_resource type="Shader" id="Shader_5h1dc"]
+code = "shader_type spatial;
+render_mode cull_back, depth_draw_always, alpha_to_coverage;
+#include \"res://src/shaders/utils/color_manipulation.gdshaderinc\" 
+
+const float NOISE_SCALE = .01;
+const vec3 LIGHT_SAMPLE_OFFSET = vec3(0,.7,0);
+
+group_uniforms Leave;
+uniform vec3 base_color: source_color;
+uniform sampler2D alpha_texture;
+
+group_uniforms HSV_Manipulation;
+uniform float hue_shift;
+uniform float saturation_shift;
+uniform float value_shift;
+
+group_uniforms Lighting;
+uniform float light_strength: hint_range(0.0, 1.0) = .25;
+uniform float step_blur: hint_range(0.0, 0.1) = .015;
+uniform float cutoff_light: hint_range(0.0, 1.0) = .2;
+uniform float weight_light: hint_range(0.0, 1.0) = .3;
+uniform float cutoff_penumbra: hint_range(0.0, 1.0) = .1;
+uniform float weight_penumbra: hint_range(0.0, 1.0) = .15;
+
+group_uniforms Wind;
+uniform float wind_bend_ammount = 1.0;
+
+global uniform sampler2D grass_albedo_texture;
+global uniform sampler2D wind_noise_texture;
+global uniform vec3 wind_direction;
+global uniform float wind_scale;
+global uniform float wind_speed;
+global uniform float wind_strength;
+
+varying vec3 node_pos_view;
+
+
+void vertex() {
+	// Billboard Mode: Enabled
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
+			MAIN_CAM_INV_VIEW_MATRIX[0],
+			MAIN_CAM_INV_VIEW_MATRIX[1],
+			MAIN_CAM_INV_VIEW_MATRIX[2],
+			MODEL_MATRIX[3]);
+
+	// Billboard Keep Scale: Enabled
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(
+			vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),
+			vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0),
+			vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
+			vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	
+	// Set pos_view for cell light calculation 
+	node_pos_view = NODE_POSITION_VIEW + LIGHT_SAMPLE_OFFSET;
+	
+	// Wind
+	vec3 vertex = (MODEL_MATRIX * vec4(VERTEX,1)).xyz; // use uv as vertex's global .xz
+	vertex = vertex * wind_scale - (wind_speed * TIME * wind_direction); // pan UV
+	vec3 displacement = texture(wind_noise_texture, vertex.xz).xyz;
+	displacement *= wind_bend_ammount * wind_strength;
+	vec2 uv_centered = UV * 2. - 1.;
+	displacement = (displacement * vec3(1.,0.,0.) * uv_centered.y) + (displacement * vec3(0.,1.,0.) * uv_centered.x);
+	VERTEX += displacement;
+}
+
+void fragment() {
+	// Color texture
+	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
+	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
+	ALBEDO = hsv2rgb(rgb2hsv(ALBEDO) + vec3(hue_shift, saturation_shift, value_shift));
+	
+	SPECULAR = 0.;
+	ROUGHNESS = 0.;
+	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
+	
+	// Set alpha mask
+	ALPHA *= step(.9,texture(alpha_texture, UV).a);
+	
+	// Set vertex as node's position for cell light calculation 
+	LIGHT_VERTEX = node_pos_view;
+}
+
+void light() {
+	float diffuse = 1.0;
+	float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
+	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
+	
+	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+	
+	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_5h1dc")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/alpha_texture = ExtResource("1_lvra6")
+shader_parameter/hue_shift = 23.095
+shader_parameter/saturation_shift = 108.16
+shader_parameter/value_shift = 0.465
+shader_parameter/light_strength = 0.10000000475
+shader_parameter/step_blur = 0.015
+shader_parameter/cutoff_light = 0.2
+shader_parameter/weight_light = 0.3
+shader_parameter/cutoff_penumbra = 0.1
+shader_parameter/weight_penumbra = 0.15
+shader_parameter/wind_bend_ammount = 1.0

@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bflef8jew2wxn"]
+
+[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/shaders/grass_ground.gdshader" id="1_uyx35"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_uyx35")
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/use_hsv_manipulation = true
+shader_parameter/hue_shift = 23.095
+shader_parameter/saturation_shift = 108.16
+shader_parameter/value_shift = 0.465
+shader_parameter/light_strength = 0.10000000475
+shader_parameter/step_blur = 0.015
+shader_parameter/cutoff_light = 0.2
+shader_parameter/weight_light = 0.3
+shader_parameter/cutoff_penumbra = 0.1
+shader_parameter/weight_penumbra = 0.15

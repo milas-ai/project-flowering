@@ -5,9 +5,11 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_23mhv")
-shader_parameter/base_color = Color(0, 0, 0, 1)
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
+shader_parameter/hue_shift = 41.7
+shader_parameter/saturation_shift = 87.245
+shader_parameter/value_shift = -0.11
 shader_parameter/light_strength = 0.25
 shader_parameter/step_blur = 0.015
 shader_parameter/cutoff_light = 0.2
