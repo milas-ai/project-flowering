@@ -70,6 +70,7 @@ func init_game(new_game: bool = false) -> void:
 		SaveManager.delete_save()
 		_current_stage_uid = SceneUID.STAGES.MOUNTAIN
 	await _init_stage(_current_stage_uid)
+	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func position_camera_to_stage(camera_node: Node3D) -> void:

@@ -163,7 +163,6 @@ func _transition_to_game() -> void:
 	_options_menu.queue_free()
 	_main_menu.queue_free()
 	_turntable_background.queue_free()
-	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ControllerManager.input_lock = false
 
 
