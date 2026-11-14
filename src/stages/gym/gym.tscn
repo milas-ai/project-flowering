@@ -64,3 +64,6 @@ metadata/_custom_type_script = "uid://cqwomb66m6lke"
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=37583053]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 12.579)
+
+[node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=220511606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47.239536, 0)
