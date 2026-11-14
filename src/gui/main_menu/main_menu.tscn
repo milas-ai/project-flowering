@@ -33,6 +33,7 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 
 [node name="Banner" type="TextureRect" parent="BannerMarginContainer" unique_id=1535359106]
+unique_name_in_owner = true
 texture_filter = 2
 texture_repeat = 1
 layout_mode = 2

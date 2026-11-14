@@ -9,12 +9,16 @@ var _first_control: Control
 @onready var _buttons_margin_container: MarginContainer = $ButtonsMarginContainer
 @onready var _confirmation_prompt: Control = $ConfirmationPrompt
 @onready var _cancel_button: Button = %CancelButton
+@onready var _banner_texture_green: Texture2D = load(AssetUID.TEXTURE.BANNER.GREEN)
+@onready var _banner_texture_yellow: Texture2D = load(AssetUID.TEXTURE.BANNER.YELLOW)
+@onready var _banner_texture_pink: Texture2D = load(AssetUID.TEXTURE.BANNER.PINK)
 
 
 func _ready():
 	super._ready()
 	_connect_ui_signals()
 	_update_version_label_text()
+	_update_banner_texture()
 	_on_controller_layout_changed()
 	_first_control = _new_game_button
 
@@ -66,3 +70,16 @@ func _show_confirmation_prompt() -> void:
 	_confirmation_prompt.show()
 	_first_control = _cancel_button
 	_on_controller_layout_changed()
+
+
+func _update_banner_texture() -> void:
+	var display_stage: String = _main_game.get_last_stage_uid()
+	match display_stage:
+		SceneUID.STAGES.GYM:
+			%Banner.texture = _banner_texture_green
+		SceneUID.STAGES.MOUNTAIN:
+			%Banner.texture = _banner_texture_yellow
+		SceneUID.STAGES.CAVE:
+			%Banner.texture = _banner_texture_pink
+		_:
+			push_error("Invalid stage UID: %s" % display_stage)
