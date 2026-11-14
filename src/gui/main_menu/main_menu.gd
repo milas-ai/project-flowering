@@ -38,7 +38,7 @@ func _connect_ui_signals() -> void:
 	%LoadGameButton.pressed.connect(_parent_control._on_main_menu_load_game_pressed)
 	%OptionsButton.pressed.connect(_parent_control._show_options_menu)
 	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
-	%AcceptButton.pressed.connect(_parent_control._on_main_menu_new_game_confirmed)
+	%AcceptButton.pressed.connect(_parent_control._on_main_menu_load_game_pressed.bind(true))
 	_cancel_button.pressed.connect(_on_cancel_button_pressed)
 
 
