@@ -29,7 +29,7 @@ func _ready() -> void:
 		_current_stage_uid = stage_id_to_uid(debug_stage)
 		init_game()
 	else:
-		await _load_stage(_get_last_stage_uid(_current_stage_uid))
+		await _load_stage(get_last_stage_uid())
 		hud_root.init_main_menu()
 
 
@@ -75,6 +75,21 @@ func init_game(new_game: bool = false) -> void:
 
 func position_camera_to_stage(camera_node: Node3D) -> void:
 	camera_node.global_position = _current_stage.get_camera_position()
+
+
+func get_last_stage_uid() -> String:
+	var stage_uids: Array = [
+		SceneUID.STAGES.GYM,
+		SceneUID.STAGES.MOUNTAIN,
+		SceneUID.STAGES.CAVE
+	]
+
+	var current_index: int = stage_uids.find(_current_stage_uid)
+
+	if current_index == stage_uids.size() - 1:
+		return stage_uids[current_index]
+	else:
+		return stage_uids[max(0, current_index - 1)]
 
 
 func _load_stage(stage_scene_uid: String) -> void:
@@ -238,21 +253,3 @@ func _on_player_dead() -> void:
 	player.state_machine.transition_to("StatePlayerIdle")
 	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 	ControllerManager.input_lock = false
-
-
-func _get_last_stage_uid(current_stage_uid: String) -> String:
-	var stage_uids: Array = [
-		SceneUID.STAGES.GYM,
-		SceneUID.STAGES.MOUNTAIN,
-		SceneUID.STAGES.CAVE
-	]
-
-	var current_index: int = stage_uids.find(current_stage_uid)
-	if current_index == -1:
-		push_error("Current stage UID not found in the list of stages.")
-		return ""
-
-	if current_index == stage_uids.size() - 1:
-		return stage_uids[current_index]
-	else:
-		return stage_uids[max(0, current_index - 1)]
