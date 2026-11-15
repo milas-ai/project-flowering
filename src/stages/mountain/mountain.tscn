@@ -618,6 +618,9 @@ transform = Transform3D(-0.057569735, -0.25721133, -0.663634, -0.067330495, -1.5
 [node name="PlatformBig7" parent="StageTerrain/Section4" unique_id=1497276106 instance=ExtResource("18_4mxpr")]
 transform = Transform3D(0.7032803, 0, 1.2250197, 0, 1, 0, -1.0034722, 0, 0.85855186, -165.4223, 80.893845, 37.75082)
 
+[node name="WallSmall2" parent="StageTerrain/Section4" unique_id=1958948223 instance=ExtResource("12_nmvee")]
+transform = Transform3D(0.6841332, 0, 0.7293572, 0, 0.99999994, 0, -0.7293571, 0, 0.68413305, -146.92192, 94.80444, 68.13822)
+
 [node name="Sign" parent="StageTerrain/Section4" unique_id=915941742 instance=ExtResource("24_nmvee")]
 transform = Transform3D(0.3011495, 0, -0.953577, 0, 1, 0, 0.953577, 0, 0.3011495, -162.33496, 99.83351, 22.72768)
 paint = 3
@@ -1001,9 +1004,6 @@ instance_shader_parameters/hardness = 1.42
 instance_shader_parameters/strength = 0.03
 mesh = SubResource("CylinderMesh_ot1hr")
 surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
-
-[node name="WallSmall2" parent="." unique_id=1958948223 instance=ExtResource("12_nmvee")]
-transform = Transform3D(0.7628764, 0, 0.64654434, 0, 1, 0, -0.64654434, 0, 0.7628764, -194.75215, 103.065285, 42.520126)
 
 [connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
 [connection signal="interacted" from="InteractableAreas/DisplayBlockTutorialArea" to="." method="_on_display_block_tutorial_area_interacted"]
