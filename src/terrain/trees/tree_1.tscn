@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dip1pjjblibu1"]
 
-[ext_resource type="Texture2D" uid="uid://nqbpctlq86nb" path="res://assets/textures/terrain/props/tree_texture.png" id="1_657tn"]
+[ext_resource type="Texture2D" uid="uid://nqbpctlq86nb" path="res://assets/textures/terrain/trees/tree_texture.png" id="1_657tn"]
 [ext_resource type="Material" uid="uid://bflef8jew2wxn" path="res://assets/materials/terrain/tree_roof_mat.tres" id="1_pekgi"]
 [ext_resource type="ArrayMesh" uid="uid://bstc2tsgau2hh" path="res://assets/models/terrain/trees/tree_1_roof.obj" id="1_tap2r"]
 [ext_resource type="ArrayMesh" uid="uid://dlk4xms3i0vsq" path="res://assets/models/terrain/trees/tree_1_trunk.obj" id="2_657tn"]

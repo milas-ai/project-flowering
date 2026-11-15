@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bw4lt07esacv8"]
 
 [ext_resource type="ArrayMesh" uid="uid://yghpiljp0kgb" path="res://assets/models/terrain/trees/tree_2_roof.obj" id="1_b53mn"]
-[ext_resource type="Texture2D" uid="uid://nqbpctlq86nb" path="res://assets/textures/terrain/props/tree_texture.png" id="1_cn08v"]
+[ext_resource type="Texture2D" uid="uid://nqbpctlq86nb" path="res://assets/textures/terrain/trees/tree_texture.png" id="1_cn08v"]
 [ext_resource type="Material" uid="uid://bflef8jew2wxn" path="res://assets/materials/terrain/tree_roof_mat.tres" id="1_ejmx4"]
 [ext_resource type="ArrayMesh" uid="uid://dlgux36o7k7h1" path="res://assets/models/terrain/trees/tree_2_trunk.obj" id="2_cn08v"]
 [ext_resource type="Material" uid="uid://cuhn56uxytc7q" path="res://assets/materials/terrain/leave_mat.tres" id="3_ejmx4"]

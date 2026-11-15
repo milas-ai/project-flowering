@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn3byuq27v3w3"
-path.s3tc="res://.godot/imported/flag_texture.png-b220ca17b0b8534b8cd2a5e1e7facf09.s3tc.ctex"
+path.s3tc="res://.godot/imported/flag_texture.png-d39b74a205560ef4912bdab45f69781a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/terrain/props/flag_texture.png"
-dest_files=["res://.godot/imported/flag_texture.png-b220ca17b0b8534b8cd2a5e1e7facf09.s3tc.ctex"]
+source_file="res://assets/textures/terrain/structures/flag_texture.png"
+dest_files=["res://.godot/imported/flag_texture.png-d39b74a205560ef4912bdab45f69781a.s3tc.ctex"]
 
 [params]
 

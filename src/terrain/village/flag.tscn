@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bdex5k5ykp1o0"]
 
-[ext_resource type="ArrayMesh" uid="uid://c4br4iymh60nx" path="res://assets/models/terrain/village/props/flag.obj" id="1_5tbw7"]
-[ext_resource type="Texture2D" uid="uid://cn3byuq27v3w3" path="res://assets/textures/terrain/props/flag_texture.png" id="2_j2cxv"]
+[ext_resource type="ArrayMesh" uid="uid://c4br4iymh60nx" path="res://assets/models/terrain/village/flag.obj" id="1_5tbw7"]
+[ext_resource type="Texture2D" uid="uid://cn3byuq27v3w3" path="res://assets/textures/terrain/structures/flag_texture.png" id="2_j2cxv"]
 [ext_resource type="Shader" uid="uid://duu0f7p41nk1u" path="res://src/shaders/wind_wiggle.gdshader" id="3_8euer"]
-[ext_resource type="Texture2D" uid="uid://dhfqkorl3iea" path="res://assets/textures/terrain/props/flag_wind_mask.png" id="4_klxf5"]
+[ext_resource type="Texture2D" uid="uid://dhfqkorl3iea" path="res://assets/textures/terrain/structures/flag_wind_mask.png" id="4_klxf5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1ha4"]
 albedo_texture = ExtResource("2_j2cxv")

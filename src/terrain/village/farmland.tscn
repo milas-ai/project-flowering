@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqblpynjgshjm"]
 
-[ext_resource type="ArrayMesh" uid="uid://b8jkjb41elgyu" path="res://assets/models/terrain/village/props/farmland.obj" id="1_ip0l2"]
-[ext_resource type="Texture2D" uid="uid://d15qjl4cp05j1" path="res://assets/textures/terrain/props/farmland_texture.png" id="2_a2urw"]
-[ext_resource type="Texture2D" uid="uid://ggit6jkh2gui" path="res://assets/textures/terrain/props/farmland_crops_texture.png" id="3_a2urw"]
+[ext_resource type="ArrayMesh" uid="uid://b8jkjb41elgyu" path="res://assets/models/terrain/village/farmland.obj" id="1_ip0l2"]
+[ext_resource type="Texture2D" uid="uid://d15qjl4cp05j1" path="res://assets/textures/terrain/structures/farmland_texture.png" id="2_a2urw"]
+[ext_resource type="Texture2D" uid="uid://ggit6jkh2gui" path="res://assets/textures/terrain/structures/farmland_crops_texture.png" id="3_a2urw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip0l2"]
 cull_mode = 2

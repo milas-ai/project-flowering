@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d15qjl4cp05j1"
-path.s3tc="res://.godot/imported/farmland_texture.png-d514e5d00aea933236d62e0131e02295.s3tc.ctex"
+uid="uid://nqbpctlq86nb"
+path.s3tc="res://.godot/imported/tree_texture.png-43eaf275c67893eef46cc4874d01edc7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/terrain/props/farmland_texture.png"
-dest_files=["res://.godot/imported/farmland_texture.png-d514e5d00aea933236d62e0131e02295.s3tc.ctex"]
+source_file="res://assets/textures/terrain/trees/tree_texture.png"
+dest_files=["res://.godot/imported/tree_texture.png-43eaf275c67893eef46cc4874d01edc7.s3tc.ctex"]
 
 [params]
 

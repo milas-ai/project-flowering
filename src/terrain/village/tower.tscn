@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8ujh8a3oeb6n"]
 
-[ext_resource type="ArrayMesh" uid="uid://b7drkh425kr3o" path="res://assets/models/terrain/village/props/tower.obj" id="1_m2lnr"]
+[ext_resource type="ArrayMesh" uid="uid://b7drkh425kr3o" path="res://assets/models/terrain/village/tower.obj" id="1_m2lnr"]
 [ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://assets/materials/terrain/mountain_wall_mat.tres" id="1_wneoy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykr46"]

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ggit6jkh2gui"
-path.s3tc="res://.godot/imported/farmland_crops_texture.png-62607ee0d6e959b541836447f16094f6.s3tc.ctex"
+path.s3tc="res://.godot/imported/farmland_crops_texture.png-a39a6378b84ae63cdb51e93e2c9899dd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/terrain/props/farmland_crops_texture.png"
-dest_files=["res://.godot/imported/farmland_crops_texture.png-62607ee0d6e959b541836447f16094f6.s3tc.ctex"]
+source_file="res://assets/textures/terrain/structures/farmland_crops_texture.png"
+dest_files=["res://.godot/imported/farmland_crops_texture.png-a39a6378b84ae63cdb51e93e2c9899dd.s3tc.ctex"]
 
 [params]
 
