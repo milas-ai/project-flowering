@@ -11,6 +11,7 @@ uniform bool use_hsv_manipulation = false;
 uniform float hue_shift;
 uniform float saturation_shift;
 uniform float value_shift;
+uniform float contrast = 1.;
 
 group_uniforms Lighting;
 uniform float light_strength: hint_range(0.0, 1.0) = .25;
@@ -26,7 +27,8 @@ global uniform sampler2D grass_albedo_texture;
 void fragment() {
 	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(VERTEX,1)).xyz;
 	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
-	if (use_hsv_manipulation) ALBEDO = hsv2rgb(rgb2hsv(ALBEDO) + vec3(hue_shift, saturation_shift, value_shift));
+	if (use_hsv_manipulation) 	ALBEDO = hsv2rgb(rgb2hsv(ALBEDO) * vec3(contrast, 1., 1.) + vec3(hue_shift, saturation_shift, value_shift));
+
 	
 	SPECULAR = specular;
 	ROUGHNESS = roughness;

@@ -18,6 +18,7 @@ group_uniforms HSV_Manipulation;
 uniform float hue_shift;
 uniform float saturation_shift;
 uniform float value_shift;
+uniform float contrast = 1.;
 
 group_uniforms Lighting;
 uniform float light_strength: hint_range(0.0, 1.0) = .25;
@@ -73,7 +74,7 @@ void fragment() {
 	// Color texture
 	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
 	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
-	ALBEDO = hsv2rgb(rgb2hsv(ALBEDO) + vec3(hue_shift, saturation_shift, value_shift));
+	ALBEDO = hsv2rgb(rgb2hsv(ALBEDO) * vec3(contrast, 1., 1.) + vec3(hue_shift, saturation_shift, value_shift));
 	
 	SPECULAR = 0.;
 	ROUGHNESS = 0.;
@@ -103,9 +104,10 @@ render_priority = 0
 shader = SubResource("Shader_5h1dc")
 shader_parameter/base_color = Color(0, 0, 0, 1)
 shader_parameter/alpha_texture = ExtResource("1_lvra6")
-shader_parameter/hue_shift = 23.095
+shader_parameter/hue_shift = 14.81
 shader_parameter/saturation_shift = 108.16
 shader_parameter/value_shift = 0.465
+shader_parameter/contrast = 10.0
 shader_parameter/light_strength = 0.10000000475
 shader_parameter/step_blur = 0.015
 shader_parameter/cutoff_light = 0.2
