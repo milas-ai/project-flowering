@@ -78,6 +78,7 @@ size = Vector3(21.749023, 12.27124, 14.760742)
 [node name="Village" type="Node3D" unique_id=138948264]
 script = ExtResource("1_1g4f3")
 has_life_hud = false
+turntable_camera_size = 35
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
@@ -145,7 +146,7 @@ transform = Transform3D(0.9459319, -0.25584117, 0.19939432, 0.2702264, 0.961592,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.27031, 11.223338, 9.559997)
 
 [node name="Tower2" parent="StageTerrain" unique_id=1539119607 instance=ExtResource("21_end7g")]
-transform = Transform3D(-0.9812221, 0.02150932, 0.19061835, 0.033391908, 0.72959864, 0.017446855, -0.18996903, 0.017146336, -0.9815091, 122.13169, 6.646453, 56.294918)
+transform = Transform3D(-0.71629214, 0.021505872, 0.13915133, 0.02437609, 0.7294817, 0.012736217, -0.13867734, 0.017143587, -0.7165017, 122.13169, 6.646453, 56.294918)
 
 [node name="Hut7" parent="StageTerrain" unique_id=464233616 instance=ExtResource("16_nrupf")]
 transform = Transform3D(1, 0, 0, 0, 1.2971718, 0, 0, 0, 1, 101.95707, 9.95641, 8.495456)
@@ -302,6 +303,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 126.774254, 11.897856, 10.751354)
+
+[node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=540265553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.45497, 26.719849, 33.097343)
 
 [node name="RespawnArea" type="Area3D" parent="." unique_id=646378902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5209291, 0)
