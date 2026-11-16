@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dw0j504cm0llu"]
+
+[ext_resource type="Script" uid="uid://cx6pjxxju3cjy" path="res://src/stages/util/stage_turntable/stage_turntable.gd" id="1_asbii"]
+[ext_resource type="Shader" uid="uid://dpesg4gpgohq" path="res://src/shaders/edge_detection.gdshader" id="1_p6yw7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_asbii"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntcvw"]
+render_priority = 0
+shader = ExtResource("1_p6yw7")
+
+[sub_resource type="Animation" id="Animation_p6yw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_asbii"]
+resource_name = "turntable"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntcvw"]
+_data = {
+&"RESET": SubResource("Animation_p6yw7"),
+&"turntable": SubResource("Animation_asbii")
+}
+
+[node name="StageTurntable" type="Node3D" unique_id=293822143]
+script = ExtResource("1_asbii")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1316099577]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=103248090]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 50, 50)
+cull_mask = 524287
+projection = 1
+current = true
+size = 160.0
+
+[node name="Shading" type="MeshInstance3D" parent="CameraPivot/Camera3D" unique_id=1806430366]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_asbii")
+surface_material_override/0 = SubResource("ShaderMaterial_ntcvw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=233326276]
+libraries/ = SubResource("AnimationLibrary_ntcvw")

@@ -9,8 +9,7 @@ func enter() -> void:
 				var position: Vector3 = body.global_position + Vector3(0, 0.5, 0)
 				# Offset the particle effect to match where the player is falling
 				position -= body.forward_direction * 0.67
-				ParticleSystem.play(ParticleID.RAISE_DUST, position)
-	)
+				ParticleSystem.play(ParticleID.RAISE_DUST, position))
 
 
 func update(delta: float) -> void:

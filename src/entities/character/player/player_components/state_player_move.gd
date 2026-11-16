@@ -15,11 +15,9 @@ func enter() -> void:
 func update(delta: float) -> void:
 	body.process_rotation(false)
 	if state_machine.running_pressed:
-		body.animation_player.play("Run")
 		ParticleSystem.start_emitter(body.run_particle_emmitter, body.global_transform.origin + Vector3(0, 0.2, 0))
 		body.process_horizontal_movement(delta, body.input_direction, _speed * 2)
 	else:
-		body.animation_player.play("Walk")
 		body.process_horizontal_movement(delta, body.input_direction, _speed)
 
 	if body.input_direction.length() < 0.1:

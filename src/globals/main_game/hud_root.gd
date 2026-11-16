@@ -2,9 +2,14 @@ class_name HudRoot
 extends Control
 
 
+var _main_menu: Control
+var _options_menu: Control
+var _turntable_background: Node3D
+
 @onready var _main_game: MainGame = $/root/MainGame
 @onready var _dialog_box: DialogBox = $DialogBox
 @onready var _vignette: ColorRect = $Vignette
+
 
 func load_main_stage_hud() -> void:
 	if get_node_or_null("HealthContainer"):
@@ -38,6 +43,48 @@ func animate_vignette(target_radius: float, duration: float) -> void:
 		_vignette.visible = false
 
 
+func init_main_menu() -> void:
+	ControllerManager.input_lock = true
+	var main_menu_scene: PackedScene = ResourceLoader.load(SceneUID.GUI.MAIN_MENU)
+	if not main_menu_scene:
+		push_error("Failed to load main menu scene.")
+		return
+	
+	_main_menu = main_menu_scene.instantiate() as Control
+	if not _main_menu:
+		push_error("Failed to instantiate main menu scene.")
+		return
+
+	add_child(_main_menu)
+
+	var options_menu_scene: PackedScene = ResourceLoader.load(SceneUID.GUI.OPTIONS_MENU)
+	if not options_menu_scene:
+		push_error("Failed to load options menu scene.")
+		return
+	
+	_options_menu = options_menu_scene.instantiate() as Control
+	if not _options_menu:
+		push_error("Failed to instantiate options menu scene.")
+		return
+
+	_options_menu.hide()
+	add_child(_options_menu)
+	_options_menu.exit_game_button.hide()
+
+	var turntable_scene: PackedScene = ResourceLoader.load(SceneUID.STAGE_TURNTABLE)
+	if not turntable_scene:
+		push_error("Failed to load turntable background scene.")
+		return
+	
+	_turntable_background = turntable_scene.instantiate()
+	if not _turntable_background:
+		push_error("Failed to instantiate turntable background scene.")
+		return
+
+	_main_game.stage_root.add_child(_turntable_background)
+	_main_game.position_camera_to_stage(_turntable_background)
+
+
 func _on_dialog_box_dialog_finished() -> void:
 	_dialog_box.process_mode = PROCESS_MODE_DISABLED
 	get_tree().paused = false
@@ -51,19 +98,19 @@ func _trim_dialog_text(dialog_text: String) -> String:
 
 
 func _trim_line_to_max_characters(line: String) -> String:
-		var tag_size: int = _find_tag_part_size(line)
-		if line.length() <= DialogBox.MAX_CHARACTERS_PER_LINE + tag_size:
-			return line
+	var tag_size: int = _find_tag_part_size(line)
+	if line.length() <= DialogBox.MAX_CHARACTERS_PER_LINE + tag_size:
+		return line
+	else:
+		var first_line_part: String
+		if tag_size > 0:
+			first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE + tag_size)
 		else:
-			var first_line_part: String
-			if tag_size > 0:
-				first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE + tag_size)
-			else:
-				first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE)
-			var last_space_index: int = first_line_part.rfind(" ")
-			first_line_part = first_line_part.substr(0, last_space_index) + "..."
-			var remaining_text: String = line.substr(last_space_index + 1, line.length() - last_space_index - 1)
-			return first_line_part + "\n" + _trim_line_to_max_characters(remaining_text)
+			first_line_part = line.substr(0, DialogBox.MAX_CHARACTERS_PER_LINE)
+		var last_space_index: int = first_line_part.rfind(" ")
+		first_line_part = first_line_part.substr(0, last_space_index) + "..."
+		var remaining_text: String = line.substr(last_space_index + 1, line.length() - last_space_index - 1)
+		return first_line_part + "\n" + _trim_line_to_max_characters(remaining_text)
 
 
 func _find_tag_part_size(line: String, base_size: int = 0) -> int:
@@ -85,3 +132,41 @@ func _find_tag_part_size(line: String, base_size: int = 0) -> int:
 	var tag_part_size: int = tag_end_close_index - tag_start_open_index
 	var remaining_text: String = line.substr(tag_end_close_index + 1, line.length() - tag_end_close_index - 1)
 	return tag_part_size + _find_tag_part_size(remaining_text, base_size + tag_part_size)
+
+
+func _show_main_menu() -> void:
+	_options_menu.hide()
+	_main_menu.show()
+
+
+func _show_options_menu() -> void:
+	_main_menu.hide()
+	_options_menu.show()
+
+
+func _on_options_save_settings_pressed() -> void:
+	_main_game._save_game()
+	_show_main_menu()
+
+
+func _on_main_menu_load_game_pressed(new_game: bool = false) -> void:
+	await _transition_to_game()
+	_main_game.init_game(new_game)
+	await _open_transition()
+
+
+func _transition_to_game() -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+	await animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
+
+	_options_menu.queue_free()
+	_main_menu.queue_free()
+	_turntable_background.queue_free()
+	ControllerManager.input_lock = false
+
+
+func _open_transition() -> void:
+	var window_size: Vector2 = get_viewport().get_visible_rect().size
+	var aspect_ratio: float = window_size.x / window_size.y
+	await animate_vignette(aspect_ratio / (4.0/3.0), 1.25)

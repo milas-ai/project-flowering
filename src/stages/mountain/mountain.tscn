@@ -43,8 +43,12 @@ sky_material = SubResource("ProceduralSkyMaterial_h3jej")
 
 [sub_resource type="Environment" id="Environment_rcjq6"]
 background_mode = 2
+background_energy_multiplier = 1.1
 sky = SubResource("Sky_h57rq")
+ambient_light_sky_contribution = 0.98
 tonemap_mode = 2
+tonemap_exposure = 1.1
+tonemap_white = 1.1
 glow_enabled = true
 fog_enabled = true
 fog_mode = 1
@@ -133,16 +137,12 @@ metadata/_custom_type_script = "uid://duu016e02tjwd"
 process_mode = 4
 visible = false
 
-[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 171.11237, 30.347073, -19.690332)
-visible = false
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
 transform = Transform3D(-0.86161226, 0.5035572, 0.063674755, -0.3719274, -0.7117386, 0.5959012, 0.3453901, 0.4897534, 0.8005294, 0, 0, 0)
-light_color = Color(1, 0.91446775, 0.478801, 1)
+light_color = Color(1, 0.94, 0.64, 1)
 shadow_enabled = true
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
@@ -935,6 +935,16 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.9299927, -1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=1363466506]
 shape = SubResource("BoxShape3D_gn4dx")
 
+[node name="Markers" type="Node3D" parent="." unique_id=520459582]
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 171.11237, 30.347073, -19.690332)
+visible = false
+
+[node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=1480987147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.084717, 103.63956, 24.33274)
+visible = false
+
 [node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, 0)
 collision_layer = 0
@@ -947,6 +957,7 @@ shape = SubResource("BoxShape3D_nhhn2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
 collision_layer = 0
 script = ExtResource("27_ym1el")
+target_stage = 2
 metadata/_custom_type_script = "uid://cs52mrxk0n47s"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]

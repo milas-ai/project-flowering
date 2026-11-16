@@ -16,15 +16,15 @@ extends Node3D
 @onready var enemy_spawn_points := get_tree().get_nodes_in_group("enemy_spawn_points")
 @onready var current_checkpoint: Marker3D
 @onready var _player_spawn_point: Marker3D
+@onready var _camera_position_marker: Marker3D
 @onready var _main_game: MainGame
 
 
 func _ready() -> void:
 	_main_game = $/root/MainGame
-	_player_spawn_point = $PlayerSpawnPoint
+	_player_spawn_point = $Markers/PlayerSpawnPoint
+	_camera_position_marker = $Markers/CameraPosition
 	current_checkpoint = _player_spawn_point
-
-	_main_game.set_player_items(player_items_on_spawn)
 
 
 func get_player_spawn_point() -> Vector3:
@@ -35,4 +35,12 @@ func get_player_spawn_point() -> Vector3:
 		return _player_spawn_point.global_position
 	else:
 		push_error("Player spawn point not found in the stage.")
+		return Vector3.ZERO
+
+
+func get_camera_position() -> Vector3:
+	if _camera_position_marker:
+		return _camera_position_marker.global_position
+	else:
+		push_error("Camera position marker not found in the stage.")
 		return Vector3.ZERO

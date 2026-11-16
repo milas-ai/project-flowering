@@ -34,12 +34,15 @@ func _physics_process(delta: float) -> void:
 	vertical_velocity = velocity * Vector3(0,1,0)
 
 
+func _exit_tree() -> void:
+	ParticleSystem.remove_emitter(run_particle_emmitter)
+
+
 func process_horizontal_movement(delta: float, direction_vector: Vector3, speed: float) -> void:
 	if direction_vector.length() > 0.1:
 		if horizontal_velocity.length() > 2 * speed:
 			horizontal_velocity = horizontal_velocity.lerp(
-					direction_vector * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta
-			)
+					direction_vector * speed, BaseStat.PLAYER.SLIDE_FRICTION * delta)
 		else:
 			horizontal_velocity = direction_vector * speed
 	else:

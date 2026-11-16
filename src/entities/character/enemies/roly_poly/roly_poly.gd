@@ -22,8 +22,7 @@ func attack_player() -> void:
 	animation_player.queue("roll")
 	get_tree().create_timer(1.0).timeout.connect(
 			func():
-				horizontal_velocity = -global_transform.basis.z * SPEED
-	)
+				horizontal_velocity = -global_transform.basis.z * SPEED)
 	while true:
 		await get_tree().physics_frame
 		for i in get_slide_collision_count():

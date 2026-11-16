@@ -3,8 +3,11 @@ extends Area3D
 
 
 @export_enum(
-		"Gym:-1", 
-		"Mountain",
+		"Gym:-1",
+		"Prologue Village:1",
+		"Mountain:2",
+		"Cave:3",
+		"Forest:4",
 ) var target_stage: int = -1
 
 @onready var _main_game: MainGame = $/root/MainGame
@@ -16,4 +19,3 @@ func _ready() -> void:
 
 func _on_body_entered(_body: Node3D) -> void:
 	_main_game.transition_to_stage(_main_game.stage_id_to_uid(target_stage))
-	

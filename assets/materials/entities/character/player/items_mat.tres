@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dl3ob7y7bwjgw"]
+
+[ext_resource type="Texture2D" uid="uid://o41ao52tbgoh" path="res://assets/textures/player/player_texture.png" id="1_d42nm"]
+
+[resource]
+resource_name = "character_texture"
+cull_mode = 2
+albedo_texture = ExtResource("1_d42nm")
+roughness = 0.5
+stencil_flags = 2
+stencil_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+stencil_outline_thickness = 0.557
+metadata/_gltf_primary_texture_coord = 0

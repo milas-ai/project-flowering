@@ -80,9 +80,6 @@ script = ExtResource("1_1g4f3")
 has_life_hud = false
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
-[node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=2089020071]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 126.774254, 11.897856, 10.751354)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
 environment = SubResource("Environment_rcjq6")
 
@@ -300,6 +297,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.66036, -0.7418976, 67.913
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+
+[node name="Markers" type="Node3D" parent="." unique_id=1563299946]
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 126.774254, 11.897856, 10.751354)
 
 [node name="RespawnArea" type="Area3D" parent="." unique_id=646378902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5209291, 0)
