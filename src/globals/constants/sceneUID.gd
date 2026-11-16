@@ -8,6 +8,7 @@ const STAGE_TURNTABLE: String = "uid://dw0j504cm0llu"
 
 class STAGES:
 	const GYM: String = "uid://dayem3vrpenok"
+	const PROLOGUE_VILLAGE: String = "uid://cawgug5pc6il8"
 	const MOUNTAIN: String = "uid://cnohyrkccqdd6"
 	const CAVE: String = "uid://bylhtxg58dhou"
 

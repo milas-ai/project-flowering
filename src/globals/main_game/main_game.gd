@@ -6,6 +6,7 @@ extends Node
 @export_enum(
 		"Gym:-1",
 		"Menu",
+		"Prologue Village",
 		"Mountain",
 		"Cave",
 ) var debug_stage: int = 0
@@ -57,8 +58,10 @@ func stage_id_to_uid(stage_id: int) -> String:
 		-1:
 			return SceneUID.STAGES.GYM
 		1:
+			return SceneUID.STAGES.PROLOGUE_VILLAGE
+		2:
 			return SceneUID.STAGES.MOUNTAIN
-		2: 
+		3: 
 			return SceneUID.STAGES.CAVE
 		_:
 			push_error("Invalid stage ID: %d" % stage_id)
@@ -68,7 +71,7 @@ func stage_id_to_uid(stage_id: int) -> String:
 func init_game(new_game: bool = false) -> void:
 	if new_game:
 		SaveManager.delete_save()
-		_current_stage_uid = SceneUID.STAGES.MOUNTAIN
+		_current_stage_uid = SceneUID.STAGES.PROLOGUE_VILLAGE
 	await _init_stage(_current_stage_uid)
 	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -79,7 +82,7 @@ func position_camera_to_stage(camera_node: Node3D) -> void:
 
 func get_last_stage_uid() -> String:
 	var stage_uids: Array = [
-		SceneUID.STAGES.GYM,
+		SceneUID.STAGES.PROLOGUE_VILLAGE,
 		SceneUID.STAGES.MOUNTAIN,
 		SceneUID.STAGES.CAVE
 	]
@@ -230,7 +233,7 @@ func _load_save_data() -> void:
 		_current_stage_uid = save_data.stage_uid
 	else:
 		options = Options.new()
-		_current_stage_uid = SceneUID.STAGES.GYM
+		_current_stage_uid = SceneUID.STAGES.PROLOGUE_VILLAGE
 	_change_volume("master", 0)
 	_change_volume("music", 0)
 	_change_volume("sfx", 0)

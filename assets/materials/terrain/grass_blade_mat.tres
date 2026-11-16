@@ -1,22 +1,28 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
 [ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://assets/textures/terrain/grass/grass_blade.png" id="1_lqm7f"]
+[ext_resource type="Texture2D" uid="uid://bji2b7i40yxak" path="res://assets/textures/terrain/grass/flower.png" id="2_fixht"]
+[ext_resource type="FastNoiseLite" uid="uid://ckh75q2ymot47" path="res://assets/textures/noise/grass_noise_tex.tres" id="3_fixht"]
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;
 render_mode cull_back, depth_draw_always, alpha_to_coverage;
+#include \"res://src/shaders/utils/rand.gdshaderinc\"
+#include \"res://src/shaders/utils/color_manipulation.gdshaderinc\" 
+
 
 const float NOISE_SCALE = .01;
-//const float TOP_LIGHT_WEIGHT = 0.006;
 const vec3 LIGHT_SAMPLE_OFFSET = vec3(0,.7,0);
+const int MAX_BLADE_VARIATIONS = 8;
 
 group_uniforms Grass;
-uniform sampler2D alpha_texture;
-//uniform vec3 accent_grass_color: source_color;
+uniform sampler2D grass_noise_tex;
+uniform sampler2D[MAX_BLADE_VARIATIONS] blade_textures;
+uniform int[MAX_BLADE_VARIATIONS] blade_weights;
+uniform bool[MAX_BLADE_VARIATIONS] blade_use_albedo_noise;
+uniform float blades_group_noise;
 uniform float roughness: hint_range(0.0, 1.0) = 1.0;
 uniform float specular: hint_range(0.0, 1.0, 0.01) = 0.2;
-//uniform float transparency_mask_radius: hint_range(0.0, 30.0);
-//uniform float transparency_exponent: hint_range(0.0, 10.0);
 
 
 group_uniforms Lighting;
@@ -31,7 +37,6 @@ group_uniforms Wind;
 uniform float wind_bend_ammount = 1.0;
 uniform float sway_back: hint_range(0.0, 1.0) = 1.0;
 
-//global uniform vec3 player_position;
 global uniform sampler2D grass_albedo_texture;
 global uniform sampler2D wind_noise_texture;
 global uniform vec3 wind_direction;
@@ -39,8 +44,9 @@ global uniform float wind_scale;
 global uniform float wind_speed;
 global uniform float wind_strength;
 
-varying vec3 node_pos_view;
 //varying flat int instance_id;
+varying vec3 node_pos_world;
+varying flat int blade_variation_index;
 
 
 void vertex() {
@@ -60,7 +66,7 @@ void vertex() {
 	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
 	
 	// Set pos_view for cell light calculation 
-	node_pos_view = NODE_POSITION_VIEW + LIGHT_SAMPLE_OFFSET;
+	node_pos_world = NODE_POSITION_WORLD;
 	
 	// Wind
 	vec3 vertex = (MODEL_MATRIX * vec4(VERTEX,1)).xyz; // use uv as vertex's global .xz
@@ -72,29 +78,41 @@ void vertex() {
 	vec3 wind_direction_view = (VIEW_MATRIX * vec4(wind_direction,0)).xyz; //correct direction to follow world instead of view
 	VERTEX += displacement * uv_mask * wind_direction_view;
 	
-	//instance_id = INSTANCE_ID;
+	// Grass blade variation
+	vec3 vertex_global = NODE_POSITION_WORLD;
+	float noise = texture(grass_noise_tex, (vertex_global.xz + vec2((randf(NODE_POSITION_WORLD)-.5)*blades_group_noise)) * NOISE_SCALE).x;
+	int intervals = 0;
+	for (int i=0; i<MAX_BLADE_VARIATIONS; i++) {
+		intervals += blade_weights[i];
+	}
+	int rand_val = int(noise * float(intervals) + .999);
+	for (int i=0; i<MAX_BLADE_VARIATIONS; i++) {
+		if (blade_weights[i] >= rand_val) {
+			blade_variation_index = i;
+			break;
+		}
+		else rand_val -= blade_weights[i];
+	}
 }
 
 void fragment() {
 	// Color texture
-	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
-	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
-	//if (fract(float(instance_id)/1000.0) < .005) ALBEDO = accent_grass_color;
+	vec3 vertex = node_pos_world;
+	if (!blade_use_albedo_noise[blade_variation_index]) {
+		ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
+		ALBEDO *= texture(blade_textures[blade_variation_index], UV).rgb;
+	}
+	else ALBEDO *= texture(blade_textures[blade_variation_index], UV).rgb;
 	
 	SPECULAR = specular;
 	ROUGHNESS = roughness;
 	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
 	
-	// Transparency with player position
-	//vec3 player_screen_pos = (VIEW_MATRIX * vec4(player_position, 1)).xyz;
-	//ALPHA = clamp(distance(VERTEX, player_screen_pos)/transparency_mask_radius, 0, 1);
-	//ALPHA = pow(ALPHA, transparency_exponent);
-	
 	// Set alpha mask
-	ALPHA *= step(.9,texture(alpha_texture, UV).a);
+	ALPHA *= step(.9,texture(blade_textures[blade_variation_index], UV).a);
 	
 	// Set vertex as node's position for cell light calculation 
-	LIGHT_VERTEX = node_pos_view;
+	LIGHT_VERTEX = (VIEW_MATRIX*vec4(node_pos_world + LIGHT_SAMPLE_OFFSET,1.)).xyz;
 }
 
 void light() {
@@ -103,18 +121,23 @@ void light() {
 	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
 	
 	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
-	// Make the top of the blade lighter
-	//diffuse += (1.0 - UV.y) * TOP_LIGHT_WEIGHT;
 	
 	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
 	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
 }
 "
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b6u2p"]
+noise = ExtResource("3_fixht")
+
 [resource]
 render_priority = 0
 shader = SubResource("Shader_5h1dc")
-shader_parameter/alpha_texture = ExtResource("1_lqm7f")
+shader_parameter/grass_noise_tex = SubResource("NoiseTexture2D_b6u2p")
+shader_parameter/blade_textures = Array[Texture2D]([ExtResource("1_lqm7f"), ExtResource("2_fixht")])
+shader_parameter/blade_weights = PackedInt32Array(8, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/blade_use_albedo_noise = PackedInt32Array(0, 1, 0, 0, 0, 0, 0, 0)
+shader_parameter/blades_group_noise = 4.835
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
 shader_parameter/light_strength = 0.1150000054625

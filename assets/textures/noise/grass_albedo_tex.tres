@@ -1,16 +1,9 @@
 [gd_resource type="NoiseTexture2D" format=3 uid="uid://bfguxs21b7fkf"]
 
-[sub_resource type="Gradient" id="Gradient_ji41h"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.14186852, 0.25951558, 0.55709344)
-colors = PackedColorArray(0.0324, 0.27, 0.07199997, 1, 0.18333337, 0.5, 0.120000005, 1, 0.42239997, 0.88, 0.19360003, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8fwnj"]
-frequency = 0.015
-fractal_octaves = 4
-fractal_lacunarity = 2.19
+[ext_resource type="Gradient" uid="uid://soxdea2edwne" path="res://assets/textures/noise/grass_albedo_color_ramp.tres" id="1_0l0wb"]
+[ext_resource type="FastNoiseLite" uid="uid://ckh75q2ymot47" path="res://assets/textures/noise/grass_noise_tex.tres" id="2_kc5sv"]
 
 [resource]
-noise = SubResource("FastNoiseLite_8fwnj")
-color_ramp = SubResource("Gradient_ji41h")
+noise = ExtResource("2_kc5sv")
+color_ramp = ExtResource("1_0l0wb")
 seamless = true

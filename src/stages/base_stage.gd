@@ -9,6 +9,7 @@ extends Node3D
 		"Scissors",
 		"Firefly"
 ) var player_items_on_spawn: int = 0
+@export_range(1, 160) var turntable_camera_size: int = 160
 
 @export_group("Debug")
 @export var spawn_on_checkpoint: bool = false

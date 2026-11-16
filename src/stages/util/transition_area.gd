@@ -4,7 +4,7 @@ extends Area3D
 
 @export_enum(
 		"Gym:-1",
-		"PrologueVillage:1",
+		"Prologue Village:1",
 		"Mountain:2",
 		"Cave:3",
 		"Forest:4",

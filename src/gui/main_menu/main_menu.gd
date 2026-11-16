@@ -75,7 +75,7 @@ func _show_confirmation_prompt() -> void:
 func _update_banner_texture() -> void:
 	var display_stage: String = _main_game.get_last_stage_uid()
 	match display_stage:
-		SceneUID.STAGES.GYM:
+		SceneUID.STAGES.PROLOGUE_VILLAGE:
 			%Banner.texture = _banner_texture_green
 		SceneUID.STAGES.MOUNTAIN:
 			%Banner.texture = _banner_texture_yellow
