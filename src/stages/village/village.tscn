@@ -90,6 +90,9 @@ environment = SubResource("Environment_rcjq6")
 transform = Transform3D(-0.7216729, 0.6535245, 0.22824115, -0.26120508, -0.56242836, 0.7845039, 0.6410618, 0.50653744, 0.57659316, 0, 0, 0)
 light_color = Color(0.8249552, 0.57426554, 0.40928346, 1)
 shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 534.5
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
 
