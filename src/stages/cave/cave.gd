@@ -14,7 +14,7 @@ func _on_respawn_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_get_item_area_interacted() -> void:
-	_main_game.set_player_items(BaseStat.PLAYER.ITEMS.SCISSORS)
+	_main_game.player.items = BaseStat.PLAYER.ITEMS.SCISSORS
 	$InteractableAreas/GetItemArea.disable()
 	$InteractableAreas/GetItemArea/Item.queue_free()
 
