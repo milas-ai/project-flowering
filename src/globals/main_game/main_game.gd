@@ -71,7 +71,7 @@ func stage_id_to_uid(stage_id: int) -> String:
 func init_game(new_game: bool = false) -> void:
 	if new_game:
 		SaveManager.delete_save()
-		_current_stage_uid = SceneUID.STAGES.MOUNTAIN
+		_current_stage_uid = SceneUID.STAGES.PROLOGUE_VILLAGE
 	await _init_stage(_current_stage_uid)
 	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
