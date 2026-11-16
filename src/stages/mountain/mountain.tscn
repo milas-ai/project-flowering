@@ -559,10 +559,10 @@ transform = Transform3D(0.66652405, -0.3621675, 1.0310746, 0.35854068, 0.9090476
 transform = Transform3D(0.8322946, 0.16777126, 0.5462659, -0.35059986, 1.5183846, 0.38707465, -0.4293775, -0.9146031, 0.74280983, -139.086, 89.07329, 44.289425)
 
 [node name="PlatformMedium18" parent="StageTerrain/Section4" unique_id=1031560306 instance=ExtResource("5_y0856")]
-transform = Transform3D(0.99386394, 0, -0.11060995, 0, 1, 0, 0.11060995, 0, 0.99386394, -142.59085, 89.978226, 58.673145)
+transform = Transform3D(0.9938643, 0, -0.11060995, 0, 1, 0, 0.11060995, 0, 0.9938643, -142.59085, 89.76033, 58.673187)
 
 [node name="PlatformMedium19" parent="StageTerrain/Section4" unique_id=1597798091 instance=ExtResource("6_grnlo")]
-transform = Transform3D(0.9153267, 0, 0.40271205, 0, 1, 0, -0.40271205, 0, 0.9153267, -135.9113, 90.45132, 65.77005)
+transform = Transform3D(0.9153267, 0, 0.40271205, 0, 1, 0, -0.40271205, 0, 0.9153267, -135.91132, 90.23341, 65.77006)
 
 [node name="RampSmall7" parent="StageTerrain/Section4" unique_id=557133691 instance=ExtResource("13_wq3j4")]
 transform = Transform3D(1.4942076, 0.15985379, 0.5596771, -9.37606e-09, 1.3709736, -0.5037639, -0.5764197, 0.4143764, 1.4508072, -124.168304, 84.36913, 88.985855)
@@ -592,7 +592,7 @@ transform = Transform3D(0.77946734, 2.9270227, 1.3517375, -0.28339466, 2.0086505
 transform = Transform3D(0.9882116, -1.0585601, 0.07567114, -0.27047968, -0.28320754, 1.1015428, -0.7428524, -1.3050764, -0.30041745, -71.66323, 91.82028, 132.69855)
 
 [node name="PlatformSmall8" parent="StageTerrain/Section4" unique_id=1321716627 instance=ExtResource("19_kvbr1")]
-transform = Transform3D(0.9911883, 0, 0.1324604, 0, 1, 0, -0.1324604, 0, 0.9911883, -129.16193, 92.55232, 65.86898)
+transform = Transform3D(0.99118865, 0, 0.13246046, 0, 1, 0, -0.13246046, 0, 0.99118865, -129.16193, 92.33443, 65.86898)
 
 [node name="PlatformMedium20" parent="StageTerrain/Section4" unique_id=732077456 instance=ExtResource("5_y0856")]
 transform = Transform3D(1.136913, 0, 0.5994756, 0, 0.99999976, 0, -0.50020224, 0, 1.362552, -126.43946, 90.29468, -4.4246902)
@@ -610,20 +610,23 @@ transform = Transform3D(0.57614535, -0.29017663, 0.100944, 0.029757863, 0.579922
 transform = Transform3D(0.3758262, -0.3566241, -0.57606375, -0.08976867, -1.4938502, 0.13750039, -0.7070502, 0.0001023151, -0.32365897, -137.16571, 82.83986, 102.84103)
 
 [node name="RockMedium10" parent="StageTerrain/Section4" unique_id=28687586 instance=ExtResource("7_jmp0g")]
-transform = Transform3D(0.5625669, -0.35235313, 0.45769447, -0.18788539, -1.4874227, -0.05910112, 0.5453816, -0.14896488, -0.4924768, -141.0782, 87.63231, 91.094925)
+transform = Transform3D(0.5625669, -0.35235313, 0.45769453, -0.18788539, -1.4874227, -0.05910112, 0.5453816, -0.14896488, -0.49247682, -140.95525, 87.63231, 92.16571)
 
 [node name="RockMedium11" parent="StageTerrain/Section4" unique_id=2064912249 instance=ExtResource("7_jmp0g")]
-transform = Transform3D(-0.057569705, -0.25721115, -0.6636336, -0.067330495, -1.5071586, 0.11690447, -0.8008598, 0.14520067, 0.037876368, -147.1678, 91.77112, 80.19976)
+transform = Transform3D(-0.057569735, -0.25721133, -0.663634, -0.067330495, -1.5071586, 0.11690447, -0.8008602, 0.14520079, 0.03787639, -146.04347, 91.77112, 82.42479)
 
 [node name="PlatformBig7" parent="StageTerrain/Section4" unique_id=1497276106 instance=ExtResource("18_4mxpr")]
-transform = Transform3D(0.70328003, 0, 1.2250197, 0, 1, 0, -1.0034716, 0, 0.85855114, -165.4223, 81.11174, 37.7508)
+transform = Transform3D(0.7032803, 0, 1.2250197, 0, 1, 0, -1.0034722, 0, 0.85855186, -165.4223, 80.893845, 37.75082)
+
+[node name="WallSmall2" parent="StageTerrain/Section4" unique_id=1958948223 instance=ExtResource("12_nmvee")]
+transform = Transform3D(0.6841332, 0, 0.7293572, 0, 0.99999994, 0, -0.7293571, 0, 0.68413305, -146.92192, 94.80444, 68.13822)
 
 [node name="Sign" parent="StageTerrain/Section4" unique_id=915941742 instance=ExtResource("24_nmvee")]
 transform = Transform3D(0.3011495, 0, -0.953577, 0, 1, 0, 0.953577, 0, 0.3011495, -162.33496, 99.83351, 22.72768)
 paint = 3
 
 [node name="Sign2" parent="StageTerrain/Section4" unique_id=1192483986 instance=ExtResource("24_nmvee")]
-transform = Transform3D(0.42866886, 0, 0.90346175, 0, 1, 0, -0.90346175, 0, 0.42866886, -127.78981, 96.147385, 66.5981)
+transform = Transform3D(0.4286689, 0, 0.9034619, 0, 1, 0, -0.9034619, 0, 0.4286689, -127.78981, 95.54399, 66.598114)
 
 [node name="Sign3" parent="StageTerrain/Section4" unique_id=399401168 instance=ExtResource("24_nmvee")]
 transform = Transform3D(0.9320972, 0, -0.36220872, 0, 1, 0, 0.36220872, 0, 0.9320972, -117.12285, 79.91788, 143.0569)
@@ -782,7 +785,7 @@ script = ExtResource("25_y0856")
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint10" type="Marker3D" parent="EnemySpawnPoints" unique_id=926638678]
-transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -196.76361, 107.23448, 54.115784)
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -194.80508, 102.40819, 57.762817)
 script = ExtResource("25_y0856")
 bullet_speed = 200.0
 steady = true
@@ -790,7 +793,7 @@ attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint11" type="Marker3D" parent="EnemySpawnPoints" unique_id=1768653056]
-transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -192.02069, 103.09346, 66.17665)
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -190.90572, 97.85103, 66.88281)
 script = ExtResource("25_y0856")
 bullet_speed = 200.0
 steady = true
@@ -798,7 +801,7 @@ attack_range_increase = 2.0
 metadata/_custom_type_script = "uid://dxqe716qb2txf"
 
 [node name="BeetleSpawnPoint12" type="Marker3D" parent="EnemySpawnPoints" unique_id=1154465673]
-transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -189.45636, 97.50687, 79.01354)
+transform = Transform3D(0.9934708, 0, -0.11408703, 0, 1, 0, 0.11408703, 0, 0.9934708, -189.45636, 93.09659, 79.01354)
 script = ExtResource("25_y0856")
 bullet_speed = 200.0
 attack_cooldown = 1.8
@@ -876,7 +879,7 @@ metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 shape = SubResource("SphereShape3D_nmvee")
 
 [node name="DisplaySlideTutorialArea" type="Area3D" parent="InteractableAreas" unique_id=4644138]
-transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -175.63861, 105.32238, 43.133736)
+transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -175.63861, 104.71899, 43.133736)
 script = ExtResource("28_k04n5")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
