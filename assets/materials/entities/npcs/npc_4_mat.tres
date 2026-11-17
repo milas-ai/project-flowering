@@ -7,4 +7,3 @@ resource_name = "npc_4_mat"
 cull_mode = 2
 albedo_texture = ExtResource("1_ml12k")
 roughness = 0.5
-metadata/_gltf_primary_texture_coord = 0
