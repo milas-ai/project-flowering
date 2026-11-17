@@ -140,7 +140,7 @@ principais: \textbf{docs}, \textbf{assets}, \textbf{src} e \textbf{util}, confor
 
 A criação dos modelos tridimensionais do projeto --- incluindo
 personagens, cenários, itens e entidades interativas --- foi feita utilizando
-os softwares Blender e Blockbench. A escolha de múltiplas ferramentas permitiu
+os softwares Blender (\cite{blender}) e Blockbench (\cite{blockbench}). A escolha de múltiplas ferramentas permitiu
 alocar cada \textit{software} à sua respectiva especialidade técnica dentro da estética
 \textit{low-poly} pixelizada.
 
@@ -153,8 +153,24 @@ com a estética estilizada de baixa poligonia e alinhamento de \textit{pixel art
 facilitando o mapeamento de texturas por pixel (\textit{texture
 mapping}).
 
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{0.77\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{block-beetle-model}
+		\caption{Modelagem em Blockbench.}\label{fig:modeling:a}
+	\end{subfigure}
+
+	\begin{subfigure}{0.77\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{blender-model}
+		\caption{Modelagem em Blender.}\label{fig:modeling:b}
+	\end{subfigure}
+	\caption{Exemplos de processo de modelagem nos softwares escolhidos.}\label{fig:modeling}
+\end{figure}
+
 As animações dos personagens e entidades foram desenvolvidas diretamente
-no ambiente de animação do Blockbench. Para transformá-los em corpos articulados,
+no ambiente de animação dos softwares respectivos. Para transformá-los em corpos articulados,
 foi utilizado um sistema de hierarquia óssea (\textit{rigging e skeletal
 animation}). Nesse sistema, as malhas poligonais são vinculadas a nós de articulação
 (\textit{bones}), que podem então ser controlados durante a animação para fazer
@@ -166,6 +182,22 @@ deslize (\textit{slide}), ataque e morte. Como o estilo visual prioriza a legibi
 silhuetas e o dinamismo \textit{fast-paced}, as animações foram projetadas com
 quadros de antecipação e recuperação curtos, assegurando que o \textit{feedback}
 visual acompanhasse a resposta imediata dos comandos do jogador.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{block-ant-anim}
+		\caption{Animação em Blockbench.}\label{fig:animation:a}
+	\end{subfigure}
+
+	\begin{subfigure}{0.8\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{blender-anim}
+		\caption{Animação em Blender.}\label{fig:animation:b}
+	\end{subfigure}
+	\caption{Exemplos de processo de animação nos respectivos softwares.}\label{fig:animation}
+\end{figure}
 
 Para integrar os modelos e animações gerados no Blender e no Blockbench à engine de
 desenvolvimento, utilizou-se o formato aberto glTF (\textit{GL Transmission Format}) em sua extensão
