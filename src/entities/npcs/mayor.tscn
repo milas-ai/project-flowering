@@ -3,5 +3,7 @@
 [ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_kss76"]
 
 [node name="Mayor" type="StaticBody3D" unique_id=1459540555]
+collision_layer = 16
+collision_mask = 31
 script = ExtResource("1_kss76")
 metadata/_custom_type_script = "uid://v5ufhupi8wd"
