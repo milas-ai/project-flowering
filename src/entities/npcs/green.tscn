@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c1f26q0l347dq"]
+
+[ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_av10e"]
+[ext_resource type="PackedScene" uid="uid://ckhc2lqfjig1m" path="res://assets/models/npcs/npc_3.glb" id="2_1qd4y"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1qd4y"]
+height = 0.8840332
+radius = 0.68847656
+
+[node name="Green" type="StaticBody3D" unique_id=1916258636]
+script = ExtResource("1_av10e")
+metadata/_custom_type_script = "uid://v5ufhupi8wd"
+
+[node name="Model" parent="." unique_id=1081169417 instance=ExtResource("2_1qd4y")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=538381663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.018105805, 0)
+shape = SubResource("CylinderShape3D_1qd4y")

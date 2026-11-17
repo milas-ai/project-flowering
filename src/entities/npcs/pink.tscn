@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://boo15dcygv2lt"]
+
+[ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_6jilr"]
+[ext_resource type="PackedScene" uid="uid://btlytemld6dva" path="res://assets/models/npcs/npc_2.glb" id="2_a3pt1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3ebm0"]
+radius = 0.46
+
+[node name="Pink" type="StaticBody3D" unique_id=329246196]
+script = ExtResource("1_6jilr")
+metadata/_custom_type_script = "uid://v5ufhupi8wd"
+
+[node name="Model" parent="." unique_id=1228336579 instance=ExtResource("2_a3pt1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971141591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062412262, 0)
+shape = SubResource("SphereShape3D_3ebm0")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ckokt5nwdxp83"]
+
+[ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_saqhp"]
+[ext_resource type="PackedScene" uid="uid://bjx13wnaxjks7" path="res://assets/models/npcs/npc_1.glb" id="2_7u5ah"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
+radius = 0.4633789
+height = 1.4542236
+
+[node name="Orange" type="StaticBody3D" unique_id=982502636]
+script = ExtResource("1_saqhp")
+metadata/_custom_type_script = "uid://v5ufhupi8wd"
+
+[node name="Model" parent="." unique_id=229137697 instance=ExtResource("2_7u5ah")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2027814153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3118286, 0)
+shape = SubResource("CapsuleShape3D_nhhn2")
