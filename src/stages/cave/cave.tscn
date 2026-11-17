@@ -127,6 +127,7 @@ rings = 0
 [node name="Cave" type="Node3D" unique_id=138948264]
 script = ExtResource("1_2sot5")
 player_items_on_spawn = 1
+turntable_camera_size = 105
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
