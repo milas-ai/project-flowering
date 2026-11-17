@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://8ujh8a3oeb6n" path="res://src/terrain/village/tower.tscn" id="21_end7g"]
 [ext_resource type="PackedScene" uid="uid://cbg6krkyx1sfm" path="res://src/terrain/props/boat.tscn" id="22_1g4f3"]
 [ext_resource type="PackedScene" uid="uid://bdex5k5ykp1o0" path="res://src/terrain/village/flag.tscn" id="22_1n1f1"]
+[ext_resource type="Script" uid="uid://dgnwggxyjrkj5" path="res://src/stages/util/npc_spawn_point.gd" id="22_10qvu"]
 [ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="23_1g4f3"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="32_v6gdv"]
 
@@ -51,6 +52,12 @@ fog_depth_curve = 0.2773919
 volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_10qvu"]
+size = Vector3(21.749023, 12.27124, 14.760742)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_end7g"]
+size = Vector3(550, 1, 850)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
 size = Vector2(1000, 1000)
 
@@ -68,12 +75,6 @@ shader_parameter/color1 = Color(0.26101992, 0.78963846, 0.7258296, 1)
 shader_parameter/color2 = Color(0, 0.27225816, 0.5365715, 1)
 shader_parameter/scale = 0.02
 shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_end7g"]
-size = Vector3(550, 1, 850)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_10qvu"]
-size = Vector3(21.749023, 12.27124, 14.760742)
 
 [node name="Village" type="Node3D" unique_id=138948264]
 script = ExtResource("1_1g4f3")
@@ -295,9 +296,50 @@ transform = Transform3D(0.76782763, -0.17783426, 0.48211104, 0.32245293, 0.84166
 [node name="PlatformMedium9" parent="StageTerrain" unique_id=67731828 instance=ExtResource("8_4r4mc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.66036, -0.7418976, 67.913795)
 
-[node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
-mesh = SubResource("PlaneMesh_kgtat")
-surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+[node name="NPCSpawnPoints" type="Node3D" parent="." unique_id=804357099]
+
+[node name="NPCSpawnPoint" type="Marker3D" parent="NPCSpawnPoints" unique_id=1954537953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.6197, 10.582252, 28.61308)
+script = ExtResource("22_10qvu")
+npc_type = 1
+metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
+
+[node name="NPCSpawnPoint2" type="Marker3D" parent="NPCSpawnPoints" unique_id=2032177798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.6852, 7.6324983, 52.65521)
+script = ExtResource("22_10qvu")
+npc_type = 3
+metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
+
+[node name="NPCSpawnPoint3" type="Marker3D" parent="NPCSpawnPoints" unique_id=704617216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.744156, 7.789584, 37.220848)
+script = ExtResource("22_10qvu")
+npc_type = 2
+metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
+
+[node name="NPCSpawnPoint4" type="Marker3D" parent="NPCSpawnPoints" unique_id=1142833567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.97202, 11.514598, 15.15774)
+script = ExtResource("22_10qvu")
+metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
+
+[node name="NPCSpawnPoint5" type="Marker3D" parent="NPCSpawnPoints" unique_id=1562249164]
+transform = Transform3D(0.989117, -0.1471311, 0, 0.1471311, 0.989117, 0, 0, 0, 1, 71.69552, 6.497406, 18.26991)
+script = ExtResource("22_10qvu")
+metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
+
+[node name="CheckPoints" type="Node3D" parent="." unique_id=1718981946]
+
+[node name="CheckPointArea" type="Area3D" parent="CheckPoints" unique_id=757608029]
+transform = Transform3D(0.20416605, 0, -0.97893625, 0, 1, 0, 0.97893625, 0, 0.20416605, 84.96415, 12.862194, 12.036221)
+collision_layer = 0
+script = ExtResource("23_1g4f3")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=1186965863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.172928, -5.3951187, 14.238739)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=881830555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282059, 0, 1.3082428)
+shape = SubResource("BoxShape3D_10qvu")
 
 [node name="Markers" type="Node3D" parent="." unique_id=1563299946]
 
@@ -315,17 +357,8 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea" unique_id=1893568354]
 shape = SubResource("BoxShape3D_end7g")
 
-[node name="CheckPointArea" type="Area3D" parent="." unique_id=757608029]
-transform = Transform3D(0.20416605, 0, -0.97893625, 0, 1, 0, 0.97893625, 0, 0.20416605, 84.96415, 12.862194, 12.036221)
-collision_layer = 0
-script = ExtResource("23_1g4f3")
-metadata/_custom_type_script = "uid://daqkgqctr3tqp"
-
-[node name="Marker3D" type="Marker3D" parent="CheckPointArea" unique_id=1186965863]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.172928, -5.3951187, 14.238739)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPointArea" unique_id=881830555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282059, 0, 1.3082428)
-shape = SubResource("BoxShape3D_10qvu")
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
+mesh = SubResource("PlaneMesh_kgtat")
+surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_body_entered"]
