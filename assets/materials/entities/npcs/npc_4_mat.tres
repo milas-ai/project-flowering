@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://kyca6qprxk0r"]
+
+[ext_resource type="Texture2D" uid="uid://cq41pbiur3od1" path="res://assets/textures/npcs/npc_4_texture.png" id="1_ml12k"]
+
+[resource]
+resource_name = "npc_4_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_ml12k")
+roughness = 0.5
+metadata/_gltf_primary_texture_coord = 0
