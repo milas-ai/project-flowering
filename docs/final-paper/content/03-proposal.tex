@@ -167,4 +167,31 @@ mesmo que sua atenção esteja voltada a outro ponto (como um inimigo diferente,
 \section{Interface do Usuário e Configurações}
 \label{sec:interface_e_configuracoes}
 
-%TODO: Indicadores de controle, menu e configurações
+A interface do usuário e os sistemas de navegação foram estruturados para
+garantir acessibilidade, fluidez e controle sobre a experiência de jogo,
+mantendo a área de visualização livre de poluição visual excessiva. Para
+isso, foram implementados os seguites sistemas:
+
+\begin{itemize}
+	\item \textbf{Comunicação:} O jogo emprega janelas de
+	diálogo e caixas de texto para estruturar a interação com personagens
+	espalhados pelo vilarejo. Além disso, placas informativas integradas ao
+	ambiente exercem o papel de tutoriais, orientando o jogador
+	sobre mecânicas e comandos de forma orgânica à medida que avança em sua
+	aventura.
+	\item \textbf{Interação:} O jogo usa elementos
+	visuais dinâmicos no espaço tridimensional para orientar a exploração
+	(como avisos indicando a proximidade de itens interativos). O sistema
+	identifica automaticamente o dispositivo de entrada utilizado (teclado e
+	mouse ou controle/\textit{gamepad}), adaptando os ícones de comando exibidos na
+	tela em tempo real.
+	\item \textbf{Menu interativo:} Acessível por meio da tela de
+	pause ou do menu principal, a interface permite ao usuário gerenciar
+	parâmetros como o volume global de áudio e o nível de pixelização
+	estética, permitindo customizar a experiência visual conforme sua preferência.
+	\item \textbf{Dados salvos:} Integrado à arquitetura de menus, o sistema
+	de salvamento de progresso gerencia a persistência de dados, registrando marcos
+	de avanço do jogador entre as sessões de jogo, enquanto
+	o sistema de salvamento de configurações garante que o jogador não
+	precise reajustar suas preferências sempre que sair e reabrir o jogo.
+\end{itemize}
