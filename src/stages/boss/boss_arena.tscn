@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
 [ext_resource type="ArrayMesh" uid="uid://deglhnan0yfcd" path="res://assets/models/terrain/boss/trunk_root.obj" id="6_aaglm"]
 [ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://src/terrain/mountain/platform/big/mountain_platform_big_1.tscn" id="7_mmvlo"]
+[ext_resource type="PackedScene" uid="uid://bica5b2qxhuh5" path="res://src/terrain/mountain/platform/small/mountain_platform_small_1.tscn" id="8_n14l8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5x1n0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,6 +43,9 @@ data = PackedVector3Array(-22.424799, -0.23339999, -6.9351997, -22.8659, -0.2333
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vquoj"]
 size = Vector3(1, 10.102661, 11.24707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mmvlo"]
+size = Vector3(1, 7.99057, 11.24707)
 
 [sub_resource type="FogMaterial" id="FogMaterial_5x1n0"]
 density = 0.5107
@@ -135,6 +139,26 @@ directional_shadow_max_distance = 534.5
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=1126410358]
 
+[node name="Platforms" type="Node3D" parent="StageTerrain" unique_id=1879447681]
+
+[node name="PlatformBig13" parent="StageTerrain/Platforms" unique_id=1260962266 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -0.0894075, -14.514843, 37.16591)
+
+[node name="PlatformBig14" parent="StageTerrain/Platforms" unique_id=2071298694 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(-0.60353845, 0, -0.797334, 0, 1, 0, 0.797334, 0, -0.60353845, -21.522623, -14.890919, 28.998913)
+
+[node name="PlatformBig15" parent="StageTerrain/Platforms" unique_id=799371080 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(-0.9989008, 0, 0.046875596, 0, 1, 0, -0.046875596, 0, -0.9989008, -36.035946, -15.056385, -2.66317)
+
+[node name="PlatformBig16" parent="StageTerrain/Platforms" unique_id=443089846 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(-0.1836979, 0, 1.3420941, 0, 1, 0, -0.9829828, 0, -0.25080788, -5.1374545, -14.514843, -35.915646)
+
+[node name="PlatformBig17" parent="StageTerrain/Platforms" unique_id=988513972 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(-0.45098454, 0, 0.89253175, 0, 1, 0, -0.89253175, 0, -0.45098454, 30.466629, -14.514843, -18.850712)
+
+[node name="PlatformBig18" parent="StageTerrain/Platforms" unique_id=870844380 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.73907566, 0, 0.78526646, 0, 1, 0, -0.9373559, 0, 0.6191579, 28.636106, -14.514843, 23.394411)
+
 [node name="TrunkLight" type="OmniLight3D" parent="StageTerrain" unique_id=4647701]
 transform = Transform3D(1, -7.7715606e-16, -7.4505797e-09, -7.4505797e-09, -2.8810225e-08, -1, 5.625032e-16, 1, -2.8810225e-08, 0, -17.0344, 0)
 layers = 2
@@ -159,48 +183,59 @@ layers = 2
 material_override = SubResource("StandardMaterial3D_nssyt")
 mesh = ExtResource("1_m4sqy")
 
-[node name="TrunkRoot" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=1110285240]
-transform = Transform3D(-0.92136616, 0, -0.38869554, 0, 1, 0, 0.38869554, 0, -0.92136616, 15.235574, 1.695631, -22.87045)
+[node name="Roots" type="Node3D" parent="StageTerrain/TrunkArena" unique_id=1806789283]
+
+[node name="TrunkRoot" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Roots" unique_id=1110285240]
+transform = Transform3D(-1.1344169, 0, -0.478575, 0, 1.2312336, 0, 0.478575, 0, -1.1344169, 15.235574, 1.695631, -22.87045)
 material_override = SubResource("StandardMaterial3D_nssyt")
 mesh = ExtResource("6_aaglm")
 
-[node name="TrunkRoot2" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=1537123876]
+[node name="TrunkRoot2" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Roots" unique_id=1537123876]
 transform = Transform3D(-1.0913593, 0, 0.5298519, 0, 1.213181, 0, -0.5298519, 0, -1.0913593, 27.111584, 1.695631, 0.6802044)
 material_override = SubResource("StandardMaterial3D_nssyt")
 mesh = ExtResource("6_aaglm")
 
-[node name="TrunkRoot3" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=660913758]
-transform = Transform3D(0.9987782, 0, -0.04941582, 0, 1, 0, 0.04941582, 0, 0.9987782, -24.634245, 1.695631, 12.486956)
+[node name="TrunkRoot3" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Roots" unique_id=660913758]
+transform = Transform3D(1.3565316, 0, -0.06711612, 0, 1.358191, 0, 0.06711612, 0, 1.3565316, -25.462069, 1.695631, 12.779385)
 material_override = SubResource("StandardMaterial3D_nssyt")
 mesh = ExtResource("6_aaglm")
 
-[node name="TrunkRoot4" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=99605780]
-transform = Transform3D(0.5224651, 0, -1.0570235, 0, 1.1790966, 0, 1.0570235, 0, 0.5224651, -22.153418, 1.695631, -16.371834)
+[node name="TrunkRoot4" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Roots" unique_id=99605780]
+transform = Transform3D(0.61104953, 0, -1.2362427, 0, 1.3790133, 0, 1.2362427, 0, 0.61104953, -23.068638, 1.695631, -17.081852)
 material_override = SubResource("StandardMaterial3D_nssyt")
 mesh = ExtResource("6_aaglm")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StageTerrain/TrunkArena" unique_id=377527180]
+[node name="TrunkCollision" type="StaticBody3D" parent="StageTerrain/TrunkArena" unique_id=377527180]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShapeTrunk" type="CollisionShape3D" parent="StageTerrain/TrunkArena/StaticBody3D" unique_id=397478741]
+[node name="CollisionShapeTrunk" type="CollisionShape3D" parent="StageTerrain/TrunkArena/TrunkCollision" unique_id=397478741]
 shape = SubResource("ConcavePolygonShape3D_vquoj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StageTerrain/TrunkArena/StaticBody3D" unique_id=751608803]
+[node name="CollisionShapeHole" type="CollisionShape3D" parent="StageTerrain/TrunkArena/TrunkCollision" unique_id=751608803]
 transform = Transform3D(0.86325634, 0, 0.5047656, 0, 1, 0, -0.5047656, 0, 0.86325634, -20.927275, 3.3871331, 11.306561)
 shape = SubResource("BoxShape3D_vquoj")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StageTerrain/TrunkArena/StaticBody3D" unique_id=385882326]
+[node name="CollisionShapeHole2" type="CollisionShape3D" parent="StageTerrain/TrunkArena/TrunkCollision" unique_id=385882326]
 transform = Transform3D(0.85331285, 0, -0.521399, 0, 1, 0, 0.521399, 0, 0.85331285, -19.639585, 4.674792, -13.098547)
 shape = SubResource("BoxShape3D_vquoj")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StageTerrain/TrunkArena/StaticBody3D" unique_id=1522125174]
+[node name="CollisionShapeHole3" type="CollisionShape3D" parent="StageTerrain/TrunkArena/TrunkCollision" unique_id=1522125174]
 transform = Transform3D(-0.5782835, 0, -0.81583583, 0, 1, 0, 0.81583583, 0, -0.5782835, 12.836054, 4.674788, -20.686934)
 shape = SubResource("BoxShape3D_vquoj")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="StageTerrain/TrunkArena/StaticBody3D" unique_id=1663495291]
+[node name="CollisionShapeHole4" type="CollisionShape3D" parent="StageTerrain/TrunkArena/TrunkCollision" unique_id=1663495291]
 transform = Transform3D(-0.9980322, 0, -0.062702775, 0, 1, 0, 0.062702775, 0, -0.9980322, 24.245302, 4.674788, 1.2474456)
 shape = SubResource("BoxShape3D_vquoj")
+
+[node name="DoorCollision" type="StaticBody3D" parent="StageTerrain/TrunkArena" unique_id=1706485182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.516914)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageTerrain/TrunkArena/DoorCollision" unique_id=608236865]
+transform = Transform3D(0.06703541, 0.021736694, 0.99751383, -0.3084467, 0.9512416, 0, -0.94887674, -0.30767983, 0.07047148, 0.040776536, 1.7844634, -0.5771866)
+shape = SubResource("BoxShape3D_mmvlo")
 
 [node name="Fogs" type="Node3D" parent="StageTerrain/TrunkArena" unique_id=309847442]
 
@@ -278,44 +313,6 @@ transform = Transform3D(1.4410799, 1.2293035, 0.71444225, -1.260739, 0.6344584, 
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 
-[node name="PlatformBig1" parent="." unique_id=2071298694 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.516247, -16.1351, -13.193445)
-
-[node name="PlatformBig3" parent="." unique_id=1496538991 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.86839217, 0, -0.495878, 0, 1, 0, 0.495878, 0, 0.86839217, 7.128607, -16.8, -31.65123)
-
-[node name="PlatformBig4" parent="." unique_id=1850555883 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.5043833, 0, -0.86347985, 0, 1, 0, 0.86347985, 0, 0.5043833, -13.022124, -17.246174, -27.964073)
-
-[node name="PlatformBig5" parent="." unique_id=1230173067 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.56064117, 0, -0.82805884, 0, 1, 0, 0.82805884, 0, 0.56064117, -27.613235, -16.1351, -4.1146393)
-
-[node name="PlatformBig7" parent="." unique_id=1825389678 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(-0.24877203, 0, -0.96856207, 0, 1, 0, 0.96856207, 0, -0.24877203, -43.099533, -16.135096, 6.9338512)
-
-[node name="PlatformBig8" parent="." unique_id=1728019647 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -39.253193, -16.1351, -16.341724)
-
-[node name="PlatformBig9" parent="." unique_id=1257126216 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -28.118309, -16.135103, -35.123146)
-
-[node name="PlatformBig11" parent="." unique_id=1360898853 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, 27.43391, -16.135107, -37.38546)
-
-[node name="PlatformBig12" parent="." unique_id=1763440743 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, 38.510715, -16.135103, 0.9400406)
-
-[node name="PlatformBig13" parent="." unique_id=1260962266 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, 12.834391, -16.135103, 26.946491)
-
-[node name="PlatformBig14" parent="." unique_id=1600889128 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -4.2545547, -16.135103, 31.439987)
-
-[node name="PlatformBig15" parent="." unique_id=1072034143 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -32.035866, -16.135103, 24.217594)
-
-[node name="PlatformBig6" parent="." unique_id=1210572670 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.7346782, 0, -0.6784158, 0, 1, 0, 0.6784158, 0, 0.7346782, -15.611022, -16.1351, 20.804047)
-
-[node name="PlatformBig2" parent="." unique_id=142463159 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(0.9536496, 0, -0.30091947, 0, 1, 0, 0.30091947, 0, 0.9536496, 26.16838, -16.1351, 10.565643)
+[node name="PlatformSmall1" parent="." unique_id=330586726 instance=ExtResource("8_n14l8")]
+transform = Transform3D(0.9992832, 0.037856027, 0, -0.037171632, 0.98121727, -0.18929084, -0.007165799, 0.18915516, 0.9819211, -0.12557064, -4.005478, 26.911999)
+visible = false
