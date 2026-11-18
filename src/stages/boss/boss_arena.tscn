@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b6bxni1vdx1ui" path="res://assets/models/terrain/boss/web.obj" id="4_5x1n0"]
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
 [ext_resource type="ArrayMesh" uid="uid://deglhnan0yfcd" path="res://assets/models/terrain/boss/trunk_root.obj" id="6_aaglm"]
+[ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://src/terrain/mountain/platform/big/mountain_platform_big_1.tscn" id="7_mmvlo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5x1n0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -276,3 +277,45 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 transform = Transform3D(1.4410799, 1.2293035, 0.71444225, -1.260739, 0.6344584, 1.4513193, 0.65738285, -1.4780394, 1.2171985, -13.774051, 1.8596506, 15.382195)
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
+
+[node name="PlatformBig1" parent="." unique_id=2071298694 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.516247, -16.1351, -13.193445)
+
+[node name="PlatformBig3" parent="." unique_id=1496538991 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.86839217, 0, -0.495878, 0, 1, 0, 0.495878, 0, 0.86839217, 7.128607, -16.8, -31.65123)
+
+[node name="PlatformBig4" parent="." unique_id=1850555883 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.5043833, 0, -0.86347985, 0, 1, 0, 0.86347985, 0, 0.5043833, -13.022124, -17.246174, -27.964073)
+
+[node name="PlatformBig5" parent="." unique_id=1230173067 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.56064117, 0, -0.82805884, 0, 1, 0, 0.82805884, 0, 0.56064117, -27.613235, -16.1351, -4.1146393)
+
+[node name="PlatformBig7" parent="." unique_id=1825389678 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(-0.24877203, 0, -0.96856207, 0, 1, 0, 0.96856207, 0, -0.24877203, -43.099533, -16.135096, 6.9338512)
+
+[node name="PlatformBig8" parent="." unique_id=1728019647 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -39.253193, -16.1351, -16.341724)
+
+[node name="PlatformBig9" parent="." unique_id=1257126216 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -28.118309, -16.135103, -35.123146)
+
+[node name="PlatformBig11" parent="." unique_id=1360898853 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, 27.43391, -16.135107, -37.38546)
+
+[node name="PlatformBig12" parent="." unique_id=1763440743 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, 38.510715, -16.135103, 0.9400406)
+
+[node name="PlatformBig13" parent="." unique_id=1260962266 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, 12.834391, -16.135103, 26.946491)
+
+[node name="PlatformBig14" parent="." unique_id=1600889128 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -4.2545547, -16.135103, 31.439987)
+
+[node name="PlatformBig15" parent="." unique_id=1072034143 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.10187398, 0, -0.99479735, 0, 1, 0, 0.99479735, 0, 0.10187398, -32.035866, -16.135103, 24.217594)
+
+[node name="PlatformBig6" parent="." unique_id=1210572670 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.7346782, 0, -0.6784158, 0, 1, 0, 0.6784158, 0, 0.7346782, -15.611022, -16.1351, 20.804047)
+
+[node name="PlatformBig2" parent="." unique_id=142463159 instance=ExtResource("7_mmvlo")]
+transform = Transform3D(0.9536496, 0, -0.30091947, 0, 1, 0, 0.30091947, 0, 0.9536496, 26.16838, -16.1351, 10.565643)
