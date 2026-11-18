@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dewiffjv7crhx" path="res://assets/textures/terrain/structures/trunk_texture.png" id="2_sofy4"]
 [ext_resource type="ArrayMesh" uid="uid://b6bxni1vdx1ui" path="res://assets/models/terrain/boss/web.obj" id="4_5x1n0"]
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
+[ext_resource type="ArrayMesh" uid="uid://deglhnan0yfcd" path="res://assets/models/terrain/boss/trunk_root.obj" id="6_aaglm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5x1n0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -156,6 +157,26 @@ spot_angle_attenuation = 0.041234557
 layers = 2
 material_override = SubResource("StandardMaterial3D_nssyt")
 mesh = ExtResource("1_m4sqy")
+
+[node name="TrunkRoot" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=1110285240]
+transform = Transform3D(-0.92136616, 0, -0.38869554, 0, 1, 0, 0.38869554, 0, -0.92136616, 15.235574, 1.695631, -22.87045)
+material_override = SubResource("StandardMaterial3D_nssyt")
+mesh = ExtResource("6_aaglm")
+
+[node name="TrunkRoot2" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=1537123876]
+transform = Transform3D(-1.0913593, 0, 0.5298519, 0, 1.213181, 0, -0.5298519, 0, -1.0913593, 27.111584, 1.695631, 0.6802044)
+material_override = SubResource("StandardMaterial3D_nssyt")
+mesh = ExtResource("6_aaglm")
+
+[node name="TrunkRoot3" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=660913758]
+transform = Transform3D(0.9987782, 0, -0.04941582, 0, 1, 0, 0.04941582, 0, 0.9987782, -24.634245, 1.695631, 12.486956)
+material_override = SubResource("StandardMaterial3D_nssyt")
+mesh = ExtResource("6_aaglm")
+
+[node name="TrunkRoot4" type="MeshInstance3D" parent="StageTerrain/TrunkArena" unique_id=99605780]
+transform = Transform3D(0.5224651, 0, -1.0570235, 0, 1.1790966, 0, 1.0570235, 0, 0.5224651, -22.153418, 1.695631, -16.371834)
+material_override = SubResource("StandardMaterial3D_nssyt")
+mesh = ExtResource("6_aaglm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="StageTerrain/TrunkArena" unique_id=377527180]
 collision_layer = 2
