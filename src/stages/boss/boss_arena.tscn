@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
 [ext_resource type="ArrayMesh" uid="uid://deglhnan0yfcd" path="res://assets/models/terrain/boss/trunk_root.obj" id="6_aaglm"]
 [ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://src/terrain/mountain/platform/big/mountain_platform_big_1.tscn" id="7_mmvlo"]
-[ext_resource type="PackedScene" uid="uid://bica5b2qxhuh5" path="res://src/terrain/mountain/platform/small/mountain_platform_small_1.tscn" id="8_n14l8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5x1n0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -121,6 +120,7 @@ shader_parameter/uv2_offset = Vector3(0, 0, 0)
 
 [node name="BossArena" type="Node3D" unique_id=2049005284]
 script = ExtResource("1_g1u56")
+player_items_on_spawn = 3
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="." unique_id=902809094]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 1.3311081, 0)
@@ -129,8 +129,9 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 1.331108
 environment = SubResource("Environment_g1u56")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=373580563]
-transform = Transform3D(-0.43329602, 0.8995913, -0.054680742, -0.23285034, -0.053129554, 0.9710602, 0.8706522, 0.43348902, 0.23249084, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0, 0, 0)
 light_color = Color(0.8249552, 0.57426554, 0.40928346, 1)
+light_angular_distance = 24.82
 light_cull_mask = 4294966279
 shadow_enabled = true
 directional_shadow_mode = 0
@@ -151,10 +152,10 @@ transform = Transform3D(-0.60353845, 0, -0.797334, 0, 1, 0, 0.797334, 0, -0.6035
 transform = Transform3D(-0.9989008, 0, 0.046875596, 0, 1, 0, -0.046875596, 0, -0.9989008, -36.035946, -15.056385, -2.66317)
 
 [node name="PlatformBig16" parent="StageTerrain/Platforms" unique_id=443089846 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(-0.1836979, 0, 1.3420941, 0, 1, 0, -0.9829828, 0, -0.25080788, -5.1374545, -14.514843, -35.915646)
+transform = Transform3D(-0.1836979, 0, 1.3420941, 0, 1, 0, -0.9829828, 0, -0.25080788, -5.1374545, -14.664057, -35.915646)
 
 [node name="PlatformBig17" parent="StageTerrain/Platforms" unique_id=988513972 instance=ExtResource("7_mmvlo")]
-transform = Transform3D(-0.45098454, 0, 0.89253175, 0, 1, 0, -0.89253175, 0, -0.45098454, 30.466629, -14.514843, -18.850712)
+transform = Transform3D(-0.45098454, 0, 0.89253175, 0, 1, 0, -0.89253175, 0, -0.45098454, 30.466629, -14.945707, -18.850712)
 
 [node name="PlatformBig18" parent="StageTerrain/Platforms" unique_id=870844380 instance=ExtResource("7_mmvlo")]
 transform = Transform3D(0.73907566, 0, 0.78526646, 0, 1, 0, -0.9373559, 0, 0.6191579, 28.636106, -14.514843, 23.394411)
@@ -312,7 +313,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 transform = Transform3D(1.4410799, 1.2293035, 0.71444225, -1.260739, 0.6344584, 1.4513193, 0.65738285, -1.4780394, 1.2171985, -13.774051, 1.8596506, 15.382195)
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
-
-[node name="PlatformSmall1" parent="." unique_id=330586726 instance=ExtResource("8_n14l8")]
-transform = Transform3D(0.9992832, 0.037856027, 0, -0.037171632, 0.98121727, -0.18929084, -0.007165799, 0.18915516, 0.9819211, -0.12557064, -4.005478, 26.911999)
-visible = false
