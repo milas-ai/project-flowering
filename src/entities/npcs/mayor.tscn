@@ -2,8 +2,19 @@
 
 [ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_kss76"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_kss76"]
+radius = 5.0
+
 [node name="Mayor" type="StaticBody3D" unique_id=1459540555]
 collision_layer = 16
 collision_mask = 31
 script = ExtResource("1_kss76")
 metadata/_custom_type_script = "uid://v5ufhupi8wd"
+
+[node name="WaveArea" type="Area3D" parent="." unique_id=1935688545]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveArea" unique_id=1683758435]
+shape = SubResource("SphereShape3D_kss76")
+
+[connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
