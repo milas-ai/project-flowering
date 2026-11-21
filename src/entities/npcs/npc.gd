@@ -4,11 +4,13 @@ extends StaticBody3D
 
 const WAVE_COOLDOWN: float = 5.0
 
+@export var dialog_text: String
+
 var _wave_on_cooldown: bool = false
-var _player: Player = null
 
 @onready var _model: Node3D = $Model
 @onready var _animation_player: AnimationPlayer = $Model/AnimationPlayer
+@onready var _main_game: MainGame = $/root/MainGame
 
 
 func _ready() -> void:
@@ -26,11 +28,7 @@ func _on_wave_area_body_entered(player: Node) -> void:
 				func(): _wave_on_cooldown = false)
 
 
-func _on_dialog_area_body_entered(body: Node3D) -> void:
-	if _player == null:
-		_player = body as Player
-
-
 func _on_dialog_area_interacted() -> void:
-	_model.look_at(_player.global_transform.origin, Vector3.UP, true)
+	_model.look_at(_main_game.player.global_transform.origin, Vector3.UP, true)
 	_model.rotation.x = 0.0
+	_main_game.hud_root.display_dialog(tr(dialog_text))
