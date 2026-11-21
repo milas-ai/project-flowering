@@ -303,13 +303,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.66036, -0.7418976, 67.913
 [node name="NPCSpawnPoints" type="Node3D" parent="." unique_id=804357099]
 
 [node name="NPCSpawnPoint" type="Marker3D" parent="NPCSpawnPoints" unique_id=1954537953]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.6197, 10.582252, 28.61308)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 134.6197, 10.179694, 28.61308)
 script = ExtResource("22_10qvu")
 npc_type = 1
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint2" type="Marker3D" parent="NPCSpawnPoints" unique_id=2032177798]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.6852, 7.6324983, 52.65521)
+transform = Transform3D(-0.35533237, 0, -0.93473995, 0, 1, 0, 0.93473995, 0, -0.35533237, 128.6852, 7.6324983, 52.65521)
 script = ExtResource("22_10qvu")
 npc_type = 3
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
@@ -321,7 +321,7 @@ npc_type = 2
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint4" type="Marker3D" parent="NPCSpawnPoints" unique_id=1142833567]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.97202, 11.048289, 15.15774)
+transform = Transform3D(-0.5617381, 0, -0.82731515, 0, 1, 0, 0.82731515, 0, -0.5617381, 100.97202, 10.612839, 15.15774)
 script = ExtResource("22_10qvu")
 npc_type = 4
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
@@ -351,7 +351,7 @@ script = ExtResource("23_1g4f3")
 metadata/_custom_type_script = "uid://daqkgqctr3tqp"
 
 [node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=1186965863]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.172928, -5.3951187, 14.238739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.172916, -7.209938, 14.238716)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=881830555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0282059, 0, 1.3082428)
@@ -360,7 +360,7 @@ shape = SubResource("BoxShape3D_10qvu")
 [node name="Markers" type="Node3D" parent="." unique_id=1563299946]
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 126.774254, 11.897856, 10.751354)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 126.774254, 9.875639, 10.751354)
 
 [node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=540265553]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.45497, 26.719849, 33.097343)
