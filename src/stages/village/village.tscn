@@ -54,7 +54,7 @@ volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
-radius = 4.7269745
+radius = 4.67
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10qvu"]
 size = Vector3(21.749023, 12.27124, 14.760742)
@@ -321,8 +321,9 @@ npc_type = 2
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint4" type="Marker3D" parent="NPCSpawnPoints" unique_id=1142833567]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.97202, 11.514598, 15.15774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.97202, 11.048289, 15.15774)
 script = ExtResource("22_10qvu")
+npc_type = 4
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint5" type="Marker3D" parent="NPCSpawnPoints" unique_id=1562249164]
@@ -334,6 +335,7 @@ metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="ExitArea" type="Area3D" parent="InteractableAreas" unique_id=1113734005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.59209, 0.6799233, 29.949116)
+collision_layer = 0
 script = ExtResource("23_vtwvq")
 metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
 
