@@ -315,9 +315,8 @@ npc_type = 3
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint3" type="Marker3D" parent="NPCSpawnPoints" unique_id=704617216]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.744156, 7.789584, 37.220848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.744156, 7.36176, 37.220848)
 script = ExtResource("22_10qvu")
-npc_type = 2
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint4" type="Marker3D" parent="NPCSpawnPoints" unique_id=1142833567]
@@ -329,6 +328,7 @@ metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 [node name="NPCSpawnPoint5" type="Marker3D" parent="NPCSpawnPoints" unique_id=1562249164]
 transform = Transform3D(0.989117, -0.1471311, 0, 0.1471311, 0.989117, 0, 0, 0, 1, 71.69552, 6.497406, 18.26991)
 script = ExtResource("22_10qvu")
+npc_type = 2
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="InteractableAreas" type="Node3D" parent="." unique_id=1085769653]
