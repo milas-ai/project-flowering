@@ -15,6 +15,7 @@ extends Node3D
 @export var spawn_on_checkpoint: bool = false
 
 @onready var enemy_spawn_points := get_tree().get_nodes_in_group("enemy_spawn_points")
+@onready var npc_spawn_points := get_tree().get_nodes_in_group("npc_spawn_points")
 @onready var current_checkpoint: Marker3D
 @onready var _player_spawn_point: Marker3D
 @onready var _camera_position_marker: Marker3D

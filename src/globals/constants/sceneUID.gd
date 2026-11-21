@@ -19,6 +19,14 @@ class ENEMIES:
 	const ROLY_POLY: String = "uid://bhd5vasd3pgwm"
 
 
+class NPCS:
+	const ORANGE: String = "uid://ckokt5nwdxp83"
+	const PINK: String = "uid://boo15dcygv2lt"
+	const GREEN: String = "uid://c1f26q0l347dq"
+	const BROWN: String = "uid://b6otiyssxa3ep"
+	const MAYOR: String = "uid://c6vwrp6j6tlc0"
+
+
 class ENTITIES:
 	const BEETLE_BULLET: String = "uid://dvfpc7xbno2al"
 

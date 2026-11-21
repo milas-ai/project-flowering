@@ -165,6 +165,7 @@ locale/translations=PackedStringArray("res://assets/translations/translations.pt
 3d_physics/layer_2="world"
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="pushable"
+3d_physics/layer_5="npc"
 
 [physics]
 
@@ -174,8 +175,6 @@ locale/translations=PackedStringArray("res://assets/translations/translations.pt
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
 anti_aliasing/screen_space_roughness_limiter/enabled=false
 
 [shader_globals]

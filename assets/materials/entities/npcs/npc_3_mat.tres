@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d0hxkto6akyxj"]
+
+[ext_resource type="Texture2D" uid="uid://di4q4yqifi64q" path="res://assets/textures/npcs/npc_3_texture.png" id="1_fhn2v"]
+
+[resource]
+resource_name = "npc_3_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_fhn2v")
+roughness = 0.5
+stencil_mode = 3
+stencil_flags = 2

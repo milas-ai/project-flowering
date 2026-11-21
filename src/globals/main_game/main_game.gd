@@ -49,7 +49,7 @@ func transition_to_stage(stage_scene_uid: String) -> void:
 	var aspect_ratio: float = window_size.x / window_size.y
 
 	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
-	_init_stage(stage_scene_uid)
+	_setup_stage(stage_scene_uid)
 	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 
 
@@ -72,7 +72,7 @@ func init_game(new_game: bool = false) -> void:
 	if new_game:
 		SaveManager.delete_save()
 		_current_stage_uid = SceneUID.STAGES.PROLOGUE_VILLAGE
-	await _init_stage(_current_stage_uid)
+	await _setup_stage(_current_stage_uid)
 	ControllerManager.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -119,7 +119,7 @@ func _load_stage(stage_scene_uid: String) -> void:
 	stage_root.add_child(_current_stage)
 
 
-func _init_stage(stage_scene_uid: String) -> void:
+func _setup_stage(stage_scene_uid: String) -> void:
 	# Avoid collision issues during stage transition
 	player.global_position.y = 1000.0
 	
@@ -133,6 +133,7 @@ func _init_stage(stage_scene_uid: String) -> void:
 
 	pause_root.init_options_menu()
 	entity_root.spawn_enemies(_current_stage.enemy_spawn_points)
+	entity_root.spawn_npcs(_current_stage.npc_spawn_points)
 
 	if _current_stage.has_life_hud:
 		hud_root.load_main_stage_hud()
@@ -252,7 +253,7 @@ func _on_player_dead() -> void:
 	await hud_root.animate_vignette(0.15, player.animation_player.current_animation_length/2)
 	await player.animation_player.animation_finished
 	await hud_root.animate_vignette(0.0, 0.5 / aspect_ratio * (4.0/3.0))
-	await _init_stage(_current_stage_uid)
+	await _setup_stage(_current_stage_uid)
 	player.state_machine.transition_to("StatePlayerIdle")
 	await hud_root.animate_vignette(aspect_ratio / (4.0/3.0), 1.25)
 	ControllerManager.input_lock = false

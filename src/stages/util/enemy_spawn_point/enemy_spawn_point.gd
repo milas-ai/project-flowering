@@ -2,6 +2,7 @@
 class_name EnemySpawnPoint
 extends Marker3D
 
+
 ## Steady enemies will not move from their spawn point.
 @export var steady: bool = false
 ## Percentage increase to the enemy's attack range.

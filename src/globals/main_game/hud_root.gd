@@ -22,7 +22,7 @@ func load_main_stage_hud() -> void:
 
 
 func display_dialog(dialog_text: String) -> void:
-	get_tree().paused = true
+	ControllerManager.input_lock = true
 	_dialog_box.process_mode = PROCESS_MODE_INHERIT
 	_dialog_box.display_dialog(_trim_dialog_text(dialog_text))
 
@@ -87,7 +87,7 @@ func init_main_menu() -> void:
 
 func _on_dialog_box_dialog_finished() -> void:
 	_dialog_box.process_mode = PROCESS_MODE_DISABLED
-	get_tree().paused = false
+	ControllerManager.input_lock = false
 
 
 func _trim_dialog_text(dialog_text: String) -> String:

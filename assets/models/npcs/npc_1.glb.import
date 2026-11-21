@@ -36,17 +36,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=0
+materials/extract=2
 materials/extract_format=0
-materials/extract_path=""
+materials/extract_path="res://assets/materials/entities/npcs"
 _subresources={
 "animations": {
 "Idle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/npcs/Idle.res",
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://bbqyxnfh047uq",
-"settings/loop_mode": 0,
+"save_to_file/fallback_path": "res://assets/animations/npcs/npc_1_idle.res",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "uid://uq2bhgmpihtp",
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -2099,9 +2099,9 @@ _subresources={
 },
 "Wave": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/npcs/Wave.res",
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://d3n1h3u2jgisb",
+"save_to_file/fallback_path": "res://assets/animations/npcs/npc_1_wave.res",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "uid://d07cl6j4m0irk",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -4152,6 +4152,13 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"materials": {
+"npc_1_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/entities/npcs/npc_1_mat.tres",
+"use_external/path": "uid://dkv6je4yfiuj7"
 }
 }
 }
