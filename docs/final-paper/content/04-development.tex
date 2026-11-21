@@ -8,21 +8,20 @@
 
 Para alcançar a estética desejada, a pixelização do mundo não foi
 implementada por meio de um efeito de pós-processamento aplicado sobre a
-imagem final, mas sim por redução direta de escala (\textit{downscale}) no \textit{viewport}.
-Em vez de renderizar a cena em resolução superior e executar um cálculo
+imagem final, mas sim por uma redução direta da resolução de renderização.
+Em vez de renderizar a cena em resolução normal e executar um cálculo
 adicional de pós-processamento apenas para reduzir a qualidade visual,
 renderizar diretamente em uma resolução interna menor evita trabalho
-desnecessário de rasterização e economiza processamento da GPU.
+desnecessário e economiza processamento da GPU.
 
 O projeto adota uma resolução base de referência de $1600 \times 1200$ com o modo
-de `esticar' configurado em \textbf{\textit{keep\_height}} na Godot, mantendo a altura de $1200$ como
-referência vertical e ajustando a largura proporcionalmente ao \textit{aspect
-ratio} da tela (como monitores 21:9). O sistema de renderização foi estruturado a
+de `esticar' configurado em \textbf{\textit{keep\_height}} na Godot, mantendo a altura de $1200$ \textit{pixels} como
+referência vertical e ajustando a largura proporcionalmente à razão de aspecto da janela. O sistema de renderização foi estruturado a
 partir do nó \textbf{MainGame} com a separação do fluxo visual em diferentes \textit{viewports}.
 Essa divisão permite aplicar o efeito de pixelização exclusivamente ao espaço
 do mundo, preservando a nitidez da interface e das instruções na cena.
 
-O primeiro \textit{viewport} corresponde ao \textbf{GameViewport} --- que é um nó \textit{SubViewportContainer} e seu respectivo
+O primeiro \textit{viewport} corresponde ao \textbf{GameViewport} --- que é um nó \textit{ViewportContainer} e seu respectivo
 \textit{SubViewport} que abriga o mundo do jogo --- e executa a redução de escala
 (\textit{downscale}) por meio do parâmetro `taxa de pixelização', que controla o
 \textbf{\textit{stretch\_shrink}} do \textit{viewport}. Com a taxa padrão igual a \textbf{4}, o \textbf{\textit{stretch\_shrink}}
@@ -34,10 +33,11 @@ O segundo \textit{subviewport} é dedicado a elementos auxiliares de HUD que
 aparecem na cena --- como indicadores flutuantes sobre itens interativos
 (por exemplo, quando o jogador se aproxima do item \textbf{Tampa} para coletá-lo,
 é exibida a tecla \textit{E} se ele estiver jogando no teclado.) ---, permanecendo fora do
-downscale do \textbf{GameViewport}. Já telas como o menu principal são compostas em camadas
-de interface sobrepostas posteriormente, sem depender desse \textit{subviewport} de cena
-nem do uso de \textit{spatial shaders} voltados ao espaço 3D, o que garante leitura nítida
-dos menus.
+downscale do \textbf{GameViewport}.
+
+Telas como o menu principal ou menu de pause são compostas em camadas de interface desenhadas
+depois e no topo de elementos e efeitos 3D, não sendo afetadas pelo \textit{downscale} do \textit{viewport} e nem pelos efeitos
+de pós-processamento.
 
 Essa arquitetura garante que a estética pixelizada do mundo não atrapalhe
 a legibilidade das interfaces e permite que sejam ajustáveis. Porém, essa abordagem
