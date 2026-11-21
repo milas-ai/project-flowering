@@ -32,7 +32,14 @@ func _on_wave_area_body_entered(player: Node) -> void:
 
 
 func _on_dialog_area_interacted() -> void:
-	_model.look_at(_main_game.player.global_transform.origin, Vector3.UP, use_model_front)
+	var player: Player = _main_game.player
+	
+	_model.look_at(player.global_transform.origin, Vector3.UP, use_model_front)
 	_model.rotation.x = 0.0
+
+	player.input_direction = Vector3.ZERO
+	player.character_model.look_at(_model.global_transform.origin, Vector3.UP, true)
+	player.forward_direction = player.character_model.global_transform.basis.z
+	
 	_main_game.hud_root.display_dialog(tr(dialog_text))
 	emit_signal("dialog_finished", name)
