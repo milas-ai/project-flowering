@@ -43,9 +43,9 @@ _subresources={
 "animations": {
 "Idle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/npcs/Idle.res",
+"save_to_file/fallback_path": "res://assets/animations/npcs/npc_4_idle.res",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://bbqyxnfh047uq",
+"save_to_file/path": "uid://1d0ffgr13u6m",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2099,9 +2099,9 @@ _subresources={
 },
 "Wave": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/animations/npcs/Wave.res",
+"save_to_file/fallback_path": "res://assets/animations/npcs/npc_4_wave.res",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "uid://d3n1h3u2jgisb",
+"save_to_file/path": "uid://76hmsydwxsg4",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
