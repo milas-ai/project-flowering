@@ -18,6 +18,7 @@ collision_layer = 16
 collision_mask = 31
 script = ExtResource("1_ckk5u")
 dialog_text = "BROWN_DIALOG"
+use_model_front = true
 metadata/_custom_type_script = "uid://v5ufhupi8wd"
 
 [node name="Model" parent="." unique_id=761738611 instance=ExtResource("2_3ebm0")]

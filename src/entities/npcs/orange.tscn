@@ -19,6 +19,7 @@ collision_layer = 16
 collision_mask = 31
 script = ExtResource("1_saqhp")
 dialog_text = "ORANGE_DIALOG"
+use_model_front = true
 metadata/_custom_type_script = "uid://v5ufhupi8wd"
 
 [node name="Model" parent="." unique_id=229137697 instance=ExtResource("2_7u5ah")]
