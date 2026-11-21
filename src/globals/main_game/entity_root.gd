@@ -2,6 +2,7 @@ class_name EntityRoot
 extends Node3D
 
 
+@onready var _main_game: MainGame = $/root/MainGame
 @onready var _beetle_bullet_scene: PackedScene = preload(SceneUID.ENTITIES.BEETLE_BULLET)
 @onready var _roly_poly_scene: PackedScene = preload(SceneUID.ENEMIES.ROLY_POLY)
 @onready var _beetle_scene: PackedScene = preload(SceneUID.ENEMIES.BEETLE)
@@ -50,6 +51,7 @@ func spawn_npcs(spawn_points: Array) -> void:
 		npc.position = spawn_point.global_position
 		npc.rotation = spawn_point.global_rotation
 		add_child(npc)
+		npc.dialog_finished.connect(_main_game._current_stage._on_npc_dialog_finished)
 
 
 func _on_beetle_shoot(direction: Vector3, location: Vector3, speed: float) -> void:

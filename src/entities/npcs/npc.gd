@@ -2,6 +2,8 @@ class_name NPC
 extends StaticBody3D
 
 
+signal dialog_finished(npc_name: String)
+
 const WAVE_COOLDOWN: float = 5.0
 
 @export var dialog_text: String
@@ -32,3 +34,4 @@ func _on_dialog_area_interacted() -> void:
 	_model.look_at(_main_game.player.global_transform.origin, Vector3.UP, true)
 	_model.rotation.x = 0.0
 	_main_game.hud_root.display_dialog(tr(dialog_text))
+	emit_signal("dialog_finished", name)
