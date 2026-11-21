@@ -2,6 +2,8 @@ class_name NPC
 extends StaticBody3D
 
 
+const WAVE_COOLDOWN: float = 5.0
+
 var _wave_on_cooldown: bool = false
 
 @onready var _model: Node3D = $Model
@@ -15,8 +17,8 @@ func _ready() -> void:
 func _on_wave_area_body_entered(player: Node) -> void:
 	if not _wave_on_cooldown:
 		_wave_on_cooldown = true
-		_model.rotation.y = player.position.x - _model.position.x
+		_model.look_at(player.global_transform.origin, Vector3.UP, true)
 		_animation_player.play("Wave")
 		_animation_player.queue("Idle")
-		await get_tree().create_timer(5.0).timeout
-		_wave_on_cooldown = false
+		get_tree().create_timer(WAVE_COOLDOWN).timeout.connect(
+				func(): _wave_on_cooldown = false)
