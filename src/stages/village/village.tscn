@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bdex5k5ykp1o0" path="res://src/terrain/village/flag.tscn" id="22_1n1f1"]
 [ext_resource type="Script" uid="uid://dgnwggxyjrkj5" path="res://src/stages/util/npc_spawn_point.gd" id="22_10qvu"]
 [ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="23_1g4f3"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="23_vtwvq"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="32_v6gdv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
@@ -51,6 +52,9 @@ fog_aerial_perspective = 0.536
 fog_depth_curve = 0.2773919
 volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 4.7269745
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10qvu"]
 size = Vector3(21.749023, 12.27124, 14.760742)
@@ -326,6 +330,16 @@ transform = Transform3D(0.989117, -0.1471311, 0, 0.1471311, 0.989117, 0, 0, 0, 1
 script = ExtResource("22_10qvu")
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
+[node name="InteractableAreas" type="Node3D" parent="." unique_id=1085769653]
+
+[node name="ExitArea" type="Area3D" parent="InteractableAreas" unique_id=1113734005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.59209, 0.6799233, 29.949116)
+script = ExtResource("23_vtwvq")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreas/ExitArea" unique_id=1986024413]
+shape = SubResource("SphereShape3D_nhhn2")
+
 [node name="CheckPoints" type="Node3D" parent="." unique_id=1718981946]
 
 [node name="CheckPointArea" type="Area3D" parent="CheckPoints" unique_id=757608029]
@@ -361,4 +375,5 @@ shape = SubResource("BoxShape3D_end7g")
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
+[connection signal="interacted" from="InteractableAreas/ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_body_entered"]
