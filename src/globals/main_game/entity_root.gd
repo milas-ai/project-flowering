@@ -50,6 +50,9 @@ func spawn_npcs(spawn_points: Array) -> void:
 				continue
 		npc.position = spawn_point.global_position
 		npc.rotation = spawn_point.global_rotation
+		if spawn_point.dialog_text:
+			npc.dialog_text = spawn_point.dialog_text
+
 		add_child(npc)
 		npc.dialog_finished.connect(_main_game._current_stage._on_npc_dialog_finished)
 
