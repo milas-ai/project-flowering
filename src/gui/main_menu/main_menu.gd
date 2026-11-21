@@ -91,5 +91,7 @@ func _update_banner_texture() -> void:
 			%Banner.texture = _banner_texture_yellow
 		SceneUID.STAGES.CAVE:
 			%Banner.texture = _banner_texture_pink
+		SceneUID.STAGES.EPILOGUE_VILLAGE:
+			%Banner.texture = _banner_texture_green
 		_:
 			push_error("Invalid stage UID: %s" % display_stage)
