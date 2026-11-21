@@ -82,6 +82,8 @@ shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
 [node name="EpilogueVillage" type="Node3D" unique_id=1946993283]
 script = ExtResource("1_she11")
+has_life_hud = false
+turntable_camera_size = 35
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]

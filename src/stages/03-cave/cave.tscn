@@ -1217,4 +1217,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_8svx8")
 [connection signal="body_entered" from="StageTerrain/Section4/Water2/RespawnArea2" to="." method="_on_respawn_area_3d_body_entered"]
 [connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
 [connection signal="interacted" from="InteractableAreas/DisplayScissorsTutorialArea" to="." method="_on_display_scissors_tutorial_area_interacted"]
-[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
+[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_body_entered"]
