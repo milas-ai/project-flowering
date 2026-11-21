@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bylhtxg58dhou"]
 
-[ext_resource type="Script" uid="uid://coiebjk0s1bjk" path="res://src/stages/cave/cave.gd" id="1_2sot5"]
+[ext_resource type="Script" uid="uid://coiebjk0s1bjk" path="res://src/stages/03-cave/cave.gd" id="1_2sot5"]
 [ext_resource type="PackedScene" uid="uid://dlvaf3nmsfnct" path="res://src/terrain/cave/platform/big/cave_platform_big_1.tscn" id="2_2sot5"]
 [ext_resource type="PackedScene" uid="uid://b65b7b7oqkip2" path="res://src/terrain/cave/rock/big/cave_rock_big_2.tscn" id="3_e3d7y"]
 [ext_resource type="PackedScene" uid="uid://dhpgr7r0jqhjf" path="res://src/terrain/cave/pillar/cave_pillar_short.tscn" id="4_3ga86"]

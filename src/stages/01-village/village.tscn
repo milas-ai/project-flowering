@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cawgug5pc6il8"]
 
+[ext_resource type="Script" uid="uid://bj8ehf8c8um05" path="res://src/stages/01-village/village.gd" id="1_1g4f3"]
 [ext_resource type="PackedScene" uid="uid://bw4lt07esacv8" path="res://src/terrain/trees/tree_2.tscn" id="6_8xppe"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="7_oh8wm"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="8_4r4mc"]
@@ -24,10 +25,6 @@
 [ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="23_1g4f3"]
 [ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="23_vtwvq"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="32_v6gdv"]
-
-[sub_resource type="GDScript" id="GDScript_bei1c"]
-script/source = "extends BaseStage
-"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -83,8 +80,10 @@ shader_parameter/color2 = Color(0, 0.27225816, 0.5365715, 1)
 shader_parameter/scale = 0.02
 shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
-[node name="EpilogueVillage" type="Node3D" unique_id=138948264]
-script = SubResource("GDScript_bei1c")
+[node name="Village" type="Node3D" unique_id=138948264]
+script = ExtResource("1_1g4f3")
+has_life_hud = false
+turntable_camera_size = 35
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]

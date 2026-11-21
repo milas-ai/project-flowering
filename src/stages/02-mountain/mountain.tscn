@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnohyrkccqdd6"]
 
-[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/mountain/mountain.gd" id="1_jmp0g"]
+[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/02-mountain/mountain.gd" id="1_jmp0g"]
 [ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/mountain/mountain_blockout.tscn" id="2_4se7b"]
 [ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_1.tscn" id="4_iwdui"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="5_y0856"]
