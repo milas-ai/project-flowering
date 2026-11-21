@@ -7,3 +7,5 @@ resource_name = "npc_3_mat"
 cull_mode = 2
 albedo_texture = ExtResource("1_fhn2v")
 roughness = 0.5
+stencil_mode = 3
+stencil_flags = 2
