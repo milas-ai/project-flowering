@@ -9,6 +9,9 @@ extends Node
 		"Prologue Village",
 		"Mountain",
 		"Cave",
+		"Forest",
+		"Boss Arena",
+		"Epilogue Village",
 ) var debug_stage: int = 0
 
 var player: Player = null
