@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f4x75q1mltoq"]
 
-[ext_resource type="Script" uid="uid://b5wayuv1m3pfo" path="res://src/stages/06-epilogue_village/epilogue_village.gd" id="1_she11"]
+[ext_resource type="Script" uid="uid://duu016e02tjwd" path="res://src/stages/base_stage.gd" id="1_she11"]
 [ext_resource type="PackedScene" uid="uid://bw4lt07esacv8" path="res://src/terrain/trees/tree_2.tscn" id="6_8xppe"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="7_oh8wm"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="8_4r4mc"]
@@ -74,9 +74,6 @@ shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
 [node name="EpilogueVillage" type="Node3D" unique_id=1946993283]
 script = ExtResource("1_she11")
-has_life_hud = false
-player_items_on_spawn = 3
-turntable_camera_size = 35
 metadata/_custom_type_script = "uid://duu016e02tjwd"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
