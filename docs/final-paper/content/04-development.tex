@@ -43,3 +43,37 @@ Essa arquitetura garante que a estética pixelizada do mundo não atrapalhe
 a legibilidade das interfaces e permite que sejam ajustáveis. Porém, essa abordagem
 acaba gerando circunstâncias que influenciam o cálculo de entradas e a rotação da
 câmera, detalhados na próxima seção.
+
+\section{Sistema de Câmera}
+\label{sec:sistema_de_visualizacao}
+
+O sistema de câmera foi estruturado para oferecer uma visão isométrica em
+projeção ortogonal com rotação livre em {\boldmath $360^\circ$} ao redor do personagem. Na
+hierarquia da cena, um nó \textbf{CameraPivot} (\textbf{Node3D}) atua como filho do nó \textbf{Player}
+(\textbf{CharacterBody3D}), iniciando com rotação de {\boldmath $45^\circ$} no eixo \textbf{Y} e {\boldmath $0^\circ$} nos eixos \textbf{X}
+e \textbf{Z}. A \textbf{Camera3D} é filha de CameraPivot, configurada em modo ortogonal com
+parâmetro \textbf{\textit{size}} igual a $\mathbf{15}$ metros --- esse valor representa o total de metros
+visíveis de uma borda a outra da tela, e sua propriedade \textbf{\textit{keep\_aspect}} está definida como
+\textbf{\textit{keep\_height}}, o que faz com que esse valor indique especificamente a altura, ajustando
+a largura conforme a proporção da janela ---, posicionada em \textbf{(0, 50, 50)} em relação ao pivô e inclinada em
+{\boldmath $-45^\circ$} no eixo \textbf{X} para compor o enquadramento isométrico.
+
+A rotação horizontal do ponto de vista ocorre aplicando a função
+\mbox{\textbf{\_camera\_pivot.rotate\_y()}} a partir de duas fontes de entrada: movimento
+do mouse (\textbf{\_mouse\_rotate()}) e eixo analógico de controle (\textbf{\_joystick\_rotate()}).
+
+No caso do mouse, o deslocamento relativo captado é diretamente impactado pela redução da resolução
+de renderização. Isso exige que o evento seja transformado pela
+matriz final do \textit{viewport} (pela função \mbox{\textbf{get\_tree().root.get\_final\_transform()}} através de
+\mbox{\textbf{event.xformed\_by(viewport\_transform).relative}}), normalizando o movimento
+em relação à transformação final da tela antes de calcular a rotação, sendo esse efeito compensado posteriormente pelo \textbf{\textit{pixelization\_level}}.
+
+Para manter a resposta de rotação coerente com a configuração visual e a
+sensibilidade escolhida pelo jogador, ambas as funções escalam o
+deslocamento horizontal (\textbf{\textit{mouse\_motion.x}} ou \textbf{\textit{axis\_value}}) pela sensibilidade
+configurada \textbf{\textit{camera\_sensitivity}}, pelo nível de pixelização \textbf{\textit{pixelization\_level}}
+e por constantes de conversão específicas escolhidas por periférico (\textbf{\mbox{MOUSE\_DEGREES\_PER\_UNIT} = $\mathbf{0.0002}$}
+e \textbf{\mbox{JOYSTICK\_DEGREES\_PER\_UNIT} = $\mathbf{0.001}$}), com sinal negativo para alinhar o sentido
+da rotação ao comando. Diferentemente do deslocamento suavizado do personagem
+--- que emprega \textbf{\textit{lerpfd}} e será detalhado na próxima seção ---, a rotação do
+pivô responde diretamente aos valores de entrada de cada evento/atualização.
