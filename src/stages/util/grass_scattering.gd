@@ -6,6 +6,7 @@ const GRASS_COUNT_FACTOR: float = 1
 
 @export_range(0, 100) var grass_ammount: float = 100
 @export var target_mesh: MeshInstance3D
+@export var blade_weights: PackedInt32Array = [8, 0, 0, 0, 0, 0, 0, 0]
 @export_tool_button("Scatter Grass") var scatter = scatter_grass
 
 var multimesh_instance: MultiMeshInstance3D
@@ -39,7 +40,8 @@ func scatter_grass_in_multimesh_instance() -> void:
 	
 	multimesh_instance.multimesh = MultiMesh.new()
 	multimesh_instance.multimesh.mesh = load(AssetUID.MODEL.TERRAIN.GRASS)
-	multimesh_instance.material_override = load(AssetUID.MATERIAL.TERRAIN.GRASS)
+	multimesh_instance.material_override = load(AssetUID.MATERIAL.TERRAIN.GRASS).duplicate()
+	multimesh_instance.material_override.set("shader_parameter/blade_weights", blade_weights)
 	multimesh_instance.multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh_instance.multimesh.instance_count = grass_count
 	multimesh_instance.multimesh.visible_instance_count = grass_count
