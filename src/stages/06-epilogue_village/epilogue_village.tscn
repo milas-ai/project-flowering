@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f4x75q1mltoq"]
 
-[ext_resource type="Script" uid="uid://duu016e02tjwd" path="res://src/stages/base_stage.gd" id="1_she11"]
+[ext_resource type="Script" uid="uid://cxfahuw7cj6j4" path="res://src/stages/06-epilogue_village/epilogue_village.gd" id="1_fg805"]
 [ext_resource type="PackedScene" uid="uid://bnp4eseh75wws" path="res://src/terrain/epilogue_village/platform/small/epilogue_platform_small_1.tscn" id="3_wgajb"]
 [ext_resource type="PackedScene" uid="uid://ddue678olnvf3" path="res://src/terrain/props/trees/tree_3.tscn" id="5_fj1uc"]
 [ext_resource type="PackedScene" uid="uid://tto0oqtpsmid" path="res://src/terrain/props/trees/tree_4.tscn" id="6_wgajb"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://cbg6krkyx1sfm" path="res://src/terrain/props/boat.tscn" id="22_1g4f3"]
 [ext_resource type="PackedScene" uid="uid://bdex5k5ykp1o0" path="res://src/terrain/village/flag.tscn" id="22_1n1f1"]
 [ext_resource type="Script" uid="uid://dgnwggxyjrkj5" path="res://src/stages/util/npc_spawn_point.gd" id="22_10qvu"]
+[ext_resource type="PackedScene" uid="uid://cmmjljlplwkwv" path="res://src/terrain/props/sign.tscn" id="22_thxkp"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="24_nhcuj"]
 [ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="32_v6gdv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
@@ -51,6 +53,9 @@ fog_depth_curve = 0.2773919
 volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 3.5314045
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_end7g"]
 size = Vector3(550, 1, 850)
 
@@ -73,7 +78,7 @@ shader_parameter/scale = 0.02
 shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
 [node name="EpilogueVillage" type="Node3D" unique_id=1946993283]
-script = ExtResource("1_she11")
+script = ExtResource("1_fg805")
 has_life_hud = false
 player_items_on_spawn = 3
 turntable_camera_size = 35
@@ -294,6 +299,9 @@ transform = Transform3D(0.76782763, -0.1778342, 0.48211092, 0.3224529, 0.8416612
 [node name="PlatformMedium9" parent="StageTerrain" unique_id=1111790279 instance=ExtResource("10_wgajb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.66036, -0.7418976, 67.913795)
 
+[node name="Sign" parent="StageTerrain" unique_id=1537760339 instance=ExtResource("22_thxkp")]
+transform = Transform3D(-0.70483863, 0, -0.7093676, 0, 1, 0, 0.7093676, 0, -0.70483863, 122.22974, 9.803927, 13.642164)
+
 [node name="NPCSpawnPoints" type="Node3D" parent="." unique_id=804357099]
 
 [node name="NPCSpawnPoint" type="Marker3D" parent="NPCSpawnPoints" unique_id=1954537953]
@@ -330,6 +338,16 @@ script = ExtResource("22_10qvu")
 dialog_text = "EPILOGUE_GREEN_DIALOG"
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
+[node name="InteractableAreas" type="Node3D" parent="." unique_id=404675650]
+
+[node name="DisplayCreditsArea" type="Area3D" parent="InteractableAreas" unique_id=1249803398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.22974, 10.1095915, 13.642164)
+script = ExtResource("24_nhcuj")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreas/DisplayCreditsArea" unique_id=6784469]
+shape = SubResource("SphereShape3D_nhhn2")
+
 [node name="Markers" type="Node3D" parent="." unique_id=1563299946]
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
@@ -350,4 +368,5 @@ shape = SubResource("BoxShape3D_end7g")
 mesh = SubResource("PlaneMesh_kgtat")
 surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
 
+[connection signal="interacted" from="InteractableAreas/DisplayCreditsArea" to="." method="_on_display_credits_area_interacted"]
 [connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_body_entered"]
