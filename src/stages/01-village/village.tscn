@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cawgug5pc6il8"]
 
 [ext_resource type="Script" uid="uid://bj8ehf8c8um05" path="res://src/stages/01-village/village.gd" id="1_1g4f3"]
-[ext_resource type="PackedScene" uid="uid://bw4lt07esacv8" path="res://src/terrain/trees/tree_2.tscn" id="6_8xppe"]
+[ext_resource type="PackedScene" uid="uid://bw4lt07esacv8" path="res://src/terrain/props/trees/tree_2.tscn" id="6_8xppe"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="7_oh8wm"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="8_4r4mc"]
 [ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_1.tscn" id="9_4r4mc"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bixk1a1wx0akg" path="res://src/terrain/village/huts/hut_3.tscn" id="17_hp4sh"]
 [ext_resource type="PackedScene" uid="uid://bica5b2qxhuh5" path="res://src/terrain/mountain/platform/small/mountain_platform_small_1.tscn" id="18_hp4sh"]
 [ext_resource type="PackedScene" uid="uid://b7g6fb68u2pcl" path="res://src/terrain/mountain/platform/big/mountain_platform_big_2.tscn" id="19_1nc6q"]
-[ext_resource type="PackedScene" uid="uid://dip1pjjblibu1" path="res://src/terrain/trees/tree_1.tscn" id="19_u7ji4"]
+[ext_resource type="PackedScene" uid="uid://dip1pjjblibu1" path="res://src/terrain/props/trees/tree_1.tscn" id="19_u7ji4"]
 [ext_resource type="PackedScene" uid="uid://bqblpynjgshjm" path="res://src/terrain/village/farmland.tscn" id="20_lchvh"]
 [ext_resource type="PackedScene" uid="uid://8ujh8a3oeb6n" path="res://src/terrain/village/tower.tscn" id="21_end7g"]
 [ext_resource type="PackedScene" uid="uid://cbg6krkyx1sfm" path="res://src/terrain/props/boat.tscn" id="22_1g4f3"]
