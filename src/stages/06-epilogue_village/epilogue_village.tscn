@@ -74,6 +74,7 @@ shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
 
 [node name="EpilogueVillage" type="Node3D" unique_id=1946993283]
 script = ExtResource("1_she11")
+has_life_hud = false
 player_items_on_spawn = 3
 turntable_camera_size = 35
 metadata/_custom_type_script = "uid://duu016e02tjwd"
@@ -296,37 +297,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.66036, -0.7418976, 67.913
 [node name="NPCSpawnPoints" type="Node3D" parent="." unique_id=804357099]
 
 [node name="NPCSpawnPoint" type="Marker3D" parent="NPCSpawnPoints" unique_id=1954537953]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 134.6197, 10.179694, 28.61308)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 137.58412, 7.673835, 47.510986)
 script = ExtResource("22_10qvu")
 dialog_text = "EPILOGUE_PINK_DIALOG"
 npc_type = 1
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint2" type="Marker3D" parent="NPCSpawnPoints" unique_id=2032177798]
-transform = Transform3D(-0.35533237, 0, -0.93473995, 0, 1, 0, 0.93473995, 0, -0.35533237, 128.6852, 7.6324983, 52.65521)
+transform = Transform3D(-0.35533237, 0, -0.93473995, 0, 1, 0, 0.93473995, 0, -0.35533237, 124.94177, 7.1411653, 52.291317)
 script = ExtResource("22_10qvu")
 dialog_text = "EPILOGUE_BROWN_DIALOG"
 npc_type = 3
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint3" type="Marker3D" parent="NPCSpawnPoints" unique_id=704617216]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.744156, 7.36176, 37.220848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.744156, 7.571965, 36.36711)
 script = ExtResource("22_10qvu")
 dialog_text = "EPILOGUE_ORANGE_DIALOG"
+npc_type = 2
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint4" type="Marker3D" parent="NPCSpawnPoints" unique_id=1142833567]
-transform = Transform3D(-0.5617381, 0, -0.82731515, 0, 1, 0, 0.82731515, 0, -0.5617381, 100.97202, 10.612839, 15.15774)
+transform = Transform3D(-0.5617381, 0, -0.82731515, 0, 1, 0, 0.82731515, 0, -0.5617381, 94.93952, 10.612839, 14.003748)
 script = ExtResource("22_10qvu")
 dialog_text = "EPILOGUE_MAYOR_DIALOG"
 npc_type = 4
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="NPCSpawnPoint5" type="Marker3D" parent="NPCSpawnPoints" unique_id=1562249164]
-transform = Transform3D(0.989117, -0.1471311, 0, 0.1471311, 0.989117, 0, 0, 0, 1, 71.69552, 6.497406, 18.26991)
+transform = Transform3D(0.989117, -0.1471311, 0, 0.1471311, 0.989117, 0, 0, 0, 1, 71.69552, 6.252411, 18.870253)
 script = ExtResource("22_10qvu")
 dialog_text = "EPILOGUE_GREEN_DIALOG"
-npc_type = 2
 metadata/_custom_type_script = "uid://dgnwggxyjrkj5"
 
 [node name="Markers" type="Node3D" parent="." unique_id=1563299946]
