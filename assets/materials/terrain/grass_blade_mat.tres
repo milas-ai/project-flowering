@@ -120,21 +120,30 @@ void fragment() {
 	// Set vertex as node's position for cell light calculation 
 	LIGHT_VERTEX = (VIEW_MATRIX*vec4(node_pos_world + LIGHT_SAMPLE_OFFSET,1.)).xyz;
 }
-
 void light() {
-	float diffuse = 1.0;
-	float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
-	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
+	if (blade_use_albedo_noise[blade_variation_index]) {
+		DIFFUSE_LIGHT += vec3(1.);
+	}
 	
-	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
-	
-	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
-	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+	else {
+		float diffuse = 1.0;
+		float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
+		float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
+		
+		diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+		
+		DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+		SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+	}
 }
 "
 
+[sub_resource type="Gradient" id="Gradient_1vbpm"]
+offsets = PackedFloat32Array(0.24647887, 0.81924886)
+
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b6u2p"]
 noise = ExtResource("3_fixht")
+color_ramp = SubResource("Gradient_1vbpm")
 
 [resource]
 render_priority = 0
