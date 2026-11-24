@@ -64,5 +64,5 @@ func scatter_grass_in_multimesh_instance() -> void:
 		var p_random: Vector3 = p1 * weight1 + p2 * (weight2-weight1) + p3 * (1.0-weight2)
 		
 		var transform: Transform3D = Transform3D(Basis(), p_random)
-		transform = transform. scaled_local(Vector3.ONE * rng.randf_range(.7,1.2))
+		transform = transform.scaled_local(Vector3.ONE * rng.randf_range(.7,1.2))
 		multimesh_instance.multimesh.set_instance_transform(i, transform)

@@ -1,8 +1,14 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://wra6rbgyy2tv"]
 
-[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://assets/textures/terrain/grass/grass_blade.png" id="1_lqm7f"]
-[ext_resource type="Texture2D" uid="uid://bji2b7i40yxak" path="res://assets/textures/terrain/grass/flower.png" id="2_fixht"]
+[ext_resource type="Texture2D" uid="uid://dkkfhwlpfhf75" path="res://assets/textures/terrain/grass/grass_blade_texture.png" id="1_dgdsr"]
+[ext_resource type="Texture2D" uid="uid://bji2b7i40yxak" path="res://assets/textures/terrain/grass/flower_1_texture.png" id="2_prpc8"]
+[ext_resource type="Texture2D" uid="uid://ldajhicy48od" path="res://assets/textures/terrain/grass/flower_2_texture.png" id="3_1vbpm"]
 [ext_resource type="FastNoiseLite" uid="uid://ckh75q2ymot47" path="res://assets/textures/noise/grass_noise_tex.tres" id="3_fixht"]
+[ext_resource type="Texture2D" uid="uid://d2nyhli88t5ld" path="res://assets/textures/terrain/grass/flower_3_texture.png" id="4_hxbq2"]
+[ext_resource type="Texture2D" uid="uid://62o247gphy7m" path="res://assets/textures/terrain/grass/flower_4_texture.png" id="5_6gljt"]
+[ext_resource type="Texture2D" uid="uid://wlq4tyrldtuh" path="res://assets/textures/terrain/grass/flower_5_texture.png" id="6_xjabm"]
+[ext_resource type="Texture2D" uid="uid://bhd17to2rbane" path="res://assets/textures/terrain/grass/flower_6_texture.png" id="7_1vbpm"]
+[ext_resource type="Texture2D" uid="uid://d02k108tpluiw" path="res://assets/textures/terrain/grass/flower_7_texture.png" id="8_hxbq2"]
 
 [sub_resource type="Shader" id="Shader_5h1dc"]
 code = "shader_type spatial;
@@ -134,10 +140,10 @@ noise = ExtResource("3_fixht")
 render_priority = 0
 shader = SubResource("Shader_5h1dc")
 shader_parameter/grass_noise_tex = SubResource("NoiseTexture2D_b6u2p")
-shader_parameter/blade_textures = Array[Texture2D]([ExtResource("1_lqm7f"), ExtResource("2_fixht")])
+shader_parameter/blade_textures = Array[Texture2D]([ExtResource("1_dgdsr"), ExtResource("2_prpc8"), ExtResource("3_1vbpm"), ExtResource("4_hxbq2"), ExtResource("5_6gljt"), ExtResource("6_xjabm"), ExtResource("7_1vbpm"), ExtResource("8_hxbq2")])
 shader_parameter/blade_weights = PackedInt32Array(8, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/blade_use_albedo_noise = PackedInt32Array(0, 1, 0, 0, 0, 0, 0, 0)
-shader_parameter/blades_group_noise = 4.835
+shader_parameter/blade_use_albedo_noise = PackedInt32Array(0, 1, 1, 1, 1, 1, 1, 1)
+shader_parameter/blades_group_noise = 100.0
 shader_parameter/roughness = 1.0
 shader_parameter/specular = 0.2
 shader_parameter/light_strength = 0.1150000054625
