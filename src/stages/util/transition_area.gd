@@ -8,6 +8,7 @@ extends Area3D
 		"Mountain:2",
 		"Cave:3",
 		"Forest:4",
+		"Epilogue Village:6",
 ) var target_stage: int = -1
 
 @onready var _main_game: MainGame = $/root/MainGame

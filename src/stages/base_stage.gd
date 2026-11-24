@@ -46,3 +46,20 @@ func get_camera_position() -> Vector3:
 	else:
 		push_error("Camera position marker not found in the stage.")
 		return Vector3.ZERO
+
+
+func _on_respawn_area_body_entered(body: Node3D) -> void:
+	if body.collision_layer & LayerBitmask.PLAYER:
+		if has_life_hud:
+			_main_game.player.take_damage(1)
+		_main_game.player.horizontal_velocity = Vector3.ZERO
+		_main_game.player.vertical_velocity = Vector3.ZERO
+		_main_game.player.global_position = current_checkpoint.global_position
+		_main_game.player.state_machine.reset_pressed_inputs()
+
+	elif body.collision_layer & LayerBitmask.ENEMY:
+		body.queue_free()
+
+
+func _on_npc_dialog_finished(_npc_name: String) -> void:
+	pass

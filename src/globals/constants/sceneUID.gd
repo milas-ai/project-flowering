@@ -11,6 +11,7 @@ class STAGES:
 	const PROLOGUE_VILLAGE: String = "uid://cawgug5pc6il8"
 	const MOUNTAIN: String = "uid://cnohyrkccqdd6"
 	const CAVE: String = "uid://bylhtxg58dhou"
+	const EPILOGUE_VILLAGE: String = "uid://f4x75q1mltoq"
 
 
 class ENEMIES:

@@ -9,6 +9,9 @@ extends Node
 		"Prologue Village",
 		"Mountain",
 		"Cave",
+		"Forest",
+		"Boss Arena",
+		"Epilogue Village",
 ) var debug_stage: int = 0
 
 var player: Player = null
@@ -63,6 +66,8 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return SceneUID.STAGES.MOUNTAIN
 		3: 
 			return SceneUID.STAGES.CAVE
+		6:
+			return SceneUID.STAGES.EPILOGUE_VILLAGE
 		_:
 			push_error("Invalid stage ID: %d" % stage_id)
 			return ""
@@ -84,7 +89,8 @@ func get_last_stage_uid() -> String:
 	var stage_uids: Array = [
 		SceneUID.STAGES.PROLOGUE_VILLAGE,
 		SceneUID.STAGES.MOUNTAIN,
-		SceneUID.STAGES.CAVE
+		SceneUID.STAGES.CAVE,
+		SceneUID.STAGES.EPILOGUE_VILLAGE
 	]
 
 	var current_index: int = stage_uids.find(_current_stage_uid)
