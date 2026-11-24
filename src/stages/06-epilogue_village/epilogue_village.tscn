@@ -89,8 +89,8 @@ environment = SubResource("Environment_rcjq6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
 transform = Transform3D(-0.7216729, 0.6535245, 0.22824115, -0.26120508, -0.56242836, 0.7845039, 0.6410618, 0.50653744, 0.57659316, 0, 0, 0)
-light_color = Color(0.92889106, 0.80291134, 0.66186684, 1)
-light_energy = 1.2
+light_color = Color(0.95083505, 0.86234415, 0.7635113, 1)
+light_energy = 1.44
 shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_blend_splits = true
