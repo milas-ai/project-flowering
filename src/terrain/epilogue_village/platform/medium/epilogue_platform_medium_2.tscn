@@ -24,7 +24,7 @@ surface_material_override/0 = ExtResource("2_2csg0")
 script = ExtResource("3_jruc2")
 grass_ammount = 10.0
 target_mesh = NodePath(".")
-blade_weights = PackedInt32Array(15, 1, 1, 1, 1, 1, 1, 1)
+blade_weights = PackedInt32Array(25, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Top" unique_id=694427480]
 collision_layer = 2
