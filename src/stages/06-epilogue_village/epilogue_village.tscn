@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dydy5ti2tjay2" path="res://src/terrain/epilogue_village/platform/medium/epilogue_platform_medium_1.tscn" id="7_fj1uc"]
 [ext_resource type="PackedScene" uid="uid://dkx66dtt4khcr" path="res://src/terrain/mountain/wall/big/mountain_wall_big_1.tscn" id="7_oh8wm"]
 [ext_resource type="PackedScene" uid="uid://cbikll8niaahb" path="res://src/terrain/epilogue_village/platform/big/epilogue_platform_big_1.tscn" id="8_fj1uc"]
+[ext_resource type="PackedScene" uid="uid://d2q76q5vx1c5y" path="res://src/terrain/epilogue_village/farmland_blossomed.tscn" id="9_fg805"]
 [ext_resource type="PackedScene" uid="uid://xblqm6kqvlgf" path="res://src/terrain/mountain/wall/medium/mountain_wall_medium_1.tscn" id="10_invk0"]
 [ext_resource type="PackedScene" uid="uid://c7jjbytuvrudr" path="res://src/terrain/epilogue_village/platform/medium/epilogue_platform_medium_2.tscn" id="10_wgajb"]
 [ext_resource type="PackedScene" uid="uid://de37of8f3byyd" path="res://src/terrain/epilogue_village/huts/epilogue_hut_1.tscn" id="11_fg805"]
@@ -17,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cix6x7xs365q8" path="res://src/terrain/mountain/wall/small/mountain_wall_small_1.tscn" id="14_i5odx"]
 [ext_resource type="PackedScene" uid="uid://l64iqe7npof4" path="res://src/terrain/epilogue_village/huts/epilogue_hut_2.tscn" id="15_thxkp"]
 [ext_resource type="PackedScene" uid="uid://3qcoy7vobtft" path="res://src/terrain/epilogue_village/huts/epilogue_hut_3.tscn" id="16_nhcuj"]
-[ext_resource type="PackedScene" uid="uid://bqblpynjgshjm" path="res://src/terrain/village/farmland.tscn" id="20_lchvh"]
 [ext_resource type="PackedScene" uid="uid://8ujh8a3oeb6n" path="res://src/terrain/village/tower.tscn" id="21_end7g"]
 [ext_resource type="PackedScene" uid="uid://cbg6krkyx1sfm" path="res://src/terrain/props/boat.tscn" id="22_1g4f3"]
 [ext_resource type="PackedScene" uid="uid://bdex5k5ykp1o0" path="res://src/terrain/village/flag.tscn" id="22_1n1f1"]
@@ -125,8 +125,8 @@ transform = Transform3D(0.94610345, -0.011213765, -0.12391384, 0, 0.8216424, -0.
 [node name="PlatformBig4" parent="StageTerrain" unique_id=1591970935 instance=ExtResource("8_fj1uc")]
 transform = Transform3D(0.0890356, 0.005723247, 0.8201614, 0.14166385, 0.8124736, -0.021048425, -0.8078547, 0.14310458, 0.086700946, 105.70674, -3.899203, 29.51587)
 
-[node name="Farmland" parent="StageTerrain" unique_id=1126384961 instance=ExtResource("20_lchvh")]
-transform = Transform3D(0.13503253, -0.026583605, 0.99048465, 0.041260123, 0.99892414, 0.021185113, -0.9899818, 0.03800684, 0.13598405, 99.20485, 6.320685, 48.682755)
+[node name="Farmland" parent="StageTerrain" unique_id=1126384961 instance=ExtResource("9_fg805")]
+transform = Transform3D(0.13503253, -0.0265836, 0.99048465, 0.04126012, 0.9989241, 0.021185117, -0.9899818, 0.038006835, 0.13598408, 99.20485, 6.320685, 48.682755)
 
 [node name="PlatformMedium4" parent="StageTerrain" unique_id=1578205632 instance=ExtResource("10_wgajb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.95108, -1.2153282, 58.891544)
