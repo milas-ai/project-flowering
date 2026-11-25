@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://cdid25bcbh5lv"]
+
+[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/mountain/mountain.gd" id="1_r5nhh"]
+[ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://src/terrain/mountain/platform/big/mountain_platform_big_1.tscn" id="14_fdf5u"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_r5fbu"]
+[ext_resource type="PackedScene" uid="uid://brs1606rxdfse" path="res://src/terrain/props/cap.tscn" id="29_7ble0"]
+[ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="30_sqvp1"]
+[ext_resource type="Script" uid="uid://cs52mrxk0n47s" path="res://src/stages/util/transition_area.gd" id="31_s6rcj"]
+[ext_resource type="Shader" uid="uid://dysji2bbetajh" path="res://src/shaders/water.gdshader" id="32_6ppx4"]
+[ext_resource type="Shader" uid="uid://oqvnk2c6dgf5" path="res://src/shaders/spatial_fog.gdshader" id="33_b1mno"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3jej"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h57rq"]
+sky_material = SubResource("ProceduralSkyMaterial_h3jej")
+
+[sub_resource type="Environment" id="Environment_rcjq6"]
+background_mode = 1
+background_color = Color(0.2036809, 0.20368093, 0.2036809, 1)
+background_energy_multiplier = 1.1
+sky = SubResource("Sky_h57rq")
+ambient_light_sky_contribution = 0.98
+ambient_light_energy = 0.0
+tonemap_mode = 2
+tonemap_exposure = 1.1
+tonemap_white = 1.1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.27615312, 0.23825872, 0.28156134, 1)
+fog_density = 0.2756
+fog_depth_curve = 2.549118
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 120.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 1.6627167
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
+size = Vector3(19.335693, 10, 14.760742)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
+size = Vector3(1034.5137, 0.49102783, 1008.9492)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wuxl"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kgtat"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_28y55"]
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o5tcc"]
+noise = SubResource("FastNoiseLite_28y55")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a20jj"]
+render_priority = 0
+shader = ExtResource("32_6ppx4")
+shader_parameter/color1 = Color(0.26101992, 0.78963846, 0.7258296, 1)
+shader_parameter/color2 = Color(0, 0.27225816, 0.5365715, 1)
+shader_parameter/scale = 0.02
+shader_parameter/waves_noise = SubResource("NoiseTexture2D_o5tcc")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_abukt"]
+top_radius = 0.9947264
+bottom_radius = 4.569727
+height = 54.268364
+radial_segments = 4
+rings = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grnlo"]
+render_priority = 0
+shader = ExtResource("33_b1mno")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jmp0g"]
+top_radius = 0.0009999871
+bottom_radius = 1.241
+height = 54.268364
+radial_segments = 4
+rings = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ot1hr"]
+top_radius = 0.66320306
+bottom_radius = 1.9032031
+height = 54.268364
+radial_segments = 4
+rings = 0
+
+[node name="Forest" type="Node3D" unique_id=138948264]
+script = ExtResource("1_r5nhh")
+player_items_on_spawn = 3
+metadata/_custom_type_script = "uid://duu016e02tjwd"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278497640]
+environment = SubResource("Environment_rcjq6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1881596904]
+transform = Transform3D(-0.86161226, 0.5035572, 0.063674755, -0.3719274, -0.7117386, 0.5959012, 0.3453901, 0.4897534, 0.8005294, 0, 0, 0)
+light_color = Color(0.15267116, 0.22207943, 0.18928424, 1)
+light_energy = 0.061
+light_negative = true
+shadow_enabled = true
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 8192.0
+
+[node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
+
+[node name="Section1" type="Node3D" parent="StageTerrain" unique_id=1956288515]
+
+[node name="PlatformBig1" parent="StageTerrain/Section1" unique_id=2071298694 instance=ExtResource("14_fdf5u")]
+transform = Transform3D(0.9994594, 0.015512777, 0.028987465, -0.014873221, 0.99964404, -0.022150906, -0.029320756, 0.021707812, 0.99933434, 26.753544, -14.527888, 7.436724)
+
+[node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
+
+[node name="InteractableAreas" type="Node3D" parent="." unique_id=881535712]
+visible = false
+
+[node name="GetItemArea" type="Area3D" parent="InteractableAreas" unique_id=1116399652]
+transform = Transform3D(0.99884313, 0.025816603, 0.040570278, -0.02486922, 0.9994101, -0.023685368, -0.041157823, 0.022649014, 0.99889594, -74.06555, 122.94965, -68.81762)
+script = ExtResource("28_r5fbu")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreas/GetItemArea" unique_id=175636019]
+shape = SubResource("SphereShape3D_nhhn2")
+
+[node name="Item" parent="InteractableAreas/GetItemArea" unique_id=2052954029 instance=ExtResource("29_7ble0")]
+transform = Transform3D(-0.052114204, 0.74589205, -0.66402495, -0.44707572, 0.5771478, 0.6833913, 0.8929767, 0.33248386, 0.30339262, 0, 0, 0)
+
+[node name="CheckPoints" type="Node3D" parent="." unique_id=596337516]
+visible = false
+
+[node name="CheckPointArea" type="Area3D" parent="CheckPoints" unique_id=744735331]
+transform = Transform3D(0.8988831, 0, -0.4381884, 0, 1, 0, 0.4381884, 0, 0.8988831, 93.19478, 59.2686, -41.62151)
+collision_layer = 0
+script = ExtResource("30_sqvp1")
+metadata/_custom_type_script = "uid://daqkgqctr3tqp"
+
+[node name="Marker3D" type="Marker3D" parent="CheckPoints/CheckPointArea" unique_id=2470469]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.9299927, -1.4127579, 22.602379)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CheckPoints/CheckPointArea" unique_id=1363466506]
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="Markers" type="Node3D" parent="." unique_id=520459582]
+visible = false
+
+[node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 27.368246, 7.9312286, 11.028766)
+visible = false
+
+[node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=1480987147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.084717, 103.63956, 24.33274)
+visible = false
+
+[node name="RespawnArea" type="Area3D" parent="." unique_id=1764096592]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea" unique_id=1366119165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25448608, 0)
+shape = SubResource("BoxShape3D_nhhn2")
+
+[node name="TransitionArea" type="Area3D" parent="." unique_id=166739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.9576, 38.899616, 379.17117)
+visible = false
+collision_layer = 0
+script = ExtResource("31_s6rcj")
+target_stage = 3
+metadata/_custom_type_script = "uid://cs52mrxk0n47s"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" unique_id=91610864]
+shape = SubResource("BoxShape3D_5wuxl")
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1533823062]
+mesh = SubResource("PlaneMesh_kgtat")
+surface_material_override/0 = SubResource("ShaderMaterial_a20jj")
+
+[node name="GodRays" type="Node3D" parent="." unique_id=1530139876]
+visible = false
+
+[node name="GodRay" type="MeshInstance3D" parent="GodRays" unique_id=964688825]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -81.231255, 145.62065, -71.14273)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.05
+mesh = SubResource("CylinderMesh_abukt")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[node name="GodRay2" type="MeshInstance3D" parent="GodRays" unique_id=772694437]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -82.89656, 145.62065, -66.17275)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.01
+mesh = SubResource("CylinderMesh_jmp0g")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[node name="GodRay3" type="MeshInstance3D" parent="GodRays" unique_id=1020407702]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -75.102745, 145.62065, -66.9392)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.03
+mesh = SubResource("CylinderMesh_jmp0g")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[node name="GodRay4" type="MeshInstance3D" parent="GodRays" unique_id=415136525]
+transform = Transform3D(0.68728197, -0.3360175, 0.644, 0.17475478, 0.9370225, 0.30240694, -0.7050562, -0.09529671, 0.7027193, -78.29015, 145.62065, -73.81929)
+instance_shader_parameters/color = Color(0.5641673, 0.4627987, 0.20452526, 1)
+instance_shader_parameters/hardness = 1.42
+instance_shader_parameters/strength = 0.03
+mesh = SubResource("CylinderMesh_ot1hr")
+surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
+
+[connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
+[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]

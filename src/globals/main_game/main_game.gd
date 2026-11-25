@@ -9,6 +9,7 @@ extends Node
 		"Prologue Village",
 		"Mountain",
 		"Cave",
+		"Forest",
 ) var debug_stage: int = 0
 
 var player: Player = null
@@ -63,6 +64,8 @@ func stage_id_to_uid(stage_id: int) -> String:
 			return SceneUID.STAGES.MOUNTAIN
 		3: 
 			return SceneUID.STAGES.CAVE
+		4:
+			return SceneUID.STAGES.FOREST
 		_:
 			push_error("Invalid stage ID: %d" % stage_id)
 			return ""
