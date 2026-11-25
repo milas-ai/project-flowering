@@ -64,22 +64,49 @@ a largura conforme a proporção da janela ---, posicionada em \textbf{(0, 50, 5
 	\caption{Diagrama do ponto de vista da câmera e seu movimento.}\label{fig:camera_rotation}
 \end{figure}
 
-A rotação horizontal do ponto de vista ocorre aplicando a função
-\mbox{\textbf{\_camera\_pivot.rotate\_y()}} a partir de duas fontes de entrada: movimento
-do mouse (\textbf{\_mouse\_rotate()}) e eixo analógico de controle (\textbf{\_joystick\_rotate()}).
+A rotação horizontal do ponto de vista ocorre girando o pivô da câmera em torno do eixo \textbf{Y}
+a partir de duas fontes de entrada, tratadas por métodos dedicados: o método responsável pelo mouse
+lê o movimento horizontal do cursor, já o método responsável pelo controle lê o deslocamento do eixo analógico.
 
 No caso do mouse, o deslocamento relativo captado é diretamente impactado pela redução da resolução
 de renderização. Isso exige que o evento seja transformado pela
-matriz final do \textit{viewport} (pela função \mbox{\textbf{get\_tree().root.get\_final\_transform()}} através de
-\mbox{\textbf{event.xformed\_by(viewport\_transform).relative}}), normalizando o movimento
-em relação à transformação final da tela antes de calcular a rotação, sendo esse efeito compensado posteriormente pelo \textbf{\textit{pixelization\_level}}.
+matriz final do \textit{viewport}, normalizando o movimento
+em relação à transformação final da tela antes de calcular a rotação, o efeito de pixelização é compensado em seguida para que a
+resposta permaneça precisa mesmo quando a resolução interna é reduzida.
+
+\begin{programruledcaption}{Transformação do vetor de movimento da câmera.\label{prog:camera}}
+  \begin{lstlisting}[
+    language={Python},
+    style=wider,
+    functions={_mouse_rotate, _joystick_rotate, get_tree, get_final_transform, xformed_by, rotate_y},
+    specialidentifiers={MOUSE_DEGREES_PER_UNIT, JOYSTICK_DEGREES_PER_UNIT},
+	morekeywords={func, var, void, Vector2, InputEventMouseMotion, Transform2D},
+  ]
+    func _mouse_rotate(event: InputEventMouseMotion) -> void:
+		var viewport_transform: Transform2D = get_tree().root.get_final_transform()
+		var mouse_motion: Vector2 = event.xformed_by(viewport_transform).relative
+		
+		_camera_pivot.rotate_y(
+				-mouse_motion.x *
+				_main_game.options.camera_sensitivity *
+				_main_game.options.pixelization_level *
+				MOUSE_DEGREES_PER_UNIT)
+
+
+	func _joystick_rotate(axis_value: float) -> void:
+		_camera_pivot.rotate_y(
+				-axis_value *
+				_main_game.options.camera_sensitivity *
+				_main_game.options.pixelization_level *
+				JOYSTICK_DEGREES_PER_UNIT)
+
+  \end{lstlisting}
+\end{programruledcaption}
 
 Para manter a resposta de rotação coerente com a configuração visual e a
 sensibilidade escolhida pelo jogador, ambas as funções escalam o
-deslocamento horizontal (\textbf{\textit{mouse\_motion.x}} ou \textbf{\textit{axis\_value}}) pela sensibilidade
-configurada \textbf{\textit{camera\_sensitivity}}, pelo nível de pixelização \textbf{\textit{pixelization\_level}}
-e por constantes de conversão específicas escolhidas por periférico (\textbf{\mbox{MOUSE\_DEGREES\_PER\_UNIT} = $\mathbf{0.0002}$}
-e \textbf{\mbox{JOYSTICK\_DEGREES\_PER\_UNIT} = $\mathbf{0.001}$}), com sinal negativo para alinhar o sentido
+deslocamento horizontal pela sensibilidade configurada, pelo nível de pixelização,
+e por constantes de conversão específicas escolhidas por periférico, com sinal negativo para alinhar o sentido
 da rotação ao comando. Diferentemente do deslocamento suavizado do personagem
 --- que emprega \textbf{\textit{lerpfd}} e será detalhado na próxima seção ---, a rotação do
 pivô responde diretamente aos valores de entrada de cada evento/atualização.
