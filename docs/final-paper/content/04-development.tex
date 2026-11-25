@@ -58,6 +58,12 @@ visíveis de uma borda a outra da tela, e sua propriedade \textbf{\textit{keep\_
 a largura conforme a proporção da janela ---, posicionada em \textbf{(0, 50, 50)} em relação ao pivô e inclinada em
 {\boldmath $-45^\circ$} no eixo \textbf{X} para compor o enquadramento isométrico.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{camera_rotation}
+	\caption{Diagrama do ponto de vista da câmera e seu movimento.}\label{fig:camera_rotation}
+\end{figure}
+
 A rotação horizontal do ponto de vista ocorre aplicando a função
 \mbox{\textbf{\_camera\_pivot.rotate\_y()}} a partir de duas fontes de entrada: movimento
 do mouse (\textbf{\_mouse\_rotate()}) e eixo analógico de controle (\textbf{\_joystick\_rotate()}).
