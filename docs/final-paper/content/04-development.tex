@@ -110,3 +110,38 @@ e por constantes de conversão específicas escolhidas por periférico, com sina
 da rotação ao comando. Diferentemente do deslocamento suavizado do personagem
 --- que emprega \textbf{\textit{lerpfd}} e será detalhado na próxima seção ---, a rotação do
 pivô responde diretamente aos valores de entrada de cada evento/atualização.
+
+\section{Movimentação do Jogador}
+\label{sec:movimentacao_do_jogador}
+
+A movimentação do jogador foi estruturada a partir de uma classe base compartilhada para
+personagens chamada \textbf{Character}, que separa o deslocamento horizontal do deslocamento vertical (responsável pela
+gravidade e pela execução do movimento no espaço). Essa divisão permite tratar separadamente a
+resposta aos comandos no plano, a conservação de impulso, o atrito e os efeitos de terreno sem
+misturar lógicas concorrentes.
+
+Para que os comandos acompanhem o ponto de vista isométrico mesmo durante a rotação livre da
+câmera em {\boldmath $360^\circ$}, a entrada direcional lida do teclado ou do controle é
+rotacionada de acordo com a orientação atual do pivô da câmera e convertida para a direção no
+mundo. Em seguida, essa direção passa por uma interpolação contínua ajustada ao tempo de quadro
+(\textbf{\textit{lerpfd}}), suavizando mudanças bruscas de trajetória e mantendo a resposta
+consistente em diferentes taxas de quadros, respeitando também situações em que o controle é
+bloqueado pelo sistema.
+
+%TODO: ser mais especifico do porque usamos lerpfd e nao lerp
+
+No deslocamento horizontal, o comportamento varia conforme os comandos do jogador e a velocidade
+atual do personagem. Quando o usuário pressiona uma tecla referente a alguma direção,
+o jogador desloca-se na velocidade base ou em velocidade dobrada quando está correndo, e quando nenhuma tecla
+está sendo pressionada, se o jogador estava em movimento é aplicado um atrito correspondente, parando-o de forma suave.
+Caso o personagem esteja acima da referência de velocidade de corrida, significa que está no meio de um
+`lançamento' ou deslize, então aplica-se uma desaceleração gradual mais fraca do que o atrito comum ao andar/correr ---
+preservando o momento por mais tempo ao invés de cortá-lo instantâneamente --- enquanto a orientação
+visual do modelo acompanha a direção de movimento (e a normal da superfície durante o deslize).
+
+Além de \textbf{andar} e \textbf{correr}, é possível também \textbf{pular} --- que aplica um impulso vertical
+inicial mantendo o controle horizontal durante a trajetória --- e \textbf{deslizar} em superfícies
+inclinadas. No deslize, o personagem ganha velocidade ao longo da direção de descida da rampa até
+um limite máximo, pode ajustar lateralmente sua trajetória conforme o comando direcional e conta
+com uma pequena janela de tolerância ao sair da inclinação para evitar quedas ou transições
+indevidas entre a rampa e o piso plano.
