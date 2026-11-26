@@ -10,6 +10,8 @@ func enter() -> void:
 	for entity in _stun_area.get_overlapping_bodies():
 		if entity.collision_layer & LayerBitmask.ENEMY:
 			entity.apply_stun()
+		if entity.collision_layer & LayerBitmask.LIGHTABLE:
+			entity.light_up(true)
 	
 	get_tree().create_timer(0.8).timeout.connect(
 			func():
