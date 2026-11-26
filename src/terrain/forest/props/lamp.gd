@@ -1,6 +1,19 @@
+@tool
 extends Node3D
 
-var lightened: bool = false
+@export var energy: float = 6.:
+	set(value):
+		energy = value
+		if lightened: $Light.light_energy = energy
+@export var lightened: bool = false:
+	set(value):
+		lightened = value
+		$Light.light_energy = energy if value else 0.
+@export var radius: float = 6.:
+	set(value):
+		radius = value
+		$Light.omni_range = value
+		$LightArea/CollisionShape3D.shape.radius = value
 
 
 func light_up(instant: bool) -> void:

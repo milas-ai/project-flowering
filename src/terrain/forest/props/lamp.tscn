@@ -39,7 +39,7 @@ surface_material_override/1 = SubResource("ShaderMaterial_m4snd")
 transform = Transform3D(-1.1920929e-07, -1, 1.19209204e-07, 7.1525574e-07, -1.1920929e-07, -1, 1, -1.19209204e-07, 7.1525574e-07, 0.078350544, 1.9974878, -0.14084198)
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.0
-omni_range = 5.3293195
+omni_range = 6.0
 
 [node name="LightArea" type="Area3D" parent="." unique_id=1780934095]
 transform = Transform3D(-1.1920929e-07, -1, 1.19209204e-07, 7.1525574e-07, -1.1920929e-07, -1, 1, -1.19209204e-07, 7.1525574e-07, 0.078350544, 1.9974878, -0.14084198)
