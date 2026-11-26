@@ -58,6 +58,9 @@ texture_filter = 0
 stencil_mode = 3
 stencil_flags = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgtat"]
+size = Vector3(3.2348633, 13.278442, 14.319336)
+
 [node name="BossArena" type="Node3D" unique_id=2049005284]
 script = ExtResource("1_g1u56")
 player_items_on_spawn = 3
@@ -207,6 +210,58 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 transform = Transform3D(1.5624423, 1.0175405, 0.7884863, -1.2608517, 0.95969045, 1.2599895, 0.25952289, -1.4635334, 1.3744246, -14.320021, 1.940428, 16.597347)
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
+
+[node name="CrystalWalls" type="StaticBody3D" parent="StageTerrain/TrunkArena" unique_id=463057683]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=2018767098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.01565, 5.8032837, -0.8957639)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1613878735]
+transform = Transform3D(0.8798351, 0, -0.475279, 0, 1, 0, 0.475279, 0, 0.8798351, -18.216755, 5.8032837, -11.820484)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=703275904]
+transform = Transform3D(0.4229444, 0, -0.9061556, 0, 1, 0, 0.9061556, 0, 0.4229444, -11.535521, 5.8032837, -19.856022)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1123592733]
+transform = Transform3D(-0.14746845, 0, -0.98906684, 0, 1, 0, 0.98906684, 0, -0.14746845, 2.4830027, 5.8032837, -21.819122)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=968732320]
+transform = Transform3D(-0.59983057, 0, -0.800127, 0, 1, 0, 0.800127, 0, -0.59983057, 12.875531, 5.8032837, -17.439777)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1633661286]
+transform = Transform3D(-0.95861936, 0, -0.28469092, 0, 1, 0, 0.28469092, 0, -0.95861936, 19.837944, 5.8032837, -9.646602)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1346092276]
+transform = Transform3D(-0.9991812, 0, 0.040459633, 0, 1, 0, -0.040459633, 0, -0.9991812, 20.91893, 5.8032837, 1.9825668)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1485443906]
+transform = Transform3D(-0.85988504, 0, 0.51048756, 0, 1, 0, -0.51048756, 0, -0.85988504, 17.680313, 5.8032837, 12.785101)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1387304629]
+transform = Transform3D(-0.38593537, 0, 0.92252576, 0, 1, 0, -0.92252576, 0, -0.38593537, 10.679437, 5.8032837, 20.54374)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1633813014]
+transform = Transform3D(0.18736492, 0, 0.98229045, 0, 1, 0, -0.98229045, 0, 0.18736492, -3.4070344, 5.8032837, 21.93805)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=452071698]
+transform = Transform3D(0.6317123, 0, 0.77520305, 0, 1, 0, -0.77520305, 0, 0.6317123, -13.613869, 5.8032837, 17.141811)
+shape = SubResource("BoxShape3D_kgtat")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="StageTerrain/TrunkArena/CrystalWalls" unique_id=1239292115]
+transform = Transform3D(0.969353, 0, 0.24567245, 0, 1, 0, -0.24567245, 0, 0.969353, -20.255268, 5.8032837, 9.073318)
+shape = SubResource("BoxShape3D_kgtat")
 
 [node name="Markers" type="Node3D" parent="." unique_id=942853275]
 
