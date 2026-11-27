@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7pfbao5rmb65"]
 
 [ext_resource type="Script" uid="uid://b7a0062luunw" path="res://src/entities/projectile/web_shot/web_shot.gd" id="1_uw75p"]
+[ext_resource type="Material" uid="uid://co0wl5woljf7k" path="res://assets/materials/entities/projectile/web_shot_mat.tres" id="2_80ms3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
 radius = 0.3
@@ -20,3 +21,4 @@ shape = SubResource("SphereShape3D_nhhn2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2002167950]
 mesh = SubResource("SphereMesh_nhhn2")
+surface_material_override/0 = ExtResource("2_80ms3")
