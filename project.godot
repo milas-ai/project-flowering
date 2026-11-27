@@ -167,6 +167,7 @@ locale/translations=PackedStringArray("res://assets/translations/translations.pt
 3d_physics/layer_4="pushable"
 3d_physics/layer_5="npc"
 3d_physics/layer_6="lightable"
+3d_physics/layer_8="roly_poly_exploder"
 
 [physics]
 

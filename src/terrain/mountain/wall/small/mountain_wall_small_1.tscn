@@ -13,7 +13,7 @@ mesh = ExtResource("1_7rjwq")
 surface_material_override/0 = ExtResource("2_x8ksh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Wall" unique_id=8087200]
-collision_layer = 2
+collision_layer = 130
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D" unique_id=768544027]
