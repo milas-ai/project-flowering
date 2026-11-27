@@ -24,4 +24,4 @@ func update(_delta: float) -> void:
 
 func exit() -> void:
 	ParticleSystem.hide_emitter(_stun_particle_emmitter)
-	body.animation_player.stop()
+	body.animation_player.play("RESET")

@@ -23,7 +23,7 @@ func emit() -> void:
 
 func stop_emission() -> void:
 	if _animation_player:
-		_animation_player.stop()
+		_animation_player.play("RESET")
 	else:
 		for child in get_children():
 			if child is GPUParticles3D:
