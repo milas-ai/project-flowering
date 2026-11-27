@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://div84a3l3ntvo"]
+
+[resource]
+resource_name = "spider_skin"
+cull_mode = 2
+albedo_color = Color(0.10049801, 0.091214456, 0.09817715, 1)
+roughness = 0.5

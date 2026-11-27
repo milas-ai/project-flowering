@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5slt7qagho7v"]
+
+[resource]
+resource_name = "spider_eyes"
+cull_mode = 2
+albedo_color = Color(0.8211626, 0.06424294, 0.9063355, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.8099884, 0, 1, 1)
+emission_energy_multiplier = 2.5901208
