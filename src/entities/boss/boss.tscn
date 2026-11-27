@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d32rm145ej1iy" path="res://src/entities/boss/boss.gd" id="1_45f2c"]
 [ext_resource type="PackedScene" uid="uid://25pd1ncixtuy" path="res://assets/models/boss/spider_face.glb" id="2_1w5vf"]
+[ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="3_4ixus"]
+[ext_resource type="Script" uid="uid://cqfrn4tljnset" path="res://src/entities/boss/boss_components/state_boss_hurt.gd" id="5_tg5dy"]
+[ext_resource type="Script" uid="uid://pwtkerakpwwx" path="res://src/entities/boss/boss_components/state_boss_dead.gd" id="6_4ixus"]
+[ext_resource type="Script" uid="uid://dju2u5mitubdw" path="res://src/entities/boss/boss_components/state_boss_attack.gd" id="6_8steq"]
+[ext_resource type="Script" uid="uid://qhdgkx8d6fw5" path="res://src/entities/boss/boss_components/state_boss_stunned.gd" id="7_o1xea"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
 radius = 2.5864854
@@ -25,5 +30,34 @@ shape = SubResource("SphereShape3D_nhhn2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18200684, 2.302209)
 shape = SubResource("BoxShape3D_nhhn2")
 
-[node name="StunMarker" type="Marker3D" parent="." unique_id=719097710]
+[node name="Markers" type="Node3D" parent="." unique_id=176214089]
+
+[node name="StunMarker" type="Marker3D" parent="Markers" unique_id=719097710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.300619, 1.3063295)
+
+[node name="ShootMarker" type="Marker3D" parent="Markers" unique_id=917891434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.454462, 2.8438854)
+
+[node name="HeadMarker" type="Marker3D" parent="Markers" unique_id=1386627266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2772722, 2.0507174)
+
+[node name="StateMachine" type="Node" parent="." unique_id=438911686 node_paths=PackedStringArray("body")]
+script = ExtResource("3_4ixus")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://b5p37pnms07a3"
+
+[node name="StateBossAttack" type="Node" parent="StateMachine" unique_id=592068027]
+script = ExtResource("6_8steq")
+metadata/_custom_type_script = "uid://dju2u5mitubdw"
+
+[node name="StateBossStunned" type="Node" parent="StateMachine" unique_id=1548123764]
+script = ExtResource("7_o1xea")
+metadata/_custom_type_script = "uid://qhdgkx8d6fw5"
+
+[node name="StateBossHurt" type="Node" parent="StateMachine" unique_id=760457726]
+script = ExtResource("5_tg5dy")
+metadata/_custom_type_script = "uid://cqfrn4tljnset"
+
+[node name="StateBossDead" type="Node" parent="StateMachine" unique_id=1946486279]
+script = ExtResource("6_4ixus")
+metadata/_custom_type_script = "uid://pwtkerakpwwx"

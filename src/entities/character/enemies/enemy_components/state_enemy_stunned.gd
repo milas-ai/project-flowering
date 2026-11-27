@@ -1,5 +1,5 @@
-extends State
 class_name StateEnemyStunned
+extends State
 
 
 @export var stun_duration: float = 3.0
