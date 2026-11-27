@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ckokt5nwdxp83"]
+
+[ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_saqhp"]
+[ext_resource type="PackedScene" uid="uid://bjx13wnaxjks7" path="res://assets/models/npcs/npc_1.glb" id="2_7u5ah"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="3_an3ot"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nhhn2"]
+radius = 0.4633789
+height = 1.4542236
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7u5ah"]
+radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5w73n"]
+radius = 3.5
+
+[node name="Orange" type="StaticBody3D" unique_id=982502636]
+collision_layer = 16
+collision_mask = 31
+script = ExtResource("1_saqhp")
+dialog_text = "ORANGE_DIALOG"
+use_model_front = true
+metadata/_custom_type_script = "uid://v5ufhupi8wd"
+
+[node name="Model" parent="." unique_id=229137697 instance=ExtResource("2_7u5ah")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2027814153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3118286, 0)
+shape = SubResource("CapsuleShape3D_nhhn2")
+
+[node name="WaveArea" type="Area3D" parent="." unique_id=1173544438]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveArea" unique_id=1766951407]
+shape = SubResource("SphereShape3D_7u5ah")
+
+[node name="DialogArea" type="Area3D" parent="." unique_id=508941039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67, 0)
+collision_layer = 0
+script = ExtResource("3_an3ot")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogArea" unique_id=1859721485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.67, 0)
+shape = SubResource("SphereShape3D_5w73n")
+
+[connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
+[connection signal="interacted" from="DialogArea" to="." method="_on_dialog_area_interacted"]

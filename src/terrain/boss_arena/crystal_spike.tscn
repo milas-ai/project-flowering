@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dcr4thh6sd77v"]
+
+[ext_resource type="Script" uid="uid://bg10skxa20e3f" path="res://src/terrain/util/pushable_prop.gd" id="1_l2dvy"]
+[ext_resource type="ArrayMesh" uid="uid://xisfaghrus4r" path="res://assets/models/terrain/boss_arena/crystal_spike.obj" id="2_wl3iv"]
+[ext_resource type="Material" uid="uid://dyqdg1cxvp1ch" path="res://assets/materials/terrain/crystal_mat.tres" id="3_ug5q7"]
+[ext_resource type="Script" uid="uid://tdpavxrko20i" path="res://src/shaders/shader_seed_randomizer.gd" id="4_cpxy1"]
+[ext_resource type="Material" uid="uid://cw614njvhmmpk" path="res://assets/materials/terrain/spike_xray_mat.tres" id="5_7wvnn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_aadmc"]
+height = 2.91687
+radius = 1.2524414
+
+[node name="CrystalSpike" type="RigidBody3D" unique_id=861262862]
+collision_layer = 10
+collision_mask = 66
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_l2dvy")
+metadata/_custom_type_script = "uid://bg10skxa20e3f"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1998221899]
+transform = Transform3D(0.99745196, 0, 0.07134022, 0, 1, 0, -0.07134022, 0, 0.99745196, 0, 1.4589386, 0.032226563)
+shape = SubResource("CylinderShape3D_aadmc")
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=1272176285 node_paths=PackedStringArray("node")]
+mesh = ExtResource("2_wl3iv")
+surface_material_override/0 = ExtResource("3_ug5q7")
+script = ExtResource("4_cpxy1")
+node = NodePath(".")
+property_name = "random_index"
+max_value = 1000.0
+
+[node name="Outline" type="MeshInstance3D" parent="." unique_id=110084237 node_paths=PackedStringArray("node")]
+mesh = ExtResource("2_wl3iv")
+surface_material_override/0 = ExtResource("5_7wvnn")
+script = ExtResource("4_cpxy1")
+node = NodePath(".")
+property_name = "random_index"
+max_value = 1000.0
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1969206672]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, -2.1855695e-07)
+light_color = Color(0.82891697, 0.39125162, 0.7677164, 1)
+light_energy = 60.045
+area_range = 6.458
+area_attenuation = 1.265
+area_size = Vector2(5, 5)

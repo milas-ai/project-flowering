@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c6vwrp6j6tlc0"]
+
+[ext_resource type="Script" uid="uid://v5ufhupi8wd" path="res://src/entities/npcs/npc.gd" id="1_kss76"]
+[ext_resource type="PackedScene" uid="uid://h1vmu233coqe" path="res://assets/models/npcs/mayor.glb" id="2_632td"]
+[ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="3_632td"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_632td"]
+radius = 0.51171875
+height = 1.9604797
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kss76"]
+radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 3.5
+
+[node name="Mayor" type="StaticBody3D" unique_id=1459540555]
+collision_layer = 16
+collision_mask = 31
+script = ExtResource("1_kss76")
+dialog_text = "MAYOR_DIALOG"
+metadata/_custom_type_script = "uid://v5ufhupi8wd"
+
+[node name="Model" parent="." unique_id=950041593 instance=ExtResource("2_632td")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=176572404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97758484, 0)
+shape = SubResource("CapsuleShape3D_632td")
+
+[node name="WaveArea" type="Area3D" parent="." unique_id=1935688545]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveArea" unique_id=1683758435]
+shape = SubResource("SphereShape3D_kss76")
+
+[node name="DialogArea" type="Area3D" parent="." unique_id=2106455478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
+collision_layer = 0
+script = ExtResource("3_632td")
+metadata/_custom_type_script = "uid://d0px6yj7h1qdt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogArea" unique_id=1194293802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.35, 0)
+shape = SubResource("SphereShape3D_nhhn2")
+
+[connection signal="body_entered" from="WaveArea" to="." method="_on_wave_area_body_entered"]
+[connection signal="interacted" from="DialogArea" to="." method="_on_dialog_area_interacted"]

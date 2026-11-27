@@ -4,6 +4,8 @@ extends BaseMenu
 var _first_control: Control
 
 @onready var _new_game_button: Button = %NewGameButton
+@onready var _load_game_button: Button = %LoadGameButton
+@onready var _accept_button: Button = %AcceptButton
 @onready var _banner_margin_container: MarginContainer = $BannerMarginContainer
 @onready var _version_margin_container: MarginContainer = $VersionMarginContainer
 @onready var _buttons_margin_container: MarginContainer = $ButtonsMarginContainer
@@ -39,10 +41,18 @@ func _update_version_label_text() -> void:
 
 func _connect_ui_signals() -> void:
 	_new_game_button.pressed.connect(_on_new_game_pressed)
-	%LoadGameButton.pressed.connect(_parent_control._on_main_menu_load_game_pressed)
+	
+	_load_game_button.pressed.connect(_parent_control._on_main_menu_load_game_pressed)
+	_load_game_button.pressed.connect(func():
+			_load_game_button.disabled = true)
+
 	%OptionsButton.pressed.connect(_parent_control._show_options_menu)
 	%ExitGameButton.pressed.connect(_on_exit_game_pressed)
-	%AcceptButton.pressed.connect(_parent_control._on_main_menu_load_game_pressed.bind(true))
+	
+	_accept_button.pressed.connect(_parent_control._on_main_menu_load_game_pressed.bind(true))
+	_accept_button.pressed.connect(func():
+			_accept_button.disabled = true)
+
 	_cancel_button.pressed.connect(_on_cancel_button_pressed)
 
 
@@ -81,5 +91,7 @@ func _update_banner_texture() -> void:
 			%Banner.texture = _banner_texture_yellow
 		SceneUID.STAGES.CAVE:
 			%Banner.texture = _banner_texture_pink
+		SceneUID.STAGES.EPILOGUE_VILLAGE:
+			%Banner.texture = _banner_texture_green
 		_:
 			push_error("Invalid stage UID: %s" % display_stage)

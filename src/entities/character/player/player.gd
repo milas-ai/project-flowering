@@ -10,7 +10,7 @@ var forward_direction := Vector3.ZERO
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var run_particle_emmitter: int = ParticleSystem.instantiate_emitter(ParticleID.WALK_DUST, global_transform.origin)
-@onready var _character_model: Node3D = $CharacterModel
+@onready var character_model: Node3D = $CharacterModel
 @onready var _bottle_cap_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_002
 @onready var _scissors_node: BoneAttachment3D = $CharacterModel/Armature/Skeleton3D/Body_001
 
@@ -54,13 +54,13 @@ func process_horizontal_movement(delta: float, direction_vector: Vector3, speed:
 
 func process_rotation(is_sliding: bool) -> void:
 	if input_direction.length() > 0.1:
-		_character_model.look_at(_character_model.global_position + input_direction, Vector3.UP, true)
-		forward_direction = _character_model.global_transform.basis.z
+		character_model.look_at(character_model.global_position + input_direction, Vector3.UP, true)
+		forward_direction = character_model.global_transform.basis.z
 	
 	if is_sliding:
 		if get_floor_normal().length() > 0.1:
-			_character_model.look_at(_character_model.global_position + horizontal_velocity, get_floor_normal(), true)
-			forward_direction = _character_model.global_transform.basis.z
+			character_model.look_at(character_model.global_position + horizontal_velocity, get_floor_normal(), true)
+			forward_direction = character_model.global_transform.basis.z
 
 
 func take_damage(amount: int) -> void:
