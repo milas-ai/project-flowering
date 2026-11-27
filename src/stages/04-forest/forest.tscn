@@ -10,9 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dk8hqr18ji1m0" path="res://src/terrain/mountain/ramp/medium/mountain_ramp_medium_1.tscn" id="9_kxt8t"]
 [ext_resource type="PackedScene" uid="uid://cjsml43ho3215" path="res://src/terrain/forest/props/lamp.tscn" id="10_mfo1r"]
 [ext_resource type="Script" uid="uid://btc4woof04hab" path="res://src/terrain/forest/props/ghosted_object.gd" id="10_wp64i"]
+[ext_resource type="Material" uid="uid://m5bgbwlnfin3" path="res://assets/materials/terrain/mountain_wall_mat.tres" id="12_ku7og"]
+[ext_resource type="Material" uid="uid://c37fynk4pxceo" path="res://assets/materials/terrain/grass_ground_mat.tres" id="12_ux8ks"]
 [ext_resource type="PackedScene" uid="uid://chutycdvxsxk4" path="res://src/terrain/mountain/platform/big/mountain_platform_big_1.tscn" id="14_fdf5u"]
+[ext_resource type="Script" uid="uid://qdcq8lcexx7o" path="res://src/stages/util/grass_scattering.gd" id="14_xpbhr"]
 [ext_resource type="PackedScene" uid="uid://deykmpapcmhfx" path="res://src/terrain/mountain/rock/small/mountain_rock_small_1.tscn" id="15_o7xg2"]
 [ext_resource type="PackedScene" uid="uid://ntujoik186m5" path="res://src/terrain/mountain/rock/medium/mountain_rock_medium_2.tscn" id="18_2e24h"]
+[ext_resource type="PackedScene" uid="uid://crb6s0kss6prg" path="res://src/terrain/props/trees/tree_5.tscn" id="23_ksfc1"]
+[ext_resource type="PackedScene" uid="uid://bu2gihfwvhbd3" path="res://src/terrain/props/trees/tree_6.tscn" id="24_j0ag8"]
 [ext_resource type="Script" uid="uid://d0px6yj7h1qdt" path="res://src/stages/util/interactable_area.gd" id="28_r5fbu"]
 [ext_resource type="PackedScene" uid="uid://brs1606rxdfse" path="res://src/terrain/props/cap.tscn" id="29_7ble0"]
 [ext_resource type="Script" uid="uid://daqkgqctr3tqp" path="res://src/stages/util/check_point_area.gd" id="30_sqvp1"]
@@ -50,6 +55,17 @@ volumetric_fog_length = 120.0
 density = 0.5107
 albedo = Color(0, 0, 0, 1)
 edge_fade = 1.4420017
+
+[sub_resource type="BoxMesh" id="BoxMesh_abukt"]
+size = Vector3(100, 13.085, 50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ku7og"]
+size = Vector2(100, 50)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xpbhr"]
+data = PackedVector3Array(-50, 6.5425, 25, 50, 6.5425, 25, -50, -6.5425, 25, 50, 6.5425, 25, 50, -6.5425, 25, -50, -6.5425, 25, 50, 6.5425, -25, -50, 6.5425, -25, 50, -6.5425, -25, -50, 6.5425, -25, -50, -6.5425, -25, 50, -6.5425, -25, 50, 6.5425, 25, 50, 6.5425, -25, 50, -6.5425, 25, 50, 6.5425, -25, 50, -6.5425, -25, 50, -6.5425, 25, -50, 6.5425, -25, -50, 6.5425, 25, -50, -6.5425, -25, -50, 6.5425, 25, -50, -6.5425, 25, -50, -6.5425, -25, 50, 6.5425, 25, -50, 6.5425, 25, 50, 6.5425, -25, -50, 6.5425, 25, -50, 6.5425, -25, 50, 6.5425, -25, -50, -6.5425, 25, 50, -6.5425, 25, -50, -6.5425, -25, 50, -6.5425, 25, 50, -6.5425, -25, -50, -6.5425, -25)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
 radius = 1.6627167
@@ -130,7 +146,7 @@ directional_shadow_max_distance = 8192.0
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -46.009254, 7.9312286, 65.97882)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -120.616325, 7.9312286, 173.89622)
 visible = false
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
@@ -329,6 +345,90 @@ transform = Transform3D(-0.87452084, 0, 0.48498806, 0, 1, 0, -0.48498806, 0, -0.
 
 [node name="PlatformMedium4" parent="StageTerrain/Section1" unique_id=1920243722 instance=ExtResource("6_1k0rt")]
 transform = Transform3D(0.5669533, 0, 1.0315344, 0, 1.8559247, 0, -1.207948, 0, 0.48415315, 89.372154, 1.0906506, -126.85667)
+
+[node name="Tree1" parent="StageTerrain/Section1" unique_id=1837959442 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.5588477, -0.11800208, -0.20683335, 0.1517512, 0.5830983, 0.077352196, 0.18351048, -0.12283037, 0.5659081, 50.223534, 10.082576, -21.35234)
+
+[node name="Tree2" parent="StageTerrain/Section1" unique_id=1033818229 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.75122, 2.5798225, -75.53795)
+
+[node name="Tree3" parent="StageTerrain/Section1" unique_id=1858944579 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(0.8119564, 0.017780585, 0.014682465, -0.018177617, 0.8117776, 0.022173679, -0.01418796, -0.022493301, 0.8118483, 14.429092, 15.911637, -55.873306)
+
+[node name="Tree4" parent="StageTerrain/Section1" unique_id=195908333 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.9962203, 0.054302454, 0.067796804, -0.05404917, 0.99852276, -0.0055660037, -0.06799889, 0.001880591, 0.99768364, 41.562073, 2.397749, -93.28049)
+
+[node name="Tree6" parent="StageTerrain/Section1" unique_id=1143486425 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.8633102, 0.020990564, 0.032200295, -0.024713904, 0.85758203, 0.10355916, -0.029439524, -0.104377545, 0.8573334, 56.26052, 2.397749, -52.210236)
+
+[node name="Tree5" parent="StageTerrain/Section1" unique_id=116156305 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(-0.738942, 0, 0.673769, 0, 1, 0, -0.673769, 0, -0.738942, 48.942627, 3.1115289, -85.46329)
+
+[node name="Tree7" parent="StageTerrain/Section1" unique_id=1258462707 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.99897945, 0.0005143506, 0.045163758, 0.001892867, 0.99858, -0.05324124, -0.045127004, 0.053272393, 0.99755985, 93.3566, 3.9492755, -56.91539)
+
+[node name="Tree8" parent="StageTerrain/Section1" unique_id=1001225861 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(0.7581577, 0, 0.6520713, 0, 1, 0, -0.6520713, 0, 0.7581577, 85.47716, 4.1652603, -36.077713)
+
+[node name="Tree9" parent="StageTerrain/Section1" unique_id=882617913 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(0.28289345, 0, -1.2253362, 0, 1.2575681, 0, 1.2253362, 0, 0.28289345, 107.10701, 1.5702648, -47.757126)
+
+[node name="Tree10" parent="StageTerrain/Section1" unique_id=1923895840 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.7644575, 0, 0, 0, 0.7644575, 0, 0, 0, 0.7644575, 67.83854, 2.5510063, -80.63342)
+
+[node name="Tree11" parent="StageTerrain/Section1" unique_id=439797213 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(-0.08459601, -0.2352094, 0.96825624, 0.07009338, 0.96792746, 0.24125358, -0.9939469, 0.08827743, -0.06539616, 67.43082, 2.1685896, -74.35536)
+
+[node name="Tree12" parent="StageTerrain/Section1" unique_id=1637882172 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(-0.21689662, 0.021573596, 0.8612616, 0.12387035, 0.8796894, 0.009159818, -0.8525803, 0.12232065, -0.2177743, 57.80642, 3.827979, -114.54643)
+
+[node name="Tree13" parent="StageTerrain/Section1" unique_id=221667486 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(-0.16551135, 0, 0.9862079, 0, 1, 0, -0.9862079, 0, -0.16551135, 57.817734, 3.0239735, -101.081436)
+
+[node name="Tree14" parent="StageTerrain/Section1" unique_id=92501840 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(1.1037667, -0.055474367, -0.099695906, 0.05507249, 1.1082582, -0.006948547, 0.09991846, 0.0019637572, 1.1051381, 102.44542, 1.725539, -90.1205)
+
+[node name="Tree19" parent="StageTerrain/Section1" unique_id=1168761902 instance=ExtResource("24_j0ag8")]
+transform = Transform3D(1.0576087, -0.17460713, -0.28686863, 0.19836177, 1.0896494, 0.06807496, 0.27098686, -0.11616343, 1.0697614, 125.017715, 8.002064, -114.8663)
+
+[node name="Tree15" parent="StageTerrain/Section1" unique_id=2138246067 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.7647336, -0.097096376, -0.06344106, 0.097083285, 0.767351, -0.004163653, 0.063461095, -0.0038462388, 0.7708618, 108.192505, 1.5309868, -75.880905)
+
+[node name="Tree16" parent="StageTerrain/Section1" unique_id=225769563 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(-0.17581092, 0.018157292, -0.7530146, 0.09708331, 0.7673511, -0.004163653, 0.7469508, -0.09546108, -0.17669702, 72.030014, 1.5309906, -112.49129)
+
+[node name="Tree17" parent="StageTerrain/Section1" unique_id=377674873 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(-0.31707805, -0.16496132, -0.68594414, -0.09527446, 0.75516117, -0.13756657, 0.69903827, 0.028098546, -0.32988816, 91.90556, 13.33663, -138.96423)
+
+[node name="Tree18" parent="StageTerrain/Section1" unique_id=340809924 instance=ExtResource("23_ksfc1")]
+transform = Transform3D(0.19372372, 0.14760561, 0.6405336, 0.029826142, 0.7300095, -0.14727215, -0.68194604, 0.07385935, 0.17551836, 99.52366, 13.33663, -153.13585)
+
+[node name="SectionMaze" type="Node3D" parent="StageTerrain" unique_id=125639718]
+
+[node name="Ground1" type="Node3D" parent="StageTerrain/SectionMaze" unique_id=1045267481]
+transform = Transform3D(-0.37305343, 0, -0.92780983, 0, 1, 0, 0.92780983, 0, -0.37305343, -21.49992, 0, 8.186951)
+
+[node name="Rock" type="MeshInstance3D" parent="StageTerrain/SectionMaze/Ground1" unique_id=1541312610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7453642, 0)
+mesh = SubResource("BoxMesh_abukt")
+surface_material_override/0 = ExtResource("12_ku7og")
+
+[node name="GrassGround" type="MeshInstance3D" parent="StageTerrain/SectionMaze/Ground1/Rock" unique_id=1858554082 node_paths=PackedStringArray("target_mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.543364, 0)
+mesh = SubResource("PlaneMesh_ku7og")
+surface_material_override/0 = ExtResource("12_ux8ks")
+script = ExtResource("14_xpbhr")
+target_mesh = NodePath(".")
+blade_weights = PackedInt32Array(8, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StageTerrain/SectionMaze/Ground1/Rock" unique_id=1739533500]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageTerrain/SectionMaze/Ground1/Rock/StaticBody3D" unique_id=1914648775]
+shape = SubResource("ConcavePolygonShape3D_xpbhr")
+
+[node name="Walls" type="Node3D" parent="StageTerrain/SectionMaze" unique_id=1512115078]
 
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
