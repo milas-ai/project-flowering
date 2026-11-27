@@ -16,7 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_5x1n0")
 [sub_resource type="Environment" id="Environment_g1u56"]
 sky = SubResource("Sky_h57rq")
 tonemap_mode = 2
-tonemap_exposure = 0.1
+tonemap_exposure = 0.33
 tonemap_white = 2.3
 ssao_radius = 1.91
 ssao_intensity = 16.0
@@ -27,8 +27,8 @@ glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.5560472, 0.5569659, 0.47610718, 1)
-fog_density = 0.7531
-fog_depth_curve = 0.2773919
+fog_density = 0.2271
+fog_depth_curve = 0.46651644
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_length = 120.0
@@ -63,6 +63,9 @@ stencil_flags = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgtat"]
 size = Vector3(3.2348633, 13.278442, 14.319336)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
+size = Vector3(32.31836, 1, 1.734375)
+
 [node name="BossArena" type="Node3D" unique_id=2049005284]
 script = ExtResource("1_g1u56")
 player_items_on_spawn = 3
@@ -94,7 +97,7 @@ omni_attenuation = -1.423
 [node name="GroundLight" type="SpotLight3D" parent="StageTerrain" unique_id=2010932397]
 transform = Transform3D(1, -7.7715606e-16, -7.4505797e-09, 7.4505797e-09, -5.861255e-08, 1, -1.2138535e-15, -1, -5.861255e-08, 0, 17.905546, 0)
 light_color = Color(0.51, 0, 0.46750015, 1)
-light_energy = 0.046
+light_energy = 0.147
 light_cull_mask = 4294966274
 spot_range = 4096.0
 spot_attenuation = -1.24
@@ -129,7 +132,13 @@ shape = SubResource("BoxShape3D_vquoj")
 transform = Transform3D(-0.9980322, 0, -0.062702775, 0, 1, 0, 0.062702775, 0, -0.9980322, 24.245302, 4.674788, 1.2474456)
 shape = SubResource("BoxShape3D_vquoj")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageTerrain/TrunkArena/TrunkCollision" unique_id=1737994318]
+transform = Transform3D(-4.3711392e-08, 0, 1.0000002, 0, 1, 0, -1.0000001, 0, -4.37114e-08, 0.23890042, 3.6438615, 33.39998)
+shape = SubResource("BoxShape3D_mmvlo")
+
 [node name="DoorCollision" type="StaticBody3D" parent="StageTerrain/TrunkArena" unique_id=1706485182]
+unique_name_in_owner = true
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.9782947, -0.2072192, 0, 0.2072192, 0.9782947, 0, 0, 25.161016)
 collision_layer = 2
 collision_mask = 0
@@ -166,18 +175,24 @@ material = SubResource("FogMaterial_5x1n0")
 
 [node name="Webs" type="Node3D" parent="StageTerrain/TrunkArena" unique_id=521445831]
 
-[node name="WebEntance" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Webs" unique_id=1470850689]
+[node name="WebEntrance" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Webs" unique_id=1470850689]
+unique_name_in_owner = true
 transform = Transform3D(-0.42071724, -0.13850598, -2.568337, -2.5562675, -0.26550713, 0.43305865, -0.28465918, 2.5889888, -0.09298998, 0.1612269, 2.8669062, 23.186388)
+visible = false
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 
-[node name="WebEntance2" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Webs" unique_id=1043423073]
+[node name="WebEntrance2" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Webs" unique_id=1043423073]
+unique_name_in_owner = true
 transform = Transform3D(-2.6038816, 0.105146155, -0.035779264, -0.06063946, -0.6424579, 2.5250962, 0.09305224, 2.5236344, 0.64432067, 0.13991389, 3.1615298, 25.431137)
+visible = false
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 
-[node name="WebEntance3" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Webs" unique_id=1824611296]
+[node name="WebEntrance3" type="MeshInstance3D" parent="StageTerrain/TrunkArena/Webs" unique_id=1824611296]
+unique_name_in_owner = true
 transform = Transform3D(-2.4061303, 0.33013502, -0.9455605, -0.99720323, -0.5610871, 2.341646, 0.093052246, 2.5236344, 0.6443207, 0.13991389, 3.1615298, 24.508034)
+visible = false
 mesh = ExtResource("4_5x1n0")
 surface_material_override/0 = SubResource("StandardMaterial3D_gmyjm")
 
@@ -268,10 +283,18 @@ shape = SubResource("BoxShape3D_kgtat")
 transform = Transform3D(0.969353, 0, 0.24567245, 0, 1, 0, -0.24567245, 0, 0.969353, -20.255268, 5.8032837, 9.073318)
 shape = SubResource("BoxShape3D_kgtat")
 
+[node name="DoorClosingArea" type="Area3D" parent="StageTerrain" unique_id=1763513549]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.649479)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageTerrain/DoorClosingArea" unique_id=585507752]
+shape = SubResource("BoxShape3D_nhhn2")
+
 [node name="Markers" type="Node3D" parent="." unique_id=942853275]
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=902809094]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.5888401, 21.203375)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.5888401, 30.160566)
 
 [node name="CameraPosition" type="Marker3D" parent="Markers" unique_id=1876772880]
 
@@ -284,3 +307,5 @@ light_cull_mask = 4294967294
 spot_range = 10.0
 spot_attenuation = 0.31
 spot_angle = 21.69
+
+[connection signal="body_entered" from="StageTerrain/DoorClosingArea" to="." method="_on_door_closing_area_body_entered"]
