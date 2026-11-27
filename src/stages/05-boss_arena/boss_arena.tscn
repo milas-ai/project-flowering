@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqt3h0tnptukv" path="res://src/stages/05-boss_arena/boss_arena.gd" id="1_g1u56"]
 [ext_resource type="ArrayMesh" uid="uid://0aidndexxwre" path="res://assets/models/terrain/boss_arena/trunk_arena.obj" id="1_m4sqy"]
+[ext_resource type="PackedScene" uid="uid://c5k5l7chgq48v" path="res://src/entities/boss/boss.tscn" id="2_j4chw"]
 [ext_resource type="Texture2D" uid="uid://dewiffjv7crhx" path="res://assets/textures/terrain/structures/trunk_texture.png" id="2_sofy4"]
 [ext_resource type="ArrayMesh" uid="uid://b6bxni1vdx1ui" path="res://assets/models/terrain/boss_arena/web.obj" id="4_5x1n0"]
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
@@ -82,6 +83,11 @@ shadow_enabled = true
 directional_shadow_mode = 0
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 534.5
+
+[node name="Boss" parent="." unique_id=114985647 instance=ExtResource("2_j4chw")]
+process_mode = 4
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+visible = false
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=1126410358]
 
@@ -301,6 +307,18 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.588840
 [node name="DoorClosingShotPosition" type="Marker3D" parent="Markers" unique_id=1485141907]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6.5936995)
+
+[node name="HoleMarker" type="Marker3D" parent="Markers" unique_id=1369908768]
+transform = Transform3D(-0.47769022, 0, 0.87852836, 0, 1, 0, -0.87852836, 0, -0.47769022, -20.495064, 2.2766008, 11.1553755)
+
+[node name="HoleMarker2" type="Marker3D" parent="Markers" unique_id=1223903227]
+transform = Transform3D(0.5725822, 0, 0.81984717, 0, 1, 0, -0.81984717, 0, 0.5725822, -19.874088, 2.2766008, -13.460981)
+
+[node name="HoleMarker3" type="Marker3D" parent="Markers" unique_id=842578318]
+transform = Transform3D(0.842712, 0, -0.53836465, 0, 1, 0, 0.53836465, 0, 0.842712, 12.625105, 2.2766008, -20.639624)
+
+[node name="HoleMarker4" type="Marker3D" parent="Markers" unique_id=696935998]
+transform = Transform3D(0.019043084, 0, -0.9998186, 0, 1, 0, 0.9998186, 0, 0.019043084, 23.786228, 2.2766008, -0.3537848)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1031461060]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.5109224, 0)
