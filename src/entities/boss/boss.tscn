@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c5k5l7chgq48v"]
+
+[ext_resource type="Script" uid="uid://d32rm145ej1iy" path="res://src/entities/boss/boss.gd" id="1_45f2c"]
+[ext_resource type="PackedScene" uid="uid://25pd1ncixtuy" path="res://assets/models/boss/spider_face.glb" id="2_1w5vf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nhhn2"]
+radius = 2.5864854
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
+size = Vector3(3.368164, 2.746582, 1.6955566)
+
+[node name="Boss" type="Node3D" unique_id=114985647]
+script = ExtResource("1_45f2c")
+
+[node name="CharacterModel" parent="." unique_id=614442376 instance=ExtResource("2_1w5vf")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1505505468]
+collision_layer = 4
+collision_mask = 143
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1214423485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3381245, 0.76317835)
+shape = SubResource("SphereShape3D_nhhn2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=367169065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09741211, 2.302209)
+shape = SubResource("BoxShape3D_nhhn2")
