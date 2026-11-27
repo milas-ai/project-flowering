@@ -4,7 +4,6 @@ extends BaseStage
 var _hole_markers: Array[Marker3D]
 
 @onready var _boss: Boss = $Boss
-@onready var _web_shot_scene: PackedScene = preload(SceneUID.ENTITIES.WEB_SHOT)
 
 
 func _ready() -> void:
@@ -31,13 +30,13 @@ func _close_door() -> void:
 	%DoorClosingArea.process_mode = Node3D.PROCESS_MODE_DISABLED
 	%DoorCollision.process_mode = Node3D.PROCESS_MODE_INHERIT
 
-	var spawned_bullet: WebShot = _web_shot_scene.instantiate()
+	var spawned_bullet: WebShot = _boss.web_shot_scene.instantiate()
 	spawned_bullet.collision_mask = LayerBitmask.WORLD
 	_main_game.entity_root.add_child(spawned_bullet)
 	spawned_bullet.position = %DoorClosingShotPosition.global_position
 	spawned_bullet.rotation = %DoorClosingShotPosition.global_rotation
 	spawned_bullet.velocity = spawned_bullet.global_transform.basis.z
-	spawned_bullet.speed = BaseStat.BOSS.BULLET_SPEED * 2
+	spawned_bullet.speed = BaseStat.BOSS.BULLET_SPEED * 1.5
 	spawned_bullet.collided.connect(_on_door_closing_shot_collided)
 
 

@@ -2,41 +2,42 @@ class_name Boss
 extends StaticBody3D
 
 
-var _stunned: bool = false
+var _health: int = BaseStat.BOSS.HEALTH
 
-@onready var _animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
-@onready var _stun_particle_emmitter: int = ParticleSystem.instantiate_emitter(ParticleID.STUN_STAR, global_transform.origin)
-@onready var _stun_marker: Marker3D = $StunMarker
+@onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
+@onready var material: StandardMaterial3D = $CharacterModel/Armature/Skeleton3D/Bone/face_004.get_active_material(0)
+@onready var web_shot_scene: PackedScene = preload(SceneUID.ENTITIES.WEB_SHOT)
+@onready var _player: Node3D = $/root/MainGame.player
+@onready var _entity_root: Node3D = $/root/MainGame.entity_root
+@onready var _shoot_marker: Marker3D = $Markers/ShootMarker
+@onready var _state_machine: StateMachine = $StateMachine
 
 
-func _ready() -> void:
-	_animation_player.play("spider_fire")
+func attack_player() -> void:
+	animation_player.stop()
+	animation_player.clear_queue()
+	animation_player.play("spider_fire")
+	get_tree().create_timer(0.72).timeout.connect(_shoot_player)
 
 
 func apply_stun() -> void:
-	if _stunned:
-		return
-
-	_stunned = true
-	_animation_player.play("spider_idle")
-	ParticleSystem.restart_emitter(_stun_particle_emmitter)
-	ParticleSystem.trigger_emitter(_stun_particle_emmitter, _stun_marker.global_transform.origin)
-
-	get_tree().create_timer(BaseStat.BOSS.STUN_DURATION).timeout.connect(
-			func():
-				if _stunned:
-					_stunned = false
-					ParticleSystem.hide_emitter(_stun_particle_emmitter)
-					_animation_player.stop())
+	_state_machine.transition_to("StateBossStunned")
 
 
-func take_damage(damage: int) -> void:
-	if not _stunned:
-		return
-	
-	ParticleSystem.hide_emitter(_stun_particle_emmitter)
-	_animation_player.play("spider_hurt")
-	await _animation_player.animation_finished
-	hide()
-	_stunned = false
-	print("Boss took damage: %d" % damage)
+func take_damage(amount: int) -> void:
+	if _health > 0 and _state_machine.get_current_state() == "StateBossStunned":
+		_health -= amount
+		_state_machine.transition_to("StateBossHurt")
+		if _health <= 0:
+			_state_machine.transition_to("StateBossDead")
+
+
+func _shoot_player() -> void:
+	# ParticleSystem.play(ParticleID.SPIDER_SHOOT, _shoot_marker.global_transform.origin, global_rotation)
+	var spawned_bullet: WebShot = web_shot_scene.instantiate()
+	_entity_root.add_child(spawned_bullet)
+	spawned_bullet.position = _shoot_marker.global_transform.origin
+	spawned_bullet.look_at(_player.global_transform.origin, Vector3.UP)
+	spawned_bullet.rotation.x = 0
+	spawned_bullet.velocity = -spawned_bullet.global_transform.basis.z
+	spawned_bullet.speed = BaseStat.BOSS.BULLET_SPEED
