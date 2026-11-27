@@ -29,7 +29,14 @@ body {
     font-weight: 400;
     background: var(--bg); 
     color: var(--text); 
-    line-height: 1.6; 
+    line-height: 1.6;
+		display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+		flex: 1;
 }
 
 a {
@@ -129,7 +136,7 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-  height: 100vh;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -386,6 +393,63 @@ h1, h2, h3 {
     background-size: calc(100% / 9) 100%;
 }
 
+/* Pitch Page */
+.doc-page {
+    padding-top: 160px;
+    padding-bottom: 60px;
+}
+
+.pdf-container {
+    width: 100%;
+    background: var(--bg-panel);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.pdf-viewer {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    display: block;
+}
+
+.pdf-slides {
+    aspect-ratio: 16 / 9;
+    min-height: 550px;
+}
+
+.pdf-document {
+    height: 85vh;
+    min-height: 750px;
+}
+
+.pdf-fallback {
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text);
+}
+
+.pdf-fallback p {
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+
+.btn-doc-download {
+    display: inline-block;
+    background: var(--accent);
+    color: #1a1e15;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.btn-doc-download:hover {
+    color: #1a1e15;
+    transform: scale(1.05);
+}
+
 /* Mobile tweaks - vertical view */
 @media (max-width: 768px) {
     .nav-flex {
@@ -436,6 +500,19 @@ h1, h2, h3 {
     
     .proposal-media img {
         max-width: 100%;
+    }
+
+		.doc-page {
+        padding-top: 40px;
+    }
+
+    .pdf-slides {
+        min-height: 350px;
+    }
+
+    .pdf-document {
+        height: 70vh;
+        min-height: 500px;
     }
 
 }
