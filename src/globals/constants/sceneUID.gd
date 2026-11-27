@@ -12,6 +12,8 @@ class STAGES:
 	const MOUNTAIN: String = "uid://cnohyrkccqdd6"
 	const CAVE: String = "uid://bylhtxg58dhou"
 	const FOREST: String = "uid://cdid25bcbh5lv"
+	const EPILOGUE_VILLAGE: String = "uid://f4x75q1mltoq"
+
 
 class ENEMIES:
 	const ANT: String = "uid://c88yr21yjr2wk"

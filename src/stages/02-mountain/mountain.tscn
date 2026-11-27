@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnohyrkccqdd6"]
 
-[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/mountain/mountain.gd" id="1_jmp0g"]
+[ext_resource type="Script" uid="uid://dwvgcfd06v886" path="res://src/stages/02-mountain/mountain.gd" id="1_jmp0g"]
 [ext_resource type="PackedScene" uid="uid://btciw63sa761n" path="res://src/terrain/mountain/mountain_blockout.tscn" id="2_4se7b"]
 [ext_resource type="PackedScene" uid="uid://cat5dsapllaxy" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_1.tscn" id="4_iwdui"]
 [ext_resource type="PackedScene" uid="uid://c17fj3qf02um4" path="res://src/terrain/mountain/platform/medium/mountain_platform_medium_2.tscn" id="5_y0856"]
@@ -1010,4 +1010,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_grnlo")
 [connection signal="interacted" from="InteractableAreas/GetItemArea" to="." method="_on_get_item_area_interacted"]
 [connection signal="interacted" from="InteractableAreas/DisplayBlockTutorialArea" to="." method="_on_display_block_tutorial_area_interacted"]
 [connection signal="interacted" from="InteractableAreas/DisplaySlideTutorialArea" to="." method="_on_display_slide_tutorial_area_interacted"]
-[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_3d_body_entered"]
+[connection signal="body_entered" from="RespawnArea" to="." method="_on_respawn_area_body_entered"]
