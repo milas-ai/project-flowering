@@ -1,11 +1,143 @@
 [gd_scene format=3 uid="uid://pnmjktmyh3wv"]
 
-[ext_resource type="Material" uid="uid://bflef8jew2wxn" path="res://assets/materials/terrain/tree_roof_mat.tres" id="1_hu756"]
+[ext_resource type="Shader" uid="uid://bnu6g0gm7cydn" path="res://src/shaders/grass_ground.gdshader" id="1_2tat6"]
 [ext_resource type="ArrayMesh" uid="uid://q4rb8oayttgj" path="res://assets/models/terrain/forest/walls/forest_wall_2.obj" id="2_nbh6a"]
 [ext_resource type="Material" uid="uid://cuhn56uxytc7q" path="res://assets/materials/terrain/leave_mat.tres" id="3_1tcpo"]
+[ext_resource type="Texture2D" uid="uid://b3dujsb2ujg35" path="res://assets/textures/terrain/leave/leave_mask.png" id="3_gsjq0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_547wd"]
+render_priority = 0
+shader = ExtResource("1_2tat6")
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.2
+shader_parameter/use_hsv_manipulation = true
+shader_parameter/hue_shift = 106.755
+shader_parameter/saturation_shift = 58.145
+shader_parameter/value_shift = -0.215
+shader_parameter/contrast = 2.535
+shader_parameter/light_strength = 0.0
+shader_parameter/step_blur = 0.015
+shader_parameter/cutoff_light = 0.2
+shader_parameter/weight_light = 0.3
+shader_parameter/cutoff_penumbra = 0.1
+shader_parameter/weight_penumbra = 0.15
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nbh6a"]
 data = PackedVector3Array(-3.1575, 0.0233, -0.56439996, -3.1574, 0.018, 0.7005, -3.1589, -1.9792999, -0.6063, -3.1589, -1.9792999, -0.6063, -3.1574, 0.018, 0.7005, -3.1589, -1.9792999, 0.6709, 3.2013, -0.0925, -0.6695, 1.1364, -0.274, -0.6141, 3.1841998, -1.9893999, -0.6569, 3.1841998, -1.9893999, -0.6569, 1.1364, -0.274, -0.6141, 1.1021, -2.0813, -0.6411, 3.2006998, -0.0405, 0.5954, 3.2013, -0.0925, -0.6695, 3.1852999, -1.9693999, 0.613, 3.1852999, -1.9693999, 0.613, 3.2013, -0.0925, -0.6695, 3.1841998, -1.9893999, -0.6569, -3.1574, 0.018, 0.7005, -0.9992, -0.0066, 0.57339996, -3.1589, -1.9792999, 0.6709, -3.1589, -1.9792999, 0.6709, -0.9992, -0.0066, 0.57339996, -1.0171, -1.9689, 0.5251, 1.104, 1.9655999, 0.6861, 1.1056, 1.9140999, -0.56229997, 3.1857, 1.9866999, 0.6137, 3.1857, 1.9866999, 0.6137, 1.1056, 1.9140999, -0.56229997, 3.1848998, 1.9646, -0.654, -1.0171, -1.9689, 0.5251, -1.0187, -1.982, -0.7413, -3.1589, -1.9792999, 0.6709, -3.1589, -1.9792999, 0.6709, -1.0187, -1.982, -0.7413, -3.1589, -1.9792999, -0.6063, 3.1852999, -1.9693999, 0.613, 3.1841998, -1.9893999, -0.6569, 1.1017, -2.0275, 0.6231, 1.1017, -2.0275, 0.6231, 3.1841998, -1.9893999, -0.6569, 1.1021, -2.0813, -0.6411, 1.1017, -2.0275, 0.6231, 1.1021, -2.0813, -0.6411, -1.0171, -1.9689, 0.5251, -1.0171, -1.9689, 0.5251, 1.1021, -2.0813, -0.6411, -1.0187, -1.982, -0.7413, -3.1566, 2.0126, 0.73289996, -3.156, 2.0217, -0.5277, -1.0131999, 2.0503, 0.63629997, -1.0131999, 2.0503, 0.63629997, -3.156, 2.0217, -0.5277, -1.0136, 2.0468, -0.60719997, -1.0131999, 2.0503, 0.63629997, -1.0136, 2.0468, -0.60719997, 1.104, 1.9655999, 0.6861, 1.104, 1.9655999, 0.6861, -1.0136, 2.0468, -0.60719997, 1.1056, 1.9140999, -0.56229997, 1.1328, -0.16839999, 0.6318, 3.2006998, -0.0405, 0.5954, 1.1017, -2.0275, 0.6231, 1.1017, -2.0275, 0.6231, 3.2006998, -0.0405, 0.5954, 3.1852999, -1.9693999, 0.613, -0.9992, -0.0066, 0.57339996, 1.1328, -0.16839999, 0.6318, -1.0171, -1.9689, 0.5251, -1.0171, -1.9689, 0.5251, 1.1328, -0.16839999, 0.6318, 1.1017, -2.0275, 0.6231, -0.99909997, -0.039899997, -0.6757, -3.1575, 0.0233, -0.56439996, -1.0187, -1.982, -0.7413, -1.0187, -1.982, -0.7413, -3.1575, 0.0233, -0.56439996, -3.1589, -1.9792999, -0.6063, 1.1364, -0.274, -0.6141, -0.99909997, -0.039899997, -0.6757, 1.1021, -2.0813, -0.6411, 1.1021, -2.0813, -0.6411, -0.99909997, -0.039899997, -0.6757, -1.0187, -1.982, -0.7413, 1.1056, 1.9140999, -0.56229997, -1.0136, 2.0468, -0.60719997, 1.1364, -0.274, -0.6141, 1.1364, -0.274, -0.6141, -1.0136, 2.0468, -0.60719997, -0.99909997, -0.039899997, -0.6757, -1.0136, 2.0468, -0.60719997, -3.156, 2.0217, -0.5277, -0.99909997, -0.039899997, -0.6757, -0.99909997, -0.039899997, -0.6757, -3.156, 2.0217, -0.5277, -3.1575, 0.0233, -0.56439996, -1.0131999, 2.0503, 0.63629997, 1.104, 1.9655999, 0.6861, -0.9992, -0.0066, 0.57339996, -0.9992, -0.0066, 0.57339996, 1.104, 1.9655999, 0.6861, 1.1328, -0.16839999, 0.6318, 1.104, 1.9655999, 0.6861, 3.1857, 1.9866999, 0.6137, 1.1328, -0.16839999, 0.6318, 1.1328, -0.16839999, 0.6318, 3.1857, 1.9866999, 0.6137, 3.2006998, -0.0405, 0.5954, -3.1566, 2.0126, 0.73289996, -1.0131999, 2.0503, 0.63629997, -3.1574, 0.018, 0.7005, -3.1574, 0.018, 0.7005, -1.0131999, 2.0503, 0.63629997, -0.9992, -0.0066, 0.57339996, 3.1857, 1.9866999, 0.6137, 3.1848998, 1.9646, -0.654, 3.2006998, -0.0405, 0.5954, 3.2006998, -0.0405, 0.5954, 3.1848998, 1.9646, -0.654, 3.2013, -0.0925, -0.6695, 3.1848998, 1.9646, -0.654, 1.1056, 1.9140999, -0.56229997, 3.2013, -0.0925, -0.6695, 3.2013, -0.0925, -0.6695, 1.1056, 1.9140999, -0.56229997, 1.1364, -0.274, -0.6141, -3.156, 2.0217, -0.5277, -3.1566, 2.0126, 0.73289996, -3.1575, 0.0233, -0.56439996, -3.1575, 0.0233, -0.56439996, -3.1566, 2.0126, 0.73289996, -3.1574, 0.018, 0.7005)
+
+[sub_resource type="Shader" id="Shader_5h1dc"]
+code = "shader_type spatial;
+render_mode cull_back, depth_draw_always, alpha_to_coverage;
+#include \"res://src/shaders/utils/color_manipulation.gdshaderinc\" 
+
+const float NOISE_SCALE = .01;
+const vec3 LIGHT_SAMPLE_OFFSET = vec3(0,.7,0);
+
+group_uniforms Leave;
+uniform vec3 base_color: source_color;
+uniform sampler2D alpha_texture;
+
+group_uniforms HSV_Manipulation;
+uniform float hue_shift;
+uniform float saturation_shift;
+uniform float value_shift;
+uniform float contrast = 1.;
+
+group_uniforms Lighting;
+uniform float light_strength: hint_range(0.0, 1.0) = .25;
+uniform float step_blur: hint_range(0.0, 0.1) = .015;
+uniform float cutoff_light: hint_range(0.0, 1.0) = .2;
+uniform float weight_light: hint_range(0.0, 1.0) = .3;
+uniform float cutoff_penumbra: hint_range(0.0, 1.0) = .1;
+uniform float weight_penumbra: hint_range(0.0, 1.0) = .15;
+
+group_uniforms Wind;
+uniform float wind_bend_ammount = 1.0;
+
+global uniform sampler2D grass_albedo_texture;
+global uniform sampler2D wind_noise_texture;
+global uniform vec3 wind_direction;
+global uniform float wind_scale;
+global uniform float wind_speed;
+global uniform float wind_strength;
+
+varying vec3 node_pos_view;
+
+
+void vertex() {
+	// Billboard Mode: Enabled
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
+			MAIN_CAM_INV_VIEW_MATRIX[0],
+			MAIN_CAM_INV_VIEW_MATRIX[1],
+			MAIN_CAM_INV_VIEW_MATRIX[2],
+			MODEL_MATRIX[3]);
+
+	// Billboard Keep Scale: Enabled
+	MODELVIEW_MATRIX = MODELVIEW_MATRIX * mat4(
+			vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0),
+			vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0),
+			vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0),
+			vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	
+	// Set pos_view for cell light calculation 
+	node_pos_view = NODE_POSITION_VIEW + LIGHT_SAMPLE_OFFSET;
+	
+	// Wind
+	vec3 vertex = (MODEL_MATRIX * vec4(VERTEX,1)).xyz; // use uv as vertex's global .xz
+	vertex = vertex * wind_scale - (wind_speed * TIME * wind_direction); // pan UV
+	vec3 displacement = texture(wind_noise_texture, vertex.xz).xyz;
+	displacement *= wind_bend_ammount * wind_strength;
+	vec2 uv_centered = UV * 2. - 1.;
+	displacement = (displacement * vec3(1.,0.,0.) * uv_centered.y) + (displacement * vec3(0.,1.,0.) * uv_centered.x);
+	VERTEX += displacement;
+}
+
+void fragment() {
+	// Color texture
+	vec3 vertex = (inverse(VIEW_MATRIX) * vec4(node_pos_view,1)).xyz;
+	ALBEDO = texture(grass_albedo_texture, (vertex.xz) * NOISE_SCALE).xyz;
+	ALBEDO = hsv2rgb(rgb2hsv(ALBEDO) * vec3(contrast, 1., 1.) + vec3(hue_shift, saturation_shift, value_shift));
+	
+	SPECULAR = 0.;
+	ROUGHNESS = 0.;
+	NORMAL = (VIEW_MATRIX * vec4(NORMAL,0)).xyz; // normal always pointing up for constant shading
+	
+	// Set alpha mask
+	ALPHA *= step(.9,texture(alpha_texture, UV).a);
+	
+	// Set vertex as node's position for cell light calculation 
+	LIGHT_VERTEX = node_pos_view;
+}
+
+void light() {
+	float diffuse = 1.0;
+	float diffuse_light = smoothstep(cutoff_light-step_blur, cutoff_light+step_blur, diffuse) * weight_light;
+	float diffuse_penumbra = smoothstep(cutoff_penumbra-step_blur, cutoff_penumbra+step_blur, diffuse) * weight_penumbra;
+	
+	diffuse = (diffuse_light + diffuse_penumbra) * light_strength;
+	
+	DIFFUSE_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+	SPECULAR_LIGHT += diffuse * ATTENUATION * LIGHT_COLOR / PI;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2a133"]
+render_priority = 0
+shader = SubResource("Shader_5h1dc")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/alpha_texture = ExtResource("3_gsjq0")
+shader_parameter/hue_shift = 106.755
+shader_parameter/saturation_shift = 58.145
+shader_parameter/value_shift = -0.215
+shader_parameter/contrast = 2.535
+shader_parameter/light_strength = 0.0
+shader_parameter/step_blur = 0.015
+shader_parameter/cutoff_light = 0.2
+shader_parameter/weight_light = 0.3
+shader_parameter/cutoff_penumbra = 0.1
+shader_parameter/weight_penumbra = 0.15
+shader_parameter/wind_bend_ammount = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_lvra6"]
 size = Vector2(2, 2)
@@ -19,7 +151,7 @@ buffer = PackedFloat32Array(0.052523397, -0.020482324, 0.6987294, -0.0473319, 0.
 [node name="Wall2" type="Node3D" unique_id=1837959442]
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1696995732]
-material_override = ExtResource("1_hu756")
+material_override = SubResource("ShaderMaterial_547wd")
 mesh = ExtResource("2_nbh6a")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Model" unique_id=990528759]
@@ -31,7 +163,7 @@ shape = SubResource("ConcavePolygonShape3D_nbh6a")
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Model" unique_id=2065018761]
 transform = Transform3D(1.055, 0, 0, 0, 1.055, 0, 0, 0, 1.055, 0, 0, 0)
-material_override = ExtResource("3_1tcpo")
+material_override = SubResource("ShaderMaterial_2a133")
 multimesh = SubResource("MultiMesh_nbh6a")
 
 [node name="LeaveMesh" type="MeshInstance3D" parent="Model/MultiMeshInstance3D" unique_id=451004474]
