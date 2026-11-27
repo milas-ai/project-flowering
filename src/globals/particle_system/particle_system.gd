@@ -36,6 +36,7 @@ func instantiate_emitter(particle_id: String, position: Vector3, rotation := Vec
 func trigger_emitter(index: int, position := Vector3.INF, rotation := Vector3.INF) -> void:
 	var emitter = _get_emitter(index)
 	if emitter:
+		emitter["particle"].show()
 		if position != Vector3.INF:
 			emitter["particle"].global_transform.origin = position
 		if rotation != Vector3.INF:
@@ -60,6 +61,18 @@ func stop_emitter(index: int) -> void:
 	if emitter and emitter["emmiting"]:
 		emitter["particle"].stop_emission()
 		emitter["emmiting"] = false
+
+
+func hide_emitter(index: int) -> void:
+	var emitter = _get_emitter(index)
+	if emitter:
+		emitter["particle"].hide()
+
+
+func restart_emitter(index: int) -> void:
+	var emitter = _get_emitter(index)
+	if emitter:
+		emitter["particle"].restart()
 
 
 func remove_emitter(index: int) -> void:

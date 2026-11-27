@@ -28,3 +28,9 @@ func stop_emission() -> void:
 		for child in get_children():
 			if child is GPUParticles3D:
 				child.emitting = false
+
+
+func restart() -> void:
+	for child in get_children():
+		if child is GPUParticles3D:
+			child.restart()
