@@ -29,7 +29,14 @@ body {
     font-weight: 400;
     background: var(--bg); 
     color: var(--text); 
-    line-height: 1.6; 
+    line-height: 1.6;
+		display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+		flex: 1;
 }
 
 a {
@@ -129,7 +136,7 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-  height: 100vh;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
