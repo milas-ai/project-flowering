@@ -4,6 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://0aidndexxwre" path="res://assets/models/terrain/boss_arena/trunk_arena.obj" id="1_m4sqy"]
 [ext_resource type="PackedScene" uid="uid://c5k5l7chgq48v" path="res://src/entities/boss/boss.tscn" id="2_j4chw"]
 [ext_resource type="Texture2D" uid="uid://dewiffjv7crhx" path="res://assets/textures/terrain/structures/trunk_texture.png" id="2_sofy4"]
+[ext_resource type="PackedScene" uid="uid://orewmh644wqu" path="res://src/entities/boss/spider_leg.tscn" id="3_cn6b1"]
 [ext_resource type="ArrayMesh" uid="uid://b6bxni1vdx1ui" path="res://assets/models/terrain/boss_arena/web.obj" id="4_5x1n0"]
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
 
@@ -67,6 +68,10 @@ size = Vector3(3.2348633, 13.278442, 14.319336)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nhhn2"]
 size = Vector3(32.31836, 1, 1.734375)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nhhn2"]
+height = 4.0
+radius = 15.0
+
 [node name="BossArena" type="Node3D" unique_id=2049005284]
 script = ExtResource("1_g1u56")
 player_items_on_spawn = 3
@@ -84,10 +89,17 @@ directional_shadow_mode = 0
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 534.5
 
-[node name="Boss" parent="." unique_id=114985647 instance=ExtResource("2_j4chw")]
+[node name="BossComponents" type="Node3D" parent="." unique_id=780658329]
+
+[node name="Boss" parent="BossComponents" unique_id=114985647 instance=ExtResource("2_j4chw")]
 process_mode = 4
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 visible = false
+
+[node name="SpiderLegCenter" parent="BossComponents" unique_id=1760181007 instance=ExtResource("3_cn6b1")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="SpiderLegSide" parent="BossComponents" unique_id=1045333885 instance=ExtResource("3_cn6b1")]
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=1126410358]
 
@@ -321,7 +333,7 @@ transform = Transform3D(0.842712, 0, -0.53836465, 0, 1, 0, 0.53836465, 0, 0.8427
 transform = Transform3D(0.019043084, 0, -0.9998186, 0, 1, 0, 0.9998186, 0, 0.019043084, 23.786228, 2.2766008, -0.3537848)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1031461060]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.5109224, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15.603554, 6.5109224, 8.259085)
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
 light_bake_mode = 1
@@ -330,4 +342,13 @@ spot_range = 10.0
 spot_attenuation = 0.31
 spot_angle = 21.69
 
+[node name="CenterArea" type="Area3D" parent="." unique_id=2048417694]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CenterArea" unique_id=726228670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_nhhn2")
+
 [connection signal="body_entered" from="StageTerrain/DoorClosingArea" to="." method="_on_door_closing_area_body_entered"]
+[connection signal="body_entered" from="CenterArea" to="." method="_on_center_area_body_entered"]
+[connection signal="body_exited" from="CenterArea" to="." method="_on_center_area_body_exited"]

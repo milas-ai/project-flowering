@@ -2,8 +2,9 @@ extends BaseStage
 
 
 var _hole_markers: Array[Marker3D]
+var _player_on_center_area: bool = false
 
-@onready var _boss: Boss = $Boss
+@onready var _boss: Boss = $BossComponents/Boss
 
 
 func _ready() -> void:
@@ -44,3 +45,11 @@ func _on_door_closing_shot_collided() -> void:
 	%WebEntrance.show()
 	%WebEntrance2.show()
 	%WebEntrance3.show()
+
+
+func _on_center_area_body_entered(_body: Node3D) -> void:
+	_player_on_center_area = true
+
+
+func _on_center_area_body_exited(_body: Node3D) -> void:
+	_player_on_center_area = false
