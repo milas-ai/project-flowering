@@ -46,3 +46,6 @@ class ENEMY:
 		const DAMAGE: int = 4
 		const FRICTION: float = 25.0
 		const COOLDOWN: float = 50.0
+	
+	class BOSS:
+		const BULLET_SPEED: float = 40.0
