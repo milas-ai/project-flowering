@@ -17,7 +17,10 @@ func attack_player() -> void:
 	animation_player.stop()
 	animation_player.clear_queue()
 	animation_player.play("spider_fire")
-	get_tree().create_timer(0.72).timeout.connect(_shoot_player)
+	get_tree().create_timer(0.72).timeout.connect(
+			func():
+				if _state_machine.get_current_state() == "StateBossAttack":
+					_shoot_player())
 
 
 func apply_stun() -> void:
