@@ -1,4 +1,5 @@
-class_name BeetleBullet
+@abstract
+class_name Projectile
 extends RigidBody3D
 
 
@@ -15,6 +16,7 @@ func _process(delta: float) -> void:
 			"timeout", Callable(self, "queue_free"))
 
 	if collision:
-		if collision.get_collider().has_method("take_damage"):
-			collision.get_collider().take_damage(BaseStat.ENEMY.BEETLE.DAMAGE)
-		queue_free()
+		_on_collided(collision)
+
+
+@abstract func _on_collided(collision: KinematicCollision3D) -> void
