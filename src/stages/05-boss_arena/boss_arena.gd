@@ -12,6 +12,7 @@ var _player_on_center_area: bool = false
 @onready var stomp_light_side: SpotLight3D = $BossComponents/StompLightSide
 @onready var _state_machine: StateMachine = $StateMachine
 @onready var _stone_scene: PackedScene = preload(SceneUID.ENTITIES.BOSS_ARENA_STONE)
+@onready var _stone_fall_protection_box: StaticBody3D = %StoneFallProtectionBox
 
 
 func _ready() -> void:
@@ -28,12 +29,17 @@ func _ready() -> void:
 func drop_stone(drop_position: Vector3) -> void:
 	var spawned_stone: PushableProp = _stone_scene.instantiate()
 	spawned_stone.linear_velocity = Vector3.DOWN * 15
+	_main_game.entity_root.add_child(spawned_stone)
+	spawned_stone.position = drop_position + Vector3.UP * 10
+
+	_stone_fall_protection_box.position = drop_position
+	_stone_fall_protection_box.process_mode = Node3D.PROCESS_MODE_INHERIT
+
 	get_tree().create_timer(0.5).timeout.connect(
 			func():
-				ParticleSystem.play(ParticleID.RAISE_DUST, drop_position + Vector3.DOWN * 9.5))
+				ParticleSystem.play(ParticleID.RAISE_DUST, drop_position + Vector3.UP * 0.5)
+				_stone_fall_protection_box.process_mode = Node3D.PROCESS_MODE_DISABLED)
 
-	_main_game.entity_root.add_child(spawned_stone)
-	spawned_stone.position = drop_position
 
 
 func stomp(spider_leg: SpiderLeg, spot_light: SpotLight3D, stomp_position: Vector3, leg_angle: float, warm_up_time: float = BaseStat.BOSS.STOMP_WARMUP_TIME) -> void:
@@ -73,7 +79,7 @@ func _close_door() -> void:
 	spawned_bullet.position = %DoorClosingShotPosition.global_position
 	spawned_bullet.rotation = %DoorClosingShotPosition.global_rotation
 	spawned_bullet.velocity = spawned_bullet.global_transform.basis.z
-	spawned_bullet.speed = BaseStat.BOSS.BULLET_SPEED * 1.5
+	spawned_bullet.speed = BaseStat.BOSS.BULLET_SPEED
 	spawned_bullet.collided.connect(_on_door_closing_shot_collided)
 
 
@@ -87,7 +93,12 @@ func _on_door_closing_shot_collided() -> void:
 func _start_boss_fight() -> void:
 	var demo_stomp_marker: Marker3D = $Markers/DemoStompMarker
 	var angle: float = demo_stomp_marker.rotation.y
-	drop_stone(demo_stomp_marker.global_position + Vector3.UP * 10)
+	drop_stone(demo_stomp_marker.global_position)
+
+	get_tree().create_timer(2.0).timeout.connect(
+			func(): # Prevent the player from moving the stone during demonstration
+				%DemoProtectionBox.process_mode = Node3D.PROCESS_MODE_DISABLED)
+
 	await stomp(spider_leg_side, stomp_light_side, demo_stomp_marker.global_position, PI/2 - angle, 1.0)
 
 
