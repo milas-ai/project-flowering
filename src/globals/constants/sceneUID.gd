@@ -33,6 +33,7 @@ class NPCS:
 class ENTITIES:
 	const BEETLE_BULLET: String = "uid://dvfpc7xbno2al"
 	const WEB_SHOT: String = "uid://b7pfbao5rmb65"
+	const BOSS_ARENA_STONE: String = "uid://bnai4tpih85ug"
 
 
 class GUI:
