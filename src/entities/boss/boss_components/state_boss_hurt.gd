@@ -7,11 +7,12 @@ extends State
 
 func enter() -> void:
 	body.animation_player.clear_queue()
-	body.animation_player.play("hurt")
+	body.animation_player.play("hit")
 	ParticleSystem.play(ParticleID.HEMOLYMPH_SPLASH, _head_marker.global_transform.origin)
 	_flash_material()
 	await body.animation_player.animation_finished
 	body.hide()
+	body.process_mode = Node3D.PROCESS_MODE_DISABLED
 
 
 func update(_delta: float) -> void:

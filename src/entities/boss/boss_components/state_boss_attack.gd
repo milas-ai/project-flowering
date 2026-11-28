@@ -6,7 +6,7 @@ var _on_cooldown: bool = false
 
 
 func enter() -> void:
-	body.animation_player.play("attack")
+	body.animation_player.play("fire")
 
 
 func update(_delta: float) -> void:

@@ -6,7 +6,7 @@ extends State
 
 
 func enter() -> void:
-	body.animation_player.play("dead")
+	body.animation_player.play("die")
 	await body.animation_player.animation_finished
 	ParticleSystem.play(ParticleID.RAISE_DUST, _head_marker.global_transform.origin + Vector3.DOWN * 0.5)
 

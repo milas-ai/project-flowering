@@ -8,7 +8,7 @@ extends State
 
 func enter() -> void:
 	body.animation_player.stop()
-	body.animation_player.play("stunned")
+	body.animation_player.play("idle")
 	ParticleSystem.restart_emitter(_stun_particle_emmitter)
 	ParticleSystem.trigger_emitter(_stun_particle_emmitter, _stun_marker.global_transform.origin)
 
