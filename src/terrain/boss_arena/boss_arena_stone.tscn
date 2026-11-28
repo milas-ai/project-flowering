@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://focu018d1yh" path="res://src/terrain/boss_arena/boss_arena_stone.gd" id="1_wyirh"]
 [ext_resource type="ArrayMesh" uid="uid://cn5hrb0cdwuwj" path="res://assets/models/terrain/cave/rock/small/cave_rock_small_2.obj" id="2_l23ch"]
-[ext_resource type="Material" uid="uid://c8jx6ujjd25nh" path="res://assets/materials/terrain/cave_wall_mat.tres" id="3_1ooxj"]
+[ext_resource type="Material" uid="uid://7u8evwyjx2li" path="res://assets/materials/terrain/breakable_stone.tres" id="3_wyirh"]
+[ext_resource type="PackedScene" uid="uid://c7dfvcgmv5td0" path="res://src/terrain/props/breakable_stone_pieces.tscn" id="4_l23ch"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sgby1"]
 height = 2.6467285
@@ -12,6 +13,7 @@ radius = 1.6586914
 collision_layer = 10
 collision_mask = 66
 mass = 1.2
+angular_damp = 70.0
 script = ExtResource("1_wyirh")
 metadata/_custom_type_script = "uid://focu018d1yh"
 
@@ -19,6 +21,10 @@ metadata/_custom_type_script = "uid://focu018d1yh"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10681152, 0)
 shape = SubResource("CylinderShape3D_sgby1")
 
-[node name="CaveRockSmall2" type="MeshInstance3D" parent="." unique_id=1880502986]
+[node name="Model" type="MeshInstance3D" parent="." unique_id=1880502986]
 mesh = ExtResource("2_l23ch")
-surface_material_override/0 = ExtResource("3_1ooxj")
+surface_material_override/0 = ExtResource("3_wyirh")
+
+[node name="BreakableStonePieces" parent="." unique_id=1274854930 instance=ExtResource("4_l23ch")]
+process_mode = 4
+visible = false
