@@ -418,6 +418,8 @@ script = ExtResource("11_sgby1")
 [node name="StateDeadPhase" type="Node" parent="StateMachine" unique_id=1358739394]
 script = ExtResource("12_42wcx")
 
+[connection signal="boss_dead" from="BossComponents/Boss" to="." method="_on_boss_boss_dead"]
+[connection signal="boss_hurt" from="BossComponents/Boss" to="." method="_on_boss_boss_hurt"]
 [connection signal="body_entered" from="StageTerrain/DoorClosingArea" to="." method="_on_door_closing_area_body_entered"]
 [connection signal="body_entered" from="StageTerrain/CenterArea" to="." method="_on_center_area_body_entered"]
 [connection signal="body_exited" from="StageTerrain/CenterArea" to="." method="_on_center_area_body_exited"]

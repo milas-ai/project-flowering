@@ -131,4 +131,15 @@ func _on_center_area_body_exited(_body: Node3D) -> void:
 
 
 func _on_spider_leg_smashed_stone() -> void:
-	_state_machine.transition_to("StateShootingPhase")
+	if _state_machine.get_current_state() in ["StateStompPhase", "StateStartPhase"]:
+		_state_machine.transition_to("StateShootingPhase")
+
+
+func _on_boss_boss_hurt() -> void:
+	if _state_machine.get_current_state() == "StateShootingPhase":
+		_state_machine.transition_to("StateStompPhase")
+
+
+func _on_boss_boss_dead() -> void:
+	if _state_machine.get_current_state() == "StateShootingPhase":
+		_state_machine.transition_to("StateDeadPhase")

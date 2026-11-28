@@ -6,7 +6,7 @@ extends StaticBody3D
 signal boss_hurt
 signal boss_dead
 
-var _health: int = 1
+var _health: int = BaseStat.BOSS.HEALTH
 
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
 @onready var head_marker: Marker3D = $Markers/HeadMarker
