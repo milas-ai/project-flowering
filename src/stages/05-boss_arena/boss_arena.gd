@@ -11,6 +11,7 @@ var _player_on_center_area: bool = false
 @onready var stomp_light_center: SpotLight3D = $BossComponents/StompLightCenter
 @onready var stomp_light_side: SpotLight3D = $BossComponents/StompLightSide
 @onready var _state_machine: StateMachine = $StateMachine
+@onready var _stone_scene: PackedScene = preload(SceneUID.ENTITIES.BOSS_ARENA_STONE)
 
 
 func _ready() -> void:
@@ -22,6 +23,40 @@ func _ready() -> void:
 		$Markers/HoleMarker3,
 		$Markers/HoleMarker4
 	]
+
+
+func drop_stone(drop_position: Vector3) -> void:
+	var spawned_stone: PushableProp = _stone_scene.instantiate()
+	spawned_stone.linear_velocity = Vector3.DOWN * 15
+	get_tree().create_timer(0.5).timeout.connect(
+			func():
+				ParticleSystem.play(ParticleID.RAISE_DUST, drop_position + Vector3.DOWN * 9.5))
+
+	_main_game.entity_root.add_child(spawned_stone)
+	spawned_stone.position = drop_position
+
+
+func stomp(spider_leg: SpiderLeg, spot_light: SpotLight3D, stomp_position: Vector3, leg_angle: float, warm_up_time: float = BaseStat.BOSS.STOMP_WARMUP_TIME) -> void:
+	spider_leg.process_mode = Node3D.PROCESS_MODE_INHERIT
+	spider_leg.position = stomp_position
+	spider_leg.rotation.y = leg_angle
+	await spider_leg.reset()
+	spider_leg.show()
+
+	spot_light.position.x = stomp_position.x
+	spot_light.position.z = stomp_position.z
+	spot_light.position.y = 0.0
+	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(spot_light, "position:y", 6.67, warm_up_time)
+	await tween.finished
+	
+	spider_leg.stomp()
+	await get_tree().create_timer(0.27).timeout
+	ParticleSystem.play(ParticleID.RAISE_DUST, stomp_position + Vector3.UP * 0.25)
+	spot_light.position.y = 0.0
+	await get_tree().create_timer(BaseStat.BOSS.STOMP_COOLDOWN).timeout
+	spider_leg.process_mode = Node3D.PROCESS_MODE_DISABLED
+	spider_leg.hide()
 
 
 func _on_door_closing_area_body_entered(_body: Node3D) -> void:
@@ -52,30 +87,8 @@ func _on_door_closing_shot_collided() -> void:
 func _start_boss_fight() -> void:
 	var demo_stomp_marker: Marker3D = $Markers/DemoStompMarker
 	var angle: float = demo_stomp_marker.rotation.y
-	await _stomp(spider_leg_side, stomp_light_side, demo_stomp_marker.global_position, PI/2 - angle)
-
-
-func _stomp(spider_leg: SpiderLeg, spot_light: SpotLight3D, stomp_position: Vector3, leg_angle: float) -> void:
-	spider_leg.process_mode = Node3D.PROCESS_MODE_INHERIT
-	spider_leg.position = stomp_position
-	spider_leg.rotation.y = leg_angle
-	await spider_leg.reset()
-	spider_leg.show()
-
-	spot_light.position.x = stomp_position.x
-	spot_light.position.z = stomp_position.z
-	spot_light.position.y = 0.0
-	var tween := create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(spot_light, "position:y", 6.67, BaseStat.BOSS.STOMP_WARMUP_TIME)
-	await tween.finished
-	
-	spider_leg.stomp()
-	await get_tree().create_timer(0.27).timeout
-	ParticleSystem.play(ParticleID.RAISE_DUST, stomp_position + Vector3.UP * 0.25)
-	spot_light.position.y = 0.0
-	await get_tree().create_timer(BaseStat.BOSS.SIDE_STOMP_COOLDOWN).timeout
-	spider_leg.process_mode = Node3D.PROCESS_MODE_DISABLED
-	spider_leg.hide()
+	drop_stone(demo_stomp_marker.global_position + Vector3.UP * 10)
+	await stomp(spider_leg_side, stomp_light_side, demo_stomp_marker.global_position, PI/2 - angle, 1.0)
 
 
 func _pick_random_close_angle() -> float:

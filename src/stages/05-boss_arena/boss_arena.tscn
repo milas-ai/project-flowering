@@ -110,7 +110,8 @@ process_mode = 4
 visible = false
 
 [node name="StompLightCenter" type="SpotLight3D" parent="BossComponents" unique_id=1031461060]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.67, 0)
+layers = 2
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
 light_bake_mode = 1
@@ -121,6 +122,7 @@ spot_angle = 21.69
 
 [node name="StompLightSide" type="SpotLight3D" parent="BossComponents" unique_id=738425091]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+layers = 2
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
 light_bake_mode = 1

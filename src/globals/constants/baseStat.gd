@@ -54,6 +54,5 @@ class BOSS:
 	const BULLET_SPEED: float = 50.0
 	const STUN_DURATION: float = 3.0
 	const SHOT_COOLDOWN: float = 0.5
-	const CENTER_STOMP_COOLDOWN: float = 2.5
-	const SIDE_STOMP_COOLDOWN: float = 2.5
+	const STOMP_COOLDOWN: float = 2.5
 	const STOMP_WARMUP_TIME: float = 10.0
