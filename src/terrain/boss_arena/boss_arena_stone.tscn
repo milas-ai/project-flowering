@@ -8,12 +8,12 @@
 height = 2.6467285
 radius = 1.6586914
 
-[node name="BossArenaStone" type="RigidBody3D" unique_id=1804585036]
+[node name="BossArenaStone" type="RigidBody3D" unique_id=1825558513]
 collision_layer = 10
 collision_mask = 66
 mass = 1.2
 script = ExtResource("1_wyirh")
-metadata/_custom_type_script = "uid://bg10skxa20e3f"
+metadata/_custom_type_script = "uid://focu018d1yh"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2067608916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10681152, 0)
