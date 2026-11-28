@@ -683,6 +683,9 @@ transform = Transform3D(-0.06132118, 0.03941954, -2.3156276, 1.4497461, 0.048178
 [node name="RockBig19" parent="StageTerrain/SectionItem" unique_id=1054508418 instance=ExtResource("3_wp64i")]
 transform = Transform3D(0.08801817, -0.99399894, 0.21122837, -1.442372, -0.05071272, 0.24852312, -0.14799814, -0.09691621, -2.2964525, 18.159927, 2.665677, -8.416123)
 
+[node name="RockBig22" parent="StageTerrain/SectionItem" unique_id=264215384 instance=ExtResource("3_wp64i")]
+transform = Transform3D(-1.8235226, -0.1064397, 0.2420794, -0.11127713, 2.086282, -0.20575169, -0.187107, -0.20341524, -2.23691, 28.850803, -1.0868139, 5.6095705)
+
 [node name="RockBig20" parent="StageTerrain/SectionItem" unique_id=625472094 instance=ExtResource("3_wp64i")]
 transform = Transform3D(0.08801817, -0.99399894, 0.21122837, 1.4305146, 0.07441755, 0.36422613, -0.23657663, 0.08016581, 2.280964, 17.337612, 2.665677, -35.891705)
 
@@ -703,6 +706,9 @@ transform = Transform3D(-0.0067519397, 0, 0.99997723, 0, 1, 0, -0.99997723, 0, -
 
 [node name="PlatformBig6" parent="StageTerrain/SectionItem" unique_id=1845634477 instance=ExtResource("5_dskoi")]
 transform = Transform3D(-0.9836633, 0, -0.18001801, 0, 1, 0, 0.18001801, 0, -0.9836633, 0.011198044, -6.942217, -32.701706)
+
+[node name="PlatformBig7" parent="StageTerrain/SectionItem" unique_id=1838513787 instance=ExtResource("5_dskoi")]
+transform = Transform3D(-0.17156659, 0, 0.9411287, 0, 0.95663905, 0, -0.9411287, 0, -0.17156659, 4.807624, -9.110071, -5.6446495)
 
 [node name="GhostedObject" type="StaticBody3D" parent="StageTerrain/SectionItem" unique_id=1144621477]
 script = ExtResource("10_wp64i")
@@ -770,6 +776,12 @@ transform = Transform3D(0.55137223, 0, -0.20833136, 0, 0.58941764, 0, 0.20833136
 transform = Transform3D(0.9445986, 0, -0.32822773, 0, 1, 0, 0.32822773, 0, 0.9445986, 0.81068707, 5.0098925, 28.461798)
 shape = SubResource("BoxShape3D_ead15")
 
+[node name="RockSmall1" parent="StageTerrain/SectionItem" unique_id=24331019 instance=ExtResource("15_o7xg2")]
+transform = Transform3D(3.411657, 0, 0, 0, 6.5704846, 0, 0, 0, 3.3829, 19.87998, 5.3762865, 26.872553)
+
+[node name="PlatformSmall1" parent="StageTerrain/SectionItem" unique_id=1180044837 instance=ExtResource("28_yqh5f")]
+transform = Transform3D(1.2743846, 0, 0, 0, 1, 0, 0, 0, 1, 4.524532, 5.174888, 9.160652)
+
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
 [node name="RolyPoly" type="Marker3D" parent="EnemySpawnPoints" unique_id=354015645]
@@ -795,6 +807,10 @@ script = ExtResource("8_x43os")
 [node name="Ant" type="Marker3D" parent="EnemySpawnPoints" unique_id=517211731]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.450287, 6.649065, -68.55286)
 script = ExtResource("20_yqh5f")
+
+[node name="RolyPoly6" type="Marker3D" parent="EnemySpawnPoints" unique_id=900015513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.088089, 6.9527206, 0.22459412)
+script = ExtResource("8_x43os")
 
 [node name="InteractableAreas" type="Node3D" parent="." unique_id=881535712]
 visible = false
