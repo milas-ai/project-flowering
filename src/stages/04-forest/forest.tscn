@@ -138,7 +138,7 @@ directional_shadow_max_distance = 8192.0
 visible = false
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="Markers" unique_id=2089020071]
-transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, 2.6732721, 11.553548, 21.829369)
+transform = Transform3D(0.9957448, 0, 0.092152566, 0, 1, 0, -0.092152566, 0, 0.9957448, -3.674615, 11.553548, -28.646996)
 visible = false
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=767683550]
@@ -446,157 +446,157 @@ shape = SubResource("ConcavePolygonShape3D_3uu5s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4832153)
 
 [node name="Wall1" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=279599614 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1, 0, 0.41174212, 0, 0.9113004, -41.717506, 7.4099, 53.596622)
+transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1.7558181, 0, 0.41174212, 0, 0.9113004, -41.717506, 8.299147, 53.596622)
 
 [node name="Wall3" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=349580958 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1, 0, -0.4104978, 0, -0.9118619, -30.483995, 7.4099, 58.225613)
+transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1.7558181, 0, -0.4104978, 0, -0.9118619, -30.483995, 8.299147, 58.225613)
 
 [node name="Wall4" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=275284487 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9339939, 0, -0.35728917, 0, 1, 0, 0.35728917, 0, 0.9339939, -25.16376, 7.4099, 60.247242)
+transform = Transform3D(0.9339939, 0, -0.35728917, 0, 1.7558181, 0, 0.35728917, 0, 0.9339939, -25.16376, 8.299147, 60.247242)
 
 [node name="Wall2" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=921638326 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -36.348312, 7.644922, 55.782978)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -36.348312, 8.711802, 55.782978)
 
 [node name="Wall47" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=923751251 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9369944, 0, -0.3493453, 0, 1, 0, 0.3493453, 0, 0.9369944, -25.947996, 7.4099, 15.5109005)
+transform = Transform3D(0.9369944, 0, -0.3493453, 0, 1.7558181, 0, 0.3493453, 0, 0.9369944, -25.947996, 8.299147, 15.5109005)
 
 [node name="Wall48" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=161309623 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(-0.9521768, 0, 0.30554754, 0, 1, 0, -0.30554754, 0, -0.9521768, -19.93509, 7.644922, 17.560686)
+transform = Transform3D(-0.9521768, 0, 0.30554754, 0, 1.7558181, 0, -0.30554754, 0, -0.9521768, -19.93509, 8.711802, 17.560686)
 
 [node name="Wall30" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=2053761575 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1, 0, 0.41174212, 0, 0.9113004, -30.988552, 7.4099, 44.542698)
+transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1.7558181, 0, 0.41174212, 0, 0.9113004, -30.988552, 8.299147, 44.542698)
 
 [node name="Wall29" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=595565769 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1, 0, -0.4104978, 0, -0.9118619, -16.141193, 7.4099, 37.87297)
+transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1.7558181, 0, -0.4104978, 0, -0.9118619, -16.141193, 8.299147, 37.87297)
 
 [node name="Wall43" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1682414100 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1, 0, -0.4104978, 0, -0.9118619, -32.121742, 7.4099, 31.427614)
+transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1.7558181, 0, -0.4104978, 0, -0.9118619, -32.121742, 8.299147, 31.427612)
 
 [node name="Wall33" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1950256654 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -22.00551, 7.644922, 35.430336)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -22.00551, 8.711802, 35.430336)
 
 [node name="Wall18" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=256471258 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1, 0, 0.41174212, 0, 0.9113004, -45.727818, 7.4099, 46.09831)
+transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1.7558181, 0, 0.41174212, 0, 0.9113004, -45.727818, 8.299147, 46.09831)
 
 [node name="Wall51" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1830908494 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1, 0, 0.41174212, 0, 0.9113004, -14.7060795, 7.4099, 19.281233)
+transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1.7558181, 0, 0.41174212, 0, 0.9113004, -14.7060795, 8.299147, 19.281233)
 
 [node name="Wall26" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=39912176 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1, 0, -0.4104978, 0, -0.9118619, -34.494305, 7.4099, 50.7273)
+transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1.7558181, 0, -0.4104978, 0, -0.9118619, -34.494305, 8.299147, 50.7273)
 
 [node name="Wall27" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=266499726 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -40.358624, 7.644922, 48.284664)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -40.358624, 8.711802, 48.284664)
 
 [node name="Wall49" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=777492820 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1, 0, -0.4104978, 0, -0.9118619, -11.363337, 7.4099, 27.953762)
+transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1.7558181, 0, -0.4104978, 0, -0.9118619, -11.363337, 8.299147, 27.953762)
 
 [node name="Wall50" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=169067196 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -17.227655, 7.644922, 25.511127)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -17.227655, 8.711802, 25.511127)
 
 [node name="Wall31" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1345998721 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -21.369562, 7.644922, 50.001762)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -21.369562, 8.711802, 50.001762)
 
 [node name="Wall28" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1198881236 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.434928, 0, 0.90046525, 0, 1, 0, -0.90046525, 0, 0.434928, -41.255024, 7.4099, 44.742397)
+transform = Transform3D(0.434928, 0, 0.90046525, 0, 1.7558181, 0, -0.90046525, 0, 0.434928, -41.255024, 8.299147, 44.742397)
 
 [node name="Wall32" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=31068635 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3914754, 0, 0.9201886, 0, 1, 0, -0.9201886, 0, 0.3914754, -38.931984, 7.644922, 39.430912)
+transform = Transform3D(0.3914754, 0, 0.9201886, 0, 1.7558181, 0, -0.9201886, 0, 0.3914754, -38.931984, 8.711802, 39.430912)
 
 [node name="Wall11" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1760885839 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1, 0, 0.41174212, 0, 0.9113004, -23.155867, 7.4099, 7.4529285)
+transform = Transform3D(0.9113004, 0, -0.41174212, 0, 1.7558181, 0, 0.41174212, 0, 0.9113004, -23.155867, 8.299147, 7.4529285)
 
 [node name="Wall13" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=2017218292 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1, 0, -0.4104978, 0, -0.9118619, -11.922356, 7.4099, 12.081919)
+transform = Transform3D(-0.9118619, 0, 0.4104978, 0, 1.7558181, 0, -0.4104978, 0, -0.9118619, -11.922356, 8.299147, 12.081919)
 
 [node name="Wall17" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1404508030 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.4069036, 0, 0.9134714, 0, 1, 0, -0.9134714, 0, 0.4069036, -32.48738, 7.4099, 6.604158)
+transform = Transform3D(0.4069036, 0, 0.9134714, 0, 1.7558181, 0, -0.9134714, 0, 0.4069036, -32.48738, 8.299147, 6.6041584)
 
 [node name="Wall14" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=400274280 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.9339939, 0, -0.35728917, 0, 1, 0, 0.35728917, 0, 0.9339939, -6.6021194, 7.4099, 14.103548)
+transform = Transform3D(0.9339939, 0, -0.35728917, 0, 1.7558181, 0, 0.35728917, 0, 0.9339939, -6.6021194, 8.299147, 14.103548)
 
 [node name="Wall15" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1646702079 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -17.786673, 7.644922, 9.639284)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -17.786673, 8.711802, 9.639284)
 
 [node name="Wall16" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=570515569 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1, 0, 0.36779904, 0, 0.9299053, -27.73627, 7.644922, 5.829241)
+transform = Transform3D(0.9299053, 0, -0.36779904, 0, 1.7558181, 0, 0.36779904, 0, 0.9299053, -27.73627, 8.711802, 5.829241)
 
 [node name="Wall5" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=588842903 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1, 0, -0.90743124, 0, 0.42020062, -20.94889, 7.4099, 57.924595)
+transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1.7558181, 0, -0.90743124, 0, 0.42020062, -20.94889, 8.299147, 57.924595)
 
 [node name="Wall6" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=838173898 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1, 0, 0.9080043, 0, -0.41896158, -16.215614, 7.4099, 46.734623)
+transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1.7558181, 0, 0.9080043, 0, -0.41896158, -16.215614, 8.299147, 46.734623)
 
 [node name="Wall7" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=445359818 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1, 0, -0.9306302, 0, 0.36596102, -14.144588, 7.4099, 41.43342)
+transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1.7558181, 0, -0.9306302, 0, 0.36596102, -14.144588, 8.299147, 41.43342)
 
 [node name="Wall8" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=614804640 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -18.712688, 7.644922, 52.57597)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -18.712688, 8.711802, 52.57597)
 
 [node name="Wall9" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=130949171 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1, 0, -0.90743124, 0, 0.42020062, -9.195412, 7.4099, 29.066467)
+transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1.7558181, 0, -0.90743124, 0, 0.42020062, -9.195412, 8.299147, 29.066467)
 
 [node name="Wall10" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1370805409 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1, 0, 0.9080043, 0, -0.41896158, -4.4621353, 7.4099, 17.876495)
+transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1.7558181, 0, 0.9080043, 0, -0.41896158, -4.4621353, 8.299147, 17.876495)
 
 [node name="Wall12" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=308240121 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -6.9592094, 7.644922, 23.717842)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -6.9592094, 8.711802, 23.717842)
 
 [node name="Wall44" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=150737538 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1, 0, -0.90743124, 0, 0.42020062, -33.705036, 7.4099, 27.432493)
+transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1.7558181, 0, -0.90743124, 0, 0.42020062, -33.705036, 8.299147, 27.432493)
 
 [node name="Wall45" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=72697599 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -31.468834, 7.644922, 22.083868)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -31.468834, 8.711802, 22.083868)
 
 [node name="Wall19" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=700948274 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1, 0, 0.9080043, 0, -0.41896158, -46.920685, 7.4099, 41.246613)
+transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1.7558181, 0, 0.9080043, 0, -0.41896158, -46.920685, 8.299147, 41.246613)
 
 [node name="Wall35" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1022269659 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1, 0, 0.9080043, 0, -0.41896158, -22.284096, 7.4099, 45.9661)
+transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1.7558181, 0, 0.9080043, 0, -0.41896158, -22.284096, 8.299147, 45.9661)
 
 [node name="Wall20" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=251707126 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1, 0, -0.9306302, 0, 0.36596102, -44.849655, 7.4099, 35.945408)
+transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1.7558181, 0, -0.9306302, 0, 0.36596102, -44.849655, 8.299147, 35.945408)
 
 [node name="Wall46" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1134980900 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1, 0, -0.9306302, 0, 0.36596102, -29.531143, 7.4099, 16.69514)
+transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1.7558181, 0, -0.9306302, 0, 0.36596102, -29.531143, 8.299147, 16.69514)
 
 [node name="Wall34" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1758168343 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1, 0, -0.9306302, 0, 0.36596102, -27.870861, 7.4099, 42.92963)
+transform = Transform3D(0.36596102, 0, 0.9306302, 0, 1.7558181, 0, -0.9306302, 0, 0.36596102, -27.870861, 8.299147, 42.92963)
 
 [node name="Wall21" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=946528585 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -49.417755, 7.644922, 47.08796)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -49.417755, 8.711802, 47.08796)
 
 [node name="Wall25" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=994891208 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -49.417755, 7.644922, 47.08796)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -49.417755, 8.711802, 47.08796)
 
 [node name="Wall22" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=734686043 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1, 0, -0.90743124, 0, 0.42020062, -42.63513, 7.4099, 30.503683)
+transform = Transform3D(0.42020062, 0, 0.90743124, 0, 1.7558181, 0, -0.90743124, 0, 0.42020062, -42.63513, 8.299147, 30.503683)
 
 [node name="Wall23" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=431141802 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1, 0, 0.9080043, 0, -0.41896158, -37.901855, 7.4099, 19.313711)
+transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1.7558181, 0, 0.9080043, 0, -0.41896158, -37.901855, 8.299147, 19.313711)
 
 [node name="Wall24" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1159755903 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -40.398926, 7.644922, 25.155058)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -40.398926, 8.711802, 25.155058)
 
 [node name="Wall37" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1739933653 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1, 0, 0.9080043, 0, -0.41896158, -37.901855, 7.4099, 19.313711)
+transform = Transform3D(-0.41896158, 0, -0.9080043, 0, 1.7558181, 0, 0.9080043, 0, -0.41896158, -37.901855, 8.299147, 19.313711)
 
 [node name="Wall38" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1675379932 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -40.398926, 7.644922, 25.155058)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -40.398926, 8.711802, 25.155058)
 
 [node name="Wall39" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1213177453 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.3749479, 0, -0.9270459, 0, 1, 0, 0.9270459, 0, -0.3749479, -25.52887, 7.4099, 24.756998)
+transform = Transform3D(-0.3749479, 0, -0.9270459, 0, 1.7558181, 0, 0.9270459, 0, -0.3749479, -25.52887, 8.299147, 24.756998)
 
 [node name="Wall40" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=322153271 instance=ExtResource("17_vchs0")]
-transform = Transform3D(-0.42896053, 0, -0.9033233, 0, 1, 0, 0.9033233, 0, -0.42896053, -27.795937, 7.4099, 30.177042)
+transform = Transform3D(-0.42896053, 0, -0.9033233, 0, 1.7558181, 0, 0.9033233, 0, -0.42896053, -27.795937, 8.299147, 30.177042)
 
 [node name="Wall41" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=41402495 instance=ExtResource("17_vchs0")]
-transform = Transform3D(0.4277271, 0, 0.90390825, 0, 1, 0, -0.90390825, 0, 0.4277271, -32.637257, 7.4099, 41.320694)
+transform = Transform3D(0.4277271, 0, 0.90390825, 0, 1.7558181, 0, -0.90390825, 0, 0.4277271, -32.637257, 8.299147, 41.320694)
 
 [node name="Wall42" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1949305168 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(-0.38537842, 0, -0.92275876, 0, 1, 0, 0.92275876, 0, -0.38537842, -30.08379, 7.644922, 35.50378)
+transform = Transform3D(-0.38537842, 0, -0.92275876, 0, 1.7558181, 0, 0.92275876, 0, -0.38537842, -30.08379, 8.711802, 35.50378)
 
 [node name="Wall36" parent="StageTerrain/SectionMaze/Section1/Walls" unique_id=1061706281 instance=ExtResource("18_3uu5s")]
-transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1, 0, -0.9264442, 0, 0.3764325, -25.744179, 7.644922, 37.34081)
+transform = Transform3D(0.3764325, 0, 0.9264442, 0, 1.7558181, 0, -0.9264442, 0, 0.3764325, -25.744179, 8.711802, 37.34081)
 
 [node name="Lamp14" parent="StageTerrain/SectionMaze/Section1" unique_id=1026650183 instance=ExtResource("10_mfo1r")]
 transform = Transform3D(0.99710065, 0.009999469, -0.07543895, 0.0042614643, 0.98243713, 0.18654606, 0.07597968, -0.18632664, 0.9795456, -33.613533, 4.6927257, 12.488575)
@@ -780,7 +780,7 @@ shape = SubResource("BoxShape3D_ead15")
 transform = Transform3D(3.411657, 0, 0, 0, 6.5704846, 0, 0, 0, 3.3829, 19.87998, 5.3762865, 26.872553)
 
 [node name="PlatformSmall1" parent="StageTerrain/SectionItem" unique_id=1180044837 instance=ExtResource("28_yqh5f")]
-transform = Transform3D(1.2743846, 0, 0, 0, 1, 0, 0, 0, 1, 4.524532, 5.174888, 9.160652)
+transform = Transform3D(1.1905118, -0.15994027, -0.31892982, 0.2758123, 0.96468085, 0.1501661, 0.36147648, -0.20930833, 0.9358066, 4.524532, 4.817989, 9.160652)
 
 [node name="EnemySpawnPoints" type="Node3D" parent="." unique_id=1507018028]
 
