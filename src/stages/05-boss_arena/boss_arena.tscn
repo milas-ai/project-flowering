@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://orewmh644wqu" path="res://src/entities/boss/spider_leg.tscn" id="3_cn6b1"]
 [ext_resource type="ArrayMesh" uid="uid://b6bxni1vdx1ui" path="res://assets/models/terrain/boss_arena/web.obj" id="4_5x1n0"]
 [ext_resource type="Texture2D" uid="uid://dlswajoc2bwgy" path="res://assets/textures/terrain/props/web_texture.png" id="4_g1u56"]
+[ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="8_3p6pb"]
+[ext_resource type="Script" uid="uid://lubglfvhuyiw" path="res://src/stages/05-boss_arena/state_start_phase.gd" id="9_68o23"]
+[ext_resource type="Script" uid="uid://11a5jrbrpi77" path="res://src/stages/05-boss_arena/state_stomp_phase.gd" id="10_viqki"]
+[ext_resource type="Script" uid="uid://kwmjf3dt7qo5" path="res://src/stages/05-boss_arena/state_shooting_phase.gd" id="11_sgby1"]
+[ext_resource type="Script" uid="uid://rymwvwemsffn" path="res://src/stages/05-boss_arena/state_dead_phase.gd" id="12_42wcx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5x1n0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -96,10 +101,33 @@ process_mode = 4
 visible = false
 
 [node name="SpiderLegCenter" parent="BossComponents" unique_id=1760181007 instance=ExtResource("3_cn6b1")]
-transform = Transform3D(0.62487066, 0, 0.7807281, 0, 1, 0, -0.7807281, 0, 0.62487066, 0, 0, 0)
+process_mode = 4
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0, 0)
+visible = false
 
 [node name="SpiderLegSide" parent="BossComponents" unique_id=1045333885 instance=ExtResource("3_cn6b1")]
-transform = Transform3D(0.42522192, 0, -0.90508914, 0, 1, 0, 0.90508914, 0, 0.42522192, -15.626179, 0, 8.198416)
+process_mode = 4
+visible = false
+
+[node name="StompLightCenter" type="SpotLight3D" parent="BossComponents" unique_id=1031461060]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_bake_mode = 1
+light_cull_mask = 4294967294
+spot_range = 10.0
+spot_attenuation = 0.31
+spot_angle = 21.69
+
+[node name="StompLightSide" type="SpotLight3D" parent="BossComponents" unique_id=738425091]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_bake_mode = 1
+light_cull_mask = 4294967294
+spot_range = 10.0
+spot_attenuation = 0.31
+spot_angle = 21.69
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=1126410358]
 
@@ -332,28 +360,8 @@ transform = Transform3D(0.842712, 0, -0.53836465, 0, 1, 0, 0.53836465, 0, 0.8427
 [node name="HoleMarker4" type="Marker3D" parent="Markers" unique_id=696935998]
 transform = Transform3D(-0.09722842, 0, -0.9952622, 0, 1, 0, 0.9952622, 0, -0.09722842, 23.786228, 2.2766008, 1.0375421)
 
-[node name="StompMarker" type="Marker3D" parent="Markers" unique_id=1527821487]
-transform = Transform3D(0.4252219, 0, -0.90508914, 0, 1, 0, 0.90508914, 0, 0.4252219, -15.626179, 0, 8.198416)
-
-[node name="StompLightCenter" type="SpotLight3D" parent="." unique_id=1031461060]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.652, 6.67, 14.902)
-light_color = Color(1, 0, 0, 1)
-light_energy = 16.0
-light_bake_mode = 1
-light_cull_mask = 4294967294
-spot_range = 10.0
-spot_attenuation = 0.31
-spot_angle = 21.69
-
-[node name="StompLightSide" type="SpotLight3D" parent="." unique_id=738425091]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.652, 6.67, 14.902)
-light_color = Color(1, 0, 0, 1)
-light_energy = 16.0
-light_bake_mode = 1
-light_cull_mask = 4294967294
-spot_range = 10.0
-spot_attenuation = 0.31
-spot_angle = 21.69
+[node name="DemoStompMarker" type="Marker3D" parent="Markers" unique_id=1527821487]
+transform = Transform3D(0.78092796, 0, -0.62462115, 0, 1, 0, 0.62462115, 0, 0.78092796, 10.873017, 0, 15.453066)
 
 [node name="CenterArea" type="Area3D" parent="." unique_id=2048417694]
 collision_layer = 0
@@ -361,6 +369,24 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CenterArea" unique_id=726228670]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_nhhn2")
+
+[node name="StateMachine" type="Node" parent="." unique_id=839922746 node_paths=PackedStringArray("body")]
+script = ExtResource("8_3p6pb")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://b5p37pnms07a3"
+
+[node name="StateStartPhase" type="Node" parent="StateMachine" unique_id=1325323259]
+script = ExtResource("9_68o23")
+metadata/_custom_type_script = "uid://lubglfvhuyiw"
+
+[node name="StateStompPhase" type="Node" parent="StateMachine" unique_id=326641845]
+script = ExtResource("10_viqki")
+
+[node name="StateShootingPhase" type="Node" parent="StateMachine" unique_id=325857350]
+script = ExtResource("11_sgby1")
+
+[node name="StateDeadPhase" type="Node" parent="StateMachine" unique_id=1358739394]
+script = ExtResource("12_42wcx")
 
 [connection signal="body_entered" from="StageTerrain/DoorClosingArea" to="." method="_on_door_closing_area_body_entered"]
 [connection signal="body_entered" from="CenterArea" to="." method="_on_center_area_body_entered"]
