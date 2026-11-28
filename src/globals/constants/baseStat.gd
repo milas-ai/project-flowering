@@ -51,6 +51,7 @@ class ENEMY:
 class BOSS:
 	const HEALTH: int = 3
 	const DAMAGE: int = 1
+	const STOMP_DAMAGE: int = 2
 	const BULLET_SPEED: float = 50.0
 	const STUN_DURATION: float = 3.0
 	const SHOT_COOLDOWN: float = 0.5
