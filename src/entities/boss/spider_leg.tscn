@@ -3,8 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://dfmhq1eycxw3x" path="res://assets/models/boss/spider_leg.glb" id="1_b2qei"]
 [ext_resource type="Script" uid="uid://c4dysj5v80xn6" path="res://src/entities/boss/spider_leg.gd" id="1_wlnlb"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nhhn2"]
+radius = 2.1
+
 [node name="SpiderLeg" type="Node3D" unique_id=1760181007]
 script = ExtResource("1_wlnlb")
 metadata/_custom_type_script = "uid://c4dysj5v80xn6"
 
 [node name="Model" parent="." unique_id=993648052 instance=ExtResource("1_b2qei")]
+
+[node name="StompArea3D" type="Area3D" parent="." unique_id=952762344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.283056, 30.810734)
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StompArea3D" unique_id=1753619586]
+shape = SubResource("CylinderShape3D_nhhn2")
+
+[connection signal="body_entered" from="StompArea3D" to="." method="_on_stomp_area_3d_body_entered"]
