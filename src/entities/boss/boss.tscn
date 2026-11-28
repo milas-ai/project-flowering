@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d32rm145ej1iy" path="res://src/entities/boss/boss.gd" id="1_45f2c"]
 [ext_resource type="PackedScene" uid="uid://25pd1ncixtuy" path="res://assets/models/boss/spider_face.glb" id="2_1w5vf"]
 [ext_resource type="Script" uid="uid://b5p37pnms07a3" path="res://util/state_machine.gd" id="3_4ixus"]
+[ext_resource type="Script" uid="uid://dpio0eippaj3x" path="res://src/entities/boss/boss_components/state_boss_idle.gd" id="4_cayjd"]
 [ext_resource type="Script" uid="uid://cqfrn4tljnset" path="res://src/entities/boss/boss_components/state_boss_hurt.gd" id="5_tg5dy"]
 [ext_resource type="Script" uid="uid://pwtkerakpwwx" path="res://src/entities/boss/boss_components/state_boss_dead.gd" id="6_4ixus"]
 [ext_resource type="Script" uid="uid://dju2u5mitubdw" path="res://src/entities/boss/boss_components/state_boss_attack.gd" id="6_8steq"]
@@ -45,6 +46,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2772722, 2.0507174)
 script = ExtResource("3_4ixus")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://b5p37pnms07a3"
+
+[node name="StateBossIdle" type="Node" parent="StateMachine" unique_id=1031123337]
+script = ExtResource("4_cayjd")
+metadata/_custom_type_script = "uid://dpio0eippaj3x"
 
 [node name="StateBossAttack" type="Node" parent="StateMachine" unique_id=592068027]
 script = ExtResource("6_8steq")
