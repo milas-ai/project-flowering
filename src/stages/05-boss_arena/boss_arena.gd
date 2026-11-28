@@ -3,6 +3,7 @@ extends BaseStage
 
 var _hole_markers: Array[Marker3D]
 var _player_on_center_area: bool = false
+var _player_quarter_position: int = 0
 
 @onready var _boss: Boss = $BossComponents/Boss
 
@@ -49,7 +50,35 @@ func _on_door_closing_shot_collided() -> void:
 
 func _on_center_area_body_entered(_body: Node3D) -> void:
 	_player_on_center_area = true
+	var positionx = _pick_random_close_position()
+	print(positionx)
+	$BossComponents/SpiderLegSide.position = positionx
+	$SpotLight3D.position.x = positionx.x
+	$SpotLight3D.position.z = positionx.z
 
 
 func _on_center_area_body_exited(_body: Node3D) -> void:
 	_player_on_center_area = false
+
+
+func _pick_random_close_position() -> Vector3:
+	var angle: float = (PI / 2) * randf_range(
+			_player_quarter_position - 1,
+			_player_quarter_position)
+	return Vector3(20.0 * cos(angle), 0, 20.0 * sin(angle))
+
+
+func _on_first_quarter_area_body_entered(_body: Node3D) -> void:
+	_player_quarter_position = 1
+
+
+func _on_second_quarter_area_body_entered(_body: Node3D) -> void:
+	_player_quarter_position = 2
+
+
+func _on_third_quarter_area_body_entered(_body: Node3D) -> void:
+	_player_quarter_position = 3
+
+
+func _on_fourth_quarter_area_body_entered(_body: Node3D) -> void:
+	_player_quarter_position = 4

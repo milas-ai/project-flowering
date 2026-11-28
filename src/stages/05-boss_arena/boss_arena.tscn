@@ -72,6 +72,9 @@ size = Vector3(32.31836, 1, 1.734375)
 height = 4.0
 radius = 15.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gn4dx"]
+size = Vector3(24, 4, 24)
+
 [node name="BossArena" type="Node3D" unique_id=2049005284]
 script = ExtResource("1_g1u56")
 player_items_on_spawn = 3
@@ -100,6 +103,7 @@ visible = false
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="SpiderLegSide" parent="BossComponents" unique_id=1045333885 instance=ExtResource("3_cn6b1")]
+transform = Transform3D(0.42522192, 0, -0.90508914, 0, 1, 0, 0.90508914, 0, 0.42522192, -15.626179, 0, 8.198416)
 
 [node name="StageTerrain" type="Node3D" parent="." unique_id=1126410358]
 
@@ -332,8 +336,11 @@ transform = Transform3D(0.842712, 0, -0.53836465, 0, 1, 0, 0.53836465, 0, 0.8427
 [node name="HoleMarker4" type="Marker3D" parent="Markers" unique_id=696935998]
 transform = Transform3D(0.019043084, 0, -0.9998186, 0, 1, 0, 0.9998186, 0, 0.019043084, 23.786228, 2.2766008, -0.3537848)
 
+[node name="StompMarker" type="Marker3D" parent="Markers" unique_id=1527821487]
+transform = Transform3D(0.4252219, 0, -0.90508914, 0, 1, 0, 0.90508914, 0, 0.4252219, -15.626179, 0, 8.198416)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1031461060]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -15.603554, 6.5109224, 8.259085)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.651884, 6.5109224, 14.901979)
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
 light_bake_mode = 1
@@ -349,6 +356,42 @@ collision_layer = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_nhhn2")
 
+[node name="FirstQuarterArea" type="Area3D" parent="." unique_id=153090665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -12)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FirstQuarterArea" unique_id=1560722747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="SecondQuarterArea" type="Area3D" parent="." unique_id=2088252587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SecondQuarterArea" unique_id=1907778588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="ThirdQuarterArea" type="Area3D" parent="." unique_id=1341284633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ThirdQuarterArea" unique_id=214421337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_gn4dx")
+
+[node name="FourthQuarterArea" type="Area3D" parent="." unique_id=1339498725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 12)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FourthQuarterArea" unique_id=1575808544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_gn4dx")
+
 [connection signal="body_entered" from="StageTerrain/DoorClosingArea" to="." method="_on_door_closing_area_body_entered"]
 [connection signal="body_entered" from="CenterArea" to="." method="_on_center_area_body_entered"]
 [connection signal="body_exited" from="CenterArea" to="." method="_on_center_area_body_exited"]
+[connection signal="body_entered" from="FirstQuarterArea" to="." method="_on_first_quarter_area_body_entered"]
+[connection signal="body_entered" from="SecondQuarterArea" to="." method="_on_second_quarter_area_body_entered"]
+[connection signal="body_entered" from="ThirdQuarterArea" to="." method="_on_third_quarter_area_body_entered"]
+[connection signal="body_entered" from="FourthQuarterArea" to="." method="_on_fourth_quarter_area_body_entered"]
