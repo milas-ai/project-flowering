@@ -2,15 +2,20 @@ class_name Boss
 extends StaticBody3D
 
 
-var _health: int = BaseStat.BOSS.HEALTH
+@warning_ignore_start("unused_signal")
+signal boss_hurt
+signal boss_dead
+
+var _health: int = 1
 
 @onready var animation_player: AnimationPlayer = $CharacterModel/AnimationPlayer
-@onready var material: StandardMaterial3D = $CharacterModel/Armature/Skeleton3D/Bone/face_004.get_active_material(0)
+@onready var head_marker: Marker3D = $Markers/HeadMarker
 @onready var web_shot_scene: PackedScene = preload(SceneUID.ENTITIES.WEB_SHOT)
 @onready var state_machine: StateMachine = $StateMachine
 @onready var _player: Node3D = $/root/MainGame.player
 @onready var _entity_root: Node3D = $/root/MainGame.entity_root
 @onready var _shoot_marker: Marker3D = $Markers/ShootMarker
+@onready var _material: StandardMaterial3D = $CharacterModel/Armature/Skeleton3D/Bone/face_004.get_active_material(0)
 
 
 func attack_player() -> void:
@@ -31,9 +36,20 @@ func apply_stun() -> void:
 func take_damage(amount: int) -> void:
 	if _health > 0 and state_machine.get_current_state() == "StateBossStunned":
 		_health -= amount
-		state_machine.transition_to("StateBossHurt")
 		if _health <= 0:
 			state_machine.transition_to("StateBossDead")
+		else:
+			state_machine.transition_to("StateBossHurt")
+
+
+func flash_material() -> void:
+	var flash_duration: float = 0.067
+	var tween := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+	tween.tween_property(_material, "emission_energy_multiplier", 1.0, flash_duration)
+	tween.tween_property(_material, "emission_energy_multiplier", 0.0, flash_duration)
+	tween.tween_property(_material, "emission_energy_multiplier", 1.0, flash_duration)
+	tween.tween_property(_material, "emission_energy_multiplier", 0.0, flash_duration)
 
 
 func _shoot_player() -> void:
