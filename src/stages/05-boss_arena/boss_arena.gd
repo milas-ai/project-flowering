@@ -25,6 +25,9 @@ func _ready() -> void:
 		$Markers/HoleMarker4
 	]
 
+	spider_leg_center.smashed_stone.connect(_on_spider_leg_smashed_stone)
+	spider_leg_side.smashed_stone.connect(_on_spider_leg_smashed_stone)
+
 
 func drop_stone(drop_position: Vector3) -> void:
 	var spawned_stone: PushableProp = _stone_scene.instantiate()
@@ -39,7 +42,6 @@ func drop_stone(drop_position: Vector3) -> void:
 			func():
 				ParticleSystem.play(ParticleID.RAISE_DUST, drop_position + Vector3.UP * 0.5)
 				_stone_fall_protection_box.process_mode = Node3D.PROCESS_MODE_DISABLED)
-
 
 
 func stomp(spider_leg: SpiderLeg, spot_light: SpotLight3D, stomp_position: Vector3, leg_angle: float, warm_up_time: float = BaseStat.BOSS.STOMP_WARMUP_TIME) -> void:
@@ -99,7 +101,7 @@ func _start_boss_fight() -> void:
 			func(): # Prevent the player from moving the stone during demonstration
 				%DemoProtectionBox.process_mode = Node3D.PROCESS_MODE_DISABLED)
 
-	await stomp(spider_leg_side, stomp_light_side, demo_stomp_marker.global_position, PI/2 - angle, 1.0)
+	stomp(spider_leg_side, stomp_light_side, demo_stomp_marker.global_position, PI/2 - angle, 1.0)
 
 
 func _pick_random_close_angle() -> float:
@@ -126,3 +128,7 @@ func _on_center_area_body_entered(_body: Node3D) -> void:
 
 func _on_center_area_body_exited(_body: Node3D) -> void:
 	_player_on_center_area = false
+
+
+func _on_spider_leg_smashed_stone() -> void:
+	_state_machine.transition_to("StateShootingPhase")
